@@ -113,7 +113,7 @@ async function parseReleaseNotes(directory) {
       const content = await fs.readFile(filePath, 'utf-8');
       const $ = cheerio.load(content);
 
-      const version = $('h2').first().text().trim().split(' ').pop();
+      const version = $('#release-notes h2').first().text().trim().split(' ').pop();
       const items = [];
 
       $('.itemizedlist ul li').each((index, element) => {

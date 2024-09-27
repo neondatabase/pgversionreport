@@ -1,6 +1,6 @@
 [
   {
-    "version": "Links",
+    "version": "10.0",
     "categories": {
       "performance": [
         "Significant general performance improvements",
@@ -208,7 +208,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.1",
     "categories": {
       "performance": [
         "Prevent sharing transition states between ordered-set aggregates (David Rowley)\nThis causes a crash with the built-in ordered-set aggregates, and probably with user-written ones as well. v11 and later will include provisions for dealing with such cases safely, but in released branches, just disable the optimization.",
@@ -258,7 +258,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.10",
     "categories": {
       "performance": [],
       "security": [],
@@ -300,7 +300,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.11",
     "categories": {
       "performance": [
         "Avoid an unnecessary catalog lookup during heap page pruning (Thomas Munro)\nIt's no longer necessary to check for unlogged indexes here, and the check caused significant performance problems in some workloads. There was also at least a theoretical possibility of deadlock.",
@@ -371,7 +371,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.12",
     "categories": {
       "performance": [
         "Improve performance of hash joins with very large inner relations (Thomas Munro)"
@@ -428,7 +428,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.13",
     "categories": {
       "performance": [],
       "security": [],
@@ -484,7 +484,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.14",
     "categories": {
       "performance": [
         "In logical replication walsender, fix failure to send feedback messages after sending a keepalive message (Álvaro Herrera)\nThis is a relatively minor problem when using built-in logical replication, because the built-in walreceiver will send a feedback reply (which clears the incorrect state) fairly frequently anyway. But with some other replication systems, such as pglogical, it causes significant performance issues."
@@ -531,7 +531,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.15",
     "categories": {
       "performance": [
         "Avoid misoptimization of subquery qualifications that reference apparently-constant grouping columns (Tom Lane)\nA “constant” subquery output column isn't really constant if it is a grouping column that appears in only some of the grouping sets.",
@@ -584,7 +584,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.16",
     "categories": {
       "performance": [],
       "security": [],
@@ -635,7 +635,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.17",
     "categories": {
       "performance": [],
       "security": [],
@@ -676,7 +676,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.18",
     "categories": {
       "performance": [
         "Make pg_upgrade carry forward the old installation's oldestXID value (Bertrand Drouvot)\nPreviously, the new installation's oldestXID was set to a value old enough to (usually) force immediate anti-wraparound autovacuuming. That's not desirable from a performance standpoint; what's worse, installations using large values of autovacuum_freeze_max_age could suffer unwanted forced shutdowns soon after an upgrade."
@@ -740,7 +740,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.19",
     "categories": {
       "performance": [
         "Prevent data loss during crash recovery of CREATE TABLESPACE, when wal_level = minimal (Noah Misch)\nIf the server crashed between CREATE TABLESPACE and the next checkpoint, replay would fully remove the contents of the new tablespace's directory, relying on subsequent WAL replay to restore everything within that directory. This interacts badly with optimizations that skip writing WAL (one example is COPY into a just-created table). Such optimizations are applied only when wal_level is minimal, which is not the default in v10 and later.",
@@ -803,7 +803,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.2",
     "categories": {
       "performance": [
         "Provide for forward compatibility with future minor protocol versions (Robert Haas, Badrul Chowdhury)\nUp to now, PostgreSQL servers simply rejected requests to use protocol versions newer than 3.0, so that there was no functional difference between the major and minor parts of the protocol version number. Allow clients to request versions 3.x without failing, sending back a message showing that the server only understands 3.0. This makes no difference at the moment, but back-patching this change should allow speedier introduction of future minor protocol upgrades."
@@ -880,7 +880,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.20",
     "categories": {
       "performance": [],
       "security": [],
@@ -918,7 +918,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.21",
     "categories": {
       "performance": [],
       "security": [
@@ -959,7 +959,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.22",
     "categories": {
       "performance": [
         "In ecpglib, avoid redundant newlocale() calls (Noah Misch)\nAllocate a C locale object once per process when first connecting, rather than creating and freeing locale objects once per query. This mitigates a libc memory leak on AIX, and may offer some performance benefit everywhere."
@@ -1004,7 +1004,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.23",
     "categories": {
       "performance": [
         "In Snowball dictionaries, don't try to stem excessively-long words (Olly Betts, Tom Lane)\nIf the input word exceeds 1000 bytes, return it as-is after case folding, rather than trying to run it through the Snowball code. This restriction protects against a known recursion-to-stack-overflow problem in the Turkish stemmer, and it seems like good insurance against any other safety or performance issues that may exist in the Snowball stemmers. Such a long string is surely not a word in any human language, so it's doubtful that the stemmer would have done anything desirable with it anyway."
@@ -1044,7 +1044,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.3",
     "categories": {
       "performance": [],
       "security": [
@@ -1066,7 +1066,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.4",
     "categories": {
       "performance": [
         "Fix incorrect volatility markings on a few built-in functions (Thomas Munro, Tom Lane)\nThe functions query_to_xml, cursor_to_xml, cursor_to_xmlschema, query_to_xmlschema, and query_to_xml_and_xmlschema should be marked volatile because they execute user-supplied queries that might contain volatile operations. They were not, leading to a risk of incorrect query optimization. This has been repaired for new installations by correcting the initial catalog data, but existing installations will continue to contain the incorrect markings. Practical use of these functions seems to pose little hazard, but in case of trouble, it can be fixed by manually updating these functions' pg_proc entries, for example ALTER FUNCTION pg_catalog.query_to_xml(text, boolean, boolean, text) VOLATILE. (Note that that will need to be done in each database of the installation.) Another option is to pg_upgrade the database to a version containing the corrected initial data.",
@@ -1132,7 +1132,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.5",
     "categories": {
       "performance": [
         "Improve performance of WAL replay for transactions that drop many relations (Fujii Masao)\nThis change reduces the number of times that shared buffers are scanned, so that it is of most benefit when that setting is large.",
@@ -1191,7 +1191,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.6",
     "categories": {
       "performance": [
         "Update the free space map during WAL replay of page all-visible/frozen flag changes (Álvaro Herrera)\nPreviously we were not careful about this, reasoning that the FSM is not critical data anyway. However, if it's sufficiently out of date, that can result in significant performance degradation after a standby has been promoted to primary. The FSM will eventually be healed by updates, but we'd like it to be good sooner, so work harder at maintaining it during WAL replay.",
@@ -1274,7 +1274,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.7",
     "categories": {
       "performance": [
         "Avoid deadlock between GIN vacuuming and concurrent index insertions (Alexander Korotkov, Andrey Borodin, Peter Geoghegan)\nThis change partially reverts a performance improvement, introduced in version 10.0, that attempted to reduce the number of index pages locked during deletion of a GIN posting tree page. That's now been found to lead to deadlocks, so we've removed it pending closer analysis.",
@@ -1340,7 +1340,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.8",
     "categories": {
       "performance": [
         "Speed up planning when there are many equality conditions and many potentially-relevant foreign key constraints (David Rowley)",
@@ -1395,7 +1395,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "10.9",
     "categories": {
       "performance": [
         "Fix misoptimization of {1,1} quantifiers in regular expressions (Tom Lane)\nSuch quantifiers were treated as no-ops and optimized away; but the documentation specifies that they impose greediness, or non-greediness in the case of the non-greedy variant {1,1}?, on the subexpression they're attached to, and this did not happen. The misbehavior occurred only if the subexpression contained capturing parentheses or a back-reference."
@@ -1429,7 +1429,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.0",
     "categories": {
       "performance": [
         "Improvements to partitioning functionality, including:\n          \n            \n              \n                Add support for partitioning by a hash key\n              \n              \n                Add support for PRIMARY KEY, FOREIGN KEY, indexes, and triggers on partitioned tables\n              \n              \n                Allow creation of a “default” partition for storing data that does not match any of the remaining partitions\n              \n              \n                UPDATE statements that change a partition key column now cause affected rows to be moved to the appropriate partitions\n              \n              \n                Improve SELECT performance through enhanced partition elimination strategies during query planning and execution",
@@ -1627,7 +1627,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.1",
     "categories": {
       "performance": [
         "Disable recheck_on_update optimization (Tom Lane)\n          This new-in-v11 feature turns out not to have been ready for prime time. Disable it until something can be done about it."
@@ -1662,7 +1662,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.10",
     "categories": {
       "performance": [
         "Avoid misoptimization of subquery qualifications that reference apparently-constant grouping columns (Tom Lane)\n          A “constant” subquery output column isn't really constant if it is a grouping column that appears in only some of the grouping sets.",
@@ -1721,7 +1721,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.11",
     "categories": {
       "performance": [
         "Avoid memcpy() with a NULL source pointer and zero count during partitioned index creation (Álvaro Herrera)\n          While such a call is not known to cause problems in itself, some compilers assume that the arguments of memcpy() are never NULL, which could result in incorrect optimization of nearby code."
@@ -1789,7 +1789,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.12",
     "categories": {
       "performance": [],
       "security": [],
@@ -1833,7 +1833,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.13",
     "categories": {
       "performance": [
         "Make pg_upgrade carry forward the old installation's oldestXID value (Bertrand Drouvot)\n          Previously, the new installation's oldestXID was set to a value old enough to (usually) force immediate anti-wraparound autovacuuming. That's not desirable from a performance standpoint; what's worse, installations using large values of autovacuum_freeze_max_age could suffer unwanted forced shutdowns soon after an upgrade."
@@ -1908,7 +1908,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.14",
     "categories": {
       "performance": [
         "Prevent data loss during crash recovery of CREATE TABLESPACE, when wal_level = minimal (Noah Misch)\n          If the server crashed between CREATE TABLESPACE and the next checkpoint, replay would fully remove the contents of the new tablespace's directory, relying on subsequent WAL replay to restore everything within that directory. This interacts badly with optimizations that skip writing WAL (one example is COPY into a just-created table). Such optimizations are applied only when wal_level is minimal, which is not the default in v10 and later.",
@@ -1979,7 +1979,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.15",
     "categories": {
       "performance": [],
       "security": [],
@@ -2018,7 +2018,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.16",
     "categories": {
       "performance": [],
       "security": [
@@ -2062,7 +2062,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.17",
     "categories": {
       "performance": [
         "In ecpglib, avoid redundant newlocale() calls (Noah Misch)\n          Allocate a C locale object once per process when first connecting, rather than creating and freeing locale objects once per query. This mitigates a libc memory leak on AIX, and may offer some performance benefit everywhere."
@@ -2110,7 +2110,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.18",
     "categories": {
       "performance": [
         "In Snowball dictionaries, don't try to stem excessively-long words (Olly Betts, Tom Lane)\n          If the input word exceeds 1000 bytes, return it as-is after case folding, rather than trying to run it through the Snowball code. This restriction protects against a known recursion-to-stack-overflow problem in the Turkish stemmer, and it seems like good insurance against any other safety or performance issues that may exist in the Snowball stemmers. Such a long string is surely not a word in any human language, so it's doubtful that the stemmer would have done anything desirable with it anyway."
@@ -2153,7 +2153,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.19",
     "categories": {
       "performance": [
         "Honor non-default settings of checkpoint_completion_target (Bharath Rupireddy)\n          Internal state was not updated after a change in checkpoint_completion_target, possibly resulting in performing checkpoint I/O faster or slower than desired, especially if that setting was changed on-the-fly.",
@@ -2193,7 +2193,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.2",
     "categories": {
       "performance": [
         "Avoid deadlock between GIN vacuuming and concurrent index insertions (Alexander Korotkov, Andrey Borodin, Peter Geoghegan)\n          This change partially reverts a performance improvement, introduced in version 10.0, that attempted to reduce the number of index pages locked during deletion of a GIN posting tree page. That's now been found to lead to deadlocks, so we've removed it pending closer analysis.",
@@ -2278,7 +2278,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.20",
     "categories": {
       "performance": [
         "Disable the inverse-transition optimization for window aggregates when the call contains sub-SELECTs (David Rowley)\n          This optimization requires that the aggregate's argument expressions have repeatable results, which might not hold for a sub-SELECT.",
@@ -2335,7 +2335,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.21",
     "categories": {
       "performance": [],
       "security": [
@@ -2375,7 +2375,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.22",
     "categories": {
       "performance": [],
       "security": [
@@ -2417,7 +2417,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.3",
     "categories": {
       "performance": [
         "Speed up planning when there are many equality conditions and many potentially-relevant foreign key constraints (David Rowley)",
@@ -2492,7 +2492,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.4",
     "categories": {
       "performance": [
         "Fix misoptimization of {1,1} quantifiers in regular expressions (Tom Lane)\n          Such quantifiers were treated as no-ops and optimized away; but the documentation specifies that they impose greediness, or non-greediness in the case of the non-greedy variant {1,1}?, on the subexpression they're attached to, and this did not happen. The misbehavior occurred only if the subexpression contained capturing parentheses or a back-reference."
@@ -2530,7 +2530,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.5",
     "categories": {
       "performance": [],
       "security": [],
@@ -2588,7 +2588,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.6",
     "categories": {
       "performance": [
         "Avoid an unnecessary catalog lookup during heap page pruning (Thomas Munro)\n          It's no longer necessary to check for unlogged indexes here, and the check caused significant performance problems in some workloads. There was also at least a theoretical possibility of deadlock.",
@@ -2667,7 +2667,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.7",
     "categories": {
       "performance": [
         "Improve performance of hash joins with very large inner relations (Thomas Munro)",
@@ -2735,7 +2735,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.8",
     "categories": {
       "performance": [
         "Repair performance regression in information_schema.triggers view (Tom Lane)\n          This patch redefines that view so that an outer WHERE clause constraining the table name can be pushed down into the view, allowing its calculations to be done only for triggers belonging to the table of interest rather than all triggers in the database. In a database with many triggers this would make a significant speed difference for queries of that form. Since things worked that way before v11, this is a potential performance regression. Users who find this to be a problem can fix it by replacing the view definition (or, perhaps, just deleting and reinstalling the whole information_schema schema)."
@@ -2802,7 +2802,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "11.9",
     "categories": {
       "performance": [
         "In logical replication walsender, fix failure to send feedback messages after sending a keepalive message (Álvaro Herrera)\n          This is a relatively minor problem when using built-in logical replication, because the built-in walreceiver will send a feedback reply (which clears the incorrect state) fairly frequently anyway. But with some other replication systems, such as pglogical, it causes significant performance issues."
@@ -2857,7 +2857,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.0",
     "categories": {
       "performance": [
         "General performance improvements, including:\n          \n            \n              \n                Optimizations to space utilization and read/write performance for B-tree indexes\n              \n              \n                Partitioning performance enhancements, including improved query performance on tables with thousands of partitions, improved insertion performance with INSERT and COPY, and the ability to execute ALTER TABLE ATTACH PARTITION without blocking queries\n              \n              \n                Automatic (but overridable) inlining of common table expressions (CTEs)\n              \n              \n                Reduction of WAL overhead for creation of GiST, GIN, and SP-GiST indexes\n              \n              \n                Support for covering GiST indexes, via the INCLUDE clause\n              \n              \n                Multi-column most-common-value (MCV) statistics can be defined via CREATE STATISTICS, to support better plans for queries that test several non-uniformly-distributed columns",
@@ -3067,7 +3067,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.1",
     "categories": {
       "performance": [],
       "security": [
@@ -3129,7 +3129,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.10",
     "categories": {
       "performance": [],
       "security": [],
@@ -3172,7 +3172,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.11",
     "categories": {
       "performance": [],
       "security": [
@@ -3220,7 +3220,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.12",
     "categories": {
       "performance": [
         "In ecpglib, avoid redundant newlocale() calls (Noah Misch)\n          Allocate a C locale object once per process when first connecting, rather than creating and freeing locale objects once per query. This mitigates a libc memory leak on AIX, and may offer some performance benefit everywhere."
@@ -3270,7 +3270,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.13",
     "categories": {
       "performance": [
         "In Snowball dictionaries, don't try to stem excessively-long words (Olly Betts, Tom Lane)\n          If the input word exceeds 1000 bytes, return it as-is after case folding, rather than trying to run it through the Snowball code. This restriction protects against a known recursion-to-stack-overflow problem in the Turkish stemmer, and it seems like good insurance against any other safety or performance issues that may exist in the Snowball stemmers. Such a long string is surely not a word in any human language, so it's doubtful that the stemmer would have done anything desirable with it anyway."
@@ -3320,7 +3320,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.14",
     "categories": {
       "performance": [
         "Honor non-default settings of checkpoint_completion_target (Bharath Rupireddy)\n          Internal state was not updated after a change in checkpoint_completion_target, possibly resulting in performing checkpoint I/O faster or slower than desired, especially if that setting was changed on-the-fly.",
@@ -3367,7 +3367,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.15",
     "categories": {
       "performance": [
         "Disable the inverse-transition optimization for window aggregates when the call contains sub-SELECTs (David Rowley)\n          This optimization requires that the aggregate's argument expressions have repeatable results, which might not hold for a sub-SELECT.",
@@ -3430,7 +3430,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.16",
     "categories": {
       "performance": [],
       "security": [
@@ -3473,7 +3473,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.17",
     "categories": {
       "performance": [],
       "security": [
@@ -3527,7 +3527,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.18",
     "categories": {
       "performance": [
         "Fix function volatility checking for GENERATED and DEFAULT expressions (Tom Lane)\n          These places could fail to detect insertion of a volatile function default-argument expression, or decide that a polymorphic function is volatile although it is actually immutable on the datatype of interest. This could lead to improperly rejecting or accepting a GENERATED clause, or to mistakenly applying the constant-default-value optimization in ALTER TABLE ADD COLUMN."
@@ -3578,7 +3578,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.19",
     "categories": {
       "performance": [
         "Avoid unnecessary use of moving-aggregate mode with a non-moving window frame (Vallimaharajan G)\n          When a plain aggregate is used as a window function, and the window frame start is specified as UNBOUNDED PRECEDING, the frame's head cannot move so we do not need to use the special (and more expensive) moving-aggregate mode. This optimization was intended all along, but due to a coding error it never triggered."
@@ -3625,7 +3625,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.2",
     "categories": {
       "performance": [
         "Improve performance of hash joins with very large inner relations (Thomas Munro)",
@@ -3712,7 +3712,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.20",
     "categories": {
       "performance": [],
       "security": [],
@@ -3756,7 +3756,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.3",
     "categories": {
       "performance": [
         "Repair performance regression in information_schema.triggers view (Tom Lane)\n          This patch redefines that view so that an outer WHERE clause constraining the table name can be pushed down into the view, allowing its calculations to be done only for triggers belonging to the table of interest rather than all triggers in the database. In a database with many triggers this would make a significant speed difference for queries of that form. Since things worked that way before v11, this is a potential performance regression. Users who find this to be a problem can fix it by replacing the view definition (or, perhaps, just deleting and reinstalling the whole information_schema schema).",
@@ -3844,7 +3844,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.4",
     "categories": {
       "performance": [
         "In logical replication walsender, fix failure to send feedback messages after sending a keepalive message (Álvaro Herrera)\n          This is a relatively minor problem when using built-in logical replication, because the built-in walreceiver will send a feedback reply (which clears the incorrect state) fairly frequently anyway. But with some other replication systems, such as pglogical, it causes significant performance issues."
@@ -3908,7 +3908,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.5",
     "categories": {
       "performance": [
         "Avoid misoptimization of subquery qualifications that reference apparently-constant grouping columns (Tom Lane)\n          A “constant” subquery output column isn't really constant if it is a grouping column that appears in only some of the grouping sets.",
@@ -3979,7 +3979,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.6",
     "categories": {
       "performance": [
         "Avoid memcpy() with a NULL source pointer and zero count during partitioned index creation (Álvaro Herrera)\n          While such a call is not known to cause problems in itself, some compilers assume that the arguments of memcpy() are never NULL, which could result in incorrect optimization of nearby code."
@@ -4058,7 +4058,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.7",
     "categories": {
       "performance": [],
       "security": [],
@@ -4110,7 +4110,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.8",
     "categories": {
       "performance": [
         "Make pg_upgrade carry forward the old installation's oldestXID value (Bertrand Drouvot)\n          Previously, the new installation's oldestXID was set to a value old enough to (usually) force immediate anti-wraparound autovacuuming. That's not desirable from a performance standpoint; what's worse, installations using large values of autovacuum_freeze_max_age could suffer unwanted forced shutdowns soon after an upgrade."
@@ -4190,7 +4190,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "12.9",
     "categories": {
       "performance": [
         "Prevent data loss during crash recovery of CREATE TABLESPACE, when wal_level = minimal (Noah Misch)\n          If the server crashed between CREATE TABLESPACE and the next checkpoint, replay would fully remove the contents of the new tablespace's directory, relying on subsequent WAL replay to restore everything within that directory. This interacts badly with optimizations that skip writing WAL (one example is COPY into a just-created table). Such optimizations are applied only when wal_level is minimal, which is not the default in v10 and later.",
@@ -4266,7 +4266,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.0",
     "categories": {
       "performance": [
         "Space savings and performance gains from de-duplication of B-tree index entries",
@@ -4462,7 +4462,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.1",
     "categories": {
       "performance": [
         "In libpq for Windows, call WSAStartup() once per process and WSACleanup() not at all (Tom Lane, Alexander Lakhin)\n          Previously, libpq invoked WSAStartup() at connection start and WSACleanup() at connection cleanup. However, it appears that calling WSACleanup() can interfere with other program operations; notably, we have observed rare failures to emit expected output to stdout. There appear to be no ill effects from omitting the call, so do that. (This also eliminates a performance issue from repeated DLL loads and unloads when a program performs a series of database connections.)"
@@ -4524,7 +4524,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.10",
     "categories": {
       "performance": [
         "Honor non-default settings of checkpoint_completion_target (Bharath Rupireddy)\n          Internal state was not updated after a change in checkpoint_completion_target, possibly resulting in performing checkpoint I/O faster or slower than desired, especially if that setting was changed on-the-fly.",
@@ -4573,7 +4573,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.11",
     "categories": {
       "performance": [
         "Disable the inverse-transition optimization for window aggregates when the call contains sub-SELECTs (David Rowley)\n          This optimization requires that the aggregate's argument expressions have repeatable results, which might not hold for a sub-SELECT.",
@@ -4641,7 +4641,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.12",
     "categories": {
       "performance": [],
       "security": [
@@ -4688,7 +4688,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.13",
     "categories": {
       "performance": [],
       "security": [
@@ -4747,7 +4747,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.14",
     "categories": {
       "performance": [
         "Fix function volatility checking for GENERATED and DEFAULT expressions (Tom Lane)\n          These places could fail to detect insertion of a volatile function default-argument expression, or decide that a polymorphic function is volatile although it is actually immutable on the datatype of interest. This could lead to improperly rejecting or accepting a GENERATED clause, or to mistakenly applying the constant-default-value optimization in ALTER TABLE ADD COLUMN."
@@ -4799,7 +4799,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.15",
     "categories": {
       "performance": [
         "Avoid unnecessary use of moving-aggregate mode with a non-moving window frame (Vallimaharajan G)\n          When a plain aggregate is used as a window function, and the window frame start is specified as UNBOUNDED PRECEDING, the frame's head cannot move so we do not need to use the special (and more expensive) moving-aggregate mode. This optimization was intended all along, but due to a coding error it never triggered."
@@ -4846,7 +4846,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.16",
     "categories": {
       "performance": [],
       "security": [],
@@ -4892,7 +4892,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.2",
     "categories": {
       "performance": [
         "Avoid memcpy() with a NULL source pointer and zero count during partitioned index creation (Álvaro Herrera)\n          While such a call is not known to cause problems in itself, some compilers assume that the arguments of memcpy() are never NULL, which could result in incorrect optimization of nearby code."
@@ -4985,7 +4985,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.3",
     "categories": {
       "performance": [
         "Disable the vacuum_cleanup_index_scale_factor parameter and storage option (Peter Geoghegan)\n          The notion of tracking “stale” index statistics proved to interact badly with the autovacuum_vacuum_insert_threshold parameter, resulting in unnecessary full-index scans and consequent degradation of autovacuum performance. The latter mechanism seems superior, so remove the stale-statistics logic. The control parameter for that, vacuum_cleanup_index_scale_factor, will be removed entirely in v14. In v13, it remains present to avoid breaking existing configuration files, but it no longer does anything."
@@ -5045,7 +5045,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.4",
     "categories": {
       "performance": [
         "Make pg_upgrade carry forward the old installation's oldestXID value (Bertrand Drouvot)\n          Previously, the new installation's oldestXID was set to a value old enough to (usually) force immediate anti-wraparound autovacuuming. That's not desirable from a performance standpoint; what's worse, installations using large values of autovacuum_freeze_max_age could suffer unwanted forced shutdowns soon after an upgrade."
@@ -5134,7 +5134,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.5",
     "categories": {
       "performance": [
         "Prevent data loss during crash recovery of CREATE TABLESPACE, when wal_level = minimal (Noah Misch)\n          If the server crashed between CREATE TABLESPACE and the next checkpoint, replay would fully remove the contents of the new tablespace's directory, relying on subsequent WAL replay to restore everything within that directory. This interacts badly with optimizations that skip writing WAL (one example is COPY into a just-created table). Such optimizations are applied only when wal_level is minimal, which is not the default in v10 and later.",
@@ -5224,7 +5224,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.6",
     "categories": {
       "performance": [
         "Improve performance of walsenders sending logical changes by avoiding unnecessary cache accesses (Hou Zhijie)"
@@ -5276,7 +5276,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.7",
     "categories": {
       "performance": [],
       "security": [
@@ -5326,7 +5326,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.8",
     "categories": {
       "performance": [
         "In ecpglib, avoid redundant newlocale() calls (Noah Misch)\n          Allocate a C locale object once per process when first connecting, rather than creating and freeing locale objects once per query. This mitigates a libc memory leak on AIX, and may offer some performance benefit everywhere."
@@ -5380,7 +5380,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "13.9",
     "categories": {
       "performance": [
         "In Snowball dictionaries, don't try to stem excessively-long words (Olly Betts, Tom Lane)\n          If the input word exceeds 1000 bytes, return it as-is after case folding, rather than trying to run it through the Snowball code. This restriction protects against a known recursion-to-stack-overflow problem in the Turkish stemmer, and it seems like good insurance against any other safety or performance issues that may exist in the Snowball stemmers. Such a long string is surely not a word in any human language, so it's doubtful that the stemmer would have done anything desirable with it anyway."
@@ -5433,7 +5433,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.0",
     "categories": {
       "performance": [
         "Numerous performance improvements have been made for parallel queries, heavily-concurrent workloads, partitioned tables, logical replication, and vacuuming.",
@@ -5675,7 +5675,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.1",
     "categories": {
       "performance": [
         "Prevent wraparound of overflowed-subtransaction tracking on standby servers (Kyotaro Horiguchi, Alexander Korotkov)\n          This oversight could cause significant performance degradation (manifesting as excessive SubtransSLRU traffic) on standby servers."
@@ -5734,7 +5734,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.10",
     "categories": {
       "performance": [],
       "security": [
@@ -5801,7 +5801,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.11",
     "categories": {
       "performance": [
         "Fix function volatility checking for GENERATED and DEFAULT expressions (Tom Lane)\n          These places could fail to detect insertion of a volatile function default-argument expression, or decide that a polymorphic function is volatile although it is actually immutable on the datatype of interest. This could lead to improperly rejecting or accepting a GENERATED clause, or to mistakenly applying the constant-default-value optimization in ALTER TABLE ADD COLUMN."
@@ -5862,7 +5862,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.12",
     "categories": {
       "performance": [
         "Avoid unnecessary use of moving-aggregate mode with a non-moving window frame (Vallimaharajan G)\n          When a plain aggregate is used as a window function, and the window frame start is specified as UNBOUNDED PRECEDING, the frame's head cannot move so we do not need to use the special (and more expensive) moving-aggregate mode. This optimization was intended all along, but due to a coding error it never triggered."
@@ -5920,7 +5920,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.13",
     "categories": {
       "performance": [],
       "security": [],
@@ -5972,7 +5972,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.2",
     "categories": {
       "performance": [
         "Improve performance of walsenders sending logical changes by avoiding unnecessary cache accesses (Hou Zhijie)"
@@ -6040,7 +6040,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.3",
     "categories": {
       "performance": [
         "Make the server more robust against missed timer interrupts (Michael Harris, Tom Lane)\n          An optimization added in v14 meant that if a server process somehow missed a timer interrupt, it would never again ask the kernel for another one, thus breaking timeout detection for the remainder of the session. This seems unduly fragile, so add a recovery path."
@@ -6105,7 +6105,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.4",
     "categories": {
       "performance": [
         "Prevent possible corruption of indexes created or rebuilt with the CONCURRENTLY option (Álvaro Herrera)\n          An optimization added in v14 caused CREATE INDEX ... CONCURRENTLY and REINDEX ... CONCURRENTLY to sometimes miss indexing rows that were updated during the index build. Revert that optimization. It is recommended that any indexes made with the CONCURRENTLY option be rebuilt after installing this update. (Alternatively, rebuild them without CONCURRENTLY.)"
@@ -6135,7 +6135,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.5",
     "categories": {
       "performance": [
         "In ecpglib, avoid redundant newlocale() calls (Noah Misch)\n          Allocate a C locale object once per process when first connecting, rather than creating and freeing locale objects once per query. This mitigates a libc memory leak on AIX, and may offer some performance benefit everywhere."
@@ -6185,7 +6185,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.6",
     "categories": {
       "performance": [
         "In Snowball dictionaries, don't try to stem excessively-long words (Olly Betts, Tom Lane)\n          If the input word exceeds 1000 bytes, return it as-is after case folding, rather than trying to run it through the Snowball code. This restriction protects against a known recursion-to-stack-overflow problem in the Turkish stemmer, and it seems like good insurance against any other safety or performance issues that may exist in the Snowball stemmers. Such a long string is surely not a word in any human language, so it's doubtful that the stemmer would have done anything desirable with it anyway."
@@ -6238,7 +6238,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.7",
     "categories": {
       "performance": [
         "Honor non-default settings of checkpoint_completion_target (Bharath Rupireddy)\n          Internal state was not updated after a change in checkpoint_completion_target, possibly resulting in performing checkpoint I/O faster or slower than desired, especially if that setting was changed on-the-fly.",
@@ -6296,7 +6296,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.8",
     "categories": {
       "performance": [
         "Disable the inverse-transition optimization for window aggregates when the call contains sub-SELECTs (David Rowley)\n          This optimization requires that the aggregate's argument expressions have repeatable results, which might not hold for a sub-SELECT.",
@@ -6376,7 +6376,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "14.9",
     "categories": {
       "performance": [],
       "security": [
@@ -6426,7 +6426,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.0",
     "categories": {
       "performance": [
         "Performance improvements, particularly for in-memory and on-disk sorting.",
@@ -6628,7 +6628,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.1",
     "categories": {
       "performance": [],
       "security": [],
@@ -6665,7 +6665,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.2",
     "categories": {
       "performance": [
         "Honor non-default settings of checkpoint_completion_target (Bharath Rupireddy)\n          Internal state was not updated after a change in checkpoint_completion_target, possibly resulting in performing checkpoint I/O faster or slower than desired, especially if that setting was changed on-the-fly.",
@@ -6734,7 +6734,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.3",
     "categories": {
       "performance": [
         "Disable the inverse-transition optimization for window aggregates when the call contains sub-SELECTs (David Rowley)\n          This optimization requires that the aggregate's argument expressions have repeatable results, which might not hold for a sub-SELECT.",
@@ -6830,7 +6830,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.4",
     "categories": {
       "performance": [],
       "security": [
@@ -6888,7 +6888,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.5",
     "categories": {
       "performance": [],
       "security": [
@@ -6959,7 +6959,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.6",
     "categories": {
       "performance": [
         "Fix function volatility checking for GENERATED and DEFAULT expressions (Tom Lane)\n          These places could fail to detect insertion of a volatile function default-argument expression, or decide that a polymorphic function is volatile although it is actually immutable on the datatype of interest. This could lead to improperly rejecting or accepting a GENERATED clause, or to mistakenly applying the constant-default-value optimization in ALTER TABLE ADD COLUMN."
@@ -7031,7 +7031,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.7",
     "categories": {
       "performance": [
         "Prevent potentially-incorrect optimization of some window functions (David Rowley)\n          Disable “run condition” optimization of ntile() and count() with non-constant arguments. This avoids possible misbehavior with sub-selects, typically leading to errors like “WindowFunc not found in subplan target lists”.",
@@ -7099,7 +7099,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "15.8",
     "categories": {
       "performance": [],
       "security": [],
@@ -7158,7 +7158,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "16.0",
     "categories": {
       "performance": [
         "Improve performance of vacuum freezing",
@@ -7384,7 +7384,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "16.1",
     "categories": {
       "performance": [],
       "security": [
@@ -7454,7 +7454,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "16.2",
     "categories": {
       "performance": [
         "Fix function volatility checking for GENERATED and DEFAULT expressions (Tom Lane)\n          These places could fail to detect insertion of a volatile function default-argument expression, or decide that a polymorphic function is volatile although it is actually immutable on the datatype of interest. This could lead to improperly rejecting or accepting a GENERATED clause, or to mistakenly applying the constant-default-value optimization in ALTER TABLE ADD COLUMN."
@@ -7536,7 +7536,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "16.3",
     "categories": {
       "performance": [
         "Prevent potentially-incorrect optimization of some window functions (David Rowley)\n          Disable “run condition” optimization of ntile() and count() with non-constant arguments. This avoids possible misbehavior with sub-selects, typically leading to errors like “WindowFunc not found in subplan target lists”.",
@@ -7609,7 +7609,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "16.4",
     "categories": {
       "performance": [],
       "security": [],
@@ -7673,7 +7673,7 @@
     }
   },
   {
-    "version": "Links",
+    "version": "17.0",
     "categories": {
       "performance": [
         "New memory management system for VACUUM, which reduces memory consumption and can improve overall vacuuming performance.",
