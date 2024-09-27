@@ -1,53 +1,51 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
-const axios = require('axios');
-const cheerio = require('cheerio');
-const fs = require('fs').promises;
-const path = require('path');
+const { program } = require("commander");
+const axios = require("axios");
+const cheerio = require("cheerio");
+const fs = require("fs").promises;
+const path = require("path");
 
-const CACHE_DIR = 'raw-latest';
-const BASE_URL = 'https://www.postgresql.org/docs/release/';
+const CACHE_DIR = "raw-latest";
+const BASE_URL = "https://www.postgresql.org/docs/release/";
 const DELAY_MS = 1000;
 
-program
-  .version('1.0.0')
-  .description('PostgreSQL Release Notes Processor');
+program.version("1.0.0").description("PostgreSQL Release Notes Processor");
 
 program
-  .command('scrape-all')
-  .description('Scrape and cache all release notes')
+  .command("scrape-all")
+  .description("Scrape and cache all release notes")
   .action(scrapeAllVersions);
 
 program
-  .command('scrape-version <version>')
-  .description('Scrape and cache release notes for a specific version')
+  .command("scrape-version <version>")
+  .description("Scrape and cache release notes for a specific version")
   .action(scrapeSpecificVersion);
 
 program
-  .command('process')
-  .description('Process cached release notes and generate JSON')
+  .command("process")
+  .description("Process cached release notes and generate JSON")
   .action(processReleaseNotes);
 
 async function scrapeAllVersions() {
   try {
     await fs.mkdir(CACHE_DIR, { recursive: true });
-    
-    console.log('Fetching main release page...');
+
+    console.log("Fetching main release page...");
     const mainPageHtml = await fetchPage(BASE_URL);
-    await saveToCacheFile('index.html', mainPageHtml);
-    
+    await saveToCacheFile("index.html", mainPageHtml);
+
     const versions = extractVersions(mainPageHtml);
     console.log(`Found ${versions.length} versions.`);
-    
+
     for (const version of versions) {
       await scrapeSpecificVersion(version);
       await delay(DELAY_MS);
     }
-    
-    console.log('All versions scraped and cached successfully.');
+
+    console.log("All versions scraped and cached successfully.");
   } catch (error) {
-    console.error('Error scraping all versions:', error.message);
+    console.error("Error scraping all versions:", error.message);
   }
 }
 
@@ -71,7 +69,7 @@ async function fetchPage(url) {
 function extractVersions(html) {
   const $ = cheerio.load(html);
   const versions = [];
-  $('ul.release-notes-list li a').each((index, element) => {
+  $("ul.release-notes-list li a").each((index, element) => {
     versions.push($(element).text().trim());
   });
   return versions;
@@ -89,17 +87,17 @@ function delay(ms) {
 async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
-    
+
     const processedData = releaseData.map(release => ({
       version: release.version,
-      categories: categorizeChanges(release.changes)
+      categories: categorizeChanges(release.changes),
     }));
 
-    const outputFile = path.join(__dirname, 'release_notes.json');
+    const outputFile = path.join(__dirname, "release_notes.json");
     await fs.writeFile(outputFile, JSON.stringify(processedData, null, 2));
     console.log(`Release notes processed and saved to ${outputFile}`);
   } catch (error) {
-    console.error('Error processing release notes:', error);
+    console.error("Error processing release notes:", error);
   }
 }
 
@@ -108,22 +106,27 @@ async function parseReleaseNotes(directory) {
   const releaseData = [];
 
   for (const file of files) {
-    if (path.extname(file) === '.html' && file !== 'index.html') {
+    if (path.extname(file) === ".html" && file !== "index.html") {
       const filePath = path.join(directory, file);
-      const content = await fs.readFile(filePath, 'utf-8');
+      const content = await fs.readFile(filePath, "utf-8");
       const $ = cheerio.load(content);
 
-      const version = $('#release-notes h2').first().text().trim().split(' ').pop();
+      const version = $("#release-notes h2")
+        .first()
+        .text()
+        .trim()
+        .split(" ")
+        .pop();
       const items = [];
 
-      $('.itemizedlist ul li').each((index, element) => {
+      $(".itemizedlist ul li").each((index, element) => {
         const text = $(element).text().trim();
         items.push(text);
       });
 
       releaseData.push({
         version,
-        changes: items
+        changes: items,
       });
     }
   }
@@ -136,13 +139,13 @@ function categorizeChanges(changes) {
     performance: [],
     security: [],
     features: [],
-    other: []
+    other: [],
   };
 
   const keywords = {
-    performance: ['performance', 'speed', 'faster', 'optimization'],
-    security: ['security', 'vulnerability', 'CVE', 'exploit'],
-    features: ['new feature', 'added', 'introduced', 'now supports']
+    performance: ["performance", "speed", "faster", "optimization"],
+    security: ["security", "vulnerability", "CVE", "exploit"],
+    features: ["new feature", "added", "introduced", "now supports"],
   };
 
   changes.forEach(change => {
