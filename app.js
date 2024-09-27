@@ -6,13 +6,13 @@ const cheerio = require('cheerio');
 const fs = require('fs').promises;
 const path = require('path');
 
-const CACHE_DIR = 'raw';
+const CACHE_DIR = 'raw-latest';
 const BASE_URL = 'https://www.postgresql.org/docs/release/';
 const DELAY_MS = 1000;
 
 program
   .version('1.0.0')
-  .description('PostgreSQL Release Notes Raw Scraper');
+  .description('PostgreSQL Release Notes Processor');
 
 program
   .command('scrape-all')
@@ -23,6 +23,11 @@ program
   .command('scrape-version <version>')
   .description('Scrape and cache release notes for a specific version')
   .action(scrapeSpecificVersion);
+
+program
+  .command('process')
+  .description('Process cached release notes and generate JSON')
+  .action(processReleaseNotes);
 
 async function scrapeAllVersions() {
   try {
@@ -79,6 +84,85 @@ async function saveToCacheFile(filename, content) {
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function processReleaseNotes() {
+  try {
+    const releaseData = await parseReleaseNotes(CACHE_DIR);
+    
+    const processedData = releaseData.map(release => ({
+      version: release.version,
+      categories: categorizeChanges(release.changes)
+    }));
+
+    const outputFile = path.join(__dirname, 'release_notes.json');
+    await fs.writeFile(outputFile, JSON.stringify(processedData, null, 2));
+    console.log(`Release notes processed and saved to ${outputFile}`);
+  } catch (error) {
+    console.error('Error processing release notes:', error);
+  }
+}
+
+async function parseReleaseNotes(directory) {
+  const files = await fs.readdir(directory);
+  const releaseData = [];
+
+  for (const file of files) {
+    if (path.extname(file) === '.html' && file !== 'index.html') {
+      const filePath = path.join(directory, file);
+      const content = await fs.readFile(filePath, 'utf-8');
+      const $ = cheerio.load(content);
+
+      const version = $('h2').first().text().trim().split(' ').pop();
+      const items = [];
+
+      $('.itemizedlist ul li').each((index, element) => {
+        const text = $(element).text().trim();
+        items.push(text);
+      });
+
+      releaseData.push({
+        version,
+        changes: items
+      });
+    }
+  }
+
+  return releaseData;
+}
+
+function categorizeChanges(changes) {
+  const categories = {
+    performance: [],
+    security: [],
+    features: [],
+    other: []
+  };
+
+  const keywords = {
+    performance: ['performance', 'speed', 'faster', 'optimization'],
+    security: ['security', 'vulnerability', 'CVE', 'exploit'],
+    features: ['new feature', 'added', 'introduced', 'now supports']
+  };
+
+  changes.forEach(change => {
+    const lowerChange = change.toLowerCase();
+    let categorized = false;
+
+    for (const [category, words] of Object.entries(keywords)) {
+      if (words.some(word => lowerChange.includes(word))) {
+        categories[category].push(change);
+        categorized = true;
+        break;
+      }
+    }
+
+    if (!categorized) {
+      categories.other.push(change);
+    }
+  });
+
+  return categories;
 }
 
 program.parse(process.argv);
