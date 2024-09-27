@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/9.2/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          9.2.10
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+  <table summary="Header navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <th colspan="5" align="center" valign="bottom"><a href=
+      "index.html">PostgreSQL 9.2.24 Documentation</a></th>
+    </tr>
+
+    <tr>
+      <td width="10%" align="left" valign="top"><a title=
+      "Release 9.2.11" href="release-9-2-11.html" accesskey=
+      "P">Prev</a></td>
+
+      <td width="10%" align="left" valign="top"><a href=
+      "release.html" accesskey="U">Up</a></td>
+
+      <td width="60%" align="center" valign="bottom">Appendix E.
+      Release Notes</td>
+
+      <td width="20%" align="right" valign="top"><a title=
+      "Release 9.2.9" href="release-9-2-9.html" accesskey=
+      "N">Next</a></td>
+    </tr>
+  </table>
+  <hr class="c1" width="100%" />
+</div>
+
+<div class="SECT1">
+  <h1 class="SECT1"><a name="RELEASE-9-2-10" id=
+  "RELEASE-9-2-10">E.15. Release 9.2.10</a></h1>
+
+  <div class="FORMALPARA">
+    <p><b>Release date:</b> 2015-02-05</p>
+  </div>
+
+  <p>This release contains a variety of fixes from 9.2.9. For
+  information about new features in the 9.2 major release, see
+  <a href="release-9-2.html">Section E.25</a>.</p>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN112536" id="AEN112536">E.15.1.
+    Migration to Version 9.2.10</a></h2>
+
+    <p>A dump/restore is not required for those running 9.2.X.</p>
+
+    <p>However, if you are a Windows user and are using the
+    <span class="QUOTE">"Norwegian (Bokmål)"</span> locale, manual
+    action is needed after the upgrade to replace any <span class=
+    "QUOTE">"Norwegian (Bokmål)_Norway"</span> locale names stored
+    in <span class="PRODUCTNAME">PostgreSQL</span> system catalogs
+    with the plain-ASCII alias <span class=
+    "QUOTE">"Norwegian_Norway"</span>. For details see <a href=
+    "http://wiki.postgresql.org/wiki/Changes_To_Norwegian_Locale"
+    target=
+    "_top">http://wiki.postgresql.org/wiki/Changes_To_Norwegian_Locale</a></p>
+
+    <p>Also, if you are upgrading from a version earlier than
+    9.2.9, see <a href="release-9-2-9.html">Section E.16</a>.</p>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN112547" id="AEN112547">E.15.2.
+    Changes</a></h2>
+
+    <ul>
+      <li>
+        <p>Fix buffer overruns in <code class=
+        "FUNCTION">to_char()</code> (Bruce Momjian)</p>
+
+        <p>When <code class="FUNCTION">to_char()</code> processes a
+        numeric formatting template calling for a large number of
+        digits, <span class="PRODUCTNAME">PostgreSQL</span> would
+        read past the end of a buffer. When processing a crafted
+        timestamp formatting template, <span class=
+        "PRODUCTNAME">PostgreSQL</span> would write past the end of
+        a buffer. Either case could crash the server. We have not
+        ruled out the possibility of attacks that lead to privilege
+        escalation, though they seem unlikely. (CVE-2015-0241)</p>
+      </li>
+
+      <li>
+        <p>Fix buffer overrun in replacement <code class=
+        "FUNCTION">*printf()</code> functions (Tom Lane)</p>
+
+        <p><span class="PRODUCTNAME">PostgreSQL</span> includes a
+        replacement implementation of <code class=
+        "FUNCTION">printf</code> and related functions. This code
+        will overrun a stack buffer when formatting a floating
+        point number (conversion specifiers <tt class=
+        "LITERAL">e</tt>, <tt class="LITERAL">E</tt>, <tt class=
+        "LITERAL">f</tt>, <tt class="LITERAL">F</tt>, <tt class=
+        "LITERAL">g</tt> or <tt class="LITERAL">G</tt>) with
+        requested precision greater than about 500. This will crash
+        the server, and we have not ruled out the possibility of
+        attacks that lead to privilege escalation. A database user
+        can trigger such a buffer overrun through the <code class=
+        "FUNCTION">to_char()</code> SQL function. While that is the
+        only affected core <span class=
+        "PRODUCTNAME">PostgreSQL</span> functionality, extension
+        modules that use printf-family functions may be at risk as
+        well.</p>
+
+        <p>This issue primarily affects <span class=
+        "PRODUCTNAME">PostgreSQL</span> on Windows. <span class=
+        "PRODUCTNAME">PostgreSQL</span> uses the system
+        implementation of these functions where adequate, which it
+        is on other modern platforms. (CVE-2015-0242)</p>
+      </li>
+
+      <li>
+        <p>Fix buffer overruns in <tt class=
+        "FILENAME">contrib/pgcrypto</tt> (Marko Tiikkaja, Noah
+        Misch)</p>
+
+        <p>Errors in memory size tracking within the <tt class=
+        "FILENAME">pgcrypto</tt> module permitted stack buffer
+        overruns and improper dependence on the contents of
+        uninitialized memory. The buffer overrun cases can crash
+        the server, and we have not ruled out the possibility of
+        attacks that lead to privilege escalation.
+        (CVE-2015-0243)</p>
+      </li>
+
+      <li>
+        <p>Fix possible loss of frontend/backend protocol
+        synchronization after an error (Heikki Linnakangas)</p>
+
+        <p>If any error occurred while the server was in the middle
+        of reading a protocol message from the client, it could
+        lose synchronization and incorrectly try to interpret part
+        of the message's data as a new protocol message. An
+        attacker able to submit crafted binary data within a
+        command parameter might succeed in injecting his own SQL
+        commands this way. Statement timeout and query cancellation
+        are the most likely sources of errors triggering this
+        scenario. Particularly vulnerable are applications that use
+        a timeout and also submit arbitrary user-crafted data as
+        binary query parameters. Disabling statement timeout will
+        reduce, but not eliminate, the risk of exploit. Our thanks
+        to Emil Lenngren for reporting this issue.
+        (CVE-2015-0244)</p>
+      </li>
+
+      <li>
+        <p>Fix information leak via constraint-violation error
+        messages (Stephen Frost)</p>
+
+        <p>Some server error messages show the values of columns
+        that violate a constraint, such as a unique constraint. If
+        the user does not have <tt class="LITERAL">SELECT</tt>
+        privilege on all columns of the table, this could mean
+        exposing values that the user should not be able to see.
+        Adjust the code so that values are displayed only when they
+        came from the SQL command or could be selected by the user.
+        (CVE-2014-8161)</p>
+      </li>
+
+      <li>
+        <p>Lock down regression testing's temporary installations
+        on Windows (Noah Misch)</p>
+
+        <p>Use SSPI authentication to allow connections only from
+        the OS user who launched the test suite. This closes on
+        Windows the same vulnerability previously closed on other
+        platforms, namely that other users might be able to connect
+        to the test postmaster. (CVE-2014-0067)</p>
+      </li>
+
+      <li>
+        <p>Cope with the Windows locale named <span class=
+        "QUOTE">"Norwegian (Bokmål)"</span> (Heikki
+        Linnakangas)</p>
+
+        <p>Non-ASCII locale names are problematic since it's not
+        clear what encoding they should be represented in. Map the
+        troublesome locale name to a plain-ASCII alias,
+        <span class="QUOTE">"Norwegian_Norway"</span>.</p>
+      </li>
+
+      <li>
+        <p>Avoid possible data corruption if <tt class=
+        "COMMAND">ALTER DATABASE SET TABLESPACE</tt> is used to
+        move a database to a new tablespace and then shortly later
+        move it back to its original tablespace (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Avoid corrupting tables when <tt class=
+        "COMMAND">ANALYZE</tt> inside a transaction is rolled back
+        (Andres Freund, Tom Lane, Michael Paquier)</p>
+
+        <p>If the failing transaction had earlier removed the last
+        index, rule, or trigger from the table, the table would be
+        left in a corrupted state with the relevant <tt class=
+        "STRUCTNAME">pg_class</tt> flags not set though they should
+        be.</p>
+      </li>
+
+      <li>
+        <p>Ensure that unlogged tables are copied correctly during
+        <tt class="COMMAND">CREATE DATABASE</tt> or <tt class=
+        "COMMAND">ALTER DATABASE SET TABLESPACE</tt> (Pavan
+        Deolasee, Andres Freund)</p>
+      </li>
+
+      <li>
+        <p>Fix <tt class="COMMAND">DROP</tt>'s dependency searching
+        to correctly handle the case where a table column is
+        recursively visited before its table (Petr Jelinek, Tom
+        Lane)</p>
+
+        <p>This case is only known to arise when an extension
+        creates both a datatype and a table using that datatype.
+        The faulty code might refuse a <tt class="COMMAND">DROP
+        EXTENSION</tt> unless <tt class="LITERAL">CASCADE</tt> is
+        specified, which should not be required.</p>
+      </li>
+
+      <li>
+        <p>Fix use-of-already-freed-memory problem in EvalPlanQual
+        processing (Tom Lane)</p>
+
+        <p>In <tt class="LITERAL">READ COMMITTED</tt> mode, queries
+        that lock or update recently-updated rows could crash as a
+        result of this bug.</p>
+      </li>
+
+      <li>
+        <p>Fix planning of <tt class="COMMAND">SELECT FOR
+        UPDATE</tt> when using a partial index on a child table
+        (Kyotaro Horiguchi)</p>
+
+        <p>In <tt class="LITERAL">READ COMMITTED</tt> mode,
+        <tt class="COMMAND">SELECT FOR UPDATE</tt> must also
+        recheck the partial index's <tt class="LITERAL">WHERE</tt>
+        condition when rechecking a recently-updated row to see if
+        it still satisfies the query's <tt class=
+        "LITERAL">WHERE</tt> condition. This requirement was missed
+        if the index belonged to an inheritance child table, so
+        that it was possible to incorrectly return rows that no
+        longer satisfy the query condition.</p>
+      </li>
+
+      <li>
+        <p>Fix corner case wherein <tt class="COMMAND">SELECT FOR
+        UPDATE</tt> could return a row twice, and possibly miss
+        returning other rows (Tom Lane)</p>
+
+        <p>In <tt class="LITERAL">READ COMMITTED</tt> mode, a
+        <tt class="COMMAND">SELECT FOR UPDATE</tt> that is scanning
+        an inheritance tree could incorrectly return a row from a
+        prior child table instead of the one it should return from
+        a later child table.</p>
+      </li>
+
+      <li>
+        <p>Reject duplicate column names in the referenced-columns
+        list of a <tt class="LITERAL">FOREIGN KEY</tt> declaration
+        (David Rowley)</p>
+
+        <p>This restriction is per SQL standard. Previously we did
+        not reject the case explicitly, but later on the code would
+        fail with bizarre-looking errors.</p>
+      </li>
+
+      <li>
+        <p>Restore previous behavior of conversion of domains to
+        JSON (Tom Lane)</p>
+
+        <p>This change causes domains over numeric and boolean to
+        be treated like their base types for purposes of conversion
+        to JSON. It worked like that before 9.3.5 and 9.2.9, but
+        was unintentionally changed while fixing a related
+        problem.</p>
+      </li>
+
+      <li>
+        <p>Fix bugs in raising a <tt class="TYPE">numeric</tt>
+        value to a large integral power (Tom Lane)</p>
+
+        <p>The previous code could get a wrong answer, or consume
+        excessive amounts of time and memory before realizing that
+        the answer must overflow.</p>
+      </li>
+
+      <li>
+        <p>In <code class="FUNCTION">numeric_recv()</code>,
+        truncate away any fractional digits that would be hidden
+        according to the value's <tt class="LITERAL">dscale</tt>
+        field (Tom Lane)</p>
+
+        <p>A <tt class="TYPE">numeric</tt> value's display scale
+        (<tt class="LITERAL">dscale</tt>) should never be less than
+        the number of nonzero fractional digits; but apparently
+        there's at least one broken client application that
+        transmits binary <tt class="TYPE">numeric</tt> values in
+        which that's true. This leads to strange behavior since the
+        extra digits are taken into account by arithmetic
+        operations even though they aren't printed. The least risky
+        fix seems to be to truncate away such <span class=
+        "QUOTE">"hidden"</span> digits on receipt, so that the
+        value is indeed what it prints as.</p>
+      </li>
+
+      <li>
+        <p>Fix incorrect search for shortest-first regular
+        expression matches (Tom Lane)</p>
+
+        <p>Matching would often fail when the number of allowed
+        iterations is limited by a <tt class="LITERAL">?</tt>
+        quantifier or a bound expression.</p>
+      </li>
+
+      <li>
+        <p>Reject out-of-range numeric timezone specifications (Tom
+        Lane)</p>
+
+        <p>Simple numeric timezone specifications exceeding +/- 168
+        hours (one week) would be accepted, but could then cause
+        null-pointer dereference crashes in certain operations.
+        There's no use-case for such large UTC offsets, so reject
+        them.</p>
+      </li>
+
+      <li>
+        <p>Fix bugs in <tt class="TYPE">tsquery</tt> <tt class=
+        "LITERAL">@&gt;</tt> <tt class="TYPE">tsquery</tt> operator
+        (Heikki Linnakangas)</p>
+
+        <p>Two different terms would be considered to match if they
+        had the same CRC. Also, if the second operand had more
+        terms than the first, it would be assumed not to be
+        contained in the first; which is wrong since it might
+        contain duplicate terms.</p>
+      </li>
+
+      <li>
+        <p>Improve ispell dictionary's defenses against bad affix
+        files (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Allow more than 64K phrases in a thesaurus dictionary
+        (David Boutin)</p>
+
+        <p>The previous coding could crash on an oversize
+        dictionary, so this was deemed a back-patchable bug fix
+        rather than a feature addition.</p>
+      </li>
+
+      <li>
+        <p>Fix namespace handling in <code class=
+        "FUNCTION">xpath()</code> (Ali Akbar)</p>
+
+        <p>Previously, the <tt class="TYPE">xml</tt> value
+        resulting from an <code class="FUNCTION">xpath()</code>
+        call would not have namespace declarations if the namespace
+        declarations were attached to an ancestor element in the
+        input <tt class="TYPE">xml</tt> value, rather than to the
+        specific element being returned. Propagate the ancestral
+        declaration so that the result is correct when considered
+        in isolation.</p>
+      </li>
+
+      <li>
+        <p>Ensure that whole-row variables expose nonempty column
+        names to functions that pay attention to column names
+        within composite arguments (Tom Lane)</p>
+
+        <p>In some contexts, constructs like <tt class=
+        "LITERAL">row_to_json(tab.*)</tt> may not produce the
+        expected column names. This is fixed properly as of 9.4; in
+        older branches, just ensure that we produce some nonempty
+        name. (In some cases this will be the underlying table's
+        column name rather than the query-assigned alias that
+        should theoretically be visible.)</p>
+      </li>
+
+      <li>
+        <p>Fix mishandling of system columns, particularly
+        <tt class="STRUCTFIELD">tableoid</tt>, in FDW queries
+        (Etsuro Fujita)</p>
+      </li>
+
+      <li>
+        <p>Avoid doing <tt class="LITERAL"><tt class=
+        "REPLACEABLE c2">indexed_column</tt> = ANY (<tt class=
+        "REPLACEABLE c2">array</tt>)</tt> as an index qualifier if
+        that leads to an inferior plan (Andrew Gierth)</p>
+
+        <p>In some cases, <tt class="LITERAL">= ANY</tt> conditions
+        applied to non-first index columns would be done as index
+        conditions even though it would be better to use them as
+        simple filter conditions.</p>
+      </li>
+
+      <li>
+        <p>Fix planner problems with nested append relations, such
+        as inherited tables within <tt class="LITERAL">UNION
+        ALL</tt> subqueries (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Fail cleanly when a GiST index tuple doesn't fit on a
+        page, rather than going into infinite recursion (Andrew
+        Gierth)</p>
+      </li>
+
+      <li>
+        <p>Exempt tables that have per-table <tt class=
+        "VARNAME">cost_limit</tt> and/or <tt class=
+        "VARNAME">cost_delay</tt> settings from autovacuum's global
+        cost balancing rules (Álvaro Herrera)</p>
+
+        <p>The previous behavior resulted in basically ignoring
+        these per-table settings, which was unintended. Now, a
+        table having such settings will be vacuumed using those
+        settings, independently of what is going on in other
+        autovacuum workers. This may result in heavier total I/O
+        load than before, so such settings should be re-examined
+        for sanity.</p>
+      </li>
+
+      <li>
+        <p>Avoid wholesale autovacuuming when autovacuum is
+        nominally off (Tom Lane)</p>
+
+        <p>Even when autovacuum is nominally off, we will still
+        launch autovacuum worker processes to vacuum tables that
+        are at risk of XID wraparound. However, such a worker
+        process then proceeded to vacuum all tables in the target
+        database, if they met the usual thresholds for
+        autovacuuming. This is at best pretty unexpected; at worst
+        it delays response to the wraparound threat. Fix it so that
+        if autovacuum is turned off, workers <span class=
+        "emphasis EMPHASIS c3">only</span> do anti-wraparound
+        vacuums and not any other work.</p>
+      </li>
+
+      <li>
+        <p>During crash recovery, ensure that unlogged relations
+        are rewritten as empty and are synced to disk before
+        recovery is considered complete (Abhijit Menon-Sen, Andres
+        Freund)</p>
+
+        <p>This prevents scenarios in which unlogged relations
+        might contain garbage data following database crash
+        recovery.</p>
+      </li>
+
+      <li>
+        <p>Fix race condition between hot standby queries and
+        replaying a full-page image (Heikki Linnakangas)</p>
+
+        <p>This mistake could result in transient errors in queries
+        being executed in hot standby.</p>
+      </li>
+
+      <li>
+        <p>Fix several cases where recovery logic improperly
+        ignored WAL records for <tt class="LITERAL">COMMIT/ABORT
+        PREPARED</tt> (Heikki Linnakangas)</p>
+
+        <p>The most notable oversight was that <tt class=
+        "VARNAME">recovery_target_xid</tt> could not be used to
+        stop at a two-phase commit.</p>
+      </li>
+
+      <li>
+        <p>Prevent latest WAL file from being archived a second
+        time at completion of crash recovery (Fujii Masao)</p>
+      </li>
+
+      <li>
+        <p>Avoid creating unnecessary <tt class=
+        "FILENAME">.ready</tt> marker files for timeline history
+        files (Fujii Masao)</p>
+      </li>
+
+      <li>
+        <p>Fix possible null pointer dereference when an empty
+        prepared statement is used and the <tt class=
+        "VARNAME">log_statement</tt> setting is <tt class=
+        "LITERAL">mod</tt> or <tt class="LITERAL">ddl</tt> (Fujii
+        Masao)</p>
+      </li>
+
+      <li>
+        <p>Change <span class="QUOTE">"pgstat wait timeout"</span>
+        warning message to be LOG level, and rephrase it to be more
+        understandable (Tom Lane)</p>
+
+        <p>This message was originally thought to be essentially a
+        can't-happen case, but it occurs often enough on our slower
+        buildfarm members to be a nuisance. Reduce it to LOG level,
+        and expend a bit more effort on the wording: it now reads
+        <span class="QUOTE">"using stale statistics instead of
+        current ones because stats collector is not
+        responding"</span>.</p>
+      </li>
+
+      <li>
+        <p>Fix SPARC spinlock implementation to ensure correctness
+        if the CPU is being run in a non-TSO coherency mode, as
+        some non-Solaris kernels do (Andres Freund)</p>
+      </li>
+
+      <li>
+        <p>Warn if macOS's <code class=
+        "FUNCTION">setlocale()</code> starts an unwanted extra
+        thread inside the postmaster (Noah Misch)</p>
+      </li>
+
+      <li>
+        <p>Fix processing of repeated <tt class=
+        "LITERAL">dbname</tt> parameters in <code class=
+        "FUNCTION">PQconnectdbParams()</code> (Alex Shulgin)</p>
+
+        <p>Unexpected behavior ensued if the first occurrence of
+        <tt class="LITERAL">dbname</tt> contained a connection
+        string or URI to be expanded.</p>
+      </li>
+
+      <li>
+        <p>Ensure that <span class="APPLICATION">libpq</span>
+        reports a suitable error message on unexpected socket EOF
+        (Marko Tiikkaja, Tom Lane)</p>
+
+        <p>Depending on kernel behavior, <span class=
+        "APPLICATION">libpq</span> might return an empty error
+        string rather than something useful when the server
+        unexpectedly closed the socket.</p>
+      </li>
+
+      <li>
+        <p>Clear any old error message during <code class=
+        "FUNCTION">PQreset()</code> (Heikki Linnakangas)</p>
+
+        <p>If <code class="FUNCTION">PQreset()</code> is called
+        repeatedly, and the connection cannot be re-established,
+        error messages from the failed connection attempts kept
+        accumulating in the <tt class="STRUCTNAME">PGconn</tt>'s
+        error string.</p>
+      </li>
+
+      <li>
+        <p>Properly handle out-of-memory conditions while parsing
+        connection options in <span class=
+        "APPLICATION">libpq</span> (Alex Shulgin, Heikki
+        Linnakangas)</p>
+      </li>
+
+      <li>
+        <p>Fix array overrun in <span class=
+        "APPLICATION">ecpg</span>'s version of <code class=
+        "FUNCTION">ParseDateTime()</code> (Michael Paquier)</p>
+      </li>
+
+      <li>
+        <p>In <span class="APPLICATION">initdb</span>, give a
+        clearer error message if a password file is specified but
+        is empty (Mats Erik Andersson)</p>
+      </li>
+
+      <li>
+        <p>Fix <span class="APPLICATION">psql</span>'s <tt class=
+        "COMMAND">\s</tt> command to work nicely with libedit, and
+        add pager support (Stepan Rutz, Tom Lane)</p>
+
+        <p>When using libedit rather than readline, <tt class=
+        "COMMAND">\s</tt> printed the command history in a fairly
+        unreadable encoded format, and on recent libedit versions
+        might fail altogether. Fix that by printing the history
+        ourselves rather than having the library do it. A pleasant
+        side-effect is that the pager is used if appropriate.</p>
+
+        <p>This patch also fixes a bug that caused newline encoding
+        to be applied inconsistently when saving the command
+        history with libedit. Multiline history entries written by
+        older <span class="APPLICATION">psql</span> versions will
+        be read cleanly with this patch, but perhaps not vice
+        versa, depending on the exact libedit versions
+        involved.</p>
+      </li>
+
+      <li>
+        <p>Improve consistency of parsing of <span class=
+        "APPLICATION">psql</span>'s special variables (Tom
+        Lane)</p>
+
+        <p>Allow variant spellings of <tt class="LITERAL">on</tt>
+        and <tt class="LITERAL">off</tt> (such as <tt class=
+        "LITERAL">1</tt>/<tt class="LITERAL">0</tt>) for <tt class=
+        "LITERAL">ECHO_HIDDEN</tt> and <tt class=
+        "LITERAL">ON_ERROR_ROLLBACK</tt>. Report a warning for
+        unrecognized values for <tt class=
+        "LITERAL">COMP_KEYWORD_CASE</tt>, <tt class=
+        "LITERAL">ECHO</tt>, <tt class="LITERAL">ECHO_HIDDEN</tt>,
+        <tt class="LITERAL">HISTCONTROL</tt>, <tt class=
+        "LITERAL">ON_ERROR_ROLLBACK</tt>, and <tt class=
+        "LITERAL">VERBOSITY</tt>. Recognize all values for all
+        these variables case-insensitively; previously there was a
+        mishmash of case-sensitive and case-insensitive
+        behaviors.</p>
+      </li>
+
+      <li>
+        <p>Fix <span class="APPLICATION">psql</span>'s
+        expanded-mode display to work consistently when using
+        <tt class="LITERAL">border</tt> = 3 and <tt class=
+        "LITERAL">linestyle</tt> = <tt class="LITERAL">ascii</tt>
+        or <tt class="LITERAL">unicode</tt> (Stephen Frost)</p>
+      </li>
+
+      <li>
+        <p>Improve performance of <span class=
+        "APPLICATION">pg_dump</span> when the database contains
+        many instances of multiple dependency paths between the
+        same two objects (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Fix <span class="APPLICATION">pg_dumpall</span> to
+        restore its ability to dump from pre-8.1 servers (Gilles
+        Darold)</p>
+      </li>
+
+      <li>
+        <p>Fix possible deadlock during parallel restore of a
+        schema-only dump (Robert Haas, Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Fix core dump in <tt class="LITERAL">pg_dump
+        --binary-upgrade</tt> on zero-column composite type
+        (Rushabh Lathia)</p>
+      </li>
+
+      <li>
+        <p>Prevent WAL files created by <tt class=
+        "LITERAL">pg_basebackup -x/-X</tt> from being archived
+        again when the standby is promoted (Andres Freund)</p>
+      </li>
+
+      <li>
+        <p>Fix failure of <tt class=
+        "FILENAME">contrib/auto_explain</tt> to print per-node
+        timing information when doing <tt class="COMMAND">EXPLAIN
+        ANALYZE</tt> (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Fix upgrade-from-unpackaged script for <tt class=
+        "FILENAME">contrib/citext</tt> (Tom Lane)</p>
+      </li>
+
+      <li>
+        <p>Fix block number checking in <tt class=
+        "FILENAME">contrib/pageinspect</tt>'s <code class=
+        "FUNCTION">get_raw_page()</code> (Tom Lane)</p>
+
+        <p>The incorrect checking logic could prevent access to
+        some pages in non-main relation forks.</p>
+      </li>
+
+      <li>
+        <p>Fix <tt class="FILENAME">contrib/pgcrypto</tt>'s
+        <code class="FUNCTION">pgp_sym_decrypt()</code> to not fail
+        on messages whose length is 6 less than a power of 2 (Marko
+        Tiikkaja)</p>
+      </li>
+
+      <li>
+        <p>Fix file descriptor leak in <tt class=
+        "FILENAME">contrib/pg_test_fsync</tt> (Jeff Janes)</p>
+
+        <p>This could cause failure to remove temporary files on
+        Windows.</p>
+      </li>
+
+      <li>
+        <p>Handle unexpected query results, especially NULLs,
+        safely in <tt class="FILENAME">contrib/tablefunc</tt>'s
+        <code class="FUNCTION">connectby()</code> (Michael
+        Paquier)</p>
+
+        <p><code class="FUNCTION">connectby()</code> previously
+        crashed if it encountered a NULL key value. It now prints
+        that row but doesn't recurse further.</p>
+      </li>
+
+      <li>
+        <p>Avoid a possible crash in <tt class=
+        "FILENAME">contrib/xml2</tt>'s <code class=
+        "FUNCTION">xslt_process()</code> (Mark Simonetti)</p>
+
+        <p><span class="APPLICATION">libxslt</span> seems to have
+        an undocumented dependency on the order in which resources
+        are freed; reorder our calls to avoid a crash.</p>
+      </li>
+
+      <li>
+        <p>Mark some <tt class="FILENAME">contrib</tt> I/O
+        functions with correct volatility properties (Tom Lane)</p>
+
+        <p>The previous over-conservative marking was immaterial in
+        normal use, but could cause optimization problems or
+        rejection of valid index expression definitions. Since the
+        consequences are not large, we've just adjusted the
+        function definitions in the extension modules' scripts,
+        without changing version numbers.</p>
+      </li>
+
+      <li>
+        <p>Numerous cleanups of warnings from Coverity static code
+        analyzer (Andres Freund, Tatsuo Ishii, Marko Kreen, Tom
+        Lane, Michael Paquier)</p>
+
+        <p>These changes are mostly cosmetic but in some cases fix
+        corner-case bugs, for example a crash rather than a proper
+        error report after an out-of-memory failure. None are
+        believed to represent security issues.</p>
+      </li>
+
+      <li>
+        <p>Detect incompatible OpenLDAP versions during build (Noah
+        Misch)</p>
+
+        <p>With OpenLDAP versions 2.4.24 through 2.4.31, inclusive,
+        <span class="PRODUCTNAME">PostgreSQL</span> backends can
+        crash at exit. Raise a warning during <span class=
+        "APPLICATION">configure</span> based on the compile-time
+        OpenLDAP version number, and test the crashing scenario in
+        the <tt class="FILENAME">contrib/dblink</tt> regression
+        test.</p>
+      </li>
+
+      <li>
+        <p>In non-MSVC Windows builds, ensure <tt class=
+        "FILENAME">libpq.dll</tt> is installed with execute
+        permissions (Noah Misch)</p>
+      </li>
+
+      <li>
+        <p>Make <span class="APPLICATION">pg_regress</span> remove
+        any temporary installation it created upon successful exit
+        (Tom Lane)</p>
+
+        <p>This results in a very substantial reduction in disk
+        space usage during <tt class="LITERAL">make
+        check-world</tt>, since that sequence involves creation of
+        numerous temporary installations.</p>
+      </li>
+
+      <li>
+        <p>Support time zone abbreviations that change UTC offset
+        from time to time (Tom Lane)</p>
+
+        <p>Previously, <span class="PRODUCTNAME">PostgreSQL</span>
+        assumed that the UTC offset associated with a time zone
+        abbreviation (such as <tt class="LITERAL">EST</tt>) never
+        changes in the usage of any particular locale. However this
+        assumption fails in the real world, so introduce the
+        ability for a zone abbreviation to represent a UTC offset
+        that sometimes changes. Update the zone abbreviation
+        definition files to make use of this feature in timezone
+        locales that have changed the UTC offset of their
+        abbreviations since 1970 (according to the IANA timezone
+        database). In such timezones, <span class=
+        "PRODUCTNAME">PostgreSQL</span> will now associate the
+        correct UTC offset with the abbreviation depending on the
+        given date.</p>
+      </li>
+
+      <li>
+        <p>Update time zone abbreviations lists (Tom Lane)</p>
+
+        <p>Add CST (China Standard Time) to our lists. Remove
+        references to ADT as <span class="QUOTE">"Arabia Daylight
+        Time"</span>, an abbreviation that's been out of use since
+        2007; therefore, claiming there is a conflict with
+        <span class="QUOTE">"Atlantic Daylight Time"</span> doesn't
+        seem especially helpful. Fix entirely incorrect GMT offsets
+        for CKT (Cook Islands), FJT, and FJST (Fiji); we didn't
+        even have them on the proper side of the date line.</p>
+      </li>
+
+      <li>
+        <p>Update time zone data files to <span class=
+        "APPLICATION">tzdata</span> release 2015a.</p>
+
+        <p>The IANA timezone database has adopted abbreviations of
+        the form <tt class="LITERAL">A<tt class=
+        "REPLACEABLE c2">x</tt>ST</tt>/<tt class=
+        "LITERAL">A<tt class="REPLACEABLE c2">x</tt>DT</tt> for all
+        Australian time zones, reflecting what they believe to be
+        current majority practice Down Under. These names do not
+        conflict with usage elsewhere (other than ACST for Acre
+        Summer Time, which has been in disuse since 1994).
+        Accordingly, adopt these names into our <span class=
+        "QUOTE">"Default"</span> timezone abbreviation set. The
+        <span class="QUOTE">"Australia"</span> abbreviation set now
+        contains only CST, EAST, EST, SAST, SAT, and WST, all of
+        which are thought to be mostly historical usage. Note that
+        SAST has also been changed to be South Africa Standard Time
+        in the <span class="QUOTE">"Default"</span> abbreviation
+        set.</p>
+
+        <p>Also, add zone abbreviations SRET (Asia/Srednekolymsk)
+        and XJT (Asia/Urumqi), and use WSST/WSDT for western Samoa.
+        Also, there were DST law changes in Chile, Mexico, the
+        Turks &amp; Caicos Islands (America/Grand_Turk), and Fiji.
+        There is a new zone Pacific/Bougainville for portions of
+        Papua New Guinea. Also, numerous corrections for historical
+        (pre-1970) time zone data.</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="NAVFOOTER">
+  <hr class="c1" width="100%" />
+
+  <table summary="Footer navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="33%" align="left" valign="top"><a href=
+      "release-9-2-11.html" accesskey="P">Prev</a></td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "index.html" accesskey="H">Home</a></td>
+
+      <td width="33%" align="right" valign="top"><a href=
+      "release-9-2-9.html" accesskey="N">Next</a></td>
+    </tr>
+
+    <tr>
+      <td width="33%" align="left" valign="top">Release 9.2.11</td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "release.html" accesskey="U">Up</a></td>
+
+      <td width="33%" align="right" valign="top">Release 9.2.9</td>
+    </tr>
+  </table>
+</div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+            <a href="/docs/release/9.2.9/">
+              Previous
+            </a>
+          
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/9.2.11/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.24/">
+                9.2.24
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.23/">
+                9.2.23
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.22/">
+                9.2.22
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.21/">
+                9.2.21
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.20/">
+                9.2.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.19/">
+                9.2.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.18/">
+                9.2.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.17/">
+                9.2.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.16/">
+                9.2.16
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.15/">
+                9.2.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.14/">
+                9.2.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.13/">
+                9.2.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.12/">
+                9.2.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.11/">
+                9.2.11
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                9.2.10
+              </strong>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.9/">
+                9.2.9
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.8/">
+                9.2.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.7/">
+                9.2.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.6/">
+                9.2.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.5/">
+                9.2.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.4/">
+                9.2.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.3/">
+                9.2.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.2/">
+                9.2.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.1/">
+                9.2.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.2.0/">
+                9.2.0
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>

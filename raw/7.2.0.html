@@ -1,0 +1,1746 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/7.2/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          7.2.0
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+  <table summary="Header navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <th colspan="3" align="center">PostgreSQL 7.2.8
+      Documentation</th>
+    </tr>
+
+    <tr>
+      <td width="10%" align="left" valign="bottom"><a href=
+      "release-7-2-1.html" accesskey="P">Prev</a></td>
+
+      <td width="80%" align="center" valign="bottom">Appendix A.
+      Release Notes</td>
+
+      <td width="10%" align="right" valign="bottom"><a href=
+      "release-7-1-3.html" accesskey="N">Next</a></td>
+    </tr>
+  </table>
+  <hr class="c1" width="100%" />
+</div>
+
+<div class="SECT1">
+  <h1 class="SECT1"><a name="RELEASE-7-2" id="RELEASE-7-2">A.9.
+  Release 7.2</a></h1>
+
+  <div class="NOTE">
+    <blockquote class="NOTE">
+      <p><b>Release date:</b> 2002-02-04</p>
+    </blockquote>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN18727" id="AEN18727">A.9.1.
+    Overview</a></h2>
+
+    <p>This release improves <span class=
+    "PRODUCTNAME">PostgreSQL</span> for use in high-volume
+    applications.</p>
+
+    <p>Major changes in this release:</p>
+
+    <div class="VARIABLELIST">
+      <dl>
+        <dt>VACUUM</dt>
+
+        <dd>
+          <p>Vacuuming no longer locks tables, thus allowing normal
+          user access during the vacuum. A new <b class=
+          "COMMAND">VACUUM FULL</b> command does old-style vacuum
+          by locking the table and shrinking the on-disk copy of
+          the table.</p>
+        </dd>
+
+        <dt>Transactions</dt>
+
+        <dd>
+          <p>There is no longer a problem with installations that
+          exceed four billion transactions.</p>
+        </dd>
+
+        <dt>OIDs</dt>
+
+        <dd>
+          <p>OIDs are now optional. Users can now create tables
+          without OIDs for cases where OID usage is excessive.</p>
+        </dd>
+
+        <dt>Optimizer</dt>
+
+        <dd>
+          <p>The system now computes histogram column statistics
+          during <b class="COMMAND">ANALYZE</b>, allowing much
+          better optimizer choices.</p>
+        </dd>
+
+        <dt>Security</dt>
+
+        <dd>
+          <p>A new MD5 encryption option allows more secure storage
+          and transfer of passwords. A new Unix-domain socket
+          authentication option is available on Linux and BSD
+          systems.</p>
+        </dd>
+
+        <dt>Statistics</dt>
+
+        <dd>
+          <p>Administrators can use the new table access statistics
+          module to get fine-grained information about table and
+          index usage.</p>
+        </dd>
+
+        <dt>Internationalization</dt>
+
+        <dd>
+          <p>Program and library messages can now be displayed in
+          several languages.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN18763" id="AEN18763">A.9.2.
+    Migration to version 7.2</a></h2>
+
+    <p>A dump/restore using <b class="COMMAND">pg_dump</b> is
+    required for those wishing to migrate data from any previous
+    release.</p>
+
+    <p>Observe the following incompatibilities:</p>
+
+    <ul>
+      <li>
+        <p>The semantics of the <b class="COMMAND">VACUUM</b>
+        command have changed in this release. You may wish to
+        update your maintenance procedures accordingly.</p>
+      </li>
+
+      <li>
+        <p>In this release, comparisons using <tt class="LITERAL">=
+        NULL</tt> will always return false (or NULL, more
+        precisely). Previous releases automatically transformed
+        this syntax to <tt class="LITERAL">IS NULL</tt>. The old
+        behavior can be re-enabled using a <tt class=
+        "FILENAME">postgresql.conf</tt> parameter.</p>
+      </li>
+
+      <li>
+        <p>The <tt class="FILENAME">pg_hba.conf</tt> and <tt class=
+        "FILENAME">pg_ident.conf</tt> configuration is now only
+        reloaded after receiving a <span class=
+        "SYSTEMITEM">SIGHUP</span> signal, not with each
+        connection.</p>
+      </li>
+
+      <li>
+        <p>The function <tt class="FILENAME">octet_length()</tt>
+        now returns the uncompressed data length.</p>
+      </li>
+
+      <li>
+        <p>The date/time value <tt class="LITERAL">'current'</tt>
+        is no longer available. You will need to rewrite your
+        applications.</p>
+      </li>
+
+      <li>
+        <p>The <tt class="LITERAL">timestamp()</tt>, <tt class=
+        "LITERAL">time()</tt>, and <tt class=
+        "LITERAL">interval()</tt> functions are no longer
+        available. Instead of <tt class="LITERAL">timestamp()</tt>,
+        use <tt class="LITERAL">timestamp 'string'</tt> or
+        <tt class="LITERAL">CAST</tt>.</p>
+      </li>
+    </ul>
+
+    <p>The <tt class="LITERAL">SELECT ... LIMIT #,#</tt> syntax
+    will be removed in the next release. You should change your
+    queries to use separate LIMIT and OFFSET clauses, e.g.
+    <tt class="LITERAL">LIMIT 10 OFFSET 20</tt>.</p>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN18799" id="AEN18799">A.9.3.
+    Changes</a></h2>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18801" id="AEN18801">A.9.3.1.
+      Server Operation</a></h3>
+
+      <ul>
+        <li>
+          <p>Create temporary files in a separate directory
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Delete orphaned temporary files on postmaster startup
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Added unique indexes to some system tables (Tom)</p>
+        </li>
+
+        <li>
+          <p>System table operator reorganization (Oleg Bartunov,
+          Teodor Sigaev, Tom)</p>
+        </li>
+
+        <li>
+          <p>Renamed pg_log to pg_clog (Tom)</p>
+        </li>
+
+        <li>
+          <p>Enable SIGTERM, SIGQUIT to kill backends (Jan)</p>
+        </li>
+
+        <li>
+          <p>Removed compile-time limit on number of backends
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Better cleanup for semaphore resource failure (Tatsuo,
+          Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow safe transaction ID wraparound (Tom)</p>
+        </li>
+
+        <li>
+          <p>Removed OIDs from some system tables (Tom)</p>
+        </li>
+
+        <li>
+          <p>Removed "triggered data change violation" error check
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>SPI portal creation of prepared/saved plans (Jan)</p>
+        </li>
+
+        <li>
+          <p>Allow SPI column functions to work for system columns
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Long value compression improvement (Tom)</p>
+        </li>
+
+        <li>
+          <p>Statistics collector for table, index access (Jan)</p>
+        </li>
+
+        <li>
+          <p>Truncate extra-long sequence names to a reasonable
+          value (Tom)</p>
+        </li>
+
+        <li>
+          <p>Measure transaction times in milliseconds (Thomas)</p>
+        </li>
+
+        <li>
+          <p>Fix TID sequential scans (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Superuser ID now fixed at 1 (Peter E)</p>
+        </li>
+
+        <li>
+          <p>New pg_ctl "reload" option (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18844" id="AEN18844">A.9.3.2.
+      Performance</a></h3>
+
+      <ul>
+        <li>
+          <p>Optimizer improvements (Tom)</p>
+        </li>
+
+        <li>
+          <p>New histogram column statistics for optimizer
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Reuse write-ahead log files rather than discarding
+          them (Tom)</p>
+        </li>
+
+        <li>
+          <p>Cache improvements (Tom)</p>
+        </li>
+
+        <li>
+          <p>IS NULL, IS NOT NULL optimizer improvement (Tom)</p>
+        </li>
+
+        <li>
+          <p>Improve lock manager to reduce lock contention
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Keep relcache entries for index access support
+          functions (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow better selectivity with NaN and infinities in
+          NUMERIC (Tom)</p>
+        </li>
+
+        <li>
+          <p>R-tree performance improvements (Kenneth Been)</p>
+        </li>
+
+        <li>
+          <p>B-tree splits more efficient (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18867" id="AEN18867">A.9.3.3.
+      Privileges</a></h3>
+
+      <ul>
+        <li>
+          <p>Change UPDATE, DELETE privileges to be distinct (Peter
+          E)</p>
+        </li>
+
+        <li>
+          <p>New REFERENCES, TRIGGER privileges (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Allow GRANT/REVOKE to/from more than one user at a
+          time (Peter E)</p>
+        </li>
+
+        <li>
+          <p>New has_table_privilege() function (Joe Conway)</p>
+        </li>
+
+        <li>
+          <p>Allow non-superuser to vacuum database (Tom)</p>
+        </li>
+
+        <li>
+          <p>New SET SESSION AUTHORIZATION command (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Fix bug in privilege modifications on newly created
+          tables (Tom)</p>
+        </li>
+
+        <li>
+          <p>Disallow access to pg_statistic for non-superuser, add
+          user-accessible views (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18886" id="AEN18886">A.9.3.4.
+      Client Authentication</a></h3>
+
+      <ul>
+        <li>
+          <p>Fork postmaster before doing authentication to prevent
+          hangs (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Add ident authentication over Unix domain sockets on
+          Linux, *BSD (Helge Bahmann, Oliver Elphick, Teodor
+          Sigaev, Bruce)</p>
+        </li>
+
+        <li>
+          <p>Add a password authentication method that uses MD5
+          encryption (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Allow encryption of stored passwords using MD5
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>PAM authentication (Dominic J. Eidson)</p>
+        </li>
+
+        <li>
+          <p>Load pg_hba.conf and pg_ident.conf only on startup and
+          SIGHUP (Bruce)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18901" id="AEN18901">A.9.3.5.
+      Server Configuration</a></h3>
+
+      <ul>
+        <li>
+          <p>Interpretation of some time zone abbreviations as
+          Australian rather than North American now settable at run
+          time (Bruce)</p>
+        </li>
+
+        <li>
+          <p>New parameter to set default transaction isolation
+          level (Peter E)</p>
+        </li>
+
+        <li>
+          <p>New parameter to enable conversion of "expr = NULL"
+          into "expr IS NULL", off by default (Peter E)</p>
+        </li>
+
+        <li>
+          <p>New parameter to control memory usage by VACUUM
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>New parameter to set client authentication timeout
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>New parameter to set maximum number of open files
+          (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18916" id="AEN18916">A.9.3.6.
+      Queries</a></h3>
+
+      <ul>
+        <li>
+          <p>Statements added by INSERT rules now execute after the
+          INSERT (Jan)</p>
+        </li>
+
+        <li>
+          <p>Prevent unadorned relation names in target list
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>NULLs now sort after all normal values in ORDER BY
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>New IS UNKNOWN, IS NOT UNKNOWN Boolean tests (Tom)</p>
+        </li>
+
+        <li>
+          <p>New SHARE UPDATE EXCLUSIVE lock mode (Tom)</p>
+        </li>
+
+        <li>
+          <p>New EXPLAIN ANALYZE command that shows run times and
+          row counts (Martijn van Oosterhout)</p>
+        </li>
+
+        <li>
+          <p>Fix problem with LIMIT and subqueries (Tom)</p>
+        </li>
+
+        <li>
+          <p>Fix for LIMIT, DISTINCT ON pushed into subqueries
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Fix nested EXCEPT/INTERSECT (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18937" id="AEN18937">A.9.3.7.
+      Schema Manipulation</a></h3>
+
+      <ul>
+        <li>
+          <p>Fix SERIAL in temporary tables (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Allow temporary sequences (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Sequences now use int8 internally (Tom)</p>
+        </li>
+
+        <li>
+          <p>New SERIAL8 creates int8 columns with sequences,
+          default still SERIAL4 (Tom)</p>
+        </li>
+
+        <li>
+          <p>Make OIDs optional using WITHOUT OIDS (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add %TYPE syntax to CREATE TYPE (Ian Lance Taylor)</p>
+        </li>
+
+        <li>
+          <p>Add ALTER TABLE / DROP CONSTRAINT for CHECK
+          constraints (Christopher Kings-Lynne)</p>
+        </li>
+
+        <li>
+          <p>New CREATE OR REPLACE FUNCTION to alter existing
+          function (preserving the function OID) (Gavin Sherry)</p>
+        </li>
+
+        <li>
+          <p>Add ALTER TABLE / ADD [ UNIQUE | PRIMARY ]
+          (Christopher Kings-Lynne)</p>
+        </li>
+
+        <li>
+          <p>Allow column renaming in views</p>
+        </li>
+
+        <li>
+          <p>Make ALTER TABLE / RENAME COLUMN update column names
+          of indexes (Brent Verner)</p>
+        </li>
+
+        <li>
+          <p>Fix for ALTER TABLE / ADD CONSTRAINT ... CHECK with
+          inherited tables (Stephan Szabo)</p>
+        </li>
+
+        <li>
+          <p>ALTER TABLE RENAME update foreign-key trigger
+          arguments correctly (Brent Verner)</p>
+        </li>
+
+        <li>
+          <p>DROP AGGREGATE and COMMENT ON AGGREGATE now accept an
+          aggtype (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add automatic return type data casting for SQL
+          functions (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow GiST indexes to handle NULLs and multikey
+          indexes (Oleg Bartunov, Teodor Sigaev, Tom)</p>
+        </li>
+
+        <li>
+          <p>Enable partial indexes (Martijn van Oosterhout)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18974" id="AEN18974">A.9.3.8.
+      Utility Commands</a></h3>
+
+      <ul>
+        <li>
+          <p>Add RESET ALL, SHOW ALL (Marko Kreen)</p>
+        </li>
+
+        <li>
+          <p>CREATE/ALTER USER/GROUP now allow options in any order
+          (Vince)</p>
+        </li>
+
+        <li>
+          <p>Add LOCK A, B, C functionality (Neil Padgett)</p>
+        </li>
+
+        <li>
+          <p>New ENCRYPTED/UNENCRYPTED option to CREATE/ALTER USER
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>New light-weight VACUUM does not lock table; old
+          semantics are available as VACUUM FULL (Tom)</p>
+        </li>
+
+        <li>
+          <p>Disable COPY TO/FROM on views (Bruce)</p>
+        </li>
+
+        <li>
+          <p>COPY DELIMITERS string must be exactly one character
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>VACUUM warning about index tuples fewer than heap now
+          only appears when appropriate (Martijn van
+          Oosterhout)</p>
+        </li>
+
+        <li>
+          <p>Fix privilege checks for CREATE INDEX (Tom)</p>
+        </li>
+
+        <li>
+          <p>Disallow inappropriate use of CREATE/DROP
+          INDEX/TRIGGER/VIEW (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN18997" id="AEN18997">A.9.3.9.
+      Data Types and Functions</a></h3>
+
+      <ul>
+        <li>
+          <p>SUM(), AVG(), COUNT() now uses int8 internally for
+          speed (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add convert(), convert2() (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>New function bit_length() (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Make the "n" in CHAR(n)/VARCHAR(n) represents letters,
+          not bytes (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>CHAR(), VARCHAR() now reject strings that are too long
+          (Peter E)</p>
+        </li>
+
+        <li>
+          <p>BIT VARYING now rejects bit strings that are too long
+          (Peter E)</p>
+        </li>
+
+        <li>
+          <p>BIT now rejects bit strings that do not match declared
+          size (Peter E)</p>
+        </li>
+
+        <li>
+          <p>INET, CIDR text conversion functions (Alex
+          Pilosov)</p>
+        </li>
+
+        <li>
+          <p>INET, CIDR operators &lt;&lt; and &lt;&lt;= indexable
+          (Alex Pilosov)</p>
+        </li>
+
+        <li>
+          <p>Bytea \### now requires valid three digit octal
+          number</p>
+        </li>
+
+        <li>
+          <p>Bytea comparison improvements, now supports =,
+          &lt;&gt;, &gt;, &gt;=, &lt;, and &lt;=</p>
+        </li>
+
+        <li>
+          <p>Bytea now supports B-tree indexes</p>
+        </li>
+
+        <li>
+          <p>Bytea now supports LIKE, LIKE...ESCAPE, NOT LIKE, NOT
+          LIKE...ESCAPE</p>
+        </li>
+
+        <li>
+          <p>Bytea now supports concatenation</p>
+        </li>
+
+        <li>
+          <p>New bytea functions: position, substring, trim, btrim,
+          and length</p>
+        </li>
+
+        <li>
+          <p>New encode() function mode, "escaped", converts
+          minimally escaped bytea to/from text</p>
+        </li>
+
+        <li>
+          <p>Add pg_database_encoding_max_length() (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Add pg_client_encoding() function (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>now() returns time with millisecond precision
+          (Thomas)</p>
+        </li>
+
+        <li>
+          <p>New TIMESTAMP WITHOUT TIMEZONE data type (Thomas)</p>
+        </li>
+
+        <li>
+          <p>Add ISO date/time specification with "T",
+          yyyy-mm-ddThh:mm:ss (Thomas)</p>
+        </li>
+
+        <li>
+          <p>New xid/int comparison functions (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Add precision to TIME, TIMESTAMP, and INTERVAL data
+          types (Thomas)</p>
+        </li>
+
+        <li>
+          <p>Modify type coercion logic to attempt
+          binary-compatible functions first (Tom)</p>
+        </li>
+
+        <li>
+          <p>New encode() function installed by default (Marko
+          Kreen)</p>
+        </li>
+
+        <li>
+          <p>Improved to_*() conversion functions (Karel Zak)</p>
+        </li>
+
+        <li>
+          <p>Optimize LIKE/ILIKE when using single-byte encodings
+          (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>New functions in contrib/pgcrypto: crypt(), hmac(),
+          encrypt(), gen_salt() (Marko Kreen)</p>
+        </li>
+
+        <li>
+          <p>Correct description of translate() function
+          (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Add INTERVAL argument for SET TIME ZONE (Thomas)</p>
+        </li>
+
+        <li>
+          <p>Add INTERVAL YEAR TO MONTH (etc.) syntax (Thomas)</p>
+        </li>
+
+        <li>
+          <p>Optimize length functions when using single-byte
+          encodings (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Fix path_inter, path_distance, path_length, dist_ppath
+          to handle closed paths (Curtis Barrett, Tom)</p>
+        </li>
+
+        <li>
+          <p>octet_length(text) now returns non-compressed length
+          (Tatsuo, Bruce)</p>
+        </li>
+
+        <li>
+          <p>Handle "July" full name in date/time literals (Greg
+          Sabino Mullane)</p>
+        </li>
+
+        <li>
+          <p>Some datatype() function calls now evaluated
+          differently</p>
+        </li>
+
+        <li>
+          <p>Add support for Julian and ISO time specifications
+          (Thomas)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19074" id="AEN19074">A.9.3.10.
+      Internationalization</a></h3>
+
+      <ul>
+        <li>
+          <p>National language support in psql, <span class=
+          "APPLICATION">pg_dump</span>, libpq, and server (Peter
+          E)</p>
+        </li>
+
+        <li>
+          <p>Message translations in Chinese (simplified,
+          traditional), Czech, French, German, Hungarian, Russian,
+          Swedish (Peter E, Serguei A. Mokhov, Karel Zak, Weiping
+          He, Zhenbang Wei, Kovacs Zoltan)</p>
+        </li>
+
+        <li>
+          <p>Make trim, ltrim, rtrim, btrim, lpad, rpad, translate
+          multibyte aware (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Add LATIN5,6,7,8,9,10 support (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Add ISO 8859-5,6,7,8 support (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Correct LATIN5 to mean ISO-8859-9, not ISO-8859-5
+          (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Make mic2ascii() non-ASCII aware (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>Reject invalid multibyte character sequences
+          (Tatsuo)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19094" id="AEN19094">A.9.3.11.
+      <span class="APPLICATION">PL/pgSQL</span></a></h3>
+
+      <ul>
+        <li>
+          <p>Now uses portals for SELECT loops, allowing huge
+          result sets (Jan)</p>
+        </li>
+
+        <li>
+          <p>CURSOR and REFCURSOR support (Jan)</p>
+        </li>
+
+        <li>
+          <p>Can now return open cursors (Jan)</p>
+        </li>
+
+        <li>
+          <p>Add ELSEIF (Klaus Reger)</p>
+        </li>
+
+        <li>
+          <p>Improve PL/pgSQL error reporting, including location
+          of error (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow IS or FOR key words in cursor declaration, for
+          compatibility (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Fix for SELECT ... FOR UPDATE (Tom)</p>
+        </li>
+
+        <li>
+          <p>Fix for PERFORM returning multiple rows (Tom)</p>
+        </li>
+
+        <li>
+          <p>Make PL/pgSQL use the server's type coercion code
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Memory leak fix (Jan, Tom)</p>
+        </li>
+
+        <li>
+          <p>Make trailing semicolon optional (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19120" id="AEN19120">A.9.3.12.
+      PL/Perl</a></h3>
+
+      <ul>
+        <li>
+          <p>New untrusted PL/Perl (Alex Pilosov)</p>
+        </li>
+
+        <li>
+          <p>PL/Perl is now built on some platforms even if libperl
+          is not shared (Peter E)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19127" id="AEN19127">A.9.3.13.
+      PL/Tcl</a></h3>
+
+      <ul>
+        <li>
+          <p>Now reports errorInfo (Vsevolod Lobko)</p>
+        </li>
+
+        <li>
+          <p>Add spi_lastoid function (bob@redivi.com)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19134" id="AEN19134">A.9.3.14.
+      PL/Python</a></h3>
+
+      <ul>
+        <li>
+          <p>...is new (Andrew Bosma)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19139" id="AEN19139">A.9.3.15.
+      <span class="APPLICATION">psql</span></a></h3>
+
+      <ul>
+        <li>
+          <p>\d displays indexes in unique, primary groupings
+          (Christopher Kings-Lynne)</p>
+        </li>
+
+        <li>
+          <p>Allow trailing semicolons in backslash commands (Greg
+          Sabino Mullane)</p>
+        </li>
+
+        <li>
+          <p>Read password from /dev/tty if possible</p>
+        </li>
+
+        <li>
+          <p>Force new password prompt when changing user and
+          database (Tatsuo, Tom)</p>
+        </li>
+
+        <li>
+          <p>Format the correct number of columns for Unicode
+          (Patrice)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19153" id="AEN19153">A.9.3.16.
+      <span class="APPLICATION">libpq</span></a></h3>
+
+      <ul>
+        <li>
+          <p>New function PQescapeString() to escape quotes in
+          command strings (Florian Weimer)</p>
+        </li>
+
+        <li>
+          <p>New function PQescapeBytea() escapes binary strings
+          for use as SQL string literals</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19161" id="AEN19161">A.9.3.17.
+      JDBC</a></h3>
+
+      <ul>
+        <li>
+          <p>Return OID of INSERT (Ken K)</p>
+        </li>
+
+        <li>
+          <p>Handle more data types (Ken K)</p>
+        </li>
+
+        <li>
+          <p>Handle single quotes and newlines in strings (Ken
+          K)</p>
+        </li>
+
+        <li>
+          <p>Handle NULL variables (Ken K)</p>
+        </li>
+
+        <li>
+          <p>Fix for time zone handling (Barry Lind)</p>
+        </li>
+
+        <li>
+          <p>Improved Druid support</p>
+        </li>
+
+        <li>
+          <p>Allow eight-bit characters with non-multibyte server
+          (Barry Lind)</p>
+        </li>
+
+        <li>
+          <p>Support BIT, BINARY types (Ned Wolpert)</p>
+        </li>
+
+        <li>
+          <p>Reduce memory usage (Michael Stephens, Dave
+          Cramer)</p>
+        </li>
+
+        <li>
+          <p>Update DatabaseMetaData (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Add DatabaseMetaData.getCatalogs() (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Encoding fixes (Anders Bengtsson)</p>
+        </li>
+
+        <li>
+          <p>Get/setCatalog methods (Jason Davies)</p>
+        </li>
+
+        <li>
+          <p>DatabaseMetaData.getColumns() now returns column
+          defaults (Jason Davies)</p>
+        </li>
+
+        <li>
+          <p>DatabaseMetaData.getColumns() performance improvement
+          (Jeroen van Vianen)</p>
+        </li>
+
+        <li>
+          <p>Some JDBC1 and JDBC2 merging (Anders Bengtsson)</p>
+        </li>
+
+        <li>
+          <p>Transaction performance improvements (Barry Lind)</p>
+        </li>
+
+        <li>
+          <p>Array fixes (Greg Zoller)</p>
+        </li>
+
+        <li>
+          <p>Serialize addition</p>
+        </li>
+
+        <li>
+          <p>Fix batch processing (Rene Pijlman)</p>
+        </li>
+
+        <li>
+          <p>ExecSQL method reorganization (Anders Bengtsson)</p>
+        </li>
+
+        <li>
+          <p>GetColumn() fixes (Jeroen van Vianen)</p>
+        </li>
+
+        <li>
+          <p>Fix isWriteable() function (Rene Pijlman)</p>
+        </li>
+
+        <li>
+          <p>Improved passage of JDBC2 conformance tests (Rene
+          Pijlman)</p>
+        </li>
+
+        <li>
+          <p>Add bytea type capability (Barry Lind)</p>
+        </li>
+
+        <li>
+          <p>Add isNullable() (Rene Pijlman)</p>
+        </li>
+
+        <li>
+          <p>JDBC date/time test suite fixes (Liam Stewart)</p>
+        </li>
+
+        <li>
+          <p>Fix for SELECT 'id' AS xxx FROM table (Dave
+          Cramer)</p>
+        </li>
+
+        <li>
+          <p>Fix DatabaseMetaData to show precision properly (Mark
+          Lillywhite)</p>
+        </li>
+
+        <li>
+          <p>New getImported/getExported keys (Jason Davies)</p>
+        </li>
+
+        <li>
+          <p>MD5 password encryption support (Jeremy Wohl)</p>
+        </li>
+
+        <li>
+          <p>Fix to actually use type cache (Ned Wolpert)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19228" id="AEN19228">A.9.3.18.
+      ODBC</a></h3>
+
+      <ul>
+        <li>
+          <p>Remove query size limit (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Remove text field size limit (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Fix for SQLPrimaryKeys in multibyte mode (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Allow ODBC procedure calls (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Improve boolean handing (Aidan Mountford)</p>
+        </li>
+
+        <li>
+          <p>Most configuration options now settable via DSN
+          (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Multibyte, performance fixes (Hiroshi)</p>
+        </li>
+
+        <li>
+          <p>Allow driver to be used with iODBC or unixODBC (Peter
+          E)</p>
+        </li>
+
+        <li>
+          <p>MD5 password encryption support (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Add more compatibility functions to odbc.sql (Peter
+          E)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19251" id="AEN19251">A.9.3.19.
+      <span class="APPLICATION">ECPG</span></a></h3>
+
+      <ul>
+        <li>
+          <p>EXECUTE ... INTO implemented (Christof Petig)</p>
+        </li>
+
+        <li>
+          <p>Multiple row descriptor support (e.g. CARDINALITY)
+          (Christof Petig)</p>
+        </li>
+
+        <li>
+          <p>Fix for GRANT parameters (Lee Kindness)</p>
+        </li>
+
+        <li>
+          <p>Fix INITIALLY DEFERRED bug</p>
+        </li>
+
+        <li>
+          <p>Various bug fixes (Michael, Christof Petig)</p>
+        </li>
+
+        <li>
+          <p>Auto allocation for indicator variable arrays (int
+          *ind_p=NULL)</p>
+        </li>
+
+        <li>
+          <p>Auto allocation for string arrays (char
+          **foo_pp=NULL)</p>
+        </li>
+
+        <li>
+          <p>ECPGfree_auto_mem fixed</p>
+        </li>
+
+        <li>
+          <p>All function names with external linkage are now
+          prefixed by ECPG</p>
+        </li>
+
+        <li>
+          <p>Fixes for arrays of structures (Michael)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19275" id="AEN19275">A.9.3.20.
+      Misc. Interfaces</a></h3>
+
+      <ul>
+        <li>
+          <p>Python fix fetchone() (Gerhard Haring)</p>
+        </li>
+
+        <li>
+          <p>Use UTF, Unicode in Tcl where appropriate (Vsevolod
+          Lobko, Reinhard Max)</p>
+        </li>
+
+        <li>
+          <p>Add Tcl COPY TO/FROM (ljb)</p>
+        </li>
+
+        <li>
+          <p>Prevent output of default index op class in
+          <span class="APPLICATION">pg_dump</span> (Tom)</p>
+        </li>
+
+        <li>
+          <p>Fix libpgeasy memory leak (Bruce)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19289" id="AEN19289">A.9.3.21.
+      Build and Install</a></h3>
+
+      <ul>
+        <li>
+          <p>Configure, dynamic loader, and shared library fixes
+          (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Fixes in QNX 4 port (Bernd Tegge)</p>
+        </li>
+
+        <li>
+          <p>Fixes in Cygwin and Windows ports (Jason Tishler,
+          Gerhard Haring, Dmitry Yurtaev, Darko Prenosil, Mikhail
+          Terekhov)</p>
+        </li>
+
+        <li>
+          <p>Fix for Windows socket communication failures (Magnus,
+          Mikhail Terekhov)</p>
+        </li>
+
+        <li>
+          <p>Hurd compile fix (Oliver Elphick)</p>
+        </li>
+
+        <li>
+          <p>BeOS fixes (Cyril Velter)</p>
+        </li>
+
+        <li>
+          <p>Remove configure --enable-unicode-conversion, now
+          enabled by multibyte (Tatsuo)</p>
+        </li>
+
+        <li>
+          <p>AIX fixes (Tatsuo, Andreas)</p>
+        </li>
+
+        <li>
+          <p>Fix parallel make (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Install SQL language manual pages into OS-specific
+          directories (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Rename config.h to pg_config.h (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Reorganize installation layout of header files (Peter
+          E)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19316" id="AEN19316">A.9.3.22.
+      Source Code</a></h3>
+
+      <ul>
+        <li>
+          <p>Remove SEP_CHAR (Bruce)</p>
+        </li>
+
+        <li>
+          <p>New GUC hooks (Tom)</p>
+        </li>
+
+        <li>
+          <p>Merge GUC and command line handling (Marko Kreen)</p>
+        </li>
+
+        <li>
+          <p>Remove EXTEND INDEX (Martijn van Oosterhout, Tom)</p>
+        </li>
+
+        <li>
+          <p>New pgjindent utility to indent java code (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Remove define of true/false when compiling under C++
+          (Leandro Fanzone, Tom)</p>
+        </li>
+
+        <li>
+          <p>pgindent fixes (Bruce, Tom)</p>
+        </li>
+
+        <li>
+          <p>Replace strcasecmp() with strcmp() where appropriate
+          (Peter E)</p>
+        </li>
+
+        <li>
+          <p>Dynahash portability improvements (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add 'volatile' usage in spinlock structures</p>
+        </li>
+
+        <li>
+          <p>Improve signal handling logic (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN19341" id="AEN19341">A.9.3.23.
+      Contrib</a></h3>
+
+      <ul>
+        <li>
+          <p>New contrib/rtree_gist (Oleg Bartunov, Teodor
+          Sigaev)</p>
+        </li>
+
+        <li>
+          <p>New contrib/tsearch full-text indexing (Oleg, Teodor
+          Sigaev)</p>
+        </li>
+
+        <li>
+          <p>Add contrib/dblink for remote database access (Joe
+          Conway)</p>
+        </li>
+
+        <li>
+          <p>contrib/ora2pg Oracle conversion utility (Gilles
+          Darold)</p>
+        </li>
+
+        <li>
+          <p>contrib/xml XML conversion utility (John Gray)</p>
+        </li>
+
+        <li>
+          <p>contrib/fulltextindex fixes (Christopher
+          Kings-Lynne)</p>
+        </li>
+
+        <li>
+          <p>New contrib/fuzzystrmatch with levenshtein and
+          metaphone, soundex merged (Joe Conway)</p>
+        </li>
+
+        <li>
+          <p>Add contrib/intarray boolean queries, binary search,
+          fixes (Oleg Bartunov)</p>
+        </li>
+
+        <li>
+          <p>New pg_upgrade utility (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Add new pg_resetxlog options (Bruce, Tom)</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="NAVFOOTER">
+  <hr class="c1" width="100%" />
+
+  <table summary="Footer navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="33%" align="left" valign="top"><a href=
+      "release-7-2-1.html" accesskey="P">Prev</a></td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "index.html" accesskey="H">Home</a></td>
+
+      <td width="33%" align="right" valign="top"><a href=
+      "release-7-1-3.html" accesskey="N">Next</a></td>
+    </tr>
+
+    <tr>
+      <td width="33%" align="left" valign="top">Release 7.2.1</td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "release.html" accesskey="U">Up</a></td>
+
+      <td width="33%" align="right" valign="top">Release 7.1.3</td>
+    </tr>
+  </table>
+</div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/7.2.1/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.8/">
+                7.2.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.7/">
+                7.2.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.6/">
+                7.2.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.5/">
+                7.2.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.4/">
+                7.2.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.3/">
+                7.2.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.2/">
+                7.2.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.2.1/">
+                7.2.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                7.2.0
+              </strong>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>

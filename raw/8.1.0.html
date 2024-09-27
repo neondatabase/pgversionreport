@@ -1,0 +1,2296 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/8.1/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          8.1.0
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+  <table summary="Header navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <th colspan="5" align="center" valign="bottom">PostgreSQL
+      8.1.23 Documentation</th>
+    </tr>
+
+    <tr>
+      <td width="10%" align="left" valign="top"><a href=
+      "release-8-1-1.html" accesskey="P">Prev</a></td>
+
+      <td width="10%" align="left" valign="top"><a href=
+      "release.html">Fast Backward</a></td>
+
+      <td width="60%" align="center" valign="bottom">Appendix E.
+      Release Notes</td>
+
+      <td width="10%" align="right" valign="top"><a href=
+      "release.html">Fast Forward</a></td>
+
+      <td width="10%" align="right" valign="top"><a href=
+      "release-8-0-26.html" accesskey="N">Next</a></td>
+    </tr>
+  </table>
+  <hr class="c1" width="100%" />
+</div>
+
+<div class="SECT1">
+  <h1 class="SECT1"><a name="RELEASE-8-1" id="RELEASE-8-1">E.24.
+  Release 8.1</a></h1>
+
+  <div class="NOTE">
+    <blockquote class="NOTE">
+      <p><b>Release date:</b> 2005-11-08</p>
+    </blockquote>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN74525" id="AEN74525">E.24.1.
+    Overview</a></h2>
+
+    <p>Major changes in this release:</p>
+
+    <div class="VARIABLELIST">
+      <dl>
+        <dt>Improve concurrent access to the shared buffer cache
+        (Tom)</dt>
+
+        <dd>
+          <p>Access to the shared buffer cache was identified as a
+          significant scalability problem, particularly on
+          multi-CPU systems. In this release, the way that locking
+          is done in the buffer manager has been overhauled to
+          reduce lock contention and improve scalability. The
+          buffer manager has also been changed to use a
+          <span class="QUOTE">"clock sweep"</span> replacement
+          policy.</p>
+        </dd>
+
+        <dt>Allow index scans to use an intermediate in-memory
+        bitmap (Tom)</dt>
+
+        <dd>
+          <p>In previous releases, only a single index could be
+          used to do lookups on a table. With this feature, if a
+          query has <tt class="COMMAND">WHERE tab.col1 = 4 and
+          tab.col2 = 9</tt>, and there is no multicolumn index on
+          <tt class="LITERAL">col1</tt> and <tt class=
+          "LITERAL">col2</tt>, but there is an index on <tt class=
+          "LITERAL">col1</tt> and another on <tt class=
+          "LITERAL">col2</tt>, it is possible to search both
+          indexes and combine the results in memory, then do heap
+          fetches for only the rows matching both the <tt class=
+          "LITERAL">col1</tt> and <tt class="LITERAL">col2</tt>
+          restrictions. This is very useful in environments that
+          have a lot of unstructured queries where it is impossible
+          to create indexes that match all possible access
+          conditions. Bitmap scans are useful even with a single
+          index, as they reduce the amount of random access needed;
+          a bitmap index scan is efficient for retrieving fairly
+          large fractions of the complete table, whereas plain
+          index scans are not.</p>
+        </dd>
+
+        <dt>Add two-phase commit (Heikki Linnakangas, Alvaro,
+        Tom)</dt>
+
+        <dd>
+          <p>Two-phase commit allows transactions to be "prepared"
+          on several computers, and once all computers have
+          successfully prepared their transactions (none failed),
+          all transactions can be committed. Even if a machine
+          crashes after a prepare, the prepared transaction can be
+          committed after the machine is restarted. New syntax
+          includes <tt class="COMMAND">PREPARE TRANSACTION</tt> and
+          <tt class="COMMAND">COMMIT/ROLLBACK PREPARED</tt>. A new
+          system view <tt class="LITERAL">pg_prepared_xacts</tt>
+          has also been added.</p>
+        </dd>
+
+        <dt>Create a new role system that replaces users and groups
+        (Stephen Frost)</dt>
+
+        <dd>
+          <p>Roles are a combination of users and groups. Like
+          users, they can have login capability, and like groups, a
+          role can have other roles as members. Roles basically
+          remove the distinction between users and groups. For
+          example, a role can:</p>
+
+          <ul>
+            <li>
+              <p>Have login capability (optionally)</p>
+            </li>
+
+            <li>
+              <p>Own objects</p>
+            </li>
+
+            <li>
+              <p>Hold access permissions for database objects</p>
+            </li>
+
+            <li>
+              <p>Inherit permissions from other roles it is a
+              member of</p>
+            </li>
+          </ul>
+
+          <p>Once a user logs into a role, she obtains capabilities
+          of the login role plus any inherited roles, and can use
+          <tt class="COMMAND">SET ROLE</tt> to switch to other
+          roles she is a member of. This feature is a
+          generalization of the SQL standard's concept of roles.
+          This change also replaces <tt class=
+          "STRUCTNAME">pg_shadow</tt> and <tt class=
+          "STRUCTNAME">pg_group</tt> by new role-capable catalogs
+          <tt class="STRUCTNAME">pg_authid</tt> and <tt class=
+          "STRUCTNAME">pg_auth_members</tt>. The old tables are
+          redefined as read-only views on the new role tables.</p>
+        </dd>
+
+        <dt>Automatically use indexes for <code class=
+        "FUNCTION">MIN()</code> and <code class=
+        "FUNCTION">MAX()</code> (Tom)</dt>
+
+        <dd>
+          <p>In previous releases, the only way to use an index for
+          <code class="FUNCTION">MIN()</code> or <code class=
+          "FUNCTION">MAX()</code> was to rewrite the query as
+          <tt class="COMMAND">SELECT col FROM tab ORDER BY col
+          LIMIT 1</tt>. Index usage now happens automatically.</p>
+        </dd>
+
+        <dt>Move <tt class="FILENAME">/contrib/pg_autovacuum</tt>
+        into the main server (Alvaro)</dt>
+
+        <dd>
+          <p>Integrating autovacuum into the server allows it to be
+          automatically started and stopped in sync with the
+          database server, and allows autovacuum to be configured
+          from <tt class="FILENAME">postgresql.conf</tt>.</p>
+        </dd>
+
+        <dt>Add shared row level locks using <tt class=
+        "COMMAND">SELECT ... FOR SHARE</tt> (Alvaro)</dt>
+
+        <dd>
+          <p>While <span class="PRODUCTNAME">PostgreSQL</span>'s
+          MVCC locking allows <tt class="COMMAND">SELECT</tt> to
+          never be blocked by writers and therefore does not need
+          shared row locks for typical operations, shared locks are
+          useful for applications that require shared row locking.
+          In particular this reduces the locking requirements
+          imposed by referential integrity checks.</p>
+        </dd>
+
+        <dt>Add dependencies on shared objects, specifically roles
+        (Alvaro)</dt>
+
+        <dd>
+          <p>This extension of the dependency mechanism prevents
+          roles from being dropped while there are still database
+          objects they own. Formerly it was possible to
+          accidentally <span class="QUOTE">"orphan"</span> objects
+          by deleting their owner. While this could be recovered
+          from, it was messy and unpleasant.</p>
+        </dd>
+
+        <dt>Improve performance for partitioned tables (Simon)</dt>
+
+        <dd>
+          <p>The new <tt class="VARNAME">constraint_exclusion</tt>
+          configuration parameter avoids lookups on child tables
+          where constraints indicate that no matching rows exist in
+          the child table.</p>
+
+          <p>This allows for a basic type of table partitioning. If
+          child tables store separate key ranges and this is
+          enforced using appropriate <tt class="COMMAND">CHECK</tt>
+          constraints, the optimizer will skip child table accesses
+          when the constraint guarantees no matching rows exist in
+          the child table.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN74605" id="AEN74605">E.24.2.
+    Migration to Version 8.1</a></h2>
+
+    <p>A dump/restore using <span class=
+    "APPLICATION">pg_dump</span> is required for those wishing to
+    migrate data from any previous release.</p>
+
+    <p>The 8.0 release announced that the <code class=
+    "FUNCTION">to_char()</code> function for intervals would be
+    removed in 8.1. However, since no better API has been
+    suggested, <code class="FUNCTION">to_char(interval)</code> has
+    been enhanced in 8.1 and will remain in the server.</p>
+
+    <p>Observe the following incompatibilities:</p>
+
+    <ul>
+      <li>
+        <p><tt class="VARNAME">add_missing_from</tt> is now false
+        by default (Neil)</p>
+
+        <p>By default, we now generate an error if a table is used
+        in a query without a <tt class="LITERAL">FROM</tt>
+        reference. The old behavior is still available, but the
+        parameter must be set to 'true' to obtain it.</p>
+
+        <p>It might be necessary to set <tt class=
+        "VARNAME">add_missing_from</tt> to true in order to load an
+        existing dump file, if the dump contains any views or rules
+        created using the implicit-<tt class="LITERAL">FROM</tt>
+        syntax. This should be a one-time annoyance, because
+        <span class="PRODUCTNAME">PostgreSQL</span> 8.1 will
+        convert such views and rules to standard
+        explicit-<tt class="LITERAL">FROM</tt> syntax. Subsequent
+        dumps will therefore not have the problem.</p>
+      </li>
+
+      <li>
+        <p>Cause input of a zero-length string (<tt class=
+        "LITERAL">''</tt>) for <tt class=
+        "TYPE">float4</tt>/<tt class="TYPE">float8</tt>/<tt class=
+        "TYPE">oid</tt> to throw an error, rather than treating it
+        as a zero (Neil)</p>
+
+        <p>This change is consistent with the current handling of
+        zero-length strings for integers. The schedule for this
+        change was announced in 8.0.</p>
+      </li>
+
+      <li>
+        <p><tt class="VARNAME">default_with_oids</tt> is now false
+        by default (Neil)</p>
+
+        <p>With this option set to false, user-created tables no
+        longer have an OID column unless <tt class="COMMAND">WITH
+        OIDS</tt> is specified in <tt class="COMMAND">CREATE
+        TABLE</tt>. Though OIDs have existed in all releases of
+        <span class="PRODUCTNAME">PostgreSQL</span>, their use is
+        limited because they are only four bytes long and the
+        counter is shared across all installed databases. The
+        preferred way of uniquely identifying rows is via sequences
+        and the <tt class="TYPE">SERIAL</tt> type, which have been
+        supported since <span class="PRODUCTNAME">PostgreSQL</span>
+        6.4.</p>
+      </li>
+
+      <li>
+        <p>Add <tt class="LITERAL">E''</tt> syntax so eventually
+        ordinary strings can treat backslashes literally
+        (Bruce)</p>
+
+        <p>Currently <span class="PRODUCTNAME">PostgreSQL</span>
+        processes a backslash in a string literal as introducing a
+        special escape sequence, e.g. <tt class="LITERAL">\n</tt>
+        or <tt class="LITERAL">\010</tt>. While this allows easy
+        entry of special values, it is nonstandard and makes
+        porting of applications from other databases more
+        difficult. For this reason, the <span class=
+        "PRODUCTNAME">PostgreSQL</span> project is planning to
+        remove the special meaning of backslashes in strings. For
+        backward compatibility and for users who want special
+        backslash processing, a new string syntax has been created.
+        This new string syntax is formed by writing an <tt class=
+        "LITERAL">E</tt> immediately preceding the single quote
+        that starts the string, e.g. <tt class=
+        "LITERAL">E'hi\n'</tt>. While this release does not change
+        the handling of backslashes in strings, it does add new
+        configuration parameters to help users migrate applications
+        for future releases:</p>
+
+        <ul>
+          <li>
+            <p><tt class="VARNAME">standard_conforming_strings</tt>
+            — does this release treat backslashes literally in
+            ordinary strings?</p>
+          </li>
+
+          <li>
+            <p><tt class="VARNAME">escape_string_warning</tt> —
+            warn about backslashes in ordinary (non-E) strings</p>
+          </li>
+        </ul>
+
+        <p>The <tt class="VARNAME">standard_conforming_strings</tt>
+        value is read-only. Applications can retrieve the value to
+        know how backslashes are processed. (Presence of the
+        parameter can also be taken as an indication that
+        <tt class="LITERAL">E''</tt> string syntax is supported.)
+        In a future release, <tt class=
+        "VARNAME">standard_conforming_strings</tt> will be true,
+        meaning backslashes will be treated literally in non-E
+        strings. To prepare for this change, use <tt class=
+        "LITERAL">E''</tt> strings in places that need special
+        backslash processing, and turn on <tt class=
+        "VARNAME">escape_string_warning</tt> to find additional
+        strings that need to be converted to use <tt class=
+        "LITERAL">E''</tt>. Also, use two single-quotes (<tt class=
+        "LITERAL">''</tt>) to embed a literal single-quote in a
+        string, rather than the <span class=
+        "PRODUCTNAME">PostgreSQL</span>-supported syntax of
+        backslash single-quote (<tt class="LITERAL">\'</tt>). The
+        former is standards-conforming and does not require the use
+        of the <tt class="LITERAL">E''</tt> string syntax. You can
+        also use the <tt class="LITERAL">$$</tt> string syntax,
+        which does not treat backslashes specially.</p>
+      </li>
+
+      <li>
+        <p>Make <tt class="COMMAND">REINDEX DATABASE</tt> reindex
+        all indexes in the database (Tom)</p>
+
+        <p>Formerly, <tt class="COMMAND">REINDEX DATABASE</tt>
+        reindexed only system tables. This new behavior seems more
+        intuitive. A new command <tt class="COMMAND">REINDEX
+        SYSTEM</tt> provides the old functionality of reindexing
+        just the system tables.</p>
+      </li>
+
+      <li>
+        <p>Read-only large object descriptors now obey MVCC
+        snapshot semantics</p>
+
+        <p>When a large object is opened with <tt class=
+        "LITERAL">INV_READ</tt> (and not <tt class=
+        "LITERAL">INV_WRITE</tt>), the data read from the
+        descriptor will now reflect a <span class=
+        "QUOTE">"snapshot"</span> of the large object's state at
+        the time of the transaction snapshot in use by the query
+        that called <code class="FUNCTION">lo_open()</code>. To
+        obtain the old behavior of always returning the latest
+        committed data, include <tt class="LITERAL">INV_WRITE</tt>
+        in the mode flags for <code class=
+        "FUNCTION">lo_open()</code>.</p>
+      </li>
+
+      <li>
+        <p>Add proper dependencies for arguments of sequence
+        functions (Tom)</p>
+
+        <p>In previous releases, sequence names passed to
+        <code class="FUNCTION">nextval()</code>, <code class=
+        "FUNCTION">currval()</code>, and <code class=
+        "FUNCTION">setval()</code> were stored as simple text
+        strings, meaning that renaming or dropping a sequence used
+        in a <tt class="LITERAL">DEFAULT</tt> clause made the
+        clause invalid. This release stores all newly-created
+        sequence function arguments as internal OIDs, allowing them
+        to track sequence renaming, and adding dependency
+        information that prevents improper sequence removal. It
+        also makes such <tt class="LITERAL">DEFAULT</tt> clauses
+        immune to schema renaming and search path changes.</p>
+
+        <p>Some applications might rely on the old behavior of
+        run-time lookup for sequence names. This can still be done
+        by explicitly casting the argument to <tt class=
+        "TYPE">text</tt>, for example <tt class=
+        "LITERAL">nextval('myseq'::text)</tt>.</p>
+
+        <p>Pre-8.1 database dumps loaded into 8.1 will use the old
+        text-based representation and therefore will not have the
+        features of OID-stored arguments. However, it is possible
+        to update a database containing text-based <tt class=
+        "LITERAL">DEFAULT</tt> clauses. First, save this query into
+        a file, such as <tt class="FILENAME">fixseq.sql</tt>:</p>
+        <pre class="PROGRAMLISTING">
+SELECT  'ALTER TABLE ' ||
+   pg_catalog.quote_ident(n.nspname) || '.' ||
+   pg_catalog.quote_ident(c.relname) ||
+   ' ALTER COLUMN ' || pg_catalog.quote_ident(a.attname) ||
+   ' SET DEFAULT ' ||
+   regexp_replace(d.adsrc,
+                  $$val\(\(('[^']*')::text\)::regclass$$,
+                  $$val(\1$$,
+                  'g') ||
+   ';'
+FROM    pg_namespace n, pg_class c, pg_attribute a, pg_attrdef d
+WHERE   n.oid = c.relnamespace AND
+   c.oid = a.attrelid AND
+   a.attrelid = d.adrelid AND
+   a.attnum = d.adnum AND
+   d.adsrc ~ $$val\(\('[^']*'::text\)::regclass$$;
+</pre>
+
+        <p>Next, run the query against a database to find what
+        adjustments are required, like this for database <tt class=
+        "LITERAL">db1</tt>:</p>
+        <pre class="PROGRAMLISTING">
+psql -t -f fixseq.sql db1
+</pre>
+
+        <p>This will show the <tt class="COMMAND">ALTER TABLE</tt>
+        commands needed to convert the database to the newer
+        OID-based representation. If the commands look reasonable,
+        run this to update the database:</p>
+        <pre class="PROGRAMLISTING">
+psql -t -f fixseq.sql db1 | psql -e db1
+</pre>
+
+        <p>This process must be repeated in each database to be
+        updated.</p>
+      </li>
+
+      <li>
+        <p>In <span class="APPLICATION">psql</span>, treat unquoted
+        <tt class="LITERAL">\{digit}+</tt> sequences as octal
+        (Bruce)</p>
+
+        <p>In previous releases, <tt class="LITERAL">\{digit}+</tt>
+        sequences were treated as decimal, and only <tt class=
+        "LITERAL">\0{digit}+</tt> were treated as octal. This
+        change was made for consistency.</p>
+      </li>
+
+      <li>
+        <p>Remove grammar productions for prefix and postfix
+        <tt class="LITERAL">%</tt> and <tt class="LITERAL">^</tt>
+        operators (Tom)</p>
+
+        <p>These have never been documented and complicated the use
+        of the modulus operator (<tt class="LITERAL">%</tt>) with
+        negative numbers.</p>
+      </li>
+
+      <li>
+        <p>Make <tt class="LITERAL">&amp;&lt;</tt> and <tt class=
+        "LITERAL">&amp;&gt;</tt> for polygons consistent with the
+        box "over" operators (Tom)</p>
+      </li>
+
+      <li>
+        <p><tt class="COMMAND">CREATE LANGUAGE</tt> can ignore the
+        provided arguments in favor of information from <tt class=
+        "STRUCTNAME">pg_pltemplate</tt> (Tom)</p>
+
+        <p>A new system catalog <tt class=
+        "STRUCTNAME">pg_pltemplate</tt> has been defined to carry
+        information about the preferred definitions of procedural
+        languages (such as whether they have validator functions).
+        When an entry exists in this catalog for the language being
+        created, <tt class="COMMAND">CREATE LANGUAGE</tt> will
+        ignore all its parameters except the language name and
+        instead use the catalog information. This measure was taken
+        because of increasing problems with obsolete language
+        definitions being loaded by old dump files. As of 8.1,
+        <span class="APPLICATION">pg_dump</span> will dump
+        procedural language definitions as just <tt class=
+        "COMMAND">CREATE LANGUAGE <tt class=
+        "REPLACEABLE c2">name</tt></tt>, relying on a template
+        entry to exist at load time. We expect this will be a more
+        future-proof representation.</p>
+      </li>
+
+      <li>
+        <p>Make <code class=
+        "FUNCTION">pg_cancel_backend(int)</code> return a
+        <tt class="TYPE">boolean</tt> rather than an <tt class=
+        "TYPE">integer</tt> (Neil)</p>
+      </li>
+
+      <li>
+        <p>Some users are having problems loading UTF-8 data into
+        8.1.X. This is because previous versions allowed invalid
+        UTF-8 byte sequences to be entered into the database, and
+        this release properly accepts only valid UTF-8 sequences.
+        One way to correct a dumpfile is to run the command
+        <tt class="COMMAND">iconv -c -f UTF-8 -t UTF-8 -o
+        cleanfile.sql dumpfile.sql</tt>. The <tt class=
+        "LITERAL">-c</tt> option removes invalid character
+        sequences. A diff of the two files will show the sequences
+        that are invalid. <tt class="COMMAND">iconv</tt> reads the
+        entire input file into memory so it might be necessary to
+        use <span class="APPLICATION">split</span> to break up the
+        dump into multiple smaller files for processing.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN74741" id="AEN74741">E.24.3.
+    Additional Changes</a></h2>
+
+    <p>Below you will find a detailed account of the additional
+    changes between <span class="PRODUCTNAME">PostgreSQL</span> 8.1
+    and the previous major release.</p>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74745" id="AEN74745">E.24.3.1.
+      Performance Improvements</a></h3>
+
+      <ul>
+        <li>
+          <p>Improve GiST and R-tree index performance (Neil)</p>
+        </li>
+
+        <li>
+          <p>Improve the optimizer, including auto-resizing of hash
+          joins (Tom)</p>
+        </li>
+
+        <li>
+          <p>Overhaul internal API in several areas</p>
+        </li>
+
+        <li>
+          <p>Change WAL record CRCs from 64-bit to 32-bit (Tom)</p>
+
+          <p>We determined that the extra cost of computing 64-bit
+          CRCs was significant, and the gain in reliability too
+          marginal to justify it.</p>
+        </li>
+
+        <li>
+          <p>Prevent writing large empty gaps in WAL pages
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Improve spinlock behavior on SMP machines,
+          particularly Opterons (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow nonconsecutive index columns to be used in a
+          multicolumn index (Tom)</p>
+
+          <p>For example, this allows an index on columns a,b,c to
+          be used in a query with <tt class="COMMAND">WHERE a = 4
+          and c = 10</tt>.</p>
+        </li>
+
+        <li>
+          <p>Skip WAL logging for <tt class="COMMAND">CREATE TABLE
+          AS</tt> / <tt class="COMMAND">SELECT INTO</tt>
+          (Simon)</p>
+
+          <p>Since a crash during <tt class="COMMAND">CREATE TABLE
+          AS</tt> would cause the table to be dropped during
+          recovery, there is no reason to WAL log as the table is
+          loaded. (Logging still happens if WAL archiving is
+          enabled, however.)</p>
+        </li>
+
+        <li>
+          <p>Allow concurrent GiST index access (Teodor, Oleg)</p>
+        </li>
+
+        <li>
+          <p>Add configuration parameter <tt class=
+          "VARNAME">full_page_writes</tt> to control writing full
+          pages to WAL (Bruce)</p>
+
+          <p>To prevent partial disk writes from corrupting the
+          database, <span class="PRODUCTNAME">PostgreSQL</span>
+          writes a complete copy of each database disk page to WAL
+          the first time it is modified after a checkpoint. This
+          option turns off that functionality for more speed. This
+          is safe to use with battery-backed disk caches where
+          partial page writes cannot happen.</p>
+        </li>
+
+        <li>
+          <p>Use <tt class="LITERAL">O_DIRECT</tt> if available
+          when using <tt class="LITERAL">O_SYNC</tt> for <tt class=
+          "VARNAME">wal_sync_method</tt> (Itagaki Takahiro)</p>
+
+          <p><tt class="LITERAL">O_DIRECT</tt> causes disk writes
+          to bypass the kernel cache, and for WAL writes, this
+          improves performance.</p>
+        </li>
+
+        <li>
+          <p>Improve <tt class="COMMAND">COPY FROM</tt> performance
+          (Alon Goldshuv)</p>
+
+          <p>This was accomplished by reading <tt class=
+          "COMMAND">COPY</tt> input in larger chunks, rather than
+          character by character.</p>
+        </li>
+
+        <li>
+          <p>Improve the performance of <code class=
+          "FUNCTION">COUNT()</code>, <code class=
+          "FUNCTION">SUM</code>, <code class=
+          "FUNCTION">AVG()</code>, <code class=
+          "FUNCTION">STDDEV()</code>, and <code class=
+          "FUNCTION">VARIANCE()</code> (Neil, Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74797" id="AEN74797">E.24.3.2.
+      Server Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Prevent problems due to transaction ID (XID)
+          wraparound (Tom)</p>
+
+          <p>The server will now warn when the transaction counter
+          approaches the wraparound point. If the counter becomes
+          too close to wraparound, the server will stop accepting
+          queries. This ensures that data is not lost before needed
+          vacuuming is performed.</p>
+        </li>
+
+        <li>
+          <p>Fix problems with object IDs (OIDs) conflicting with
+          existing system objects after the OID counter has wrapped
+          around (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add warning about the need to increase <tt class=
+          "VARNAME">max_fsm_relations</tt> and <tt class=
+          "VARNAME">max_fsm_pages</tt> during <tt class=
+          "COMMAND">VACUUM</tt> (Ron Mayer)</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="VARNAME">temp_buffers</tt>
+          configuration parameter to allow users to determine the
+          size of the local buffer area for temporary table access
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add session start time and client IP address to
+          <tt class="LITERAL">pg_stat_activity</tt> (Magnus)</p>
+        </li>
+
+        <li>
+          <p>Adjust <tt class="LITERAL">pg_stat</tt> views for
+          bitmap scans (Tom)</p>
+
+          <p>The meanings of some of the fields have changed
+          slightly.</p>
+        </li>
+
+        <li>
+          <p>Enhance <tt class="LITERAL">pg_locks</tt> view
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Log queries for client-side <tt class=
+          "COMMAND">PREPARE</tt> and <tt class=
+          "COMMAND">EXECUTE</tt> (Simon)</p>
+        </li>
+
+        <li>
+          <p>Allow Kerberos name and user name case sensitivity to
+          be specified in <tt class="FILENAME">postgresql.conf</tt>
+          (Magnus)</p>
+        </li>
+
+        <li>
+          <p>Add configuration parameter <tt class=
+          "VARNAME">krb_server_hostname</tt> so that the server
+          host name can be specified as part of service principal
+          (Todd Kover)</p>
+
+          <p>If not set, any service principal matching an entry in
+          the keytab can be used. This is new Kerberos matching
+          behavior in this release.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="VARNAME">log_line_prefix</tt> options
+          for millisecond timestamps (<tt class="LITERAL">%m</tt>)
+          and remote host (<tt class="LITERAL">%h</tt>) (Ed L.)</p>
+        </li>
+
+        <li>
+          <p>Add WAL logging for GiST indexes (Teodor, Oleg)</p>
+
+          <p>GiST indexes are now safe for crash and point-in-time
+          recovery.</p>
+        </li>
+
+        <li>
+          <p>Remove old <tt class="FILENAME">*.backup</tt> files
+          when we do <code class="FUNCTION">pg_stop_backup()</code>
+          (Bruce)</p>
+
+          <p>This prevents a large number of <tt class=
+          "FILENAME">*.backup</tt> files from existing in
+          <tt class="FILENAME">pg_xlog/</tt>.</p>
+        </li>
+
+        <li>
+          <p>Add configuration parameters to control TCP/IP
+          keep-alive times for idle, interval, and count (Oliver
+          Jowett)</p>
+
+          <p>These values can be changed to allow more rapid
+          detection of lost client connections.</p>
+        </li>
+
+        <li>
+          <p>Add per-user and per-database connection limits (Petr
+          Jelinek)</p>
+
+          <p>Using <tt class="COMMAND">ALTER USER</tt> and
+          <tt class="COMMAND">ALTER DATABASE</tt>, limits can now
+          be enforced on the maximum number of sessions that can
+          concurrently connect as a specific user or to a specific
+          database. Setting the limit to zero disables user or
+          database connections.</p>
+        </li>
+
+        <li>
+          <p>Allow more than two gigabytes of shared memory and
+          per-backend work memory on 64-bit machines (Koichi
+          Suzuki)</p>
+        </li>
+
+        <li>
+          <p>New system catalog <tt class=
+          "STRUCTNAME">pg_pltemplate</tt> allows overriding
+          obsolete procedural-language definitions in dump files
+          (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74862" id="AEN74862">E.24.3.3.
+      Query Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add temporary views (Koju Iijima, Neil)</p>
+        </li>
+
+        <li>
+          <p>Fix <tt class="COMMAND">HAVING</tt> without any
+          aggregate functions or <tt class="COMMAND">GROUP BY</tt>
+          so that the query returns a single group (Tom)</p>
+
+          <p>Previously, such a case would treat the <tt class=
+          "COMMAND">HAVING</tt> clause the same as a <tt class=
+          "COMMAND">WHERE</tt> clause. This was not per spec.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">USING</tt> clause to allow
+          additional tables to be specified to <tt class=
+          "COMMAND">DELETE</tt> (Euler Taveira de Oliveira,
+          Neil)</p>
+
+          <p>In prior releases, there was no clear method for
+          specifying additional tables to be used for joins in a
+          <tt class="COMMAND">DELETE</tt> statement. <tt class=
+          "COMMAND">UPDATE</tt> already has a <tt class=
+          "LITERAL">FROM</tt> clause for this purpose.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="LITERAL">\x</tt> hex
+          escapes in backend and ecpg strings (Bruce)</p>
+
+          <p>This is just like the standard C <tt class=
+          "LITERAL">\x</tt> escape syntax. Octal escapes were
+          already supported.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">BETWEEN SYMMETRIC</tt> query
+          syntax (Pavel Stehule)</p>
+
+          <p>This feature allows <tt class="COMMAND">BETWEEN</tt>
+          comparisons without requiring the first value to be less
+          than the second. For example, <tt class="COMMAND">2
+          BETWEEN [ASYMMETRIC] 3 AND 1</tt> returns false, while
+          <tt class="COMMAND">2 BETWEEN SYMMETRIC 3 AND 1</tt>
+          returns true. <tt class="COMMAND">BETWEEN ASYMMETRIC</tt>
+          was already supported.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">NOWAIT</tt> option to
+          <tt class="COMMAND">SELECT ... FOR UPDATE/SHARE</tt>
+          (Hans-Juergen Schoenig)</p>
+
+          <p>While the <tt class="VARNAME">statement_timeout</tt>
+          configuration parameter allows a query taking more than a
+          certain amount of time to be cancelled, the <tt class=
+          "COMMAND">NOWAIT</tt> option allows a query to be
+          canceled as soon as a <tt class="COMMAND">SELECT ... FOR
+          UPDATE/SHARE</tt> command cannot immediately acquire a
+          row lock.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74903" id="AEN74903">E.24.3.4.
+      Object Manipulation Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Track dependencies of shared objects (Alvaro)</p>
+
+          <p><span class="PRODUCTNAME">PostgreSQL</span> allows
+          global tables (users, databases, tablespaces) to
+          reference information in multiple databases. This
+          addition adds dependency information for global tables,
+          so, for example, user ownership can be tracked across
+          databases, so a user who owns something in any database
+          can no longer be removed. Dependency tracking already
+          existed for database-local objects.</p>
+        </li>
+
+        <li>
+          <p>Allow limited <tt class="COMMAND">ALTER OWNER</tt>
+          commands to be performed by the object owner (Stephen
+          Frost)</p>
+
+          <p>Prior releases allowed only superusers to change
+          object owners. Now, ownership can be transferred if the
+          user executing the command owns the object and would be
+          able to create it as the new owner (that is, the user is
+          a member of the new owning role and that role has the
+          CREATE permission that would be needed to create the
+          object afresh).</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">ALTER</tt> object <tt class=
+          "COMMAND">SET SCHEMA</tt> capability for some object
+          types (tables, functions, types) (Bernd Helmle)</p>
+
+          <p>This allows objects to be moved to different
+          schemas.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">ALTER TABLE ENABLE/DISABLE
+          TRIGGER</tt> to disable triggers (Satoshi Nagayasu)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74922" id="AEN74922">E.24.3.5.
+      Utility Command Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Allow <tt class="COMMAND">TRUNCATE</tt> to truncate
+          multiple tables in a single command (Alvaro)</p>
+
+          <p>Because of referential integrity checks, it is not
+          allowed to truncate a table that is part of a referential
+          integrity constraint. Using this new functionality,
+          <tt class="COMMAND">TRUNCATE</tt> can be used to truncate
+          such tables, if both tables involved in a referential
+          integrity constraint are truncated in a single <tt class=
+          "COMMAND">TRUNCATE</tt> command.</p>
+        </li>
+
+        <li>
+          <p>Properly process carriage returns and line feeds in
+          <tt class="COMMAND">COPY CSV</tt> mode (Andrew)</p>
+
+          <p>In release 8.0, carriage returns and line feeds in
+          <tt class="COMMAND">CSV COPY TO</tt> were processed in an
+          inconsistent manner. (This was documented on the TODO
+          list.)</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">COPY WITH CSV HEADER</tt> to
+          allow a header line as the first line in <tt class=
+          "COMMAND">COPY</tt> (Andrew)</p>
+
+          <p>This allows handling of the common <tt class=
+          "COMMAND">CSV</tt> usage of placing the column names on
+          the first line of the data file. For <tt class=
+          "COMMAND">COPY TO</tt>, the first line contains the
+          column names, and for <tt class="COMMAND">COPY FROM</tt>,
+          the first line is ignored.</p>
+        </li>
+
+        <li>
+          <p>On Windows, display better sub-second precision in
+          <tt class="COMMAND">EXPLAIN ANALYZE</tt> (Magnus)</p>
+        </li>
+
+        <li>
+          <p>Add trigger duration display to <tt class=
+          "COMMAND">EXPLAIN ANALYZE</tt> (Tom)</p>
+
+          <p>Prior releases included trigger execution time as part
+          of the total execution time, but did not show it
+          separately. It is now possible to see how much time is
+          spent in each trigger.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="LITERAL">\x</tt> hex
+          escapes in <tt class="COMMAND">COPY</tt> (Sergey Ten)</p>
+
+          <p>Previous releases only supported octal escapes.</p>
+        </li>
+
+        <li>
+          <p>Make <tt class="COMMAND">SHOW ALL</tt> include
+          variable descriptions (Matthias Schmidt)</p>
+
+          <p><tt class="COMMAND">SHOW</tt> varname still only
+          displays the variable's value and does not include the
+          description.</p>
+        </li>
+
+        <li>
+          <p>Make <span class="APPLICATION">initdb</span> create a
+          new standard database called <tt class=
+          "LITERAL">postgres</tt>, and convert utilities to use
+          <tt class="LITERAL">postgres</tt> rather than <tt class=
+          "LITERAL">template1</tt> for standard lookups (Dave)</p>
+
+          <p>In prior releases, <tt class="LITERAL">template1</tt>
+          was used both as a default connection for utilities like
+          <span class="APPLICATION">createuser</span>, and as a
+          template for new databases. This caused <tt class=
+          "COMMAND">CREATE DATABASE</tt> to sometimes fail, because
+          a new database cannot be created if anyone else is in the
+          template database. With this change, the default
+          connection database is now <tt class=
+          "LITERAL">postgres</tt>, meaning it is much less likely
+          someone will be using <tt class="LITERAL">template1</tt>
+          during <tt class="COMMAND">CREATE DATABASE</tt>.</p>
+        </li>
+
+        <li>
+          <p>Create new <span class="APPLICATION">reindexdb</span>
+          command-line utility by moving <tt class=
+          "FILENAME">/contrib/reindexdb</tt> into the server (Euler
+          Taveira de Oliveira)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN74978" id="AEN74978">E.24.3.6.
+      Data Type and Function Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add <code class="FUNCTION">MAX()</code> and
+          <code class="FUNCTION">MIN()</code> aggregates for array
+          types (Koju Iijima)</p>
+        </li>
+
+        <li>
+          <p>Fix <code class="FUNCTION">to_date()</code> and
+          <code class="FUNCTION">to_timestamp()</code> to behave
+          reasonably when <tt class="LITERAL">CC</tt> and
+          <tt class="LITERAL">YY</tt> fields are both used (Karel
+          Zak)</p>
+
+          <p>If the format specification contains <tt class=
+          "LITERAL">CC</tt> and a year specification is <tt class=
+          "LITERAL">YYY</tt> or longer, ignore the <tt class=
+          "LITERAL">CC</tt>. If the year specification is
+          <tt class="LITERAL">YY</tt> or shorter, interpret
+          <tt class="LITERAL">CC</tt> as the previous century.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">md5(bytea)</code> (Abhijit
+          Menon-Sen)</p>
+
+          <p><code class="FUNCTION">md5(text)</code> already
+          existed.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="COMMAND">numeric ^
+          numeric</tt> based on <code class=
+          "FUNCTION">power(numeric, numeric)</code></p>
+
+          <p>The function already existed, but there was no
+          operator assigned to it.</p>
+        </li>
+
+        <li>
+          <p>Fix <tt class="TYPE">NUMERIC</tt> modulus by properly
+          truncating the quotient during computation (Bruce)</p>
+
+          <p>In previous releases, modulus for large values
+          sometimes returned negative results due to rounding of
+          the quotient.</p>
+        </li>
+
+        <li>
+          <p>Add a function <code class="FUNCTION">lastval()</code>
+          (Dennis Björklund)</p>
+
+          <p><code class="FUNCTION">lastval()</code> is a
+          simplified version of <code class=
+          "FUNCTION">currval()</code>. It automatically determines
+          the proper sequence name based on the most recent
+          <code class="FUNCTION">nextval()</code> or <code class=
+          "FUNCTION">setval()</code> call performed by the current
+          session.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">to_timestamp(DOUBLE
+          PRECISION) (Michael Glaesemann)</code></p>
+
+          <p>Converts Unix seconds since 1970 to a <tt class=
+          "TYPE">TIMESTAMP WITH TIMEZONE</tt>.</p>
+        </li>
+
+        <li>
+          <p>Add <code class=
+          "FUNCTION">pg_postmaster_start_time()</code> function
+          (Euler Taveira de Oliveira, Matthias Schmidt)</p>
+        </li>
+
+        <li>
+          <p>Allow the full use of time zone names in <tt class=
+          "COMMAND">AT TIME ZONE</tt>, not just the short list
+          previously available (Magnus)</p>
+
+          <p>Previously, only a predefined list of time zone names
+          were supported by <tt class="COMMAND">AT TIME ZONE</tt>.
+          Now any supported time zone name can be used, e.g.:</p>
+          <pre class="PROGRAMLISTING">
+SELECT CURRENT_TIMESTAMP AT TIME ZONE 'Europe/London';
+</pre>
+
+          <p>In the above query, the time zone used is adjusted
+          based on the daylight saving time rules that were in
+          effect on the supplied date.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">GREATEST()</code> and
+          <code class="FUNCTION">LEAST()</code> variadic functions
+          (Pavel Stehule)</p>
+
+          <p>These functions take a variable number of arguments
+          and return the greatest or least value among the
+          arguments.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">pg_column_size()</code>
+          (Mark Kirkwood)</p>
+
+          <p>This returns storage size of a column, which might be
+          compressed.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">regexp_replace()</code>
+          (Atsushi Ogawa)</p>
+
+          <p>This allows regular expression replacement, like sed.
+          An optional flag argument allows selection of global
+          (replace all) and case-insensitive modes.</p>
+        </li>
+
+        <li>
+          <p>Fix interval division and multiplication (Bruce)</p>
+
+          <p>Previous versions sometimes returned unjustified
+          results, like <tt class="COMMAND">'4 months'::interval /
+          5</tt> returning <tt class="COMMAND">'1 mon -6
+          days'</tt>.</p>
+        </li>
+
+        <li>
+          <p>Fix roundoff behavior in timestamp, time, and interval
+          output (Tom)</p>
+
+          <p>This fixes some cases in which the seconds field would
+          be shown as <tt class="LITERAL">60</tt> instead of
+          incrementing the higher-order fields.</p>
+        </li>
+
+        <li>
+          <p>Add a separate day field to type <tt class=
+          "TYPE">interval</tt> so a one day interval can be
+          distinguished from a 24 hour interval (Michael
+          Glaesemann)</p>
+
+          <p>Days that contain a daylight saving time adjustment
+          are not 24 hours long, but typically 23 or 25 hours. This
+          change creates a conceptual distinction between intervals
+          of <span class="QUOTE">"so many days"</span> and
+          intervals of <span class="QUOTE">"so many hours"</span>.
+          Adding <tt class="LITERAL">1 day</tt> to a timestamp now
+          gives the same local time on the next day even if a
+          daylight saving time adjustment occurs between, whereas
+          adding <tt class="LITERAL">24 hours</tt> will give a
+          different local time when this happens. For example,
+          under US DST rules:</p>
+          <pre class="PROGRAMLISTING">
+'2005-04-03 00:00:00-05' + '1 day' = '2005-04-04 00:00:00-04'
+'2005-04-03 00:00:00-05' + '24 hours' = '2005-04-04 01:00:00-04'
+</pre>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">justify_days()</code> and
+          <code class="FUNCTION">justify_hours()</code> (Michael
+          Glaesemann)</p>
+
+          <p>These functions, respectively, adjust days to an
+          appropriate number of full months and days, and adjust
+          hours to an appropriate number of full days and
+          hours.</p>
+        </li>
+
+        <li>
+          <p>Move <tt class="FILENAME">/contrib/dbsize</tt> into
+          the backend, and rename some of the functions (Dave Page,
+          Andreas Pflug)</p>
+
+          <ul>
+            <li>
+              <p><code class=
+              "FUNCTION">pg_tablespace_size()</code></p>
+            </li>
+
+            <li>
+              <p><code class=
+              "FUNCTION">pg_database_size()</code></p>
+            </li>
+
+            <li>
+              <p><code class=
+              "FUNCTION">pg_relation_size()</code></p>
+            </li>
+
+            <li>
+              <p><code class=
+              "FUNCTION">pg_total_relation_size()</code></p>
+            </li>
+
+            <li>
+              <p><code class="FUNCTION">pg_size_pretty()</code></p>
+            </li>
+          </ul>
+
+          <p><code class="FUNCTION">pg_total_relation_size()</code>
+          includes indexes and TOAST tables.</p>
+        </li>
+
+        <li>
+          <p>Add functions for read-only file access to the cluster
+          directory (Dave Page, Andreas Pflug)</p>
+
+          <ul>
+            <li>
+              <p><code class="FUNCTION">pg_stat_file()</code></p>
+            </li>
+
+            <li>
+              <p><code class="FUNCTION">pg_read_file()</code></p>
+            </li>
+
+            <li>
+              <p><code class="FUNCTION">pg_ls_dir()</code></p>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">pg_reload_conf()</code> to
+          force reloading of the configuration files (Dave Page,
+          Andreas Pflug)</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">pg_rotate_logfile()</code>
+          to force rotation of the server log file (Dave Page,
+          Andreas Pflug)</p>
+        </li>
+
+        <li>
+          <p>Change <tt class="LITERAL">pg_stat_*</tt> views to
+          include TOAST tables (Tom)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75113" id="AEN75113">E.24.3.7.
+      Encoding and Locale Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Rename some encodings to be more consistent and to
+          follow international standards (Bruce)</p>
+
+          <ul>
+            <li>
+              <p><tt class="LITERAL">UNICODE</tt> is now <tt class=
+              "LITERAL">UTF8</tt></p>
+            </li>
+
+            <li>
+              <p><tt class="LITERAL">ALT</tt> is now <tt class=
+              "LITERAL">WIN866</tt></p>
+            </li>
+
+            <li>
+              <p><tt class="LITERAL">WIN</tt> is now <tt class=
+              "LITERAL">WIN1251</tt></p>
+            </li>
+
+            <li>
+              <p><tt class="LITERAL">TCVN</tt> is now <tt class=
+              "LITERAL">WIN1258</tt></p>
+            </li>
+          </ul>
+
+          <p>The original names still work.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="LITERAL">WIN1252</tt>
+          encoding (Roland Volkmann)</p>
+        </li>
+
+        <li>
+          <p>Add support for four-byte <tt class=
+          "LITERAL">UTF8</tt> characters (John Hansen)</p>
+
+          <p>Previously only one, two, and three-byte <tt class=
+          "LITERAL">UTF8</tt> characters were supported. This is
+          particularly important for support for some Chinese
+          character sets.</p>
+        </li>
+
+        <li>
+          <p>Allow direct conversion between <tt class=
+          "LITERAL">EUC_JP</tt> and <tt class="LITERAL">SJIS</tt>
+          to improve performance (Atsushi Ogawa)</p>
+        </li>
+
+        <li>
+          <p>Allow the UTF8 encoding to work on Windows
+          (Magnus)</p>
+
+          <p>This is done by mapping UTF8 to the Windows-native
+          UTF16 implementation.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75152" id="AEN75152">E.24.3.8.
+      General Server-Side Language Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Fix <tt class="COMMAND">ALTER LANGUAGE RENAME</tt>
+          (Sergey Yatskevich)</p>
+        </li>
+
+        <li>
+          <p>Allow function characteristics, like strictness and
+          volatility, to be modified via <tt class="COMMAND">ALTER
+          FUNCTION</tt> (Neil)</p>
+        </li>
+
+        <li>
+          <p>Increase the maximum number of function arguments to
+          100 (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow SQL and PL/pgSQL functions to use <tt class=
+          "COMMAND">OUT</tt> and <tt class="COMMAND">INOUT</tt>
+          parameters (Tom)</p>
+
+          <p><tt class="COMMAND">OUT</tt> is an alternate way for a
+          function to return values. Instead of using <tt class=
+          "COMMAND">RETURN</tt>, values can be returned by
+          assigning to parameters declared as <tt class=
+          "COMMAND">OUT</tt> or <tt class="COMMAND">INOUT</tt>.
+          This is notationally simpler in some cases, particularly
+          so when multiple values need to be returned. While
+          returning multiple values from a function was possible in
+          previous releases, this greatly simplifies the process.
+          (The feature will be extended to other server-side
+          languages in future releases.)</p>
+        </li>
+
+        <li>
+          <p>Move language handler functions into the <tt class=
+          "LITERAL">pg_catalog</tt> schema</p>
+
+          <p>This makes it easier to drop the public schema if
+          desired.</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">SPI_getnspname()</code> to
+          SPI (Neil)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75179" id="AEN75179">E.24.3.9.
+      PL/pgSQL Server-Side Language Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Overhaul the memory management of PL/pgSQL functions
+          (Neil)</p>
+
+          <p>The parsetree of each function is now stored in a
+          separate memory context. This allows this memory to be
+          easily reclaimed when it is no longer needed.</p>
+        </li>
+
+        <li>
+          <p>Check function syntax at <tt class="COMMAND">CREATE
+          FUNCTION</tt> time, rather than at runtime (Neil)</p>
+
+          <p>Previously, most syntax errors were reported only when
+          the function was executed.</p>
+        </li>
+
+        <li>
+          <p>Allow <tt class="COMMAND">OPEN</tt> to open
+          non-<tt class="COMMAND">SELECT</tt> queries like
+          <tt class="COMMAND">EXPLAIN</tt> and <tt class=
+          "COMMAND">SHOW</tt> (Tom)</p>
+        </li>
+
+        <li>
+          <p>No longer require functions to issue a <tt class=
+          "COMMAND">RETURN</tt> statement (Tom)</p>
+
+          <p>This is a byproduct of the newly added <tt class=
+          "COMMAND">OUT</tt> and <tt class="COMMAND">INOUT</tt>
+          functionality. <tt class="COMMAND">RETURN</tt> can be
+          omitted when it is not needed to provide the function's
+          return value.</p>
+        </li>
+
+        <li>
+          <p>Add support for an optional <tt class=
+          "COMMAND">INTO</tt> clause to PL/pgSQL's <tt class=
+          "COMMAND">EXECUTE</tt> statement (Pavel Stehule,
+          Neil)</p>
+        </li>
+
+        <li>
+          <p>Make <tt class="COMMAND">CREATE TABLE AS</tt> set
+          <tt class="COMMAND">ROW_COUNT</tt> (Tom)</p>
+        </li>
+
+        <li>
+          <p>Define <tt class="LITERAL">SQLSTATE</tt> and
+          <tt class="LITERAL">SQLERRM</tt> to return the <tt class=
+          "LITERAL">SQLSTATE</tt> and error message of the current
+          exception (Pavel Stehule, Neil)</p>
+
+          <p>These variables are only defined inside exception
+          blocks.</p>
+        </li>
+
+        <li>
+          <p>Allow the parameters to the <tt class=
+          "COMMAND">RAISE</tt> statement to be expressions (Pavel
+          Stehule, Neil)</p>
+        </li>
+
+        <li>
+          <p>Add a loop <tt class="COMMAND">CONTINUE</tt> statement
+          (Pavel Stehule, Neil)</p>
+        </li>
+
+        <li>
+          <p>Allow block and loop labels (Pavel Stehule)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75224" id="AEN75224">E.24.3.10.
+      PL/Perl Server-Side Language Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Allow large result sets to be returned efficiently
+          (Abhijit Menon-Sen)</p>
+
+          <p>This allows functions to use <code class=
+          "FUNCTION">return_next()</code> to avoid building the
+          entire result set in memory.</p>
+        </li>
+
+        <li>
+          <p>Allow one-row-at-a-time retrieval of query results
+          (Abhijit Menon-Sen)</p>
+
+          <p>This allows functions to use <code class=
+          "FUNCTION">spi_query()</code> and <code class=
+          "FUNCTION">spi_fetchrow()</code> to avoid accumulating
+          the entire result set in memory.</p>
+        </li>
+
+        <li>
+          <p>Force PL/Perl to handle strings as <tt class=
+          "LITERAL">UTF8</tt> if the server encoding is <tt class=
+          "LITERAL">UTF8</tt> (David Kamholz)</p>
+        </li>
+
+        <li>
+          <p>Add a validator function for PL/Perl (Andrew)</p>
+
+          <p>This allows syntax errors to be reported at definition
+          time, rather than execution time.</p>
+        </li>
+
+        <li>
+          <p>Allow PL/Perl to return a Perl array when the function
+          returns an array type (Andrew)</p>
+
+          <p>This basically maps <span class=
+          "PRODUCTNAME">PostgreSQL</span> arrays to Perl
+          arrays.</p>
+        </li>
+
+        <li>
+          <p>Allow Perl nonfatal warnings to generate <tt class=
+          "COMMAND">NOTICE</tt> messages (Andrew)</p>
+        </li>
+
+        <li>
+          <p>Allow Perl's <tt class="LITERAL">strict</tt> mode to
+          be enabled (Andrew)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75253" id="AEN75253">E.24.3.11.
+      <span class="APPLICATION">psql</span> Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add <tt class="COMMAND">\set ON_ERROR_ROLLBACK</tt> to
+          allow statements in a transaction to error without
+          affecting the rest of the transaction (Greg Sabino
+          Mullane)</p>
+
+          <p>This is basically implemented by wrapping every
+          statement in a sub-transaction.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="LITERAL">\x</tt> hex
+          strings in <span class="APPLICATION">psql</span>
+          variables (Bruce)</p>
+
+          <p>Octal escapes were already supported.</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class="COMMAND">troff -ms</tt>
+          output format (Roger Leigh)</p>
+        </li>
+
+        <li>
+          <p>Allow the history file location to be controlled by
+          <tt class="ENVAR">HISTFILE</tt> (Andreas Seltenreich)</p>
+
+          <p>This allows configuration of per-database history
+          storage.</p>
+        </li>
+
+        <li>
+          <p>Prevent <tt class="COMMAND">\x</tt> (expanded mode)
+          from affecting the output of <tt class="COMMAND">\d
+          tablename</tt> (Neil)</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="OPTION">-L</tt> option to <span class=
+          "APPLICATION">psql</span> to log sessions (Lorne
+          Sunley)</p>
+
+          <p>This option was added because some operating systems
+          do not have simple command-line activity logging
+          functionality.</p>
+        </li>
+
+        <li>
+          <p>Make <tt class="COMMAND">\d</tt> show the tablespaces
+          of indexes (Qingqing Zhou)</p>
+        </li>
+
+        <li>
+          <p>Allow <span class="APPLICATION">psql</span> help
+          (<tt class="COMMAND">\h</tt>) to make a best guess on the
+          proper help information (Greg Sabino Mullane)</p>
+
+          <p>This allows the user to just add <tt class=
+          "COMMAND">\h</tt> to the front of the syntax error query
+          and get help on the supported syntax. Previously any
+          additional query text beyond the command name had to be
+          removed to use <tt class="COMMAND">\h</tt>.</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="COMMAND">\pset numericlocale</tt> to
+          allow numbers to be output in a locale-aware format
+          (Eugen Nedelcu)</p>
+
+          <p>For example, using <tt class="LITERAL">C</tt> locale
+          <tt class="LITERAL">100000</tt> would be output as
+          <tt class="LITERAL">100,000.0</tt> while a European
+          locale might output this value as <tt class=
+          "LITERAL">100.000,0</tt>.</p>
+        </li>
+
+        <li>
+          <p>Make startup banner show both server version number
+          and <span class="APPLICATION">psql</span>'s version
+          number, when they are different (Bruce)</p>
+
+          <p>Also, a warning will be shown if the server and
+          <span class="APPLICATION">psql</span> are from different
+          major releases.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75305" id="AEN75305">E.24.3.12.
+      <span class="APPLICATION">pg_dump</span> Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add <tt class="OPTION">-n</tt> / <tt class=
+          "OPTION">--schema</tt> switch to <span class=
+          "APPLICATION">pg_restore</span> (Richard van den
+          Berg)</p>
+
+          <p>This allows just the objects in a specified schema to
+          be restored.</p>
+        </li>
+
+        <li>
+          <p>Allow <span class="APPLICATION">pg_dump</span> to dump
+          large objects even in text mode (Tom)</p>
+
+          <p>With this change, large objects are now always dumped;
+          the former <tt class="OPTION">-b</tt> switch is a
+          no-op.</p>
+        </li>
+
+        <li>
+          <p>Allow <span class="APPLICATION">pg_dump</span> to dump
+          a consistent snapshot of large objects (Tom)</p>
+        </li>
+
+        <li>
+          <p>Dump comments for large objects (Tom)</p>
+        </li>
+
+        <li>
+          <p>Add <tt class="OPTION">--encoding</tt> to <span class=
+          "APPLICATION">pg_dump</span> (Magnus Hagander)</p>
+
+          <p>This allows a database to be dumped in an encoding
+          that is different from the server's encoding. This is
+          valuable when transferring the dump to a machine with a
+          different encoding.</p>
+        </li>
+
+        <li>
+          <p>Rely on <tt class="STRUCTNAME">pg_pltemplate</tt> for
+          procedural languages (Tom)</p>
+
+          <p>If the call handler for a procedural language is in
+          the <tt class="LITERAL">pg_catalog</tt> schema,
+          <span class="APPLICATION">pg_dump</span> does not dump
+          the handler. Instead, it dumps the language using just
+          <tt class="COMMAND">CREATE LANGUAGE <tt class=
+          "REPLACEABLE c2">name</tt></tt>, relying on the
+          <tt class="STRUCTNAME">pg_pltemplate</tt> catalog to
+          provide the language's creation parameters at load
+          time.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75339" id="AEN75339">E.24.3.13.
+      <span class="APPLICATION">libpq</span> Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add a <tt class="ENVAR">PGPASSFILE</tt> environment
+          variable to specify the password file's filename
+          (Andrew)</p>
+        </li>
+
+        <li>
+          <p>Add <code class="FUNCTION">lo_create()</code>, that is
+          similar to <code class="FUNCTION">lo_creat()</code> but
+          allows the OID of the large object to be specified
+          (Tom)</p>
+        </li>
+
+        <li>
+          <p>Make <span class="APPLICATION">libpq</span>
+          consistently return an error to the client application on
+          <code class="FUNCTION">malloc()</code> failure (Neil)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75354" id="AEN75354">E.24.3.14.
+      Source Code Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Fix <span class="APPLICATION">pgxs</span> to support
+          building against a relocated installation</p>
+        </li>
+
+        <li>
+          <p>Add spinlock support for the Itanium processor using
+          Intel compiler (Vikram Kalsi)</p>
+        </li>
+
+        <li>
+          <p>Add Kerberos 5 support for Windows (Magnus)</p>
+        </li>
+
+        <li>
+          <p>Add Chinese FAQ (laser@pgsqldb.com)</p>
+        </li>
+
+        <li>
+          <p>Rename Rendezvous to Bonjour to match OS/X feature
+          renaming (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Add support for <tt class=
+          "LITERAL">fsync_writethrough</tt> on Darwin (Chris
+          Campbell)</p>
+        </li>
+
+        <li>
+          <p>Streamline the passing of information within the
+          server, the optimizer, and the lock system (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow <span class="APPLICATION">pg_config</span> to be
+          compiled using MSVC (Andrew)</p>
+
+          <p>This is required to build DBD::Pg using <span class=
+          "APPLICATION">MSVC</span>.</p>
+        </li>
+
+        <li>
+          <p>Remove support for Kerberos V4 (Magnus)</p>
+
+          <p>Kerberos 4 had security vulnerabilities and is no
+          longer maintained.</p>
+        </li>
+
+        <li>
+          <p>Code cleanups (Coverity static analysis performed by
+          EnterpriseDB)</p>
+        </li>
+
+        <li>
+          <p>Modify <tt class="FILENAME">postgresql.conf</tt> to
+          use documentation defaults <tt class=
+          "LITERAL">on</tt>/<tt class="LITERAL">off</tt> rather
+          than <tt class="LITERAL">true</tt>/<tt class=
+          "LITERAL">false</tt> (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Enhance <span class="APPLICATION">pg_config</span> to
+          be able to report more build-time values (Tom)</p>
+        </li>
+
+        <li>
+          <p>Allow <span class="APPLICATION">libpq</span> to be
+          built thread-safe on Windows (Dave Page)</p>
+        </li>
+
+        <li>
+          <p>Allow IPv6 connections to be used on Windows
+          (Andrew)</p>
+        </li>
+
+        <li>
+          <p>Add Server Administration documentation about I/O
+          subsystem reliability (Bruce)</p>
+        </li>
+
+        <li>
+          <p>Move private declarations from <tt class=
+          "FILENAME">gist.h</tt> to <tt class=
+          "FILENAME">gist_private.h</tt> (Neil)</p>
+
+          <p>In previous releases, <tt class="FILENAME">gist.h</tt>
+          contained both the public GiST API (intended for use by
+          authors of GiST index implementations) as well as some
+          private declarations used by the implementation of GiST
+          itself. The latter have been moved to a separate file,
+          <tt class="FILENAME">gist_private.h</tt>. Most GiST index
+          implementations should be unaffected.</p>
+        </li>
+
+        <li>
+          <p>Overhaul GiST memory management (Neil)</p>
+
+          <p>GiST methods are now always invoked in a short-lived
+          memory context. Therefore, memory allocated via
+          <code class="FUNCTION">palloc()</code> will be reclaimed
+          automatically, so GiST index implementations do not need
+          to manually release allocated memory via <code class=
+          "FUNCTION">pfree()</code>.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="SECT3">
+      <h3 class="SECT3"><a name="AEN75412" id="AEN75412">E.24.3.15.
+      Contrib Changes</a></h3>
+
+      <ul>
+        <li>
+          <p>Add <tt class="FILENAME">/contrib/pg_buffercache</tt>
+          contrib module (Mark Kirkwood)</p>
+
+          <p>This displays the contents of the buffer cache, for
+          debugging and performance tuning purposes.</p>
+        </li>
+
+        <li>
+          <p>Remove <tt class="FILENAME">/contrib/array</tt>
+          because it is obsolete (Tom)</p>
+        </li>
+
+        <li>
+          <p>Clean up the <tt class="FILENAME">/contrib/lo</tt>
+          module (Tom)</p>
+        </li>
+
+        <li>
+          <p>Move <tt class="FILENAME">/contrib/findoidjoins</tt>
+          to <tt class="FILENAME">/src/tools</tt> (Tom)</p>
+        </li>
+
+        <li>
+          <p>Remove the <tt class="LITERAL">&lt;&lt;</tt>,
+          <tt class="LITERAL">&gt;&gt;</tt>, <tt class=
+          "LITERAL">&amp;&lt;</tt>, and <tt class=
+          "LITERAL">&amp;&gt;</tt> operators from <tt class=
+          "FILENAME">/contrib/cube</tt></p>
+
+          <p>These operators were not useful.</p>
+        </li>
+
+        <li>
+          <p>Improve <tt class="FILENAME">/contrib/btree_gist</tt>
+          (Janko Richter)</p>
+        </li>
+
+        <li>
+          <p>Improve <tt class="FILENAME">/contrib/pgbench</tt>
+          (Tomoaki Sato, Tatsuo)</p>
+
+          <p>There is now a facility for testing with SQL command
+          scripts given by the user, instead of only a hard-wired
+          command sequence.</p>
+        </li>
+
+        <li>
+          <p>Improve <tt class="FILENAME">/contrib/pgcrypto</tt>
+          (Marko Kreen)</p>
+
+          <ul>
+            <li>
+              <p>Implementation of OpenPGP symmetric-key and
+              public-key encryption</p>
+
+              <p>Both RSA and Elgamal public-key algorithms are
+              supported.</p>
+            </li>
+
+            <li>
+              <p>Stand alone build: include SHA256/384/512 hashes,
+              Fortuna PRNG</p>
+            </li>
+
+            <li>
+              <p>OpenSSL build: support 3DES, use internal AES with
+              OpenSSL &lt; 0.9.7</p>
+            </li>
+
+            <li>
+              <p>Take build parameters (OpenSSL, zlib) from
+              <tt class="FILENAME">configure</tt> result</p>
+
+              <p>There is no need to edit the <tt class=
+              "FILENAME">Makefile</tt> anymore.</p>
+            </li>
+
+            <li>
+              <p>Remove support for <tt class=
+              "FILENAME">libmhash</tt> and <tt class=
+              "FILENAME">libmcrypt</tt></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="NAVFOOTER">
+  <hr class="c1" width="100%" />
+
+  <table summary="Footer navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="33%" align="left" valign="top"><a href=
+      "release-8-1-1.html" accesskey="P">Prev</a></td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "index.html" accesskey="H">Home</a></td>
+
+      <td width="33%" align="right" valign="top"><a href=
+      "release-8-0-26.html" accesskey="N">Next</a></td>
+    </tr>
+
+    <tr>
+      <td width="33%" align="left" valign="top">Release 8.1.1</td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "release.html" accesskey="U">Up</a></td>
+
+      <td width="33%" align="right" valign="top">Release
+      8.0.26</td>
+    </tr>
+  </table>
+</div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/8.1.1/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.23/">
+                8.1.23
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.22/">
+                8.1.22
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.21/">
+                8.1.21
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.20/">
+                8.1.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.19/">
+                8.1.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.18/">
+                8.1.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.17/">
+                8.1.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.16/">
+                8.1.16
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.15/">
+                8.1.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.14/">
+                8.1.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.13/">
+                8.1.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.12/">
+                8.1.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.11/">
+                8.1.11
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.10/">
+                8.1.10
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.9/">
+                8.1.9
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.8/">
+                8.1.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.7/">
+                8.1.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.6/">
+                8.1.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.5/">
+                8.1.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.4/">
+                8.1.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.3/">
+                8.1.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.2/">
+                8.1.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/8.1.1/">
+                8.1.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                8.1.0
+              </strong>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>
