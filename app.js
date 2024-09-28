@@ -5,6 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs").promises;
 const path = require("path");
+const { NodeHtmlMarkdown } =require('node-html-markdown');
 
 const CACHE_DIR = "raw-latest";
 const BASE_URL = "https://www.postgresql.org/docs/release/";
@@ -148,22 +149,7 @@ async function parseReleaseNotes(directory) {
 }
 
 function parseInlineFormatting(text) {
-  // Convert <code class="literal"> to backticks
-  text = text.replace(/<code class="literal">(.+?)<\/code>/g, "`$1`");
-
-  // Convert <code class="function"> to backticks with parentheses
-  text = text.replace(/<code class="function">(.+?)<\/code>/g, "`$1()`");
-
-  // Convert other <code> tags to backticks
-  text = text.replace(/<code>(.+?)<\/code>/g, "`$1`");
-
-  // Convert <a> tags to plain text (remove links)
-  text = text.replace(/<a[^>]*>(.+?)<\/a>/g, "$1");
-
-  // Remove any remaining HTML tags
-  text = text.replace(/<[^>]*>/g, "");
-
-  return text;
+  return NodeHtmlMarkdown.translate(text);
 }
 
 function categorizeChanges(changes) {
@@ -292,11 +278,12 @@ function parseBugItem(item, version) {
   const titleEnd = item.indexOf("(");
   const title = titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled bug";
   const contributor = extractContributor(item);
+  const description = item.slice(item.indexOf('\n\n') + 2).trim();
 
   return {
     cve,
     title,
-    description: item,
+    description,
     fixedIn: version,
     contributor,
   };
@@ -307,10 +294,11 @@ function parseFeatureItem(item, version) {
   const title =
     titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled feature";
   const contributor = extractContributor(item);
+  const description = item.slice(item.indexOf('\n\n') + 2).trim();
 
   return {
     title,
-    description: item,
+    description,
     sinceVersion: version,
     contributor,
   };
@@ -326,10 +314,11 @@ function parsePerformanceItem(item, version) {
   const significant =
     item.toLowerCase().includes("significant") ||
     item.toLowerCase().includes("major");
+  const description = item.slice(item.indexOf('\n\n') + 2).trim();
 
   return {
     title,
-    description: item,
+    description,
     sinceVersion: version,
     significant,
     contributor,
