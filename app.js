@@ -5,7 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs").promises;
 const path = require("path");
-const { NodeHtmlMarkdown } =require('node-html-markdown');
+const { NodeHtmlMarkdown } = require("node-html-markdown");
 
 const CACHE_DIR = "raw-latest";
 const BASE_URL = "https://www.postgresql.org/docs/release/";
@@ -87,14 +87,14 @@ async function saveToCacheFile(filename, content) {
 }
 
 function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
 
-    const processedData = releaseData.map(release => ({
+    const processedData = releaseData.map((release) => ({
       version: release.version,
       releaseDate: release.releaseDate,
       categories: categorizeChanges(release.changes),
@@ -166,12 +166,12 @@ function categorizeChanges(changes) {
     features: ["new feature", "added", "introduced", "now supports"],
   };
 
-  changes.forEach(change => {
+  changes.forEach((change) => {
     const lowerChange = change.toLowerCase();
     let categorized = false;
 
     for (const [category, words] of Object.entries(keywords)) {
-      if (words.some(word => lowerChange.includes(word))) {
+      if (words.some((word) => lowerChange.includes(word))) {
         categories[category].push(change);
         categorized = true;
         break;
@@ -190,7 +190,7 @@ async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
 
-    const processedData = releaseData.map(release => ({
+    const processedData = releaseData.map((release) => ({
       version: release.version,
       releaseDate: release.releaseDate,
       categories: categorizeChanges(release.changes),
@@ -218,7 +218,7 @@ async function generateSummary() {
       performanceImprovements: [],
     };
 
-    releaseNotes.forEach(release => {
+    releaseNotes.forEach((release) => {
       const version = release.version;
       const releaseDate = release.releaseDate;
 
@@ -226,25 +226,25 @@ async function generateSummary() {
       summary.versionDates[version] = releaseDate;
 
       // Process security issues (bugs)
-      release.categories.security.forEach(item => {
+      release.categories.security.forEach((item) => {
         const bug = parseBugItem(item, version);
         if (bug) summary.bugs.push(bug);
       });
 
       // Process features
-      release.categories.features.forEach(item => {
+      release.categories.features.forEach((item) => {
         const feature = parseFeatureItem(item, version);
         if (feature) summary.features.push(feature);
       });
 
       // Process performance improvements
-      release.categories.performance.forEach(item => {
+      release.categories.performance.forEach((item) => {
         const improvement = parsePerformanceItem(item, version);
         if (improvement) summary.performanceImprovements.push(improvement);
       });
 
       // Process 'other' items as features
-      release.categories.other.forEach(item => {
+      release.categories.other.forEach((item) => {
         const feature = parseFeatureItem(item, version);
         if (feature) summary.features.push(feature);
       });
@@ -260,7 +260,7 @@ async function generateSummary() {
 
 function extractContributor(item) {
   // Look for the last set of parentheses that doesn't contain a URL
-  const matches = item.match(/\(([^()]+)\)(?:\n|$)/);
+  const matches = item.match(/[^\]]\(([^()]+)\)(?:\n|$)/);
   if (matches) {
     for (let i = matches.length - 1; i >= 0; i--) {
       const match = matches[i];
@@ -272,13 +272,19 @@ function extractContributor(item) {
   return null;
 }
 
+function extractTitleDescription(item) {
+  const titleEnd = item.indexOf("\n");
+  // Grab the first line (the title) and remove the contributor in parentheses
+  const title = titleEnd > 0 ? item.slice(0, titleEnd).trim().replace(/ \([^\)]+\)$/, '') : item.replace(/ \([^\)]+\)$/, '');
+  const description = titleEnd > 0 ? item.slice(titleEnd + 1).trim() : "";
+  return { title, description };
+}
+
 function parseBugItem(item, version) {
+  const { title, description } = extractTitleDescription(item);
   const cveMatch = item.match(/CVE-\d{4}-\d+/);
   const cve = cveMatch ? cveMatch[0] : null;
-  const titleEnd = item.indexOf("(");
-  const title = titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled bug";
   const contributor = extractContributor(item);
-  const description = item.slice(item.indexOf('\n\n') + 2).trim();
 
   return {
     cve,
@@ -290,11 +296,8 @@ function parseBugItem(item, version) {
 }
 
 function parseFeatureItem(item, version) {
-  const titleEnd = item.indexOf("(");
-  const title =
-    titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled feature";
   const contributor = extractContributor(item);
-  const description = item.slice(item.indexOf('\n\n') + 2).trim();
+  const { title, description } = extractTitleDescription(item);
 
   return {
     title,
@@ -305,16 +308,11 @@ function parseFeatureItem(item, version) {
 }
 
 function parsePerformanceItem(item, version) {
-  const titleEnd = item.indexOf("(");
-  const title =
-    titleEnd > 0
-      ? item.slice(0, titleEnd).trim()
-      : "Untitled performance improvement";
   const contributor = extractContributor(item);
+  const { title, description } = extractTitleDescription(item);
   const significant =
     item.toLowerCase().includes("significant") ||
     item.toLowerCase().includes("major");
-  const description = item.slice(item.indexOf('\n\n') + 2).trim();
 
   return {
     title,
