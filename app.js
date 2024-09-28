@@ -131,7 +131,7 @@ async function parseReleaseNotes(directory) {
 
       const items = [];
 
-      $(".itemizedlist ul li").each((index, element) => {
+      $(".itemizedlist ul li.listitem").each((index, element) => {
         const text = $(element).html().trim();
         items.push(parseInlineFormatting(text));
       });
@@ -274,12 +274,12 @@ async function generateSummary() {
 
 function extractContributor(item) {
   // Look for the last set of parentheses that doesn't contain a URL
-  const matches = item.match(/\(([^()]+)\)/g);
+  const matches = item.match(/\(([^()]+)\)(?:\n|$)/);
   if (matches) {
     for (let i = matches.length - 1; i >= 0; i--) {
       const match = matches[i];
       if (!match.includes("http") && !match.includes("www.")) {
-        return match.slice(1, -1).trim();
+        return match.trim();
       }
     }
   }
