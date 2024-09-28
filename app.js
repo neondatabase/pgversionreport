@@ -258,14 +258,14 @@ async function generateSummary() {
   }
 }
 
-function extractContributor(item) {
+function extractContributors(item) {
   // Look for the last set of parentheses that doesn't contain a URL
   const matches = item.match(/[^\]]\(([^()]+)\)(?:\n|$)/);
   if (matches) {
     for (let i = matches.length - 1; i >= 0; i--) {
       const match = matches[i];
       if (!match.includes("http") && !match.includes("www.")) {
-        return match.trim();
+        return match.trim().split(', ');
       }
     }
   }
@@ -274,7 +274,7 @@ function extractContributor(item) {
 
 function extractTitleDescription(item) {
   const titleEnd = item.indexOf("\n");
-  // Grab the first line (the title) and remove the contributor in parentheses
+  // Grab the first line (the title) and remove the contributors in parentheses
   const title = titleEnd > 0 ? item.slice(0, titleEnd).trim().replace(/ \([^\)]+\)$/, '') : item.replace(/ \([^\)]+\)$/, '');
   const description = titleEnd > 0 ? item.slice(titleEnd + 1).trim() : "";
   return { title, description };
@@ -284,31 +284,31 @@ function parseBugItem(item, version) {
   const { title, description } = extractTitleDescription(item);
   const cveMatch = item.match(/CVE-\d{4}-\d+/);
   const cve = cveMatch ? cveMatch[0] : null;
-  const contributor = extractContributor(item);
+  const contributors = extractContributors(item);
 
   return {
     cve,
     title,
     description,
     fixedIn: version,
-    contributor,
+    contributors,
   };
 }
 
 function parseFeatureItem(item, version) {
-  const contributor = extractContributor(item);
+  const contributors = extractContributors(item);
   const { title, description } = extractTitleDescription(item);
 
   return {
     title,
     description,
     sinceVersion: version,
-    contributor,
+    contributors,
   };
 }
 
 function parsePerformanceItem(item, version) {
-  const contributor = extractContributor(item);
+  const contributors = extractContributors(item);
   const { title, description } = extractTitleDescription(item);
   const significant =
     item.toLowerCase().includes("significant") ||
@@ -319,7 +319,7 @@ function parsePerformanceItem(item, version) {
     description,
     sinceVersion: version,
     significant,
-    contributor,
+    contributors,
   };
 }
 
