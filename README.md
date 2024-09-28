@@ -65,7 +65,7 @@ node app.js process
 
 This command will create a `release_notes.json` file in the project directory.
 
-## Output
+#### Output
 
 The `release_notes.json` file contains structured data for each PostgreSQL release, including:
 
@@ -78,6 +78,16 @@ The `release_notes.json` file contains structured data for each PostgreSQL relea
 
 > [!NOTE]
 > We can add more categories as needed and update the processing logic accordingly. As the change log files are cached, we can easily reprocess the data to include new categories as needed.
+
+### Format Release Notes
+
+To process the cached release notes and generate a formatted JSON file with categorized changes:
+
+```bash
+node app.js format
+```
+
+This command will create a `release_notes_formatted.json` file in the project directory. The formatted JSON includes categorized lists of bugs (with CVE information when available), new features, and performance improvements. This structured format is particularly useful for further processing or for generating reports about PostgreSQL updates.
 
 ## Configuration
 

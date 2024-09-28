@@ -27,6 +27,11 @@ program
   .description("Process cached release notes and generate JSON")
   .action(processReleaseNotes);
 
+program
+  .command("format")
+  .description("Process cached release notes and generate formatted JSON")
+  .action(processReleaseNotes);
+
 async function scrapeAllVersions() {
   try {
     await fs.mkdir(CACHE_DIR, { recursive: true });
@@ -166,6 +171,65 @@ function categorizeChanges(changes) {
   });
 
   return categories;
+}
+
+function formatReleaseNotes(releaseData) {
+  const formattedData = {
+    bugs: [],
+    features: [],
+    performanceImprovements: [],
+  };
+
+  releaseData.forEach(release => {
+    release.categories.security.forEach(item => {
+      const cveMatch = item.match(/CVE-\d{4}-\d{4,7}/);
+      formattedData.bugs.push({
+        cve: cveMatch ? cveMatch[0] : null,
+        title: item.split(".")[0],
+        description: item,
+        fixedIn: release.version,
+      });
+    });
+
+    release.categories.features.forEach(item => {
+      formattedData.features.push({
+        title: item.split(".")[0],
+        description: item,
+        sinceVersion: release.version,
+      });
+    });
+
+    release.categories.performance.forEach(item => {
+      formattedData.performanceImprovements.push({
+        title: item.split(".")[0],
+        description: item,
+        sinceVersion: release.version,
+        significant: item.toLowerCase().includes("significant"),
+      });
+    });
+  });
+
+  return formattedData;
+}
+
+// Modified processReleaseNotes function
+async function processReleaseNotes() {
+  try {
+    const releaseData = await parseReleaseNotes(CACHE_DIR);
+
+    const processedData = releaseData.map(release => ({
+      version: release.version,
+      categories: categorizeChanges(release.changes),
+    }));
+
+    const formattedData = formatReleaseNotes(processedData);
+
+    const outputFile = path.join(__dirname, "release_notes_formatted.json");
+    await fs.writeFile(outputFile, JSON.stringify(formattedData, null, 2));
+    console.log(`Formatted release notes processed and saved to ${outputFile}`);
+  } catch (error) {
+    console.error("Error processing release notes:", error);
+  }
 }
 
 program.parse(process.argv);
