@@ -29,8 +29,8 @@ program
 
 program
   .command("format")
-  .description("Process cached release notes and generate formatted JSON")
-  .action(processReleaseNotes);
+  .description("Generate a formatted JSON from processed release notes")
+  .action(generateSummary);
 
 async function scrapeAllVersions() {
   try {
@@ -95,6 +95,7 @@ async function processReleaseNotes() {
 
     const processedData = releaseData.map(release => ({
       version: release.version,
+      releaseDate: release.releaseDate,
       categories: categorizeChanges(release.changes),
     }));
 
@@ -122,28 +123,23 @@ async function parseReleaseNotes(directory) {
         .trim()
         .split(" ")
         .pop();
+
+      const releaseDate = $("p:contains('Release date:')")
+        .text()
+        .split(":")[1]
+        .trim();
+
       const items = [];
-      const migrationInfo = [];
 
-      // Extract changes
       $(".itemizedlist ul li").each((index, element) => {
-        const text = $(element).text().trim();
-        items.push(text);
+        const text = $(element).html().trim();
+        items.push(parseInlineFormatting(text));
       });
-
-      // Extract migration information
-      $("#RELEASE-" + version.replace(".", "-") + "-MIGRATION")
-        .next(".sect2")
-        .find("p")
-        .each((index, element) => {
-          const text = $(element).text().trim();
-          migrationInfo.push(text);
-        });
 
       releaseData.push({
         version,
+        releaseDate,
         changes: items,
-        migrationInfo: migrationInfo,
       });
     }
   }
@@ -151,12 +147,30 @@ async function parseReleaseNotes(directory) {
   return releaseData;
 }
 
-function categorizeChanges(changes, migrationInfo) {
+function parseInlineFormatting(text) {
+  // Convert <code class="literal"> to backticks
+  text = text.replace(/<code class="literal">(.+?)<\/code>/g, "`$1`");
+
+  // Convert <code class="function"> to backticks with parentheses
+  text = text.replace(/<code class="function">(.+?)<\/code>/g, "`$1()`");
+
+  // Convert other <code> tags to backticks
+  text = text.replace(/<code>(.+?)<\/code>/g, "`$1`");
+
+  // Convert <a> tags to plain text (remove links)
+  text = text.replace(/<a[^>]*>(.+?)<\/a>/g, "$1");
+
+  // Remove any remaining HTML tags
+  text = text.replace(/<[^>]*>/g, "");
+
+  return text;
+}
+
+function categorizeChanges(changes) {
   const categories = {
     performance: [],
     security: [],
     features: [],
-    migration: migrationInfo,
     other: [],
   };
 
@@ -186,98 +200,129 @@ function categorizeChanges(changes, migrationInfo) {
   return categories;
 }
 
-function formatReleaseNotes(releaseData) {
-  const formattedData = {
-    bugs: [],
-    features: [],
-    performanceImprovements: [],
-    contributors: new Set(),
-  };
-
-  releaseData.forEach(release => {
-    release.categories.security.forEach(item => {
-      const cveMatch = item.match(/CVE-\d{4}-\d{4,7}/);
-      const contributors = extractContributors(item);
-      formattedData.bugs.push({
-        cve: cveMatch ? cveMatch[0] : null,
-        title: item.split(".")[0],
-        description: item,
-        fixedIn: release.version,
-        contributors: contributors,
-      });
-      contributors.forEach(contributor =>
-        formattedData.contributors.add(contributor)
-      );
-    });
-
-    release.categories.features.forEach(item => {
-      const contributors = extractContributors(item);
-      formattedData.features.push({
-        title: item.split(".")[0],
-        description: item,
-        sinceVersion: release.version,
-        contributors: contributors,
-      });
-      contributors.forEach(contributor =>
-        formattedData.contributors.add(contributor)
-      );
-    });
-
-    release.categories.performance.forEach(item => {
-      const contributors = extractContributors(item);
-      formattedData.performanceImprovements.push({
-        title: item.split(".")[0],
-        description: item,
-        sinceVersion: release.version,
-        significant: item.toLowerCase().includes("significant"),
-        contributors: contributors,
-      });
-      contributors.forEach(contributor =>
-        formattedData.contributors.add(contributor)
-      );
-    });
-
-    release.categories.other.forEach(item => {
-      const contributors = extractContributors(item);
-      contributors.forEach(contributor =>
-        formattedData.contributors.add(contributor)
-      );
-    });
-  });
-
-  // Convert Set to Array for JSON serialization
-  formattedData.contributors = Array.from(formattedData.contributors);
-
-  return formattedData;
-}
-
-function extractContributors(item) {
-  // This regex looks for names in parentheses at the end of the item
-  const contributorMatch = item.match(/\(([^)]+)\)$/);
-  if (contributorMatch) {
-    // Split the matched string by commas and trim each name
-    return contributorMatch[1].split(",").map(name => name.trim());
-  }
-  return [];
-}
-
 async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
 
     const processedData = releaseData.map(release => ({
       version: release.version,
-      categories: categorizeChanges(release.changes, release.migrationInfo),
+      releaseDate: release.releaseDate,
+      categories: categorizeChanges(release.changes),
     }));
 
-    const formattedData = formatReleaseNotes(processedData);
-
-    const outputFile = path.join(__dirname, "release_notes_formatted.json");
-    await fs.writeFile(outputFile, JSON.stringify(formattedData, null, 2));
-    console.log(`Formatted release notes processed and saved to ${outputFile}`);
+    const outputFile = path.join(__dirname, "release_notes.json");
+    await fs.writeFile(outputFile, JSON.stringify(processedData, null, 2));
+    console.log(`Release notes processed and saved to ${outputFile}`);
   } catch (error) {
     console.error("Error processing release notes:", error);
   }
+}
+
+async function generateSummary() {
+  try {
+    const releaseNotesPath = path.join(__dirname, "release_notes.json");
+    const releaseNotes = JSON.parse(
+      await fs.readFile(releaseNotesPath, "utf-8")
+    );
+
+    const summary = {
+      bugs: [],
+      features: [],
+      performanceImprovements: [],
+    };
+
+    releaseNotes.forEach(release => {
+      const version = release.version;
+
+      // Process security issues (bugs)
+      release.categories.security.forEach(item => {
+        const bug = parseBugItem(item, version);
+        if (bug) summary.bugs.push(bug);
+      });
+
+      // Process features
+      release.categories.features.forEach(item => {
+        const feature = parseFeatureItem(item, version);
+        if (feature) summary.features.push(feature);
+      });
+
+      // Process performance improvements
+      release.categories.performance.forEach(item => {
+        const improvement = parsePerformanceItem(item, version);
+        if (improvement) summary.performanceImprovements.push(improvement);
+      });
+    });
+
+    const summaryFile = path.join(__dirname, "release_notes_formatted.json");
+    await fs.writeFile(summaryFile, JSON.stringify(summary, null, 2));
+    console.log(`Summary generated and saved to ${summaryFile}`);
+  } catch (error) {
+    console.error("Error generating summary:", error);
+  }
+}
+
+function extractContributor(item) {
+  // Look for the last set of parentheses that doesn't contain a URL
+  const matches = item.match(/\(([^()]+)\)/g);
+  if (matches) {
+    for (let i = matches.length - 1; i >= 0; i--) {
+      const match = matches[i];
+      if (!match.includes("http") && !match.includes("www.")) {
+        return match.slice(1, -1).trim();
+      }
+    }
+  }
+  return null;
+}
+
+function parseBugItem(item, version) {
+  const cveMatch = item.match(/CVE-\d{4}-\d+/);
+  const cve = cveMatch ? cveMatch[0] : null;
+  const titleEnd = item.indexOf("(");
+  const title = titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled bug";
+  const contributor = extractContributor(item);
+
+  return {
+    cve,
+    title,
+    description: item,
+    fixedIn: version,
+    contributor,
+  };
+}
+
+function parseFeatureItem(item, version) {
+  const titleEnd = item.indexOf("(");
+  const title =
+    titleEnd > 0 ? item.slice(0, titleEnd).trim() : "Untitled feature";
+  const contributor = extractContributor(item);
+
+  return {
+    title,
+    description: item,
+    sinceVersion: version,
+    contributor,
+  };
+}
+
+function parsePerformanceItem(item, version) {
+  const titleEnd = item.indexOf("(");
+  const title =
+    titleEnd > 0
+      ? item.slice(0, titleEnd).trim()
+      : "Untitled performance improvement";
+  const contributor = extractContributor(item);
+  const significant =
+    item.toLowerCase().includes("significant") ||
+    item.toLowerCase().includes("major");
+
+  return {
+    title,
+    description: item,
+    sinceVersion: version,
+    significant,
+    contributor,
+  };
 }
 
 program.parse(process.argv);
