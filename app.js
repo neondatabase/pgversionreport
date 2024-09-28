@@ -256,6 +256,12 @@ async function generateSummary() {
         const improvement = parsePerformanceItem(item, version);
         if (improvement) summary.performanceImprovements.push(improvement);
       });
+
+      // Process 'other' items as features
+      release.categories.other.forEach(item => {
+        const feature = parseFeatureItem(item, version);
+        if (feature) summary.features.push(feature);
+      });
     });
 
     const summaryFile = path.join(__dirname, "release_notes_formatted.json");
