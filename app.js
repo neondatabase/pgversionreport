@@ -123,15 +123,27 @@ async function parseReleaseNotes(directory) {
         .split(" ")
         .pop();
       const items = [];
+      const migrationInfo = [];
 
+      // Extract changes
       $(".itemizedlist ul li").each((index, element) => {
         const text = $(element).text().trim();
         items.push(text);
       });
 
+      // Extract migration information
+      $("#RELEASE-" + version.replace(".", "-") + "-MIGRATION")
+        .next(".sect2")
+        .find("p")
+        .each((index, element) => {
+          const text = $(element).text().trim();
+          migrationInfo.push(text);
+        });
+
       releaseData.push({
         version,
         changes: items,
+        migrationInfo: migrationInfo,
       });
     }
   }
@@ -139,11 +151,12 @@ async function parseReleaseNotes(directory) {
   return releaseData;
 }
 
-function categorizeChanges(changes) {
+function categorizeChanges(changes, migrationInfo) {
   const categories = {
     performance: [],
     security: [],
     features: [],
+    migration: migrationInfo,
     other: [],
   };
 
@@ -178,48 +191,83 @@ function formatReleaseNotes(releaseData) {
     bugs: [],
     features: [],
     performanceImprovements: [],
+    contributors: new Set(),
   };
 
   releaseData.forEach(release => {
     release.categories.security.forEach(item => {
       const cveMatch = item.match(/CVE-\d{4}-\d{4,7}/);
+      const contributors = extractContributors(item);
       formattedData.bugs.push({
         cve: cveMatch ? cveMatch[0] : null,
         title: item.split(".")[0],
         description: item,
         fixedIn: release.version,
+        contributors: contributors,
       });
+      contributors.forEach(contributor =>
+        formattedData.contributors.add(contributor)
+      );
     });
 
     release.categories.features.forEach(item => {
+      const contributors = extractContributors(item);
       formattedData.features.push({
         title: item.split(".")[0],
         description: item,
         sinceVersion: release.version,
+        contributors: contributors,
       });
+      contributors.forEach(contributor =>
+        formattedData.contributors.add(contributor)
+      );
     });
 
     release.categories.performance.forEach(item => {
+      const contributors = extractContributors(item);
       formattedData.performanceImprovements.push({
         title: item.split(".")[0],
         description: item,
         sinceVersion: release.version,
         significant: item.toLowerCase().includes("significant"),
+        contributors: contributors,
       });
+      contributors.forEach(contributor =>
+        formattedData.contributors.add(contributor)
+      );
+    });
+
+    release.categories.other.forEach(item => {
+      const contributors = extractContributors(item);
+      contributors.forEach(contributor =>
+        formattedData.contributors.add(contributor)
+      );
     });
   });
+
+  // Convert Set to Array for JSON serialization
+  formattedData.contributors = Array.from(formattedData.contributors);
 
   return formattedData;
 }
 
-// Modified processReleaseNotes function
+function extractContributors(item) {
+  // This regex looks for names in parentheses at the end of the item
+  const contributorMatch = item.match(/\(([^)]+)\)$/);
+  if (contributorMatch) {
+    // Split the matched string by commas and trim each name
+    return contributorMatch[1].split(",").map(name => name.trim());
+  }
+  return [];
+}
+
 async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
 
     const processedData = releaseData.map(release => ({
       version: release.version,
-      categories: categorizeChanges(release.changes),
+      categories: categorizeChanges(release.changes, release.migrationInfo),
     }));
 
     const formattedData = formatReleaseNotes(processedData);
