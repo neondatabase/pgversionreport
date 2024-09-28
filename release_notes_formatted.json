@@ -1087,31 +1087,31 @@
       "title": "Logical replication using publish/subscribe",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Declarative table partitioning",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improved query parallelism",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Stronger password authentication based on SCRAM-SHA-256",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improved monitoring and control",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Hash indexes must be rebuilt after pg\\_upgrade\\-ing from any previous major PostgreSQL version",
@@ -1382,7 +1382,7 @@
       "title": "Enable parallelism by default by changing the default setting of [max\\_parallel\\_workers\\_per\\_gather](runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER) to `2`.",
       "description": "",
       "sinceVersion": "10.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add write-ahead logging support to hash indexes",
@@ -2824,7 +2824,7 @@
       "title": "Update time zone data files to tzdata release 2017c for DST law changes in Fiji, Namibia, Northern Cyprus, Sudan, Tonga, and Turks & Caicos Islands, plus historical corrections for Alaska, Apia, Burma, Calcutta, Detroit, Ireland, Namibia, and Pago Pago.",
       "description": "",
       "sinceVersion": "10.1",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "In the documentation, restore HTML anchors to being upper-case strings",
@@ -3081,7 +3081,7 @@
       "title": "Update time zone data files to tzdata release 2019b for DST law changes in Brazil, plus historical corrections for Hong Kong, Italy, and Palestine.",
       "description": "",
       "sinceVersion": "10.10",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix failure of `ALTER TABLE SET` with a custom relation option",
@@ -3528,7 +3528,7 @@
       "title": "Update time zone data files to tzdata release 2019c for DST law changes in Fiji and Norfolk Island, plus historical corrections for Alberta, Austria, Belgium, British Columbia, Cambodia, Hong Kong, Indiana (Perry County), Kaliningrad, Kentucky, Michigan, Norfolk Island, South Korea, and Turkey.",
       "description": "",
       "sinceVersion": "10.11",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add missing permissions checks for `ALTER ... DEPENDS ON EXTENSION`",
@@ -4267,7 +4267,7 @@
       "title": "Update time zone data files to tzdata release 2020a for DST law changes in Morocco and the Canadian Yukon, plus historical corrections for Shanghai.",
       "description": "The America/Godthab zone has been renamed to America/Nuuk to reflect current English usage; however, the old name remains available as a compatibility link.\n\nAlso, update initdb's list of known Windows time zone names to include recent additions, improving the odds that it will correctly translate the system time zone setting on that platform.",
       "sinceVersion": "10.13",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix slow execution of `ts_headline()`",
@@ -4834,7 +4834,7 @@
       "title": "Update time zone data files to tzdata release 2020d for DST law changes in Fiji, Morocco, Palestine, the Canadian Yukon, Macquarie Island, and Casey Station (Antarctica); plus historical corrections for France, Hungary, Monaco, and Palestine.",
       "description": "",
       "sinceVersion": "10.15",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Sync our copy of the timezone library with IANA tzcode release 2020d",
@@ -5164,7 +5164,7 @@
       "title": "Update time zone data files to tzdata release 2021a for DST law changes in Russia (Volgograd zone) and South Sudan, plus historical corrections for Australia, Bahamas, Belize, Bermuda, Ghana, Israel, Kenya, Nigeria, Palestine, Seychelles, and Vanuatu.",
       "description": "Notably, the Australia/Currie zone has been corrected to the point where it is identical to Australia/Hobart.",
       "sinceVersion": "10.16",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix mishandling of “junk” columns in `INSERT ... ON CONFLICT ... UPDATE` target lists",
@@ -6177,7 +6177,7 @@
       "title": "Update time zone data files to tzdata release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.",
       "description": "Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port\\_of\\_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.",
       "sinceVersion": "10.19",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix processing of partition keys containing multiple expressions",
@@ -6692,7 +6692,7 @@
       "title": "Update time zone data files to tzdata release 2018c for DST law changes in Brazil, Sao Tome and Principe, plus historical corrections for Bolivia, Japan, and South Sudan. The `US/Pacific-New` zone has been removed (it was only an alias for `America/Los_Angeles` anyway).",
       "description": "",
       "sinceVersion": "10.2",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix index-only scan plans for cases where not all index columns can be returned",
@@ -7149,7 +7149,7 @@
       "title": "Update time zone data files to tzdata release 2022a for DST law changes in Palestine, plus historical corrections for Chile and Ukraine.",
       "description": "",
       "sinceVersion": "10.21",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Do not let extension scripts replace objects not already belonging to the extension",
@@ -7652,7 +7652,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "10.23",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Avoid use of insecure `search_path` settings in pg\\_dump and other client programs",
@@ -8145,7 +8145,7 @@
       "title": "Update time zone data files to tzdata release 2018d for DST law changes in Palestine and Antarctica (Casey Station), plus historical corrections for Portugal and its colonies, as well as Enderbury, Jamaica, Turks & Caicos Islands, and Uruguay.",
       "description": "",
       "sinceVersion": "10.4",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix `INSERT ... ON CONFLICT UPDATE` through a view that isn't just `SELECT * FROM ...`",
@@ -8491,7 +8491,7 @@
       "title": "Update time zone data files to tzdata release 2018e for DST law changes in North Korea, plus historical corrections for Czechoslovakia.",
       "description": "This update includes a redefinition of “daylight savings” in Ireland, as well as for some past years in Namibia and Czechoslovakia. In those jurisdictions, legally standard time is observed in summer, and daylight savings time in winter, so that the daylight savings offset is one hour behind standard time not one hour ahead. This does not affect either the actual UTC offset or the timezone abbreviations in use; the only known effect is that the `is_dst` column in the `pg_timezone_names` view will now be true in winter and false in summer in these cases.",
       "sinceVersion": "10.5",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix corner-case failures in `` has_ _`foo`__privilege() `` family of functions",
@@ -9045,7 +9045,7 @@
       "title": "Update time zone data files to tzdata release 2018g for DST law changes in Chile, Fiji, Morocco, and Russia (Volgograd), plus historical corrections for China, Hawaii, Japan, Macau, and North Korea.",
       "description": "",
       "sinceVersion": "10.6",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "By default, panic instead of retrying after `fsync()` failure, to avoid possible data corruption",
@@ -9468,7 +9468,7 @@
       "title": "Update time zone data files to tzdata release 2018i for DST law changes in Kazakhstan, Metlakatla, and Sao Tome and Principe. Kazakhstan's Qyzylorda zone is split in two, creating a new zone Asia/Qostanay, as some areas did not change UTC offset. Historical corrections for Hong Kong and numerous Pacific islands.",
       "description": "",
       "sinceVersion": "10.7",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Avoid catalog corruption when a temporary table with `ON COMMIT DROP` and an identity column is created in a single-statement transaction",
@@ -9787,7 +9787,7 @@
       "title": "Update time zone data files to tzdata release 2019a for DST law changes in Palestine and Metlakatla, plus historical corrections for Israel.",
       "description": "`Etc/UCT` is now a backward-compatibility link to `Etc/UTC`, instead of being a separate zone that generates the abbreviation `UCT`, which nowadays is typically a typo. PostgreSQL will still accept `UCT` as an input zone abbreviation, but it won't output it.",
       "sinceVersion": "10.8",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve initdb's handling of multiple equivalent names for the system time zone",
@@ -9985,67 +9985,67 @@
       "title": "Add support for partitioning by a hash key",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add support for `PRIMARY KEY`, `FOREIGN KEY`, indexes, and triggers on partitioned tables",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow creation of a “default” partition for storing data that does not match any of the remaining partitions",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "`UPDATE` statements that change a partition key column now cause affected rows to be moved to the appropriate partitions",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improvements to parallelism, including:",
       "description": "* `CREATE INDEX` can now use parallel processing while building a B-tree index\n* Parallelization is now possible in `CREATE TABLE ... AS`, `CREATE MATERIALIZED VIEW`, and certain queries using `UNION`\n* Parallelized hash joins and parallelized sequential scans now perform better",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "`CREATE INDEX` can now use parallel processing while building a B-tree index",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Parallelization is now possible in `CREATE TABLE ... AS`, `CREATE MATERIALIZED VIEW`, and certain queries using `UNION`",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Parallelized hash joins and parallelized sequential scans now perform better",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "SQL stored procedures that support embedded transactions",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Window functions now support all framing options shown in the SQL:2011 standard, including `` RANGE _`distance`_ PRECEDING/FOLLOWING ``, `GROUPS` mode, and frame exclusion options",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Covering indexes can now be created, using the `INCLUDE` clause of `CREATE INDEX`",
       "description": "",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Consider syntactic form when disambiguating function versus column references",
@@ -10092,7 +10092,7 @@
       "title": "Adjust the handling of backslashes inside double-quotes in template strings for `to_char()`, `to_number()`, and `to_timestamp()`.",
       "description": "Such a backslash now escapes the character after it, particularly a double-quote or another backslash.",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Correctly handle relative path expressions in `xmltable()`, `xpath()`, and other XML-handling functions",
@@ -10898,7 +10898,7 @@
       "title": "Add an ecpg mode to enable Oracle Pro\\*C-style handling of char arrays.",
       "description": "This mode is enabled with `-C`.",
       "sinceVersion": "11.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add psql command `\\gdesc` to display the names and types of the columns in a query result",
@@ -11503,7 +11503,7 @@
       "title": "Update time zone data files to tzdata release 2018g for DST law changes in Chile, Fiji, Morocco, and Russia (Volgograd), plus historical corrections for China, Hawaii, Japan, Macau, and North Korea.",
       "description": "",
       "sinceVersion": "11.1",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix recently-added `timetz` test case so it works when the USA is not observing daylight savings time",
@@ -11839,7 +11839,7 @@
       "title": "Update time zone data files to tzdata release 2020d for DST law changes in Fiji, Morocco, Palestine, the Canadian Yukon, Macquarie Island, and Casey Station (Antarctica); plus historical corrections for France, Hungary, Monaco, and Palestine.",
       "description": "",
       "sinceVersion": "11.10",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Sync our copy of the timezone library with IANA tzcode release 2020d",
@@ -12291,7 +12291,7 @@
       "title": "Update time zone data files to tzdata release 2021a for DST law changes in Russia (Volgograd zone) and South Sudan, plus historical corrections for Australia, Bahamas, Belize, Bermuda, Ghana, Israel, Kenya, Nigeria, Palestine, Seychelles, and Vanuatu.",
       "description": "Notably, the Australia/Currie zone has been corrected to the point where it is identical to Australia/Hobart.",
       "sinceVersion": "11.11",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix mishandling of “junk” columns in `INSERT ... ON CONFLICT ... UPDATE` target lists",
@@ -13485,7 +13485,7 @@
       "title": "Update time zone data files to tzdata release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.",
       "description": "Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port\\_of\\_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.",
       "sinceVersion": "11.14",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix index-only scan plans for cases where not all index columns can be returned",
@@ -13977,7 +13977,7 @@
       "title": "Update time zone data files to tzdata release 2022a for DST law changes in Palestine, plus historical corrections for Chile and Ukraine.",
       "description": "",
       "sinceVersion": "11.16",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Do not let extension scripts replace objects not already belonging to the extension",
@@ -14532,7 +14532,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "11.18",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `REPLICA IDENTITY` to be set on an index that's not (yet) valid",
@@ -14739,7 +14739,7 @@
       "title": "Update time zone data files to tzdata release 2022g for DST law changes in Greenland and Mexico, plus historical corrections for northern Canada, Colombia, and Singapore.",
       "description": "Notably, a new timezone America/Ciudad\\_Juarez has been split off from America/Ojinaga.",
       "sinceVersion": "11.19",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "By default, panic instead of retrying after `fsync()` failure, to avoid possible data corruption",
@@ -15302,7 +15302,7 @@
       "title": "Update time zone data files to tzdata release 2018i for DST law changes in Kazakhstan, Metlakatla, and Sao Tome and Principe. Kazakhstan's Qyzylorda zone is split in two, creating a new zone Asia/Qostanay, as some areas did not change UTC offset. Historical corrections for Hong Kong and numerous Pacific islands.",
       "description": "",
       "sinceVersion": "11.2",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix corner-case crashes when columns have been added to the end of a view",
@@ -15621,7 +15621,7 @@
       "title": "Update time zone data files to tzdata release 2023c for DST law changes in Egypt, Greenland, Morocco, and Palestine.",
       "description": "When observing Moscow time, Europe/Kirov and Europe/Volgograd now use the abbreviations MSK/MSD instead of numeric abbreviations, for consistency with other timezones observing Moscow time. Also, America/Yellowknife is no longer distinct from America/Edmonton; this affects some pre-1948 timestamps in that area.",
       "sinceVersion": "11.20",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Disallow substituting a schema or owner name into an extension script if the name contains a quote, backslash, or dollar sign",
@@ -16572,7 +16572,7 @@
       "title": "Update time zone data files to tzdata release 2019a for DST law changes in Palestine and Metlakatla, plus historical corrections for Israel.",
       "description": "`Etc/UCT` is now a backward-compatibility link to `Etc/UTC`, instead of being a separate zone that generates the abbreviation `UCT`, which nowadays is typically a typo. PostgreSQL will still accept `UCT` as an input zone abbreviation, but it won't output it.",
       "sinceVersion": "11.3",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve initdb's handling of multiple equivalent names for the system time zone",
@@ -17162,7 +17162,7 @@
       "title": "Update time zone data files to tzdata release 2019b for DST law changes in Brazil, plus historical corrections for Hong Kong, Italy, and Palestine.",
       "description": "",
       "sinceVersion": "11.5",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix failure of `ALTER TABLE SET` with a custom relation option",
@@ -17667,7 +17667,7 @@
       "title": "Update time zone data files to tzdata release 2019c for DST law changes in Fiji and Norfolk Island, plus historical corrections for Alberta, Austria, Belgium, British Columbia, Cambodia, Hong Kong, Indiana (Perry County), Kaliningrad, Kentucky, Michigan, Norfolk Island, South Korea, and Turkey.",
       "description": "",
       "sinceVersion": "11.6",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix failure to insert default values for “missing” attributes during tuple conversion",
@@ -18558,7 +18558,7 @@
       "title": "Update time zone data files to tzdata release 2020a for DST law changes in Morocco and the Canadian Yukon, plus historical corrections for Shanghai.",
       "description": "The America/Godthab zone has been renamed to America/Nuuk to reflect current English usage; however, the old name remains available as a compatibility link.\n\nAlso, update initdb's list of known Windows time zone names to include recent additions, improving the odds that it will correctly translate the system time zone setting on that platform.",
       "sinceVersion": "11.8",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix slow execution of `ts_headline()`",
@@ -18929,85 +18929,85 @@
       "title": "Reduction of WAL overhead for creation of [GiST](gist.html \"Chapter 64. GiST Indexes\"), [GIN](gin.html \"Chapter 66. GIN Indexes\"), and [SP-GiST](spgist.html \"Chapter 65. SP-GiST Indexes\") indexes",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Support for covering [GiST](gist.html \"Chapter 64. GiST Indexes\") indexes, via the [INCLUDE](indexes-index-only-scans.html \"11.9. Index-Only Scans and Covering Indexes\") clause",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Multi-column most-common-value (MCV) statistics can be defined via [CREATE STATISTICS](sql-createstatistics.html \"CREATE STATISTICS\"), to support better plans for queries that test several non-uniformly-distributed columns",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Enhancements to administrative functionality, including:",
       "description": "* [REINDEX CONCURRENTLY](sql-reindex.html#SQL-REINDEX-CONCURRENTLY \"Rebuilding Indexes Concurrently\") can rebuild an index without blocking writes to its table\n* [pg\\_checksums](app-pgchecksums.html \"pg_checksums\") can enable/disable page checksums (used for detecting data corruption) in an offline cluster\n* Progress reporting statistics for [CREATE INDEX](sql-createindex.html \"CREATE INDEX\"), [REINDEX](sql-reindex.html \"REINDEX\"), [CLUSTER](sql-cluster.html \"CLUSTER\"), [VACUUM FULL](sql-vacuum.html \"VACUUM\"), and [pg\\_checksums](app-pgchecksums.html \"pg_checksums\")",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[REINDEX CONCURRENTLY](sql-reindex.html#SQL-REINDEX-CONCURRENTLY \"Rebuilding Indexes Concurrently\") can rebuild an index without blocking writes to its table",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[pg\\_checksums](app-pgchecksums.html \"pg_checksums\") can enable/disable page checksums (used for detecting data corruption) in an offline cluster",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Progress reporting statistics for [CREATE INDEX](sql-createindex.html \"CREATE INDEX\"), [REINDEX](sql-reindex.html \"REINDEX\"), [CLUSTER](sql-cluster.html \"CLUSTER\"), [VACUUM FULL](sql-vacuum.html \"VACUUM\"), and [pg\\_checksums](app-pgchecksums.html \"pg_checksums\")",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Support for the [SQL/JSON path](functions-json.html#FUNCTIONS-SQLJSON-PATH \"9.15.2. The SQL/JSON Path Language\") language",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Stored [generated columns](ddl-generated-columns.html \"5.3. Generated Columns\")",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[Nondeterministic](collation.html#COLLATION-NONDETERMINISTIC \"23.2.2.4. Nondeterministic Collations\") ICU collations, enabling case-insensitive and accent-insensitive grouping and ordering",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "New authentication features, including:",
       "description": "* Encryption of TCP/IP connections when using [GSSAPI](gssapi-auth.html \"20.6. GSSAPI Authentication\") authentication\n* Discovery of LDAP servers using DNS SRV records\n* Multi-factor authentication, using the [clientcert=verify-full](auth-cert.html \"20.12. Certificate Authentication\") option combined with an additional authentication method in `pg_hba.conf`",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Encryption of TCP/IP connections when using [GSSAPI](gssapi-auth.html \"20.6. GSSAPI Authentication\") authentication",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Discovery of LDAP servers using DNS SRV records",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Multi-factor authentication, using the [clientcert=verify-full](auth-cert.html \"20.12. Certificate Authentication\") option combined with an additional authentication method in `pg_hba.conf`",
       "description": "",
       "sinceVersion": "12.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove the special behavior of [oid](datatype-oid.html \"8.19. Object Identifier Types\") columns",
@@ -21306,7 +21306,7 @@
       "title": "Update time zone data files to tzdata release 2022a for DST law changes in Palestine, plus historical corrections for Chile and Ukraine.",
       "description": "",
       "sinceVersion": "12.11",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Do not let extension scripts replace objects not already belonging to the extension",
@@ -21927,7 +21927,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "12.13",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "libpq can leak memory contents after GSSAPI transport encryption initiation fails",
@@ -22184,7 +22184,7 @@
       "title": "Update time zone data files to tzdata release 2022g for DST law changes in Greenland and Mexico, plus historical corrections for northern Canada, Colombia, and Singapore.",
       "description": "Notably, a new timezone America/Ciudad\\_Juarez has been split off from America/Ojinaga.",
       "sinceVersion": "12.14",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix corner-case crashes when columns have been added to the end of a view",
@@ -22552,7 +22552,7 @@
       "title": "Update time zone data files to tzdata release 2023c for DST law changes in Egypt, Greenland, Morocco, and Palestine.",
       "description": "When observing Moscow time, Europe/Kirov and Europe/Volgograd now use the abbreviations MSK/MSD instead of numeric abbreviations, for consistency with other timezones observing Moscow time. Also, America/Yellowknife is no longer distinct from America/Edmonton; this affects some pre-1948 timestamps in that area.",
       "sinceVersion": "12.15",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Disallow substituting a schema or owner name into an extension script if the name contains a quote, backslash, or dollar sign",
@@ -23439,7 +23439,7 @@
       "title": "Update time zone data files to tzdata release 2024a for DST law changes in Greenland, Kazakhstan, and Palestine, plus corrections for the Antarctic stations Casey and Vostok. Also historical corrections for Vietnam, Toronto, and Miquelon.",
       "description": "",
       "sinceVersion": "12.18",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Ensure that index-only scans on `name` columns return a fully-padded value",
@@ -25199,7 +25199,7 @@
       "title": "Update time zone data files to tzdata release 2020a for DST law changes in Morocco and the Canadian Yukon, plus historical corrections for Shanghai.",
       "description": "The America/Godthab zone has been renamed to America/Nuuk to reflect current English usage; however, the old name remains available as a compatibility link.\n\nAlso, update initdb's list of known Windows time zone names to include recent additions, improving the odds that it will correctly translate the system time zone setting on that platform.",
       "sinceVersion": "12.3",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix incorrect plan execution when a partitioned table is subject to both static and run-time partition pruning in the same query, and a new partition is added concurrently with the query",
@@ -26056,7 +26056,7 @@
       "title": "Update time zone data files to tzdata release 2020d for DST law changes in Fiji, Morocco, Palestine, the Canadian Yukon, Macquarie Island, and Casey Station (Antarctica); plus historical corrections for France, Hungary, Monaco, and Palestine.",
       "description": "",
       "sinceVersion": "12.5",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Sync our copy of the timezone library with IANA tzcode release 2020d",
@@ -26597,7 +26597,7 @@
       "title": "Update time zone data files to tzdata release 2021a for DST law changes in Russia (Volgograd zone) and South Sudan, plus historical corrections for Australia, Bahamas, Belize, Bermuda, Ghana, Israel, Kenya, Nigeria, Palestine, Seychelles, and Vanuatu.",
       "description": "Notably, the Australia/Currie zone has been corrected to the point where it is identical to Australia/Hobart.",
       "sinceVersion": "12.6",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix mishandling of “junk” columns in `INSERT ... ON CONFLICT ... UPDATE` target lists",
@@ -27937,7 +27937,7 @@
       "title": "Update time zone data files to tzdata release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.",
       "description": "Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port\\_of\\_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.",
       "sinceVersion": "12.9",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow partitioned tables to be logically replicated via [publications](sql-createpublication.html \"CREATE PUBLICATION\")",
@@ -27959,19 +27959,19 @@
       "title": "Better query planning when using extended statistics",
       "description": "",
       "sinceVersion": "13.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Parallelized vacuuming of indexes",
       "description": "",
       "sinceVersion": "13.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Incremental sorting",
       "description": "",
       "sinceVersion": "13.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change [SIMILAR TO ... ESCAPE NULL](functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP \"9.7.2. SIMILAR TO Regular Expressions\") to return `NULL`",
@@ -29720,7 +29720,7 @@
       "title": "Update time zone data files to tzdata release 2020d for DST law changes in Fiji, Morocco, Palestine, the Canadian Yukon, Macquarie Island, and Casey Station (Antarctica); plus historical corrections for France, Hungary, Monaco, and Palestine.",
       "description": "",
       "sinceVersion": "13.1",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Sync our copy of the timezone library with IANA tzcode release 2020d",
@@ -30002,7 +30002,7 @@
       "title": "Update time zone data files to tzdata release 2022g for DST law changes in Greenland and Mexico, plus historical corrections for northern Canada, Colombia, and Singapore.",
       "description": "Notably, a new timezone America/Ciudad\\_Juarez has been split off from America/Ojinaga.",
       "sinceVersion": "13.10",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix corner-case crashes when columns have been added to the end of a view",
@@ -30410,7 +30410,7 @@
       "title": "Update time zone data files to tzdata release 2023c for DST law changes in Egypt, Greenland, Morocco, and Palestine.",
       "description": "When observing Moscow time, Europe/Kirov and Europe/Volgograd now use the abbreviations MSK/MSD instead of numeric abbreviations, for consistency with other timezones observing Moscow time. Also, America/Yellowknife is no longer distinct from America/Edmonton; this affects some pre-1948 timestamps in that area.",
       "sinceVersion": "13.11",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Disallow substituting a schema or owner name into an extension script if the name contains a quote, backslash, or dollar sign",
@@ -31379,7 +31379,7 @@
       "title": "Update time zone data files to tzdata release 2024a for DST law changes in Greenland, Kazakhstan, and Palestine, plus corrections for the Antarctic stations Casey and Vostok. Also historical corrections for Vietnam, Toronto, and Miquelon.",
       "description": "",
       "sinceVersion": "13.14",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Ensure that index-only scans on `name` columns return a fully-padded value",
@@ -32581,7 +32581,7 @@
       "title": "Update time zone data files to tzdata release 2021a for DST law changes in Russia (Volgograd zone) and South Sudan, plus historical corrections for Australia, Bahamas, Belize, Bermuda, Ghana, Israel, Kenya, Nigeria, Palestine, Seychelles, and Vanuatu.",
       "description": "Notably, the Australia/Currie zone has been corrected to the point where it is identical to Australia/Hobart.",
       "sinceVersion": "13.2",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix mishandling of “junk” columns in `INSERT ... ON CONFLICT ... UPDATE` target lists",
@@ -34161,7 +34161,7 @@
       "title": "Update time zone data files to tzdata release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.",
       "description": "Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port\\_of\\_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.",
       "sinceVersion": "13.5",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Enforce standard locking protocol for TOAST table updates, to prevent problems with `REINDEX CONCURRENTLY`",
@@ -34792,7 +34792,7 @@
       "title": "Update time zone data files to tzdata release 2022a for DST law changes in Palestine, plus historical corrections for Chile and Ukraine.",
       "description": "",
       "sinceVersion": "13.7",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Do not let extension scripts replace objects not already belonging to the extension",
@@ -35473,7 +35473,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "13.9",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow wide tuples to be always added to almost-empty heap pages",
@@ -35532,49 +35532,49 @@
       "title": "Stored procedures can now return data via `OUT` parameters.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "The SQL-standard `SEARCH` and `CYCLE` options for common table expressions have been implemented.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Subscripting can now be applied to any data type for which it is a useful notation, not only arrays. In this release, the `jsonb` and `hstore` types have gained subscripting operators.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Range types have been extended by adding multiranges, allowing representation of noncontiguous data ranges.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "B-tree index updates are managed more efficiently, reducing index bloat.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "`VACUUM` automatically becomes more aggressive, and skips inessential cleanup, if the database starts to approach a transaction ID wraparound condition.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Extended statistics can now be collected on expressions, allowing better planning results for complex queries.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "libpq now has the ability to pipeline multiple queries, which can boost throughput over high-latency connections.",
       "description": "",
       "sinceVersion": "14.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "User-defined objects that reference certain built-in array functions along with their argument types must be recreated",
@@ -37584,7 +37584,7 @@
       "title": "Update time zone data files to tzdata release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.",
       "description": "Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port\\_of\\_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.",
       "sinceVersion": "14.1",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix handling of unknown-type arguments in `DISTINCT` `\"any\"` aggregate functions",
@@ -38404,7 +38404,7 @@
       "title": "Update time zone data files to tzdata release 2024a for DST law changes in Greenland, Kazakhstan, and Palestine, plus corrections for the Antarctic stations Casey and Vostok. Also historical corrections for Vietnam, Toronto, and Miquelon.",
       "description": "",
       "sinceVersion": "14.11",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Ensure that index-only scans on `name` columns return a fully-padded value",
@@ -39938,7 +39938,7 @@
       "title": "Update time zone data files to tzdata release 2022a for DST law changes in Palestine, plus historical corrections for Chile and Ukraine.",
       "description": "",
       "sinceVersion": "14.3",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Harden Memoize plan node against non-deterministic equality functions",
@@ -40733,7 +40733,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "14.6",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "libpq can leak memory contents after GSSAPI transport encryption initiation fails",
@@ -41080,7 +41080,7 @@
       "title": "Update time zone data files to tzdata release 2022g for DST law changes in Greenland and Mexico, plus historical corrections for northern Canada, Colombia, and Singapore.",
       "description": "Notably, a new timezone America/Ciudad\\_Juarez has been split off from America/Ojinaga.",
       "sinceVersion": "14.7",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix corner-case crashes when columns have been added to the end of a view",
@@ -41586,7 +41586,7 @@
       "title": "Update time zone data files to tzdata release 2023c for DST law changes in Egypt, Greenland, Morocco, and Palestine.",
       "description": "When observing Moscow time, Europe/Kirov and Europe/Volgograd now use the abbreviations MSK/MSD instead of numeric abbreviations, for consistency with other timezones observing Moscow time. Also, America/Yellowknife is no longer distinct from America/Edmonton; this affects some pre-1948 timestamps in that area.",
       "sinceVersion": "14.8",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Disallow substituting a schema or owner name into an extension script if the name contains a quote, backslash, or dollar sign",
@@ -41936,25 +41936,25 @@
       "title": "Support for the SQL [MERGE](sql-merge.html \"MERGE\") command.",
       "description": "",
       "sinceVersion": "15.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Selective publication of tables' contents within [logical replication](logical-replication.html \"Chapter 31. Logical Replication\") publications, through the ability to specify column lists and row filter conditions.",
       "description": "",
       "sinceVersion": "15.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "More options for compression, including support for Zstandard (zstd) compression. This includes support for performing compression on the server side during [pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\").",
       "description": "",
       "sinceVersion": "15.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Support for structured [server log output](runtime-config-logging.html#GUC-LOG-DESTINATION) using the JSON format.",
       "description": "",
       "sinceVersion": "15.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change the owner of the `public` schema to be the new `pg_database_owner` role",
@@ -43568,7 +43568,7 @@
       "title": "Update time zone data files to tzdata release 2022f for DST law changes in Chile, Fiji, Iran, Jordan, Mexico, Palestine, and Syria, plus historical corrections for Chile, Crimea, Iran, and Mexico.",
       "description": "Also, the Europe/Kiev zone has been renamed to Europe/Kyiv. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Antarctica/Vostok, Asia/Brunei, Asia/Kuala\\_Lumpur, Atlantic/Reykjavik, Europe/Amsterdam, Europe/Copenhagen, Europe/Luxembourg, Europe/Monaco, Europe/Oslo, Europe/Stockholm, Indian/Christmas, Indian/Cocos, Indian/Kerguelen, Indian/Mahe, Indian/Reunion, Pacific/Chuuk, Pacific/Funafuti, Pacific/Majuro, Pacific/Pohnpei, Pacific/Wake and Pacific/Wallis. (This indirectly affects zones that were already links to one of these: Arctic/Longyearbyen, Atlantic/Jan\\_Mayen, Iceland, Pacific/Ponape, Pacific/Truk, and Pacific/Yap.) America/Nipigon, America/Rainy\\_River, America/Thunder\\_Bay, Europe/Uzhgorod, and Europe/Zaporozhye were also merged into nearby zones after discovering that their claimed post-1970 differences from those zones seem to have been errors. In all these cases, the previous zone name remains as an alias; but the actual data is that of the zone that was merged into.\n\nThese zone mergers result in loss of pre-1970 timezone history for the merged zones, which may be troublesome for applications expecting consistency of `timestamptz` display. As an example, the stored value `1944-06-01 12:00 UTC` would previously display as `1944-06-01 13:00:00+01` if the Europe/Stockholm zone is selected, but now it will read out as `1944-06-01 14:00:00+02`.\n\nIt is possible to build the time zone data files with options that will restore the older zone data, but that choice also inserts a lot of other old (and typically poorly-attested) zone data, resulting in more total changes from the previous release than accepting these upstream changes does. PostgreSQL has chosen to ship the tzdb data as-recommended, and so far as we are aware most major operating system distributions are doing likewise. However, if these changes cause significant problems for your application, a possible solution is to install a local build of the time zone data files using tzdb's backwards-compatibility options (see their `PACKRATDATA` and `PACKRATLIST` options).",
       "sinceVersion": "15.1",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "libpq can leak memory contents after GSSAPI transport encryption initiation fails",
@@ -43995,7 +43995,7 @@
       "title": "Update time zone data files to tzdata release 2022g for DST law changes in Greenland and Mexico, plus historical corrections for northern Canada, Colombia, and Singapore.",
       "description": "Notably, a new timezone America/Ciudad\\_Juarez has been split off from America/Ojinaga.",
       "sinceVersion": "15.2",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add support for decompiling `MERGE` commands",
@@ -44624,7 +44624,7 @@
       "title": "Update time zone data files to tzdata release 2023c for DST law changes in Egypt, Greenland, Morocco, and Palestine.",
       "description": "When observing Moscow time, Europe/Kirov and Europe/Volgograd now use the abbreviations MSK/MSD instead of numeric abbreviations, for consistency with other timezones observing Moscow time. Also, America/Yellowknife is no longer distinct from America/Edmonton; this affects some pre-1948 timestamps in that area.",
       "sinceVersion": "15.3",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Disallow substituting a schema or owner name into an extension script if the name contains a quote, backslash, or dollar sign",
@@ -45935,7 +45935,7 @@
       "title": "Update time zone data files to tzdata release 2024a for DST law changes in Greenland, Kazakhstan, and Palestine, plus corrections for the Antarctic stations Casey and Vostok. Also historical corrections for Vietnam, Toronto, and Miquelon.",
       "description": "",
       "sinceVersion": "15.6",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Make `ALTER TABLE ... ADD COLUMN` create identity/serial sequences with the same persistence as their owning tables",
@@ -46770,37 +46770,37 @@
       "title": "Allow parallelization of `FULL` and internal right `OUTER` hash joins",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow logical replication from standby servers",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow logical replication subscribers to apply large transactions in parallel",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow monitoring of I/O statistics using the new `pg_stat_io` view",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add SQL/JSON constructors and identity functions",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add support for regular expression matching of user and database names in `pg_hba.conf`, and user names in `pg_ident.conf`",
       "description": "",
       "sinceVersion": "16.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change assignment rules for [PL/pgSQL](plpgsql-cursors.html#PLPGSQL-OPEN-BOUND-CURSOR \"43.7.2.3. Opening a Bound Cursor\") bound cursor variables",
@@ -49404,7 +49404,7 @@
       "title": "Update time zone data files to tzdata release 2024a for DST law changes in Greenland, Kazakhstan, and Palestine, plus corrections for the Antarctic stations Casey and Vostok. Also historical corrections for Vietnam, Toronto, and Miquelon.",
       "description": "",
       "sinceVersion": "16.2",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Make `ALTER TABLE ... ADD COLUMN` create identity/serial sequences with the same persistence as their owning tables",
@@ -50277,1087 +50277,1087 @@
       "title": "[pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\") now supports incremental backup.",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove server variable old\\_snapshot\\_threshold (Thomas Munro) [§](https://postgr.es/c/f691f5b80)",
       "description": "This variable allowed vacuum to remove rows that potentially could be still visible to running transactions, causing \"snapshot too old\" errors later if accessed. This feature might be re-added to PostgreSQL later if an improved implementation is found.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Create system view [pg\\_stat\\_checkpointer](monitoring-stats.html#MONITORING-PG-STAT-CHECKPOINTER-VIEW \"27.2.15. pg_stat_checkpointer\") (Bharath Rupireddy, Anton A. Melnikov, Alexander Korotkov) [§](https://postgr.es/c/96f052613) [§](https://postgr.es/c/12915a58e) [§](https://postgr.es/c/e820db5b5)",
       "description": "Relevant columns have been removed from [pg\\_stat\\_bgwriter](monitoring-stats.html#PG-STAT-BGWRITER-VIEW \"Table 27.24. pg_stat_bgwriter View\") and added to this new system view.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the use of an [ENUM](datatype-enum.html \"8.7. Enumerated Types\") added via [ALTER TYPE](sql-altertype.html \"ALTER TYPE\") if the type was created in the same transaction (Tom Lane) [§](https://postgr.es/c/af1d39584)",
       "description": "This was previously disallowed.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow extensions to define [custom wait events](xfunc-c.html#XFUNC-ADDIN-WAIT-EVENTS \"36.10.12. Custom Wait Events\") (Masahiro Ikeda) [§](https://postgr.es/c/c9af05465) [§](https://postgr.es/c/c8e318b1b) [§](https://postgr.es/c/d61f2538a) [§](https://postgr.es/c/c789f0f6c)",
       "description": "Custom wait events have been added to [postgres\\_fdw](postgres-fdw.html \"F.36. postgres_fdw — access data stored in external PostgreSQL servers\") and [dblink](dblink.html \"F.11. dblink — connect to other PostgreSQL databases\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "New SQL/JSON capabilities, including constructors, identity functions, and the [JSON\\_TABLE()](functions-json.html#FUNCTIONS-SQLJSON-TABLE \"9.16.4. JSON_TABLE\") function, which converts JSON data into a table representation.",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Logical replication enhancements, including:",
       "description": "* Failover control\n* [pg\\_createsubscriber](app-pgcreatesubscriber.html \"pg_createsubscriber\"), a utility that creates logical replicas from physical standbys\n* [pg\\_upgrade](pgupgrade.html \"pg_upgrade\") now preserves replication slots on both publishers and subscribers",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Failover control",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[pg\\_createsubscriber](app-pgcreatesubscriber.html \"pg_createsubscriber\"), a utility that creates logical replicas from physical standbys",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[pg\\_upgrade](pgupgrade.html \"pg_upgrade\") now preserves replication slots on both publishers and subscribers",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "New client-side connection option, [sslnegotiation=direct](libpq-connect.html#LIBPQ-CONNECT-SSLNEGOTIATION), that performs a direct TLS handshake to avoid a round-trip negotiation.",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "[COPY](sql-copy.html \"COPY\") adds a new option, `ON_ERROR ignore`, that allows a copy operation to continue in the event of an error.",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change functions to use a safe [search\\_path](runtime-config-client.html#GUC-SEARCH-PATH) during maintenance operations (Jeff Davis) [§](https://postgr.es/c/2af07e2f7)",
       "description": "This prevents maintenance operations (`ANALYZE`, `CLUSTER`, `REFRESH MATERIALIZED VIEW`, `REINDEX`, or `VACUUM`) from performing unsafe access. Functions used by expression indexes and materialized views that need to reference non-default schemas must specify a search path during function creation.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Restrict `ago` to only appear at the end in `interval` values (Joseph Koshakow) [§](https://postgr.es/c/165d581f1) [§](https://postgr.es/c/617f9b7d4)",
       "description": "Also, prevent empty interval units from appearing multiple times.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change [SET SESSION AUTHORIZATION](sql-set-session-authorization.html \"SET SESSION AUTHORIZATION\") handling of the initial session user's superuser status (Joseph Koshakow) [§](https://postgr.es/c/a0363ab7a)",
       "description": "The new behavior is based on the session user's superuser status at the time the `SET SESSION AUTHORIZATION` command is issued, rather than their superuser status at connection time.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove feature which simulated per-database users (Nathan Bossart) [§](https://postgr.es/c/884eee5bf)",
       "description": "The feature, `db_user_namespace`, was rarely used.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove [wal\\_sync\\_method](runtime-config-wal.html#GUC-WAL-SYNC-METHOD) value `fsync_writethrough` on Windows (Thomas Munro) [§](https://postgr.es/c/d0c28601e)",
       "description": "This value was the same as `fsync` on Windows.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change file boundary handling of two WAL file name functions (Kyotaro Horiguchi, Andres Freund, Bruce Momjian) [§](https://postgr.es/c/344afc776)",
       "description": "The functions [pg\\_walfile\\_name()](functions-admin.html#FUNCTIONS-ADMIN-BACKUP-TABLE \"Table 9.95. Backup Control Functions\") and `pg_walfile_name_offset()` used to report the previous LSN segment number when the LSN was on a file segment boundary; it now returns the current LSN segment.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove server variable `trace_recovery_messages` since it is no longer needed (Bharath Rupireddy) [§](https://postgr.es/c/c7a3e6b46)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove [information schema](information-schema.html \"Chapter 35. The Information Schema\") column `element_types`.`domain_default` (Peter Eisentraut) [§](https://postgr.es/c/78806a950)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change [pgrowlocks](pgrowlocks.html \"F.29. pgrowlocks — show a table's row locking information\") lock mode output labels (Bruce Momjian) [§](https://postgr.es/c/15d5d7405)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove `buffers_backend` and `buffers_backend_fsync` from [pg\\_stat\\_bgwriter](monitoring-stats.html#MONITORING-PG-STAT-BGWRITER-VIEW \"27.2.14. pg_stat_bgwriter\") (Bharath Rupireddy) [§](https://postgr.es/c/74604a37f)",
       "description": "These fields are considered redundant to similar columns in [pg\\_stat\\_io](monitoring-stats.html#MONITORING-PG-STAT-IO-VIEW \"27.2.13. pg_stat_io\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Rename I/O block read/write timing statistics columns of [pg\\_stat\\_statements](pgstatstatements.html \"F.30. pg_stat_statements — track statistics of SQL planning and execution\") (Nazir Bilal Yavuz) [§](https://postgr.es/c/13d00729d)",
       "description": "This renames `blk_read_time` to `shared_blk_read_time`, and `blk_write_time` to `shared_blk_write_time`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change [pg\\_attribute.attstattarget](catalog-pg-attribute.html \"51.7. pg_attribute\") and `pg_statistic_ext`.`stxstattarget` to represent the default statistics target as `NULL` (Peter Eisentraut) [§](https://postgr.es/c/4f622503d) [§](https://postgr.es/c/012460ee9)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Rename [pg\\_collation.colliculocale](catalog-pg-collation.html \"51.12. pg_collation\") to `colllocale` and [pg\\_database.daticulocale](catalog-pg-database.html \"51.15. pg_database\") to `datlocale` (Jeff Davis) [§](https://postgr.es/c/f696c0cd5)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Rename [pg\\_stat\\_progress\\_vacuum](progress-reporting.html#VACUUM-PROGRESS-REPORTING \"27.4.5. VACUUM Progress Reporting\") column `max_dead_tuples` to `max_dead_tuple_bytes`, rename `num_dead_tuples` to `num_dead_item_ids`, and add `dead_tuple_bytes` (Masahiko Sawada) [§](https://postgr.es/c/667e65aac) [§](https://postgr.es/c/f1affb670)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Rename SLRU columns in system view [pg\\_stat\\_slru](monitoring-stats.html#MONITORING-PG-STAT-SLRU-VIEW \"27.2.25. pg_stat_slru\") (Alvaro Herrera) [§](https://postgr.es/c/bcdfa5f2e)",
       "description": "The column names accepted by [pg\\_stat\\_reset\\_slru()](monitoring-stats.html#MONITORING-STATS-FUNCS-TABLE \"Table 27.36. Additional Statistics Functions\") are also changed.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the optimizer to improve CTE plans by considering the statistics and sort order of columns referenced in earlier row output clauses (Jian Guo, Richard Guo, Tom Lane) [§](https://postgr.es/c/f7816aec2) [§](https://postgr.es/c/a65724dfa)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow partition pruning on boolean columns on `IS [NOT] UNKNOWN` conditionals (David Rowley) [§](https://postgr.es/c/07c36c133)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow correlated `IN` subqueries to be transformed into joins (Andy Fan, Tom Lane) [§](https://postgr.es/c/9f1337639)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow query nodes to be run in parallel in more cases (Tom Lane) [§](https://postgr.es/c/e08d74ca1)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `GROUP BY` columns to be internally ordered to match `ORDER BY` (Andrei Lepikhov, Teodor Sigaev) [§](https://postgr.es/c/0452b461b)",
       "description": "This can be disabled using server variable [enable\\_group\\_by\\_reordering](runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `UNION` (without `ALL`) to use MergeAppend (David Rowley) [§](https://postgr.es/c/66c0185a3)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix MergeAppend plans to more accurately compute the number of rows that need to be sorted (Alexander Kuzmenkov) [§](https://postgr.es/c/9d1a5354f)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [GiST](gist.html \"64.2. GiST Indexes\") and [SP-GiST](spgist.html \"64.3. SP-GiST Indexes\") indexes to be part of incremental sorts (Miroslav Bendik) [§](https://postgr.es/c/625d5b3ca)",
       "description": "This is particularly useful for `ORDER BY` clauses where the first column has a GiST and SP-GiST index, and other columns do not.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add columns to [pg\\_stats](view-pg-stats.html \"52.27. pg_stats\") to report range-type histogram information (Egor Rogov, Soumyadeep Chakraborty) [§](https://postgr.es/c/bc3c8db8a)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [btree](btree.html \"64.1. B-Tree Indexes\") indexes to more efficiently find a set of values, such as those supplied by `IN` clauses using constants (Peter Geoghegan, Matthias van de Meent) [§](https://postgr.es/c/5bf748b86)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [BRIN](brin.html \"64.5. BRIN Indexes\") indexes to be created using parallel workers (Tomas Vondra, Matthias van de Meent) [§](https://postgr.es/c/b43757171)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow vacuum to more efficiently remove and freeze tuples (Melanie Plageman, Heikki Linnakangas) [§](https://postgr.es/c/6dbb49026)",
       "description": "WAL traffic caused by vacuum is also more compact.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow vacuum to more efficiently store tuple references (Masahiko Sawada, John Naylor) [§](https://postgr.es/c/ee1b30f12) [§](https://postgr.es/c/30e144287) [§](https://postgr.es/c/667e65aac) [§](https://postgr.es/c/6dbb49026)",
       "description": "Additionally, vacuum is no longer silently limited to one gigabyte of memory when [maintenance\\_work\\_mem](runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) or [autovacuum\\_work\\_mem](runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM) are higher.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Optimize vacuuming of relations with no indexes (Melanie Plageman) [§](https://postgr.es/c/c120550ed)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Increase default [vacuum\\_buffer\\_usage\\_limit](runtime-config-resource.html#GUC-VACUUM-BUFFER-USAGE-LIMIT) to 2MB (Thomas Munro) [§](https://postgr.es/c/98f320eb2)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the grouping of file system reads with the new system variable [io\\_combine\\_limit](runtime-config-resource.html#GUC-IO-COMBINE-LIMIT) (Thomas Munro, Andres Freund, Melanie Plageman, Nazir Bilal Yavuz) [§](https://postgr.es/c/210622c60) [§](https://postgr.es/c/b7b0f3f27) [§](https://postgr.es/c/041b96802)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve control over resetting statistics (Atsushi Torikoshi, Bharath Rupireddy) [§](https://postgr.es/c/23c8c0c8f) [§](https://postgr.es/c/2e8a0edc2) [§](https://postgr.es/c/e5cca6288)",
       "description": "Allow [pg\\_stat\\_reset\\_shared()](monitoring-stats.html#MONITORING-STATS-FUNCS-TABLE \"Table 27.36. Additional Statistics Functions\") (with no arguments) and pg\\_stat\\_reset\\_shared(`NULL`) to reset all shared statistics. Allow pg\\_stat\\_reset\\_shared('slru') and [pg\\_stat\\_reset\\_slru()](monitoring-stats.html#MONITORING-STATS-FUNCS-TABLE \"Table 27.36. Additional Statistics Functions\") (with no arguments) to reset SLRU statistics, which was already possible with pg\\_stat\\_reset\\_slru(NULL).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add log messages related to WAL recovery from backups (Andres Freund) [§](https://postgr.es/c/1d35f705e)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [log\\_connections](runtime-config-logging.html#GUC-LOG-CONNECTIONS) log line for `trust` connections (Jacob Champion) [§](https://postgr.es/c/e48b19c5d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add log message to report walsender acquisition and release of replication slots (Bharath Rupireddy) [§](https://postgr.es/c/7c3fb505b)",
       "description": "This is enabled by the server variable [log\\_replication\\_commands](runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add system view [pg\\_wait\\_events](view-pg-wait-events.html \"52.36. pg_wait_events\") that reports wait event types (Bertrand Drouvot) [§](https://postgr.es/c/1e68e43d3)",
       "description": "This is useful for adding descriptions to wait events reported in [pg\\_stat\\_activity](monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW \"27.2.3. pg_stat_activity\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [wait events](view-pg-wait-events.html \"52.36. pg_wait_events\") for checkpoint delays (Thomas Munro) [§](https://postgr.es/c/0013ba290)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow vacuum to report the progress of index processing (Sami Imseih) [§](https://postgr.es/c/46ebdfe16)",
       "description": "This appears in system view [pg\\_stat\\_progress\\_vacuum](progress-reporting.html#PG-STAT-PROGRESS-VACUUM-VIEW \"Table 27.45. pg_stat_progress_vacuum View\") columns `indexes_total` and `indexes_processed`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow granting the right to perform maintenance operations (Nathan Bossart) [§](https://postgr.es/c/ecb0fd337)",
       "description": "The permission can be granted on a per-table basis using the [MAINTAIN](ddl-priv.html#DDL-PRIV-MAINTAIN) privilege and on a per-role basis via the [pg\\_maintain](predefined-roles.html \"21.5. Predefined Roles\") predefined role. Permitted operations are `VACUUM`, `ANALYZE`, `REINDEX`, `REFRESH MATERIALIZED VIEW`, `CLUSTER`, and `LOCK TABLE`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow roles with [pg\\_monitor](predefined-roles.html \"21.5. Predefined Roles\") membership to execute [pg\\_current\\_logfile()](functions-info.html#FUNCTIONS-INFO-SESSION-TABLE \"Table 9.69. Session Information Functions\") (Pavlo Golub, Nathan Bossart) [§](https://postgr.es/c/8d8afd48d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add system variable [allow\\_alter\\_system](runtime-config-compatible.html#GUC-ALLOW-ALTER-SYSTEM) to disallow [ALTER SYSTEM](sql-altersystem.html \"ALTER SYSTEM\") (Jelte Fennema-Nio, Gabriele Bartolini) [§](https://postgr.es/c/d3ae2a24f)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [ALTER SYSTEM](sql-altersystem.html \"ALTER SYSTEM\") to set unrecognized custom server variables (Tom Lane) [§](https://postgr.es/c/2d870b4ae)",
       "description": "This is also possible with [GRANT ON PARAMETER](sql-grant.html \"GRANT\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add server variable [transaction\\_timeout](runtime-config-client.html#GUC-TRANSACTION-TIMEOUT) to restrict the duration of transactions (Andrey Borodin, Japin Li, Junwang Zhao, Alexander Korotkov) [§](https://postgr.es/c/51efe38cb) [§](https://postgr.es/c/bf82f4379) [§](https://postgr.es/c/28e858c0f)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add a builtin platform-independent collation provider (Jeff Davis) [§](https://postgr.es/c/2d819a08a) [§](https://postgr.es/c/846311051) [§](https://postgr.es/c/f69319f2f) [§](https://postgr.es/c/9acae56ce)",
       "description": "This supports `C` and `C.UTF-8` collations.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add server variable [huge\\_pages\\_status](runtime-config-preset.html#GUC-HUGE-PAGES-STATUS) to report the use of huge pages by Postgres (Justin Pryzby) [§](https://postgr.es/c/a14354cac)",
       "description": "This is useful when [huge\\_pages](runtime-config-resource.html#GUC-HUGE-PAGES) is set to `try`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add server variable to disable event triggers (Daniel Gustafsson) [§](https://postgr.es/c/7750fefdb)",
       "description": "The setting, [event\\_triggers](runtime-config-client.html#GUC-EVENT-TRIGGERS), allows for the temporary disabling of event triggers for debugging.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the [SLRU](monitoring-stats.html#MONITORING-PG-STAT-SLRU-VIEW \"27.2.25. pg_stat_slru\") cache sizes to be configured (Andrey Borodin, Dilip Kumar, Alvaro Herrera) [§](https://postgr.es/c/53c2a97a9)",
       "description": "The new server variables are [commit\\_timestamp\\_buffers](runtime-config-resource.html#GUC-COMMIT-TIMESTAMP-BUFFERS), [multixact\\_member\\_buffers](runtime-config-resource.html#GUC-MULTIXACT-MEMBER-BUFFERS), [multixact\\_offset\\_buffers](runtime-config-resource.html#GUC-MULTIXACT-OFFSET-BUFFERS), [notify\\_buffers](runtime-config-resource.html#GUC-NOTIFY-BUFFERS), [serializable\\_buffers](runtime-config-resource.html#GUC-SERIALIZABLE-BUFFERS), [subtransaction\\_buffers](runtime-config-resource.html#GUC-SUBTRANSACTION-BUFFERS), and [transaction\\_buffers](runtime-config-resource.html#GUC-TRANSACTION-BUFFERS). [commit\\_timestamp\\_buffers](runtime-config-resource.html#GUC-COMMIT-TIMESTAMP-BUFFERS), [transaction\\_buffers](runtime-config-resource.html#GUC-TRANSACTION-BUFFERS), and [subtransaction\\_buffers](runtime-config-resource.html#GUC-SUBTRANSACTION-BUFFERS) scale up automatically with [shared\\_buffers](runtime-config-resource.html#GUC-SHARED-BUFFERS).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add support for incremental file system backup (Robert Haas, Jakub Wartak, Tomas Vondra) [§](https://postgr.es/c/dc2123400) [§](https://postgr.es/c/f8ce4ed78)",
       "description": "Incremental backups can be created using [pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\")'s new `--incremental` option. The new application [pg\\_combinebackup](app-pgcombinebackup.html \"pg_combinebackup\") allows manipulation of base and incremental file system backups.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the creation of WAL summarization files (Robert Haas, Nathan Bossart, Hubert Depesz Lubaczewski) [§](https://postgr.es/c/174c48050) [§](https://postgr.es/c/d97ef756a) [§](https://postgr.es/c/f896057e4) [§](https://postgr.es/c/d9ef650fc)",
       "description": "These files record the block numbers that have changed within an [LSN](datatype-pg-lsn.html \"8.20. pg_lsn Type\") range and are useful for incremental file system backups. This is controlled by the server variables [summarize\\_wal](runtime-config-wal.html#GUC-SUMMARIZE-WAL) and [wal\\_summary\\_keep\\_time](runtime-config-wal.html#GUC-WAL-SUMMARY-KEEP-TIME), and introspected with [pg\\_available\\_wal\\_summaries()](functions-info.html#FUNCTIONS-WAL-SUMMARY \"Table 9.92. WAL Summarization Information Functions\"), `pg_wal_summary_contents()`, and `pg_get_wal_summarizer_state()`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add the system identifier to file system [backup manifest](backup-manifest-format.html \"Chapter 69. Backup Manifest Format\") files (Amul Sul) [§](https://postgr.es/c/2041bc427)",
       "description": "This helps detect invalid WAL usage.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow connection string value `dbname` to be written when [pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\") writes connection information to `postgresql.auto.conf` (Vignesh C, Hayato Kuroda) [§](https://postgr.es/c/a145f424d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add column [pg\\_replication\\_slots.invalidation\\_reason](view-pg-replication-slots.html \"52.19. pg_replication_slots\") to report the reason for invalid slots (Shveta Malik, Bharath Rupireddy) [§](https://postgr.es/c/007693f2a) [§](https://postgr.es/c/6ae701b43)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add column [pg\\_replication\\_slots.inactive\\_since](view-pg-replication-slots.html \"52.19. pg_replication_slots\") to report slot inactivity duration (Bharath Rupireddy) [§](https://postgr.es/c/a11f330b5) [§](https://postgr.es/c/6d49c8d4b) [§](https://postgr.es/c/6f132ed69)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add function [pg\\_sync\\_replication\\_slots()](functions-admin.html#FUNCTIONS-REPLICATION-TABLE \"Table 9.99. Replication Management Functions\") to synchronize logical replication slots (Hou Zhijie, Shveta Malik, Ajin Cherian, Peter Eisentraut) [§](https://postgr.es/c/ddd5f4f54) [§](https://postgr.es/c/7a424ece4)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add the `failover` property to the [replication protocol](protocol-replication.html \"53.4. Streaming Replication Protocol\") (Hou Zhijie, Shveta Malik) [§](https://postgr.es/c/732924043)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add application [pg\\_createsubscriber](app-pgcreatesubscriber.html \"pg_createsubscriber\") to create a logical replica from a physical standby server (Euler Taveira) [§](https://postgr.es/c/d44032d01)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Have [pg\\_upgrade](pgupgrade.html \"pg_upgrade\") migrate valid logical slots and subscriptions (Hayato Kuroda, Hou Zhijie, Vignesh C, Julien Rouhaud, Shlok Kyal) [§](https://postgr.es/c/29d0a77fa) [§](https://postgr.es/c/9a17be1e2)",
       "description": "This allows logical replication to continue quickly after the upgrade. This only works for old PostgreSQL clusters that are version 17 or later.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Enable the failover of [logical slots](logical-replication-subscription.html#LOGICAL-REPLICATION-SUBSCRIPTION-SLOT \"29.2.1. Replication Slot Management\") (Hou Zhijie, Shveta Malik, Ajin Cherian) [§](https://postgr.es/c/c393308b6)",
       "description": "This is controlled by an optional fifth argument to [pg\\_create\\_logical\\_replication\\_slot()](functions-admin.html#FUNCTIONS-REPLICATION-TABLE \"Table 9.99. Replication Management Functions\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add server variable [sync\\_replication\\_slots](runtime-config-replication.html#GUC-SYNC-REPLICATION-SLOTS) to enable failover logical slot synchronization (Shveta Malik, Hou Zhijie, Peter Smith) [§](https://postgr.es/c/93db6cbda) [§](https://postgr.es/c/60c07820d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add logical replication failover control to [CREATE/ALTER SUBSCRIPTION](sql-createsubscription.html \"CREATE SUBSCRIPTION\") (Shveta Malik, Hou Zhijie, Ajin Cherian) [§](https://postgr.es/c/776621a5e) [§](https://postgr.es/c/22f7e61a6)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the application of logical replication changes to use [hash](hash-index.html \"64.6. Hash Indexes\") indexes on the subscriber (Hayato Kuroda) [§](https://postgr.es/c/edca34243)",
       "description": "Previously only [btree](btree.html \"64.1. B-Tree Indexes\") indexes could be used for this purpose.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Restart apply workers if subscription owner's superuser privileges are revoked (Vignesh C) [§](https://postgr.es/c/79243de13)",
       "description": "This forces reauthentication.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add `flush` option to [pg\\_logical\\_emit\\_message()](functions-admin.html#FUNCTIONS-REPLICATION-TABLE \"Table 9.99. Replication Management Functions\") (Michael Paquier) [§](https://postgr.es/c/173b56f1e)",
       "description": "This makes the message durable.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow specification of physical standbys that must be synchronized before they are visible to subscribers (Hou Zhijie, Shveta Malik) [§](https://postgr.es/c/bf279ddd1) [§](https://postgr.es/c/0f934b073)",
       "description": "The new server variable is [synchronized\\_standby\\_slots](runtime-config-replication.html#GUC-SYNCHRONIZED-STANDBY-SLOTS).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add worker type column to [pg\\_stat\\_subscription](monitoring-stats.html#MONITORING-PG-STAT-SUBSCRIPTION \"27.2.8. pg_stat_subscription\") (Peter Smith) [§](https://postgr.es/c/13aeaf079)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add new [COPY](sql-copy.html \"COPY\") option `ON_ERROR ignore` to discard error rows (Damir Belyalov, Atsushi Torikoshi, Alex Shulgin, Jian He, Yugo Nagata) [§](https://postgr.es/c/9e2d87011) [§](https://postgr.es/c/b725b7eec) [§](https://postgr.es/c/40bbc8cf0) [§](https://postgr.es/c/a6d0fa5ef)",
       "description": "The default behavior is `ON_ERROR stop`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add new `COPY` option `LOG_VERBOSITY` which reports `COPY FROM` ignored error rows (Bharath Rupireddy) [§](https://postgr.es/c/f5a227895)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `COPY FROM` to report the number of skipped rows during processing (Atsushi Torikoshi) [§](https://postgr.es/c/729439607)",
       "description": "This appears in system view column [pg\\_stat\\_progress\\_copy.tuples\\_skipped](progress-reporting.html#COPY-PROGRESS-REPORTING \"27.4.3. COPY Progress Reporting\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "In `COPY FROM`, allow easy specification that all columns should be forced null or not null (Zhang Mingli) [§](https://postgr.es/c/f6d4c9cf1)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow partitioned tables to have identity columns (Ashutosh Bapat) [§](https://postgr.es/c/699586315)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [exclusion constraints](ddl-constraints.html#DDL-CONSTRAINTS-EXCLUSION \"5.5.6. Exclusion Constraints\") on partitioned tables (Paul A. Jungwirth) [§](https://postgr.es/c/8c852ba9a)",
       "description": "As long as exclusion constraints compare partition key columns for equality, other columns can use exclusion constraint-specific comparisons.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add clearer [ALTER TABLE](sql-altertable.html \"ALTER TABLE\") method to set a column to the default statistics target (Peter Eisentraut) [§](https://postgr.es/c/4f622503d)",
       "description": "The new syntax is `ALTER TABLE ... SET STATISTICS DEFAULT`; using `SET STATISTICS -1` is still supported.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `ALTER TABLE` to change a column's generation expression (Amul Sul) [§](https://postgr.es/c/5d06e99a3)",
       "description": "The syntax is `ALTER TABLE ... ALTER COLUMN ... SET EXPRESSION`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow specification of [table access methods](tableam.html \"Chapter 61. Table Access Method Interface Definition\") on partitioned tables (Justin Pryzby, Soumyadeep Chakraborty, Michael Paquier) [§](https://postgr.es/c/374c7a229) [§](https://postgr.es/c/e2395cdbe)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add `DEFAULT` setting for `ALTER TABLE .. SET ACCESS METHOD` (Michael Paquier) [§](https://postgr.es/c/d61a6cad6)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add support for [event triggers](sql-createeventtrigger.html \"CREATE EVENT TRIGGER\") that fire at connection time (Konstantin Knizhnik, Mikhail Gribkov) [§](https://postgr.es/c/e83d1b0c4)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add event trigger support for [REINDEX](sql-reindex.html \"REINDEX\") (Garrett Thornburg, Jian He) [§](https://postgr.es/c/f21848de2)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow parenthesized syntax for [CLUSTER](sql-cluster.html \"CLUSTER\") options if a table name is not specified (Nathan Bossart) [§](https://postgr.es/c/cdaedfc96)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `EXPLAIN` to report optimizer memory usage (Ashutosh Bapat) [§](https://postgr.es/c/5de890e36)",
       "description": "The option is called `MEMORY`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add `EXPLAIN` option `SERIALIZE` to report the cost of converting data for network transmission (Stepan Rutz, Matthias van de Meent) [§](https://postgr.es/c/06286709e)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add local I/O block read/write timing statistics to `EXPLAIN`'s `BUFFERS` output (Nazir Bilal Yavuz) [§](https://postgr.es/c/295c36c0c)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve `EXPLAIN`'s display of SubPlan nodes and output parameters (Tom Lane, Dean Rasheed) [§](https://postgr.es/c/fd0398fcb)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add JIT `deform_counter` details to `EXPLAIN` (Dmitry Dolgov) [§](https://postgr.es/c/5a3423ad8)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the `interval` data type to support `+/-infinity` values (Joseph Koshakow, Jian He, Ashutosh Bapat) [§](https://postgr.es/c/519fc1bd9)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `MERGE` to modify updatable views (Dean Rasheed) [§](https://postgr.es/c/5f2e179bd)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add `WHEN NOT MATCHED BY SOURCE` to `MERGE` (Dean Rasheed) [§](https://postgr.es/c/0294df2f1)",
       "description": "`WHEN NOT MATCHED` on target rows was already supported.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow `MERGE` to use the `RETURNING` clause (Dean Rasheed) [§](https://postgr.es/c/c649fa24a)",
       "description": "The new `RETURNING` function `merge_action()` reports on the DML that generated the row.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add function [JSON\\_TABLE()](functions-json.html#FUNCTIONS-SQLJSON-TABLE \"9.16.4. JSON_TABLE\") to convert `JSON` data to a table representation (Nikita Glukhov, Teodor Sigaev, Oleg Bartunov, Alexander Korotkov, Andrew Dunstan, Amit Langote, Jian He) [§](https://postgr.es/c/de3600452) [§](https://postgr.es/c/bb766cde6)",
       "description": "This function can be used in the `FROM` clause of `SELECT` queries as a tuple source.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add SQL/JSON constructor functions [JSON()](functions-json.html#FUNCTIONS-JSON-CREATION-TABLE \"Table 9.47. JSON Creation Functions\"), `JSON_SCALAR()`, and `JSON_SERIALIZE()` (Nikita Glukhov, Teodor Sigaev, Oleg Bartunov, Alexander Korotkov, Andrew Dunstan, Amit Langote) [§](https://postgr.es/c/03734a7fe)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add SQL/JSON query functions [JSON\\_EXISTS()](functions-json.html#FUNCTIONS-SQLJSON-QUERYING \"Table 9.52. SQL/JSON Query Functions\"), `JSON_QUERY()`, and `JSON_VALUE()` (Nikita Glukhov, Teodor Sigaev, Oleg Bartunov, Alexander Korotkov, Andrew Dunstan, Amit Langote, Peter Eisentraut, Jian He) [§](https://postgr.es/c/aaaf9449e) [§](https://postgr.es/c/1edb3b491) [§](https://postgr.es/c/6185c9737) [§](https://postgr.es/c/c0fc07518) [§](https://postgr.es/c/ef744ebb7)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [jsonpath](functions-json.html#FUNCTIONS-SQLJSON-PATH-OPERATORS \"9.16.2.3. SQL/JSON Path Operators and Methods\") methods to convert `JSON` values to other `JSON` data types (Jeevan Chalke) [§](https://postgr.es/c/66ea94e8e)",
       "description": "The jsonpath methods are `.bigint()`, `.boolean()`, `.date()`, `.decimal([precision [, scale]])`, `.integer()`, `.number()`, `.string()`, `.time()`, `.time_tz()`, `.timestamp()`, and `.timestamp_tz()`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [to\\_timestamp()](functions-formatting.html#FUNCTIONS-FORMATTING-TABLE \"Table 9.26. Formatting Functions\") time zone format specifiers (Tom Lane) [§](https://postgr.es/c/8ba6fdf90)",
       "description": "`TZ` accepts time zone abbreviations or numeric offsets, while `OF` accepts only numeric offsets.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the session [time zone](runtime-config-client.html#GUC-TIMEZONE) to be specified by `AS LOCAL` (Vik Fearing) [§](https://postgr.es/c/97957fdba)",
       "description": "This is useful when converting adding and removing time zones from time stamps values, rather than specifying the literal session time zone.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add functions [uuid\\_extract\\_timestamp()](functions-uuid.html \"9.14. UUID Functions\") and `uuid_extract_version()` to return UUID information (Andrey Borodin) [§](https://postgr.es/c/794f10f6b)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add functions to generate random numbers in a specified range (Dean Rasheed) [§](https://postgr.es/c/e6341323a)",
       "description": "The functions are [random(min, max)](functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE \"Table 9.6. Random Functions\") and they take values of type `integer`, `bigint`, and `numeric`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add functions to convert integers to binary and octal strings (Eric Radman, Nathan Bossart) [§](https://postgr.es/c/260a1f18d)",
       "description": "The functions are [to\\_bin()](functions-string.html#FUNCTIONS-STRING-OTHER \"Table 9.10. Other String Functions and Operators\") and `to_oct()`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add Unicode informational functions (Jeff Davis) [§](https://postgr.es/c/a02b37fc0)",
       "description": "Function [unicode\\_version()](functions-info.html#FUNCTIONS-INFO-VERSION \"9.27.11. Version Information Functions\") returns the Unicode version, `icu_unicode_version()` returns the ICU version, and `unicode_assigned()` returns if the characters are assigned Unicode codepoints.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add function [xmltext()](functions-xml.html#FUNCTIONS-PRODUCING-XML-XMLTEXT \"9.15.1.1. xmltext\") to convert text to a single `XML` text node (Jim Jones) [§](https://postgr.es/c/526fe0d79)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add function [to\\_regtypemod()](functions-info.html#FUNCTIONS-INFO-CATALOG-TABLE \"Table 9.74. System Catalog Information Functions\") to return the type modifier of a type specification (David Wheeler, Erik Wienhold) [§](https://postgr.es/c/1218ca995)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [pg\\_basetype()](functions-info.html#FUNCTIONS-INFO-CATALOG-TABLE \"Table 9.74. System Catalog Information Functions\") function to return a domain's base type (Steve Chavez) [§](https://postgr.es/c/b154d8a6d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add function [pg\\_column\\_toast\\_chunk\\_id()](functions-admin.html#FUNCTIONS-ADMIN-DBSIZE \"Table 9.100. Database Object Size Functions\") to return a value's [TOAST](storage-toast.html \"65.2. TOAST\") identifier (Yugo Nagata) [§](https://postgr.es/c/d1162cfda)",
       "description": "This returns `NULL` if the value is not stored in TOAST.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow plpgsql [%TYPE](plpgsql-declarations.html#PLPGSQL-DECLARATION-TYPE \"41.3.3. Copying Types\") and `%ROWTYPE` specifications to represent arrays of non-array types (Quan Zongliang, Pavel Stehule) [§](https://postgr.es/c/5e8674dc8)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow plpgsql `%TYPE` specification to reference composite column (Tom Lane) [§](https://postgr.es/c/43b46aae1)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq function to change role passwords (Joe Conway) [§](https://postgr.es/c/a7be2a6c2)",
       "description": "The new function, [PQchangePassword()](libpq-misc.html#LIBPQ-PQCHANGEPASSWORD), hashes the new password before sending it to the server.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq functions to close portals and prepared statements (Jelte Fennema-Nio) [§](https://postgr.es/c/28b572656)",
       "description": "The functions are [PQclosePrepared()](libpq-exec.html#LIBPQ-PQCLOSEPREPARED), [PQclosePortal()](libpq-exec.html#LIBPQ-PQCLOSEPORTAL), [PQsendClosePrepared()](libpq-async.html#LIBPQ-PQSENDCLOSEPREPARED), and [PQsendClosePortal()](libpq-async.html#LIBPQ-PQSENDCLOSEPORTAL).",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq API which allows for blocking and non-blocking [cancel requests](libpq-cancel.html \"32.7. Canceling Queries in Progress\"), with encryption if already in use (Jelte Fennema-Nio) [§](https://postgr.es/c/61461a300)",
       "description": "Previously only blocking, unencrypted cancel requests were supported.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq function [PQsocketPoll()](libpq-connect.html#LIBPQ-PQSOCKETPOLL) to allow polling of network sockets (Tristan Partin, Tom Lane) [§](https://postgr.es/c/f5e4dedfa) [§](https://postgr.es/c/105024a47)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq function [PQsendPipelineSync()](libpq-pipeline-mode.html#LIBPQ-PQSENDPIPELINESYNC) to send a pipeline synchronization point (Anton Kirilov) [§](https://postgr.es/c/4794c2d31)",
       "description": "This is similar to [PQpipelineSync()](libpq-pipeline-mode.html#LIBPQ-PQPIPELINESYNC) but it does not flush to the server unless the size threshold of the output buffer is reached.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add libpq function [PQsetChunkedRowsMode()](libpq-single-row-mode.html#LIBPQ-PQSETCHUNKEDROWSMODE) to allow retrieval of results in chunks (Daniel Vérité) [§](https://postgr.es/c/4643a2b26)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow TLS connections without requiring a network round-trip negotiation (Greg Stark, Heikki Linnakangas, Peter Eisentraut, Michael Paquier, Daniel Gustafsson) [§](https://postgr.es/c/d39a49c1e) [§](https://postgr.es/c/91044ae4b) [§](https://postgr.es/c/44e27f0a6) [§](https://postgr.es/c/d80f2ce29) [§](https://postgr.es/c/03a0e0d4b) [§](https://postgr.es/c/17a834a04) [§](https://postgr.es/c/407e0b023) [§](https://postgr.es/c/fb5718f35)",
       "description": "This is enabled with the client-side option [sslnegotiation=direct](libpq-connect.html#LIBPQ-CONNECT-SSLNEGOTIATION), requires ALPN, and only works on PostgreSQL 17 and later servers.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve psql display of default and empty privileges (Erik Wienhold, Laurenz Albe) [§](https://postgr.es/c/d1379ebf4)",
       "description": "Command `\\dp` now displays `(none)` for empty privileges; default still displays as empty.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Have backslash commands honor `\\pset null` (Erik Wienhold, Laurenz Albe) [§](https://postgr.es/c/d1379ebf4)",
       "description": "Previously `\\pset null` was ignored.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow psql's `\\watch` to stop after a minimum number of rows returned (Greg Sabino Mullane) [§](https://postgr.es/c/f347ec76e)",
       "description": "The parameter is `min_rows`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow psql connection attempts to be canceled with control-C (Tristan Partin) [§](https://postgr.es/c/cafe10565)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow psql to honor `FETCH_COUNT` for non-`SELECT` queries (Daniel Vérité) [§](https://postgr.es/c/90f517821)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve psql tab completion (Dagfinn Ilmari Mannsåker, Gilles Darold, Christoph Heiss, Steve Chavez, Vignesh C, Pavel Borisov, Jian He) [§](https://postgr.es/c/c951e9042) [§](https://postgr.es/c/d16eb83ab) [§](https://postgr.es/c/cd3424748) [§](https://postgr.es/c/816f10564) [§](https://postgr.es/c/927332b95) [§](https://postgr.es/c/f1bb9284f) [§](https://postgr.es/c/304b6b1a6) [§](https://postgr.es/c/2800fbb2b)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add application [pg\\_walsummary](app-pgwalsummary.html \"pg_walsummary\") to dump WAL summary files (Robert Haas) [§](https://postgr.es/c/ee1bfd168)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [pg\\_dump](app-pgdump.html \"pg_dump\")'s large objects to be restorable in batches (Tom Lane) [§](https://postgr.es/c/a45c78e32)",
       "description": "This allows the restoration of many large objects to avoid transaction limits and to be restored in parallel.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add pg\\_dump option `--exclude-extension` (Ayush Vatsa) [§](https://postgr.es/c/522ed12f7)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [pg\\_dump](app-pgdump.html \"pg_dump\"), [pg\\_dumpall](app-pg-dumpall.html \"pg_dumpall\"), and [pg\\_restore](app-pgrestore.html \"pg_restore\") to specify include/exclude objects in a file (Pavel Stehule, Daniel Gustafsson) [§](https://postgr.es/c/a5cf808be)",
       "description": "The option is called `--filter`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add the `--sync-method` parameter to several client applications (Justin Pryzby, Nathan Bossart) [§](https://postgr.es/c/8c16ad3b4)",
       "description": "The applications are [initdb](app-initdb.html \"initdb\"), [pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\"), [pg\\_checksums](app-pgchecksums.html \"pg_checksums\"), [pg\\_dump](app-pgdump.html \"pg_dump\"), [pg\\_rewind](app-pgrewind.html \"pg_rewind\"), and [pg\\_upgrade](pgupgrade.html \"pg_upgrade\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Change [pgbench](pgbench.html \"pgbench\") debug mode option from `-d` to `--debug` (Greg Sabino Mullane) [§](https://postgr.es/c/3ff01b2b6)",
       "description": "Option `-d` is now used for the database name, and the new `--dbname` option can be used as well.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add pgbench option `--exit-on-abort` to exit after any client aborts (Yugo Nagata) [§](https://postgr.es/c/3c662643c)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add pgbench command `\\syncpipeline` to allow sending of sync messages (Anthonin Bonnefoy) [§](https://postgr.es/c/94edfe250)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [pg\\_archivecleanup](pgarchivecleanup.html \"pg_archivecleanup\") to remove backup history files (Atsushi Torikoshi) [§](https://postgr.es/c/3f8c98d0b)",
       "description": "The option is `--clean-backup-history`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add some long options to pg\\_archivecleanup (Atsushi Torikoshi) [§](https://postgr.es/c/dd7c60f19)",
       "description": "The long options are `--debug`, `--dry-run`, and `--strip-extension`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [pg\\_basebackup](app-pgbasebackup.html \"pg_basebackup\") and [pg\\_receivewal](app-pgreceivewal.html \"pg_receivewal\") to use dbname in their connection specification (Jelte Fennema-Nio) [§](https://postgr.es/c/cca97ce6a)",
       "description": "This is useful for connection poolers that are sensitive to the database name.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [pg\\_upgrade](pgupgrade.html \"pg_upgrade\") option `--copy-file-range` (Thomas Munro) [§](https://postgr.es/c/d93627bcb)",
       "description": "This is supported on Linux and FreeBSD.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [reindexdb](app-reindexdb.html \"reindexdb\") `--index` to process indexes from different tables in parallel (Maxim Orlov, Svetlana Derevyanko, Alexander Korotkov) [§](https://postgr.es/c/47f99a407)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [reindexdb](app-reindexdb.html \"reindexdb\"), [vacuumdb](app-vacuumdb.html \"vacuumdb\"), and [clusterdb](app-clusterdb.html \"clusterdb\") to process objects in all databases matching a pattern (Nathan Bossart) [§](https://postgr.es/c/24c928ad9) [§](https://postgr.es/c/648928c79) [§](https://postgr.es/c/1b49d56d3)",
       "description": "The new option `--all` controls this behavior.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove support for OpenSSL 1.0.1 (Michael Paquier) [§](https://postgr.es/c/8e278b657)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow tests to pass in OpenSSL FIPS mode (Peter Eisentraut) [§](https://postgr.es/c/284cbaea7) [§](https://postgr.es/c/3c44e7d8d)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Use CPU AVX\\-512 instructions for bit counting (Paul Amonson, Nathan Bossart, Ants Aasma) [§](https://postgr.es/c/792752af4) [§](https://postgr.es/c/41c51f0c6)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Require LLVM version 10 or later (Thomas Munro) [§](https://postgr.es/c/820b5af73)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Use native CRC instructions on 64-bit LoongArch CPUs (Xudong Yang) [§](https://postgr.es/c/4d14ccd6a)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove AIX support (Heikki Linnakangas) [§](https://postgr.es/c/0b16bb877)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove the Microsoft Visual Studio\\-specific PostgreSQL build option (Michael Paquier) [§](https://postgr.es/c/1301c80b2)",
       "description": "Meson is now the only available method for Visual Studio builds.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove configure option `--disable-thread-safety` (Thomas Munro, Heikki Linnakangas) [§](https://postgr.es/c/68a4b58ec) [§](https://postgr.es/c/ce0b0fa3e)",
       "description": "We now assume all supported platforms have sufficient thread support.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove configure option `--with-CC` (Heikki Linnakangas) [§](https://postgr.es/c/1c1eec0f2)",
       "description": "Setting the `CC` environment variable is now the only supported method for specifying the compiler.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "User-defined data type receive functions will no longer receive their data null-terminated (David Rowley) [§](https://postgr.es/c/f0efa5aec)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add incremental `JSON` parser for use with huge `JSON` documents (Andrew Dunstan) [§](https://postgr.es/c/3311ea86e)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Convert top-level `README` file to Markdown (Nathan Bossart) [§](https://postgr.es/c/363eb0599)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove no longer needed top-level `INSTALL` file (Tom Lane) [§](https://postgr.es/c/e2b73f4a4)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove make's `distprep` option (Peter Eisentraut) [§](https://postgr.es/c/721856ff2)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add make support for Android shared libraries (Peter Eisentraut) [§](https://postgr.es/c/79b03dbb3)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add backend support for injection points (Michael Paquier) [§](https://postgr.es/c/d86d20f0b) [§](https://postgr.es/c/37b369dc6) [§](https://postgr.es/c/f587338de) [§](https://postgr.es/c/bb93640a6)",
       "description": "This is used for server debugging and they must be enabled at server compile time.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add dynamic shared memory registry (Nathan Bossart) [§](https://postgr.es/c/8b2bcf3f2)",
       "description": "This allows shared libraries which are not initialized at startup to coordinate dynamic shared memory access.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Fix `emit_log_hook` to use the same time value as other log records for the same query (Kambam Vinay, Michael Paquier) [§](https://postgr.es/c/2a217c371)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve documentation for using `jsonpath` for predicate checks (David Wheeler) [§](https://postgr.es/c/7014c9a4b)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow joins with non-join qualifications to be pushed down to foreign servers and custom scans (Richard Guo, Etsuro Fujita) [§](https://postgr.es/c/9e9931d2b)",
       "description": "Foreign data wrappers and custom scans will need to be modified to handle these cases.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow pushdown of `EXISTS` and `IN` subqueries to [postgres\\_fdw](postgres-fdw.html \"F.36. postgres_fdw — access data stored in external PostgreSQL servers\") foreign servers (Alexander Pyhalov) [§](https://postgr.es/c/824dbea3e)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Increase the default foreign data wrapper tuple cost (David Rowley, Umair Shahid) [§](https://postgr.es/c/cac169d68) [§](https://postgr.es/c/f7f694b21)",
       "description": "This value is used by the optimizer.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [dblink](dblink.html \"F.11. dblink — connect to other PostgreSQL databases\") database operations to be interrupted (Noah Misch) [§](https://postgr.es/c/d3c5f37dd)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow the creation of hash indexes on [ltree](ltree.html \"F.22. ltree — hierarchical tree-like data type\") columns (Tommy Pavlicek) [§](https://postgr.es/c/485f0aa85)",
       "description": "This also enables hash join and hash aggregation on ltree columns.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [unaccent](unaccent.html \"F.46. unaccent — a text search dictionary which removes diacritics\") character translation rules to contain whitespace and quotes (Michael Paquier) [§](https://postgr.es/c/59f47fb98)",
       "description": "The syntax for the `unaccent.rules` file has changed.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [amcheck](amcheck.html \"F.1. amcheck — tools to verify table and index consistency\") to check for unique constraint violations using new option `--checkunique` (Anastasia Lubennikova, Pavel Borisov, Maxim Orlov) [§](https://postgr.es/c/5ae208720)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [citext](citext.html \"F.9. citext — a case-insensitive character string type\") tests to pass in OpenSSL FIPS mode (Peter Eisentraut) [§](https://postgr.es/c/3c551ebed)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [pgcrypto](pgcrypto.html \"F.26. pgcrypto — cryptographic functions\") tests to pass in OpenSSL FIPS mode (Peter Eisentraut) [§](https://postgr.es/c/795592865)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove some unused [SPI](spi.html \"Chapter 45. Server Programming Interface\") macros (Bharath Rupireddy) [§](https://postgr.es/c/75680c3d8)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Remove adminpack contrib extension (Daniel Gustafsson) [§](https://postgr.es/c/cc09e6549)",
       "description": "This was used by now end-of-life pgAdmin III.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [pg\\_buffercache](pgbuffercache.html \"F.25. pg_buffercache — inspect PostgreSQL buffer cache state\") function `pg_buffercache_evict()` to allow shared buffer eviction (Palak Chaturvedi, Thomas Munro) [§](https://postgr.es/c/13453eedd)",
       "description": "This is useful for testing.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Replace [CALL](sql-call.html \"CALL\") parameters in pg\\_stat\\_statements with placeholders (Sami Imseih) [§](https://postgr.es/c/11c34b342)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Replace savepoint names stored in `pg_stat_statements` with placeholders (Greg Sabino Mullane) [§](https://postgr.es/c/31de7e60d)",
       "description": "This greatly reduces the number of entries needed to record [SAVEPOINT](sql-savepoint.html \"SAVEPOINT\"), [RELEASE SAVEPOINT](sql-release-savepoint.html \"RELEASE SAVEPOINT\"), and [ROLLBACK TO SAVEPOINT](sql-rollback-to.html \"ROLLBACK TO SAVEPOINT\") commands.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Replace the two-phase commit GIDs stored in `pg_stat_statements` with placeholders (Michael Paquier) [§](https://postgr.es/c/638d42a3c)",
       "description": "This greatly reduces the number of entries needed to record [PREPARE TRANSACTION](sql-prepare-transaction.html \"PREPARE TRANSACTION\"), [COMMIT PREPARED](sql-commit-prepared.html \"COMMIT PREPARED\"), and [ROLLBACK PREPARED](sql-rollback-prepared.html \"ROLLBACK PREPARED\").",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Track [DEALLOCATE](sql-deallocate.html \"DEALLOCATE\") in `pg_stat_statements` (Dagfinn Ilmari Mannsåker, Michael Paquier) [§](https://postgr.es/c/bb45156f3)",
       "description": "`DEALLOCATE` names are stored in `pg_stat_statements` as placeholders.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add local I/O block read/write timing statistics columns of `pg_stat_statements` (Nazir Bilal Yavuz) [§](https://postgr.es/c/295c36c0c) [§](https://postgr.es/c/5147ab1dd)",
       "description": "The new columns are `local_blk_read_time` and `local_blk_write_time`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add JIT deform\\_counter details to `pg_stat_statements` (Dmitry Dolgov) [§](https://postgr.es/c/5a3423ad8)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add optional fourth argument (`minmax_only`) to `pg_stat_statements_reset()` to allow for the resetting of only min/max statistics (Andrei Zubkov) [§](https://postgr.es/c/dc9f8a798)",
       "description": "This argument defaults to `false`.",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add `pg_stat_statements` columns `stats_since` and `minmax_stats_since` to track entry creation time and last min/max reset time (Andrei Zubkov) [§](https://postgr.es/c/dc9f8a798)",
       "description": "",
       "sinceVersion": "17.0",
-      "contributors": null
+      "contributors": []
     }
   ],
   "performanceImprovements": [
@@ -51366,7 +51366,7 @@
       "description": "",
       "sinceVersion": "10.0",
       "significant": true,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve hash index performance",
@@ -51749,28 +51749,28 @@
       "description": "* Add support for partitioning by a hash key\n* Add support for `PRIMARY KEY`, `FOREIGN KEY`, indexes, and triggers on partitioned tables\n* Allow creation of a “default” partition for storing data that does not match any of the remaining partitions\n* `UPDATE` statements that change a partition key column now cause affected rows to be moved to the appropriate partitions\n* Improve `SELECT` performance through enhanced partition elimination strategies during query planning and execution",
       "sinceVersion": "11.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve `SELECT` performance through enhanced partition elimination strategies during query planning and execution",
       "description": "",
       "sinceVersion": "11.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Optional Just-in-Time (JIT) compilation for some SQL code, speeding evaluation of expressions",
       "description": "",
       "sinceVersion": "11.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Many other useful performance improvements, including the ability to avoid a table rewrite for `ALTER TABLE ... ADD COLUMN` with a non-null column default",
       "description": "",
       "sinceVersion": "11.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow faster partition elimination during query processing",
@@ -52167,14 +52167,14 @@
       "description": "",
       "sinceVersion": "12.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Partitioning performance enhancements, including improved query performance on tables with thousands of partitions, improved insertion performance with [INSERT](sql-insert.html \"INSERT\") and [COPY](sql-copy.html \"COPY\"), and the ability to execute [ALTER TABLE ATTACH PARTITION](sql-altertable.html#SQL-ALTERTABLE-ATTACH-PARTITION) without blocking queries",
       "description": "",
       "sinceVersion": "12.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve performance by using a new algorithm for output of [real](datatype-numeric.html#DATATYPE-FLOAT \"8.1.3. Floating-Point Types\") and `double precision` values",
@@ -52582,14 +52582,14 @@
       "description": "",
       "sinceVersion": "13.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improved performance for queries that use aggregates or partitioned tables",
       "description": "",
       "sinceVersion": "13.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve the performance of sorting [inet](datatype-net-types.html#DATATYPE-INET \"8.9.1. inet\") values",
@@ -52881,7 +52881,7 @@
       "description": "",
       "sinceVersion": "14.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Prevent the containment operators (`<@` and `@>`) for [intarray](intarray.html \"F.18. intarray\") from using GiST indexes",
@@ -53149,7 +53149,7 @@
       "description": "",
       "sinceVersion": "15.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve lookup performance of [GiST](gist.html \"Chapter 68. GiST Indexes\") indexes that were built using sorting",
@@ -53343,7 +53343,7 @@
       "description": "",
       "sinceVersion": "16.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow window functions to use the faster [ROWS](sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS \"4.2.8. Window Function Calls\") mode internally when `RANGE` mode is active but unnecessary",
@@ -53453,77 +53453,77 @@
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Various query performance improvements, including for sequential reads using streaming I/O, write throughput under high concurrency, and searches over multiple values in a [btree](btree.html \"64.1. B-Tree Indexes\") index.",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve optimization of `IS NOT NULL` and `IS NULL` query restrictions (David Rowley, Richard Guo, Andy Fan) [§](https://postgr.es/c/b262ad440) [§](https://postgr.es/c/3af704098)",
       "description": "Remove `IS NOT NULL` restrictions from queries on `NOT NULL` columns and eliminate scans on `NOT NULL` columns if `IS NULL` is specified.",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve optimization of range values when using containment operators <@ and @> (Kim Johan Andersson, Jian He) [§](https://postgr.es/c/075df6b20)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve optimization of the `LIMIT` clause on partitioned tables, inheritance parents, and `UNION ALL` queries (Andy Fan, David Rowley) [§](https://postgr.es/c/a8a968a82)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve performance when checking roles with many memberships (Nathan Bossart) [§](https://postgr.es/c/d365ae705)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve performance of heavily-contended WAL writes (Bharath Rupireddy) [§](https://postgr.es/c/71e4cc6b8)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve performance when transferring large blocks of data to a client (Melih Mutlu) [§](https://postgr.es/c/c4ab7da60)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Improve [logical decoding](logicaldecoding.html \"Chapter 47. Logical Decoding\") performance in cases where there are many subtransactions (Masahiko Sawada) [§](https://postgr.es/c/5bec1d6bc)",
       "description": "",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Add [pg\\_restore](app-pgrestore.html \"pg_restore\") option `--transaction-size` to allow object restores in transaction batches (Tom Lane) [§](https://postgr.es/c/959b38d77)",
       "description": "This allows the performance benefits of transaction batches without the problems of excessively large transaction blocks.",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     },
     {
       "title": "Allow [ALTER OPERATOR](sql-alteroperator.html \"ALTER OPERATOR\") to set more optimization attributes (Tommy Pavlicek) [§](https://postgr.es/c/2b5154bea)",
       "description": "This is useful for extensions.",
       "sinceVersion": "17.0",
       "significant": false,
-      "contributors": null
+      "contributors": []
     }
   ]
 }

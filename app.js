@@ -269,7 +269,7 @@ function extractContributors(item) {
       }
     }
   }
-  return null;
+  return [];
 }
 
 function extractTitleDescription(item) {
