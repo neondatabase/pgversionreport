@@ -226,6 +226,7 @@ async function generateSummary() {
     );
 
     const summary = {
+      versionDates: {},
       bugs: [],
       features: [],
       performanceImprovements: [],
@@ -233,6 +234,10 @@ async function generateSummary() {
 
     releaseNotes.forEach(release => {
       const version = release.version;
+      const releaseDate = release.releaseDate;
+
+      // Add version and release date to versionDates
+      summary.versionDates[version] = releaseDate;
 
       // Process security issues (bugs)
       release.categories.security.forEach(item => {
