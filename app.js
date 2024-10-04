@@ -152,18 +152,19 @@ function parseInlineFormatting(text) {
   return NodeHtmlMarkdown.translate(text);
 }
 
-function categorizeChanges(changes) {
+function categorizeChanges(changes, is_major) {
   const categories = {
     performance: [],
     security: [],
     features: [],
-    other: [],
+    bugs: [],
   };
 
   const keywords = {
-    performance: ["performance", "speed", "faster", "optimization"],
-    security: ["security", "vulnerability", "CVE", "exploit"],
-    features: ["new feature", "added", "introduced", "now supports"],
+    security: [ "vulnerability", "CVE", "exploit"],
+    performance: ["performance", "speed", "faster", "optimization", "improve", "reduce", "enhance", "boost", "accelerate", "better", "efficient"],
+    bugs: ["fix", "issue", "crash", "overflow", "error", "bug", "problem", "flaw", "mistake", "patch", "repair", "resolve"],
+    features: ["new feature", "added", "introduced", "now supports", "new option", "new parameter", "new setting", "new command", "new function", "new syntax", "new capability", "new behavior", "new flag", "new directive", "new method", "new property", "new API", "new interface", "new class", "new module", "new package", "new library", "new framework", "new tool", "new utility", "new plugin", "new extension", "new integration", "new support", "new compatibility", "new standard", "new protocol", "new format", "new language", "new technology", "new system", "new service", "new application", "new feature", "new enhancement", "new improvement", "new addition", "new change", "new update", "new upgrade", "new version"],
   };
 
   changes.forEach((change) => {
@@ -171,7 +172,7 @@ function categorizeChanges(changes) {
     let categorized = false;
 
     for (const [category, words] of Object.entries(keywords)) {
-      if (words.some((word) => lowerChange.includes(word))) {
+      if ((is_major || (category == 'security]' || category == 'bugs')) && words.some((word) => lowerChange.includes(word))) {
         categories[category].push(change);
         categorized = true;
         break;
@@ -179,7 +180,7 @@ function categorizeChanges(changes) {
     }
 
     if (!categorized) {
-      categories.other.push(change);
+      categories.bugs.push(change);
     }
   });
 
@@ -193,7 +194,7 @@ async function processReleaseNotes() {
     const processedData = releaseData.map((release) => ({
       version: release.version,
       releaseDate: release.releaseDate,
-      categories: categorizeChanges(release.changes),
+      categories: categorizeChanges(release.changes, release.version.endsWith(".0")),
     }));
 
     const outputFile = path.join(__dirname, "release_notes.json");
@@ -215,7 +216,8 @@ async function generateSummary() {
       versionDates: {},
       bugs: [],
       features: [],
-      performanceImprovements: [],
+      performance: [],
+      security: [],
     };
 
     releaseNotes.forEach((release) => {
@@ -228,7 +230,7 @@ async function generateSummary() {
       // Process security issues (bugs)
       release.categories.security.forEach((item) => {
         const bug = parseBugItem(item, version);
-        if (bug) summary.bugs.push(bug);
+        if (bug) summary.security.push(bug);
       });
 
       // Process features
@@ -240,13 +242,13 @@ async function generateSummary() {
       // Process performance improvements
       release.categories.performance.forEach((item) => {
         const improvement = parsePerformanceItem(item, version);
-        if (improvement) summary.performanceImprovements.push(improvement);
+        if (improvement) summary.performance.push(improvement);
       });
 
       // Process 'other' items as features
-      release.categories.other.forEach((item) => {
+      release.categories.bugs.forEach((item) => {
         const feature = parseFeatureItem(item, version);
-        if (feature) summary.features.push(feature);
+        if (feature) summary.bugs.push(feature);
       });
     });
 
