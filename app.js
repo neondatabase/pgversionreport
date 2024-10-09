@@ -6,6 +6,7 @@ const cheerio = require("cheerio");
 const fs = require("fs").promises;
 const path = require("path");
 const { NodeHtmlMarkdown } = require("node-html-markdown");
+const CSV = require("csv-string");
 
 const CACHE_DIR = "raw-latest";
 const BASE_URL = "https://www.postgresql.org/docs/release/";
@@ -32,6 +33,11 @@ program
   .command("format")
   .description("Generate a formatted JSON from processed release notes")
   .action(generateSummary);
+
+program
+  .command("cve")
+  .description("Add CVE information to the formatted JSON")
+  .action(addCVE);
 
 async function scrapeAllVersions() {
   try {
@@ -69,6 +75,7 @@ async function scrapeSpecificVersion(version) {
 
 async function fetchPage(url) {
   const response = await axios.get(url);
+
   return response.data;
 }
 
@@ -161,10 +168,82 @@ function categorizeChanges(changes, is_major) {
   };
 
   const keywords = {
-    security: [ "vulnerability", "CVE", "exploit"],
-    performance: ["performance", "speed", "faster", "optimization", "improve", "reduce", "enhance", "boost", "accelerate", "better", "efficient"],
-    bugs: ["fix", "issue", "crash", "overflow", "error", "bug", "problem", "flaw", "mistake", "patch", "repair", "resolve"],
-    features: ["new feature", "added", "introduced", "now supports", "new option", "new parameter", "new setting", "new command", "new function", "new syntax", "new capability", "new behavior", "new flag", "new directive", "new method", "new property", "new API", "new interface", "new class", "new module", "new package", "new library", "new framework", "new tool", "new utility", "new plugin", "new extension", "new integration", "new support", "new compatibility", "new standard", "new protocol", "new format", "new language", "new technology", "new system", "new service", "new application", "new feature", "new enhancement", "new improvement", "new addition", "new change", "new update", "new upgrade", "new version"],
+    security: ["cve"],
+    performance: [
+      "performance",
+      "speed",
+      "faster",
+      "optimization",
+      "improve",
+      "reduce",
+      "enhance",
+      "boost",
+      "accelerate",
+      "better",
+      "efficient",
+    ],
+    bugs: [
+      "fix",
+      "issue",
+      "crash",
+      "overflow",
+      "error",
+      "bug",
+      "problem",
+      "flaw",
+      "mistake",
+      "patch",
+      "repair",
+      "resolve",
+    ],
+    features: [
+      "new feature",
+      "added",
+      "introduced",
+      "now supports",
+      "new option",
+      "new parameter",
+      "new setting",
+      "new command",
+      "new function",
+      "new syntax",
+      "new capability",
+      "new behavior",
+      "new flag",
+      "new directive",
+      "new method",
+      "new property",
+      "new API",
+      "new interface",
+      "new class",
+      "new module",
+      "new package",
+      "new library",
+      "new framework",
+      "new tool",
+      "new utility",
+      "new plugin",
+      "new extension",
+      "new integration",
+      "new support",
+      "new compatibility",
+      "new standard",
+      "new protocol",
+      "new format",
+      "new language",
+      "new technology",
+      "new system",
+      "new service",
+      "new application",
+      "new feature",
+      "new enhancement",
+      "new improvement",
+      "new addition",
+      "new change",
+      "new update",
+      "new upgrade",
+      "new version",
+    ],
   };
 
   changes.forEach((change) => {
@@ -172,7 +251,13 @@ function categorizeChanges(changes, is_major) {
     let categorized = false;
 
     for (const [category, words] of Object.entries(keywords)) {
-      if ((is_major || (category == 'security]' || category == 'bugs')) && words.some((word) => lowerChange.includes(word))) {
+      if (!is_major && (category == "features" || category == "performance")) {
+        break;
+      }
+      if (words.some((word) => lowerChange.includes(word))) {
+        if (category == "security") {
+          console.log(category, change);
+        }
         categories[category].push(change);
         categorized = true;
         break;
@@ -191,11 +276,17 @@ async function processReleaseNotes() {
   try {
     const releaseData = await parseReleaseNotes(CACHE_DIR);
 
-    const processedData = releaseData.map((release) => ({
-      version: release.version,
-      releaseDate: release.releaseDate,
-      categories: categorizeChanges(release.changes, release.version.endsWith(".0")),
-    }));
+    const processedData = releaseData.map((release) => {
+      console.log(release.version, release.version.endsWith(".0"));
+      return {
+        version: release.version,
+        releaseDate: release.releaseDate,
+        categories: categorizeChanges(
+          release.changes,
+          release.version.endsWith(".0")
+        ),
+      };
+    });
 
     const outputFile = path.join(__dirname, "release_notes.json");
     await fs.writeFile(outputFile, JSON.stringify(processedData, null, 2));
@@ -227,10 +318,10 @@ async function generateSummary() {
       // Add version and release date to versionDates
       summary.versionDates[version] = releaseDate;
 
-      // Process security issues (bugs)
+      // Process security issues
       release.categories.security.forEach((item) => {
-        const bug = parseBugItem(item, version);
-        if (bug) summary.security.push(bug);
+        const security = parseSecurityItem(item, version);
+        if (security) summary.security.push(security);
       });
 
       // Process features
@@ -245,10 +336,10 @@ async function generateSummary() {
         if (improvement) summary.performance.push(improvement);
       });
 
-      // Process 'other' items as features
+      // Process 'bug' items
       release.categories.bugs.forEach((item) => {
-        const feature = parseFeatureItem(item, version);
-        if (feature) summary.bugs.push(feature);
+        const bug = parseBugItem(item, version);
+        if (bug) summary.bugs.push(bug);
       });
     });
 
@@ -260,6 +351,96 @@ async function generateSummary() {
   }
 }
 
+async function addCVE() {
+  try {
+    // Read the CVE data from the CSV file
+    const CVEAPI = "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=";
+
+    // Read the formatted release notes
+    const releaseNotesPath = path.join(
+      __dirname,
+      "release_notes_formatted.json"
+    );
+    const releaseNotesFormatted = JSON.parse(
+      await fs.readFile(releaseNotesPath, "utf-8")
+    );
+    // For each CVE in release notes, query the API and save the data
+    for (const security of releaseNotesFormatted.security) {
+
+      console.log(`${security.cve}`);
+      if (!("metrics" in security)) {
+        console.log(`Querying CVE API`);
+        await delay(10000);
+        const cveData = await fetchPage(CVEAPI + security.cve);
+        if (cveData && cveData.vulnerabilities && cveData.totalResults == 1) {
+          console.log(
+            `Found ${JSON.stringify(cveData.vulnerabilities[0].cve.metrics)}`
+          );
+          security.metrics = cveData.vulnerabilities[0].cve.metrics;
+          security.severity = security.metrics.cvssMetricV30
+            ? security.metrics.cvssMetricV30[0].cvssData.baseSeverity
+            : security.metrics.cvssMetricV31
+            ? security.metrics.cvssMetricV31[0].cvssData.baseSeverity
+            : security.metrics.cvssMetricV2
+            ? security.metrics.cvssMetricV2[0].baseSeverity
+            : "None";
+          security.impactScore = security.metrics.cvssMetricV30
+            ? security.metrics.cvssMetricV30[0].impactScore
+            : security.metrics.cvssMetricV31
+            ? security.metrics.cvssMetricV31[0].impactScore
+            : security.metrics.cvssMetricV2
+            ? security.metrics.cvssMetricV2[0].impactScore
+            : 0;
+
+          // Save the enriched summary
+          const summaryFile = path.join(
+            __dirname,
+            "release_notes_formatted.json"
+          );
+          await fs.writeFile(
+            summaryFile,
+            JSON.stringify(releaseNotesFormatted, null, 2)
+          );
+          console.log(
+            `Summary enriched with cve data and saved to ${summaryFile}`
+          );
+        }
+      } else {
+
+        console.log(`Just adding severity and impact score`);
+        security.severity = security.metrics.cvssMetricV30
+          ? security.metrics.cvssMetricV30[0].cvssData.baseSeverity
+          : security.metrics.cvssMetricV31
+          ? security.metrics.cvssMetricV31[0].cvssData.baseSeverity
+          : security.metrics.cvssMetricV2
+          ? security.metrics.cvssMetricV2[0].baseSeverity
+          : "None";
+        security.impactScore = security.metrics.cvssMetricV30
+          ? security.metrics.cvssMetricV30[0].impactScore
+          : security.metrics.cvssMetricV31
+          ? security.metrics.cvssMetricV31[0].impactScore
+          : security.metrics.cvssMetricV2
+          ? security.metrics.cvssMetricV2[0].impactScore
+          : 0;
+      }
+      // Save the enriched summary
+      const summaryFile = path.join(
+        __dirname,
+        "release_notes_formatted.json"
+      );
+      await fs.writeFile(
+        summaryFile,
+        JSON.stringify(releaseNotesFormatted, null, 2)
+      );
+      console.log(
+        `Summary enriched with cve data and saved to ${summaryFile}`
+      );
+    }
+  } catch (error) {
+    console.error("Error adding CVE information:", error);
+  }
+}
+
 function extractContributors(item) {
   // Look for the last set of parentheses that doesn't contain a URL
   const matches = item.match(/[^\]]\(([^()]+)\)(?:\n|$)/);
@@ -267,7 +448,7 @@ function extractContributors(item) {
     for (let i = matches.length - 1; i >= 0; i--) {
       const match = matches[i];
       if (!match.includes("http") && !match.includes("www.")) {
-        return match.trim().split(', ');
+        return match.trim().split(", ");
       }
     }
   }
@@ -277,12 +458,18 @@ function extractContributors(item) {
 function extractTitleDescription(item) {
   const titleEnd = item.indexOf("\n");
   // Grab the first line (the title) and remove the contributors in parentheses
-  const title = titleEnd > 0 ? item.slice(0, titleEnd).trim().replace(/ \([^\)]+\)$/, '') : item.replace(/ \([^\)]+\)$/, '');
+  const title =
+    titleEnd > 0
+      ? item
+          .slice(0, titleEnd)
+          .trim()
+          .replace(/ \([^\)]+\)$/, "")
+      : item.replace(/ \([^\)]+\)$/, "");
   const description = titleEnd > 0 ? item.slice(titleEnd + 1).trim() : "";
   return { title, description };
 }
 
-function parseBugItem(item, version) {
+function parseSecurityItem(item, version) {
   const { title, description } = extractTitleDescription(item);
   const cveMatch = item.match(/CVE-\d{4}-\d+/);
   const cve = cveMatch ? cveMatch[0] : null;
@@ -297,14 +484,34 @@ function parseBugItem(item, version) {
   };
 }
 
+function parseBugItem(item, version) {
+  const { title, description } = extractTitleDescription(item);
+  const contributors = extractContributors(item);
+  const significant =
+    item.toLowerCase().includes("significant") ||
+    item.toLowerCase().includes("major");
+
+  return {
+    title,
+    description,
+    fixedIn: version,
+    significant,
+    contributors,
+  };
+}
+
 function parseFeatureItem(item, version) {
   const contributors = extractContributors(item);
   const { title, description } = extractTitleDescription(item);
+  const significant =
+    item.toLowerCase().includes("significant") ||
+    item.toLowerCase().includes("major");
 
   return {
     title,
     description,
     sinceVersion: version,
+    significant,
     contributors,
   };
 }
