@@ -39,6 +39,11 @@ program
   .description("Add CVE information to the formatted JSON")
   .action(addCVE);
 
+program
+  .command("update-links")
+  .description("Update relative links to absolute links in the formatted JSON")
+  .action(updateFormattedLinks);
+
 async function scrapeAllVersions() {
   try {
     await fs.mkdir(CACHE_DIR, { recursive: true });
@@ -119,6 +124,15 @@ async function parseReleaseNotes(directory) {
   const files = await fs.readdir(directory);
   const releaseData = [];
 
+  function processText(text, baseUrl) {
+    return text.replace(/href="([^"]+)"/g, (match, p1) => {
+      if (!p1.startsWith('http') && !p1.startsWith('#')) {
+        return `href="${baseUrl}${p1}"`;
+      }
+      return match;
+    });
+  }
+
   for (const file of files) {
     if (path.extname(file) === ".html" && file !== "index.html") {
       const filePath = path.join(directory, file);
@@ -132,22 +146,25 @@ async function parseReleaseNotes(directory) {
         .split(" ")
         .pop();
 
+      const baseUrl = `https://www.postgresql.org/docs/${version.split('.')[0]}/`;
+
       const releaseDate = $("p:contains('Release date:')")
         .text()
         .split(":")[1]
         .trim();
 
-      const items = [];
+      const changes = [];
 
       $(".itemizedlist ul li.listitem").each((index, element) => {
-        const text = $(element).html().trim();
-        items.push(parseInlineFormatting(text));
+        const processedHtml = processText($(element).html().trim(), baseUrl);
+        const markdown = NodeHtmlMarkdown.translate(processedHtml);
+        changes.push(markdown);
       });
 
       releaseData.push({
         version,
         releaseDate,
-        changes: items,
+        changes,
       });
     }
   }
@@ -530,6 +547,48 @@ function parsePerformanceItem(item, version) {
     significant,
     contributors,
   };
+}
+
+async function updateFormattedLinks() {
+  try {
+    const filePath = path.join(__dirname, "release_notes_formatted.json");
+    const data = await fs.readFile(filePath, 'utf8');
+    const json = JSON.parse(data);
+
+    function updateLinks(text, version) {
+      // Use a default version if not provided
+      const effectiveVersion = version || '0';
+      const baseUrl = `https://www.postgresql.org/docs/${effectiveVersion.split('.')[0]}/`;
+      return text.replace(/\(([^)]+\.html[^)]*)\)/g, (match, p1) => {
+        if (!p1.startsWith('http')) {
+          return `(${baseUrl}${p1})`;
+        }
+        return match;
+      });
+    }
+
+    const categories = ['bugs', 'features', 'performance', 'security'];
+    categories.forEach(category => {
+      if (json[category] && Array.isArray(json[category])) {
+        json[category] = json[category].map(item => {
+          if (typeof item === 'object') {
+            const version = item.fixedIn || item.sinceVersion || '0';
+            return {
+              ...item,
+              title: item.title ? updateLinks(item.title, version) : item.title,
+              description: item.description ? updateLinks(item.description, version) : item.description
+            };
+          }
+          return item;
+        });
+      }
+    });
+
+    await fs.writeFile(filePath, JSON.stringify(json, null, 2));
+    console.log(`Updated links in ${filePath}`);
+  } catch (error) {
+    console.error('Error updating links:', error);
+  }
 }
 
 program.parse(process.argv);
