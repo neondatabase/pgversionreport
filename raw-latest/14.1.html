@@ -7,13 +7,13 @@
    
   <meta name="theme-color" content="#336791"/>
   <meta name="copyright" content="The PostgreSQL Global Development Group" />
-  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link href="/media/css/fontawesome.css?18db9df6" rel="stylesheet">
   <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?18db9df6">
 
-  <script src="/media/js/theme.js?606fd482"></script>
+  <script src="/media/js/theme.js?18db9df6"></script>
 
   
 
@@ -61,8 +61,8 @@
         </div>
       </div>
       <div class="row justify-content-center pg-shout-box">
-        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
-  PostgreSQL 17 Released!
+        <div class="col text-white text-center">November 21, 2024: <a href="/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/">
+  PostgreSQL 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22 Released!
 </a>
 
 </div>
@@ -146,14 +146,14 @@
         <div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader">
   <table width="100%" summary="Navigation header">
     <tr>
-      <th colspan="5" align="center">E.13.&nbsp;Release 14.1</th>
+      <th colspan="5" align="center">E.15.&nbsp;Release 14.1</th>
     </tr>
     <tr>
-      <td width="10%" align="left"><a accesskey="p" href="release-14-2.html" title="E.12.&nbsp;Release 14.2">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="p" href="release-14-2.html" title="E.14.&nbsp;Release 14.2">Prev</a>&nbsp;</td>
       <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
       <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
-      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.13 Documentation">Home</a></td>
-      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-14.html" title="E.14.&nbsp;Release 14">Next</a></td>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-14.html" title="E.16.&nbsp;Release 14">Next</a></td>
     </tr>
   </table>
   <hr />
@@ -162,23 +162,23 @@
   <div class="titlepage">
     <div>
       <div>
-        <h2 class="title" style="clear: both">E.13.&nbsp;Release 14.1</h2>
+        <h2 class="title" style="clear: both">E.15.&nbsp;Release 14.1</h2>
       </div>
     </div>
   </div>
   <div class="toc">
     <dl class="toc">
-      <dt><span class="sect2"><a href="release-14-1.html#id-1.11.6.17.4">E.13.1. Migration to Version 14.1</a></span></dt>
-      <dt><span class="sect2"><a href="release-14-1.html#id-1.11.6.17.5">E.13.2. Changes</a></span></dt>
+      <dt><span class="sect2"><a href="release-14-1.html#id-1.11.6.20.4">E.15.1. Migration to Version 14.1</a></span></dt>
+      <dt><span class="sect2"><a href="release-14-1.html#id-1.11.6.20.5">E.15.2. Changes</a></span></dt>
     </dl>
   </div>
   <p><strong>Release date:&nbsp;</strong>2021-11-11</p>
-  <p>This release contains a variety of fixes from 14.0. For information about new features in major release 14, see <a class="xref" href="release-14.html" title="E.14.&nbsp;Release 14">Section&nbsp;E.14</a>.</p>
-  <div class="sect2" id="id-1.11.6.17.4">
+  <p>This release contains a variety of fixes from 14.0. For information about new features in major release 14, see <a class="xref" href="release-14.html" title="E.16.&nbsp;Release 14">Section&nbsp;E.16</a>.</p>
+  <div class="sect2" id="id-1.11.6.20.4">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.13.1.&nbsp;Migration to Version 14.1</h3>
+          <h3 class="title">E.15.1.&nbsp;Migration to Version 14.1</h3>
         </div>
       </div>
     </div>
@@ -186,190 +186,190 @@
     <p>However, note that installations using physical replication should update standby servers before the primary server, as explained in the third changelog entry below.</p>
     <p>Also, several bugs have been found that may have resulted in corrupted indexes, as explained in the next several changelog entries. If any of those cases apply to you, it's recommended to reindex possibly-affected indexes after updating.</p>
   </div>
-  <div class="sect2" id="id-1.11.6.17.5">
+  <div class="sect2" id="id-1.11.6.20.5">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.13.2.&nbsp;Changes</h3>
+          <h3 class="title">E.15.2.&nbsp;Changes</h3>
         </div>
       </div>
     </div>
     <div class="itemizedlist">
       <ul class="itemizedlist" style="list-style-type: disc;">
         <li class="listitem">
-          <p>Make the server reject extraneous data after an SSL or GSS encryption handshake (Tom Lane)</p>
+          <p>Make the server reject extraneous data after an SSL or GSS encryption handshake (Tom Lane) <a class="ulink" href="https://postgr.es/c/9d5a76b8d" target="_top">§</a></p>
           <p>A man-in-the-middle with the ability to inject data into the TCP connection could stuff some cleartext data into the start of a supposedly encryption-protected database session. This could be abused to send faked SQL commands to the server, although that would only work if the server did not demand any authentication data. (However, a server relying on SSL certificate authentication might well not do so.)</p>
           <p>The <span class="productname">PostgreSQL</span> Project thanks Jacob Champion for reporting this problem. (CVE-2021-23214)</p>
         </li>
         <li class="listitem">
-          <p>Make <span class="application">libpq</span> reject extraneous data after an SSL or GSS encryption handshake (Tom Lane)</p>
+          <p>Make <span class="application">libpq</span> reject extraneous data after an SSL or GSS encryption handshake (Tom Lane) <a class="ulink" href="https://postgr.es/c/30547d791" target="_top">§</a></p>
           <p>A man-in-the-middle with the ability to inject data into the TCP connection could stuff some cleartext data into the start of a supposedly encryption-protected database session. This could probably be abused to inject faked responses to the client's first few queries, although other details of libpq's behavior make that harder than it sounds. A different line of attack is to exfiltrate the client's password, or other sensitive data that might be sent early in the session. That has been shown to be possible with a server vulnerable to CVE-2021-23214.</p>
           <p>The <span class="productname">PostgreSQL</span> Project thanks Jacob Champion for reporting this problem. (CVE-2021-23222)</p>
         </li>
         <li class="listitem">
-          <p>Fix physical replication for cases where the primary crashes after shipping a WAL segment that ends with a partial WAL record (Álvaro Herrera)</p>
+          <p>Fix physical replication for cases where the primary crashes after shipping a WAL segment that ends with a partial WAL record (Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/64a8687a6" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/e3731bac5" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/0ce67bce0" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/79c7fe1af" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/494ec0037" target="_top">§</a></p>
           <p>If the primary did not survive long enough to finish writing the rest of the incomplete WAL record, then the previous crash-recovery logic had it back up and overwrite WAL starting from the beginning of the incomplete WAL record. This is problematic since standby servers may already have copies of that WAL segment. They will then see an inconsistent next segment, and will not be able to recover without manual intervention. To fix, do not back up over a WAL segment boundary when restarting after a crash. Instead write a new type of WAL record at the start of the next WAL segment, informing readers that the incomplete WAL record will never be finished and must be disregarded.</p>
           <p>When applying this update, it's best to update standby servers before the primary, so that they will be ready to handle this new WAL record type if the primary happens to crash.</p>
         </li>
         <li class="listitem">
-          <p>Ensure that parallel <code class="command">VACUUM</code> doesn't miss any indexes (Peter Geoghegan, Masahiko Sawada)</p>
+          <p>Ensure that parallel <code class="command">VACUUM</code> doesn't miss any indexes (Peter Geoghegan, Masahiko Sawada) <a class="ulink" href="https://postgr.es/c/61a86ed55" target="_top">§</a></p>
           <p>A parallel <code class="command">VACUUM</code> would fail to process indexes that are below the <code class="varname">min_parallel_index_scan_size</code> cutoff, if the table also has at least two indexes that are above that size. This could result in those indexes becoming corrupt, since they'd still contain references to any heap entries removed by the <code class="command">VACUUM</code>; subsequent queries using such indexes would be likely to return rows they shouldn't. This problem does not affect autovacuum, since it doesn't use parallel vacuuming. However, it is advisable to reindex any manually-vacuumed tables that have the right mix of index sizes.</p>
         </li>
         <li class="listitem">
-          <p>Fix <code class="command">CREATE INDEX CONCURRENTLY</code> to wait for the latest prepared transactions (Andrey Borodin)</p>
+          <p>Fix <code class="command">CREATE INDEX CONCURRENTLY</code> to wait for the latest prepared transactions (Andrey Borodin) <a class="ulink" href="https://postgr.es/c/a5b9a0000" target="_top">§</a></p>
           <p>Rows inserted by just-prepared transactions might be omitted from the new index, causing queries relying on the index to miss such rows. The previous fix for this type of problem failed to account for <code class="command">PREPARE TRANSACTION</code> commands that were still in progress when <code class="command">CREATE INDEX CONCURRENTLY</code> checked for them. As before, in installations that have enabled prepared transactions (<code class="varname">max_prepared_transactions</code> &gt; 0), it's recommended to reindex any concurrently-built indexes in case this problem occurred when they were built.</p>
         </li>
         <li class="listitem">
-          <p>Avoid race condition that can cause backends to fail to add entries for new rows to an index being built concurrently (Noah Misch, Andrey Borodin)</p>
+          <p>Avoid race condition that can cause backends to fail to add entries for new rows to an index being built concurrently (Noah Misch, Andrey Borodin) <a class="ulink" href="https://postgr.es/c/dde966efb" target="_top">§</a></p>
           <p>While it's apparently rare in the field, this case could potentially affect any index built or reindexed with the <code class="literal">CONCURRENTLY</code> option. It is recommended to reindex any such indexes to make sure they are correct.</p>
         </li>
         <li class="listitem">
-          <p>Fix <code class="command">REINDEX CONCURRENTLY</code> to preserve operator class parameters that were attached to the target index (Michael Paquier)</p>
+          <p>Fix <code class="command">REINDEX CONCURRENTLY</code> to preserve operator class parameters that were attached to the target index (Michael Paquier) <a class="ulink" href="https://postgr.es/c/f255de9a4" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix incorrect creation of shared dependencies when cloning a database that contains non-builtin objects (Aleksander Alekseev)</p>
+          <p>Fix incorrect creation of shared dependencies when cloning a database that contains non-builtin objects (Aleksander Alekseev) <a class="ulink" href="https://postgr.es/c/5040c9641" target="_top">§</a></p>
           <p>The effects of this error are probably limited in practice. In principle, it could allow a role to be dropped while it still owns objects; but most installations would never want to drop a role that had been used for objects they'd added to <code class="literal">template1</code>.</p>
         </li>
         <li class="listitem">
-          <p>Ensure that the relation cache is invalidated for a table being attached to or detached from a partitioned table (Amit Langote, Álvaro Herrera)</p>
+          <p>Ensure that the relation cache is invalidated for a table being attached to or detached from a partitioned table (Amit Langote, Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/72d064217" target="_top">§</a></p>
           <p>This oversight could allow misbehavior of subsequent inserts/updates addressed directly to the partition, but only in currently-existing sessions.</p>
         </li>
         <li class="listitem">
-          <p>Fix corruption of parse tree while creating a range type (Alex Kozhemyakin, Sergey Shinderuk)</p>
+          <p>Fix corruption of parse tree while creating a range type (Alex Kozhemyakin, Sergey Shinderuk) <a class="ulink" href="https://postgr.es/c/922e15c47" target="_top">§</a></p>
           <p><code class="command">CREATE TYPE</code> incorrectly freed an element of the parse tree, which could cause problems for a later event trigger, or if the <code class="command">CREATE TYPE</code> command was stored in the plan cache and used again later.</p>
         </li>
         <li class="listitem">
-          <p>Fix updates of element fields in arrays of domain over composite (Tom Lane)</p>
+          <p>Fix updates of element fields in arrays of domain over composite (Tom Lane) <a class="ulink" href="https://postgr.es/c/04dae19f4" target="_top">§</a></p>
           <p>A command such as <code class="literal">UPDATE tab SET fld[1].subfld = val</code> failed if the array's elements were domains rather than plain composites.</p>
         </li>
         <li class="listitem">
-          <p>Disallow the combination of <code class="literal">FETCH FIRST WITH TIES</code> and <code class="literal">FOR UPDATE SKIP LOCKED</code> (David Christensen)</p>
+          <p>Disallow the combination of <code class="literal">FETCH FIRST WITH TIES</code> and <code class="literal">FOR UPDATE SKIP LOCKED</code> (David Christensen) <a class="ulink" href="https://postgr.es/c/20047609d" target="_top">§</a></p>
           <p><code class="literal">FETCH FIRST WITH TIES</code> necessarily fetches one more row than requested, since it cannot stop until it finds a row that is not a tie. In our current implementation, if <code class="literal">FOR UPDATE</code> is used then that row will also get locked even though it is not returned. That results in undesirable behavior if the <code class="literal">SKIP LOCKED</code> option is specified. It's difficult to change this without introducing a different set of undesirable behaviors, so for now, forbid the combination.</p>
         </li>
         <li class="listitem">
-          <p>Disallow <code class="literal">ALTER INDEX index ALTER COLUMN col SET (options)</code> (Nathan Bossart, Michael Paquier)</p>
+          <p>Disallow <code class="literal">ALTER INDEX index ALTER COLUMN col SET (options)</code> (Nathan Bossart, Michael Paquier) <a class="ulink" href="https://postgr.es/c/b1b797ec7" target="_top">§</a></p>
           <p>While the parser accepted this, it's undocumented and doesn't actually work.</p>
         </li>
         <li class="listitem">
-          <p>Fix corner-case loss of precision in numeric <code class="function">power()</code> (Dean Rasheed)</p>
+          <p>Fix corner-case loss of precision in numeric <code class="function">power()</code> (Dean Rasheed) <a class="ulink" href="https://postgr.es/c/8e26b868d" target="_top">§</a></p>
           <p>The result could be inaccurate when the first argument is very close to 1.</p>
         </li>
         <li class="listitem">
-          <p>Avoid choosing the wrong hash equality operator for Memoize plans (David Rowley)</p>
+          <p>Avoid choosing the wrong hash equality operator for Memoize plans (David Rowley) <a class="ulink" href="https://postgr.es/c/1f194ed6c" target="_top">§</a></p>
           <p>This error could result in crashes or incorrect query results.</p>
         </li>
         <li class="listitem">
-          <p>Fix planner error with pulling up subquery expressions into function rangetable entries (Tom Lane)</p>
+          <p>Fix planner error with pulling up subquery expressions into function rangetable entries (Tom Lane) <a class="ulink" href="https://postgr.es/c/fd059ac2e" target="_top">§</a></p>
           <p>If a function in <code class="literal">FROM</code> laterally references the output of some sub-<code class="literal">SELECT</code> earlier in the <code class="literal">FROM</code> clause, and we are able to flatten that sub-<code class="literal">SELECT</code> into the outer query, the expression(s) copied into the function expression were not fully processed. This could lead to crashes at execution.</p>
         </li>
         <li class="listitem">
-          <p>Avoid using MCV-only statistics to estimate the range of a column (Tom Lane)</p>
+          <p>Avoid using MCV-only statistics to estimate the range of a column (Tom Lane) <a class="ulink" href="https://postgr.es/c/a54509bfd" target="_top">§</a></p>
           <p>There are corner cases in which <code class="command">ANALYZE</code> will build a most-common-values (MCV) list but not a histogram, even though the MCV list does not account for all the observed values. In such cases, keep the planner from using the MCV list alone to estimate the range of column values.</p>
         </li>
         <li class="listitem">
-          <p>Fix restoration of a Portal's snapshot inside a subtransaction (Bertrand Drouvot)</p>
+          <p>Fix restoration of a Portal's snapshot inside a subtransaction (Bertrand Drouvot) <a class="ulink" href="https://postgr.es/c/e6adaa179" target="_top">§</a></p>
           <p>If a procedure commits or rolls back a transaction, and then its next significant action is inside a new subtransaction, snapshot management went wrong, leading to a dangling pointer and probable crash. A typical example in PL/pgSQL is a <code class="literal">COMMIT</code> immediately followed by a <code class="literal">BEGIN ... EXCEPTION</code> block that performs a query.</p>
         </li>
         <li class="listitem">
-          <p>Clean up correctly if a transaction fails after exporting its snapshot (Dilip Kumar)</p>
+          <p>Clean up correctly if a transaction fails after exporting its snapshot (Dilip Kumar) <a class="ulink" href="https://postgr.es/c/5b353aaff" target="_top">§</a></p>
           <p>This oversight would only cause a problem if the same session attempted to export a snapshot again. The most likely scenario for that is creation of a replication slot (followed by rollback) and then creation of another replication slot.</p>
         </li>
         <li class="listitem">
-          <p>Prevent wraparound of overflowed-subtransaction tracking on standby servers (Kyotaro Horiguchi, Alexander Korotkov)</p>
+          <p>Prevent wraparound of overflowed-subtransaction tracking on standby servers (Kyotaro Horiguchi, Alexander Korotkov) <a class="ulink" href="https://postgr.es/c/b0f6bd48f" target="_top">§</a></p>
           <p>This oversight could cause significant performance degradation (manifesting as excessive SubtransSLRU traffic) on standby servers.</p>
         </li>
         <li class="listitem">
-          <p>Ensure that prepared transactions are properly accounted for during promotion of a standby server (Michael Paquier, Andres Freund)</p>
+          <p>Ensure that prepared transactions are properly accounted for during promotion of a standby server (Michael Paquier, Andres Freund) <a class="ulink" href="https://postgr.es/c/828f7f000" target="_top">§</a></p>
           <p>There was a narrow window where a prepared transaction could be omitted from a snapshot taken by a concurrently-running session. If that session then used the snapshot to perform data updates, erroneous results or data corruption could occur.</p>
         </li>
         <li class="listitem">
-          <p>Fix <span class="quote">“<span class="quote">could not find RecursiveUnion</span>”</span> error when <code class="command">EXPLAIN</code> tries to print a filter condition attached to a WorkTableScan node (Tom Lane)</p>
+          <p>Fix <span class="quote">“<span class="quote">could not find RecursiveUnion</span>”</span> error when <code class="command">EXPLAIN</code> tries to print a filter condition attached to a WorkTableScan node (Tom Lane) <a class="ulink" href="https://postgr.es/c/2c25db32e" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Ensure that the correct lock level is used when renaming a table (Nathan Bossart, Álvaro Herrera)</p>
+          <p>Ensure that the correct lock level is used when renaming a table (Nathan Bossart, Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/3ce3fb2f7" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/718278855" target="_top">§</a></p>
           <p>For historical reasons, <code class="command">ALTER INDEX ... RENAME</code> can be applied to any sort of relation. The lock level required to rename an index is lower than that required to rename a table or other kind of relation, but the code got this wrong and would use the weaker lock level whenever the command is spelled <code class="command">ALTER INDEX</code>.</p>
         </li>
         <li class="listitem">
-          <p>Avoid null-pointer-dereference crash when dropping a role that owns objects being dropped concurrently (Álvaro Herrera)</p>
+          <p>Avoid null-pointer-dereference crash when dropping a role that owns objects being dropped concurrently (Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/02e20bb2d" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Prevent <span class="quote">“<span class="quote">snapshot reference leak</span>”</span> warning when <code class="function">lo_export()</code> or a related function fails (Heikki Linnakangas)</p>
+          <p>Prevent <span class="quote">“<span class="quote">snapshot reference leak</span>”</span> warning when <code class="function">lo_export()</code> or a related function fails (Heikki Linnakangas) <a class="ulink" href="https://postgr.es/c/4ebd740cd" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/f4e3b6271" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix inefficient code generation for CoerceToDomain expression nodes (Ranier Vilela)</p>
+          <p>Fix inefficient code generation for CoerceToDomain expression nodes (Ranier Vilela) <a class="ulink" href="https://postgr.es/c/16a56774f" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Avoid O(N^2) behavior in some list-manipulation operations (Nathan Bossart, Tom Lane)</p>
+          <p>Avoid O(N^2) behavior in some list-manipulation operations (Nathan Bossart, Tom Lane) <a class="ulink" href="https://postgr.es/c/8424dfced" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/ad87bf355" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/08cfa5981" target="_top">§</a></p>
           <p>These changes fix slow processing in several scenarios, including: when a standby replays a transaction that held many exclusive locks on the primary; when many files are due to be unlinked after a checkpoint; when hash aggregation involves many batches; and when <code class="filename">pg_trgm</code> extracts indexable conditions from a complex regular expression. Only the first of these scenarios has actually been reported from the field, but they all seem like plausible consequences of inefficient list deletions.</p>
         </li>
         <li class="listitem">
-          <p>Add more defensive checks around B-tree posting list splits (Peter Geoghegan)</p>
+          <p>Add more defensive checks around B-tree posting list splits (Peter Geoghegan) <a class="ulink" href="https://postgr.es/c/d078fe83d" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/6cac34339" target="_top">§</a></p>
           <p>This change should help detect index corruption involving duplicate table TIDs.</p>
         </li>
         <li class="listitem">
-          <p>Avoid assertion failure when inserting NaN into a BRIN float8 or float4 minmax_multi_ops index (Tomas Vondra)</p>
+          <p>Avoid assertion failure when inserting NaN into a BRIN float8 or float4 minmax_multi_ops index (Tomas Vondra) <a class="ulink" href="https://postgr.es/c/f7829feb7" target="_top">§</a></p>
           <p>In production builds, such cases would result in a somewhat inefficient, but not actually incorrect, index.</p>
         </li>
         <li class="listitem">
-          <p>Allow the autovacuum launcher process to respond to <code class="function">pg_log_backend_memory_contexts()</code> requests more quickly (Koyu Tanigawa)</p>
+          <p>Allow the autovacuum launcher process to respond to <code class="function">pg_log_backend_memory_contexts()</code> requests more quickly (Koyu Tanigawa) <a class="ulink" href="https://postgr.es/c/62e821ad2" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix memory leak in HMAC hash calculations (Sergey Shinderuk)</p>
+          <p>Fix memory leak in HMAC hash calculations (Sergey Shinderuk) <a class="ulink" href="https://postgr.es/c/a5e83ad79" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Disallow setting <code class="varname">huge_pages</code> to <code class="literal">on</code> when <code class="varname">shared_memory_type</code> is <code class="literal">sysv</code> (Thomas Munro)</p>
+          <p>Disallow setting <code class="varname">huge_pages</code> to <code class="literal">on</code> when <code class="varname">shared_memory_type</code> is <code class="literal">sysv</code> (Thomas Munro) <a class="ulink" href="https://postgr.es/c/181361a0c" target="_top">§</a></p>
           <p>Previously, this setting was accepted, but it did nothing for lack of any implementation.</p>
         </li>
         <li class="listitem">
-          <p>Fix checking of query type in PL/pgSQL's <code class="command">RETURN QUERY</code> statement (Tom Lane)</p>
+          <p>Fix checking of query type in PL/pgSQL's <code class="command">RETURN QUERY</code> statement (Tom Lane) <a class="ulink" href="https://postgr.es/c/e0eba586b" target="_top">§</a></p>
           <p><code class="command">RETURN QUERY</code> should accept any query that can return tuples, e.g. <code class="command">UPDATE RETURNING</code>. v14 accidentally disallowed anything but <code class="command">SELECT</code>; moreover, the <code class="command">RETURN QUERY EXECUTE</code> variant failed to apply any query-type check at all.</p>
         </li>
         <li class="listitem">
-          <p>Fix <span class="application">pg_dump</span> to dump non-global default privileges correctly (Neil Chen, Masahiko Sawada)</p>
+          <p>Fix <span class="application">pg_dump</span> to dump non-global default privileges correctly (Neil Chen, Masahiko Sawada) <a class="ulink" href="https://postgr.es/c/3ad2c2455" target="_top">§</a></p>
           <p>If a global (unrestricted) <code class="command">ALTER DEFAULT PRIVILEGES</code> command revoked some present-by-default privilege, for example <code class="literal">EXECUTE</code> for functions, and then a restricted <code class="command">ALTER DEFAULT PRIVILEGES</code> command granted that privilege again for a selected role or schema, <span class="application">pg_dump</span> failed to dump the restricted privilege grant correctly.</p>
         </li>
         <li class="listitem">
-          <p>Make <span class="application">pg_dump</span> acquire shared lock on partitioned tables that are to be dumped (Tom Lane)</p>
+          <p>Make <span class="application">pg_dump</span> acquire shared lock on partitioned tables that are to be dumped (Tom Lane) <a class="ulink" href="https://postgr.es/c/b5152e3ba" target="_top">§</a></p>
           <p>This oversight was usually pretty harmless, since once <span class="application">pg_dump</span> has locked any of the leaf partitions, that would suffice to prevent significant DDL on the partitioned table itself. However problems could ensue when dumping a childless partitioned table, since no relevant lock would be held.</p>
         </li>
         <li class="listitem">
-          <p>Fix crash in <span class="application">pg_dump</span> when attempting to dump trigger definitions from a pre-8.3 server (Tom Lane)</p>
+          <p>Fix crash in <span class="application">pg_dump</span> when attempting to dump trigger definitions from a pre-8.3 server (Tom Lane) <a class="ulink" href="https://postgr.es/c/3e4c8db93" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix incorrect filename in <span class="application">pg_restore</span>'s error message about an invalid large object TOC file (Daniel Gustafsson)</p>
+          <p>Fix incorrect filename in <span class="application">pg_restore</span>'s error message about an invalid large object TOC file (Daniel Gustafsson) <a class="ulink" href="https://postgr.es/c/3e2f32b01" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Ensure that <span class="application">pgbench</span> exits with non-zero status after a socket-level failure (Yugo Nagata, Fabien Coelho)</p>
+          <p>Ensure that <span class="application">pgbench</span> exits with non-zero status after a socket-level failure (Yugo Nagata, Fabien Coelho) <a class="ulink" href="https://postgr.es/c/8021334d3" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/8231c500e" target="_top">§</a></p>
           <p>The desired behavior is to finish out the run but then exit with status 2. Also, fix the reporting of such errors.</p>
         </li>
         <li class="listitem">
-          <p>Prevent <span class="application">pg_amcheck</span> from checking temporary relations, as well as indexes that are invalid or not ready (Mark Dilger)</p>
+          <p>Prevent <span class="application">pg_amcheck</span> from checking temporary relations, as well as indexes that are invalid or not ready (Mark Dilger) <a class="ulink" href="https://postgr.es/c/dd58194cf" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/5863115e4" target="_top">§</a></p>
           <p>This avoids unhelpful checks of relations that will almost certainly appear inconsistent.</p>
         </li>
         <li class="listitem">
-          <p>Make <code class="filename">contrib/amcheck</code> skip unlogged tables when running on a standby server (Mark Dilger)</p>
+          <p>Make <code class="filename">contrib/amcheck</code> skip unlogged tables when running on a standby server (Mark Dilger) <a class="ulink" href="https://postgr.es/c/e7712155e" target="_top">§</a></p>
           <p>It's appropriate to do this since such tables will be empty, and unlogged indexes were already handled similarly.</p>
         </li>
         <li class="listitem">
-          <p>Change <code class="filename">contrib/pg_stat_statements</code> to read its <span class="quote">“<span class="quote">query texts</span>”</span> file in units of at most 1GB (Tom Lane)</p>
+          <p>Change <code class="filename">contrib/pg_stat_statements</code> to read its <span class="quote">“<span class="quote">query texts</span>”</span> file in units of at most 1GB (Tom Lane) <a class="ulink" href="https://postgr.es/c/7104e0b24" target="_top">§</a></p>
           <p>Such large query text files are very unusual, but if they do occur, the previous coding would fail on Windows 64 (which rejects individual read requests of more than 2GB).</p>
         </li>
         <li class="listitem">
-          <p>Fix null-pointer crash when <code class="filename">contrib/postgres_fdw</code> tries to report a data conversion error (Tom Lane)</p>
+          <p>Fix null-pointer crash when <code class="filename">contrib/postgres_fdw</code> tries to report a data conversion error (Tom Lane) <a class="ulink" href="https://postgr.es/c/12ff678e1" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Ensure that <code class="function">GetSharedSecurityLabel()</code> can be used in a newly-started session that has not yet built its critical relation cache entries (Jeff Davis)</p>
+          <p>Ensure that <code class="function">GetSharedSecurityLabel()</code> can be used in a newly-started session that has not yet built its critical relation cache entries (Jeff Davis) <a class="ulink" href="https://postgr.es/c/0b90f1c4c" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>When running a TAP test, include the module's own directory in <code class="envar">PATH</code> (Andrew Dunstan)</p>
+          <p>When running a TAP test, include the module's own directory in <code class="envar">PATH</code> (Andrew Dunstan) <a class="ulink" href="https://postgr.es/c/52c0c1136" target="_top">§</a></p>
           <p>This allows tests to find built programs that are not installed, such as custom test drivers.</p>
         </li>
         <li class="listitem">
-          <p>Use the CLDR project's data to map Windows time zone names to IANA time zones (Tom Lane)</p>
+          <p>Use the CLDR project's data to map Windows time zone names to IANA time zones (Tom Lane) <a class="ulink" href="https://postgr.es/c/fa8db4879" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/81464999b" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/919c08d90" target="_top">§</a></p>
           <p>When running on Windows, <span class="application">initdb</span> attempts to set the new cluster's <code class="varname">timezone</code> parameter to the IANA time zone matching the system's prevailing time zone. We were using a mapping table that we'd generated years ago and updated only fitfully; unsurprisingly, it contained a number of errors as well as omissions of recently-added zones. It turns out that CLDR has been tracking the most appropriate mappings, so start using their data. This change will not affect any existing installation, only newly-initialized clusters.</p>
         </li>
         <li class="listitem">
-          <p>Update time zone data files to <span class="application">tzdata</span> release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga.</p>
+          <p>Update time zone data files to <span class="application">tzdata</span> release 2021e for DST law changes in Fiji, Jordan, Palestine, and Samoa, plus historical corrections for Barbados, Cook Islands, Guyana, Niue, Portugal, and Tonga. (Tom Lane) <a class="ulink" href="https://postgr.es/c/0c8a40b39" target="_top">§</a></p>
           <p>Also, the Pacific/Enderbury zone has been renamed to Pacific/Kanton. Also, the following zones have been merged into nearby, more-populous zones whose clocks have agreed with them since 1970: Africa/Accra, America/Atikokan, America/Blanc-Sablon, America/Creston, America/Curacao, America/Nassau, America/Port_of_Spain, Antarctica/DumontDUrville, and Antarctica/Syowa. In all these cases, the previous zone name remains as an alias.</p>
         </li>
       </ul>
@@ -380,14 +380,14 @@
   <hr />
   <table width="100%" summary="Navigation footer">
     <tr>
-      <td width="40%" align="left"><a accesskey="p" href="release-14-2.html" title="E.12.&nbsp;Release 14.2">Prev</a>&nbsp;</td>
+      <td width="40%" align="left"><a accesskey="p" href="release-14-2.html" title="E.14.&nbsp;Release 14.2">Prev</a>&nbsp;</td>
       <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
-      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-14.html" title="E.14.&nbsp;Release 14">Next</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-14.html" title="E.16.&nbsp;Release 14">Next</a></td>
     </tr>
     <tr>
-      <td width="40%" align="left" valign="top">E.12.&nbsp;Release 14.2&nbsp;</td>
-      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.13 Documentation">Home</a></td>
-      <td width="40%" align="right" valign="top">&nbsp;E.14.&nbsp;Release 14</td>
+      <td width="40%" align="left" valign="top">E.14.&nbsp;Release 14.2&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.16.&nbsp;Release 14</td>
     </tr>
   </table>
 </div>
@@ -422,6 +422,22 @@
         <h2>Versions</h2>
       </section>
       <ul>
+        
+          <li>
+            
+              <a href="/docs/release/14.15/">
+                14.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.14/">
+                14.14
+              </a>
+            
+          </li>
         
           <li>
             
@@ -569,7 +585,7 @@
     <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
     <script src="/media/js/popper-1.16.0.min.js"></script>
     <script src="/media/js/bootstrap-4.4.1.min.js"></script>
-    <script src="/media/js/main.js?606fd482"></script>
+    <script src="/media/js/main.js?18db9df6"></script>
 
   </body>
 </html>

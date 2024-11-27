@@ -7,13 +7,13 @@
    
   <meta name="theme-color" content="#336791"/>
   <meta name="copyright" content="The PostgreSQL Global Development Group" />
-  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link href="/media/css/fontawesome.css?18db9df6" rel="stylesheet">
   <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?18db9df6">
 
-  <script src="/media/js/theme.js?606fd482"></script>
+  <script src="/media/js/theme.js?18db9df6"></script>
 
   
 
@@ -61,8 +61,8 @@
         </div>
       </div>
       <div class="row justify-content-center pg-shout-box">
-        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
-  PostgreSQL 17 Released!
+        <div class="col text-white text-center">November 21, 2024: <a href="/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/">
+  PostgreSQL 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22 Released!
 </a>
 
 </div>
@@ -146,14 +146,14 @@
         <div class="navheader">
   <table width="100%" summary="Navigation header">
     <tr>
-      <th colspan="5" align="center">E.1.&nbsp;Release 17</th>
+      <th colspan="5" align="center">E.3.&nbsp;Release 17</th>
     </tr>
     <tr>
-      <td width="10%" align="left"><a accesskey="p" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="p" href="release-17-1.html" title="E.2.&nbsp;Release 17.1">Prev</a>&nbsp;</td>
       <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
       <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
-      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 17.0 Documentation">Home</a></td>
-      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.2.&nbsp;Prior Releases">Next</a></td>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 17.2 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.4.&nbsp;Prior Releases">Next</a></td>
     </tr>
   </table>
   <hr />
@@ -162,16 +162,16 @@
   <div class="titlepage">
     <div>
       <div>
-        <h2 class="title" style="clear: both">E.1.&nbsp;Release 17 <a href="#RELEASE-17" class="id_link">#</a></h2>
+        <h2 class="title" style="clear: both">E.3.&nbsp;Release 17 <a href="#RELEASE-17" class="id_link">#</a></h2>
       </div>
     </div>
   </div>
   <div class="toc">
     <dl class="toc">
-      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-HIGHLIGHTS">E.1.1. Overview</a></span></dt>
-      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-MIGRATION">E.1.2. Migration to Version 17</a></span></dt>
-      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-CHANGES">E.1.3. Changes</a></span></dt>
-      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-ACKNOWLEDGEMENTS">E.1.4. Acknowledgments</a></span></dt>
+      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-HIGHLIGHTS">E.3.1. Overview</a></span></dt>
+      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-MIGRATION">E.3.2. Migration to Version 17</a></span></dt>
+      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-CHANGES">E.3.3. Changes</a></span></dt>
+      <dt><span class="sect2"><a href="release-17.html#RELEASE-17-ACKNOWLEDGEMENTS">E.3.4. Acknowledgments</a></span></dt>
     </dl>
   </div>
   <p><strong>Release date:&nbsp;</strong>2024-09-26</p>
@@ -179,7 +179,7 @@
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.1.1.&nbsp;Overview <a href="#RELEASE-17-HIGHLIGHTS" class="id_link">#</a></h3>
+          <h3 class="title">E.3.1.&nbsp;Overview <a href="#RELEASE-17-HIGHLIGHTS" class="id_link">#</a></h3>
         </div>
       </div>
     </div>
@@ -206,7 +206,7 @@
                 <p><a class="link" href="app-pgcreatesubscriber.html" title="pg_createsubscriber"><span class="application">pg_createsubscriber</span></a>, a utility that creates logical replicas from physical standbys</p>
               </li>
               <li class="listitem">
-                <p><a class="link" href="pgupgrade.html" title="pg_upgrade"><span class="application">pg_upgrade</span></a> now preserves replication slots on both publishers and subscribers</p>
+                <p><a class="link" href="pgupgrade.html" title="pg_upgrade"><span class="application">pg_upgrade</span></a> now preserves logical replication slots on publishers and full subscription state on subscribers. This will allow upgrades to future major versions to continue logical replication without requiring copy to resynchronize.</p>
               </li>
             </ul>
           </div>
@@ -228,7 +228,7 @@
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.1.2.&nbsp;Migration to Version 17 <a href="#RELEASE-17-MIGRATION" class="id_link">#</a></h3>
+          <h3 class="title">E.3.2.&nbsp;Migration to Version 17 <a href="#RELEASE-17-MIGRATION" class="id_link">#</a></h3>
         </div>
       </div>
     </div>
@@ -237,8 +237,8 @@
     <div class="itemizedlist">
       <ul class="itemizedlist" style="list-style-type: disc;">
         <li class="listitem">
-          <p>Change functions to use a safe <a class="xref" href="runtime-config-client.html#GUC-SEARCH-PATH">search_path</a> during maintenance operations (Jeff Davis) <a class="ulink" href="https://postgr.es/c/2af07e2f7" target="_top">§</a></p>
-          <p>This prevents maintenance operations (<code class="command">ANALYZE</code>, <code class="command">CLUSTER</code>, <code class="command">REFRESH MATERIALIZED VIEW</code>, <code class="command">REINDEX</code>, or <code class="command">VACUUM</code>) from performing unsafe access. Functions used by expression indexes and materialized views that need to reference non-default schemas must specify a search path during function creation.</p>
+          <p>Change functions to use a safe <a class="xref" href="runtime-config-client.html#GUC-SEARCH-PATH">search_path</a> during maintenance operations (Jeff Davis) <a class="ulink" href="https://postgr.es/c/2af07e2f7" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/b4da732fd64" target="_top">§</a></p>
+          <p>This prevents maintenance operations (<code class="command">ANALYZE</code>, <code class="command">CLUSTER</code>, <code class="command">CREATE INDEX</code>, <code class="command">CREATE MATERIALIZED VIEW</code>, <code class="command">REFRESH MATERIALIZED VIEW</code>, <code class="command">REINDEX</code>, or <code class="command">VACUUM</code>) from performing unsafe access. Functions used by expression indexes and materialized views that need to reference non-default schemas must specify a search path during function creation.</p>
         </li>
         <li class="listitem">
           <p>Restrict <code class="literal">ago</code> to only appear at the end in <code class="type">interval</code> values (Joseph Koshakow) <a class="ulink" href="https://postgr.es/c/165d581f1" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/617f9b7d4" target="_top">§</a></p>
@@ -255,6 +255,10 @@
         <li class="listitem">
           <p>Remove feature which simulated per-database users (Nathan Bossart) <a class="ulink" href="https://postgr.es/c/884eee5bf" target="_top">§</a></p>
           <p>The feature, <code class="literal">db_user_namespace</code>, was rarely used.</p>
+        </li>
+        <li class="listitem">
+          <p>Remove <span class="application">adminpack</span> contrib extension (Daniel Gustafsson) <a class="ulink" href="https://postgr.es/c/cc09e6549" target="_top">§</a></p>
+          <p>This was used by now end-of-life <span class="productname">pgAdmin III</span>.</p>
         </li>
         <li class="listitem">
           <p>Remove <a class="xref" href="runtime-config-wal.html#GUC-WAL-SYNC-METHOD">wal_sync_method</a> value <code class="literal">fsync_writethrough</code> on <span class="systemitem">Windows</span> (Thomas Munro) <a class="ulink" href="https://postgr.es/c/d0c28601e" target="_top">§</a></p>
@@ -301,7 +305,7 @@
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.1.3.&nbsp;Changes <a href="#RELEASE-17-CHANGES" class="id_link">#</a></h3>
+          <h3 class="title">E.3.3.&nbsp;Changes <a href="#RELEASE-17-CHANGES" class="id_link">#</a></h3>
         </div>
       </div>
     </div>
@@ -310,7 +314,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.1.&nbsp;Server <a href="#RELEASE-17-SERVER" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.1.&nbsp;Server <a href="#RELEASE-17-SERVER" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -318,7 +322,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.1.&nbsp;Optimizer <a href="#RELEASE-17-OPTIMIZER" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.1.&nbsp;Optimizer <a href="#RELEASE-17-OPTIMIZER" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -370,7 +374,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.2.&nbsp;Indexes <a href="#RELEASE-17-INDEXES" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.2.&nbsp;Indexes <a href="#RELEASE-17-INDEXES" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -389,7 +393,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.3.&nbsp;General Performance <a href="#RELEASE-17-PERFORMANCE" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.3.&nbsp;General Performance <a href="#RELEASE-17-PERFORMANCE" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -428,7 +432,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.4.&nbsp;Monitoring <a href="#RELEASE-17-MONITORING" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.4.&nbsp;Monitoring <a href="#RELEASE-17-MONITORING" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -470,7 +474,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.5.&nbsp;Privileges <a href="#RELEASE-17-PRIVILEGES" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.5.&nbsp;Privileges <a href="#RELEASE-17-PRIVILEGES" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -490,7 +494,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.6.&nbsp;Server Configuration <a href="#RELEASE-17-SERVER-CONFIG" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.6.&nbsp;Server Configuration <a href="#RELEASE-17-SERVER-CONFIG" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -529,7 +533,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.7.&nbsp;Streaming Replication and Recovery <a href="#RELEASE-17-REPLICATION" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.7.&nbsp;Streaming Replication and Recovery <a href="#RELEASE-17-REPLICATION" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -569,7 +573,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.1.8.&nbsp;<a class="link" href="logical-replication.html" title="Chapter&nbsp;29.&nbsp;Logical Replication">Logical Replication</a> <a href="#RELEASE-17-LOGICAL" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.1.8.&nbsp;<a class="link" href="logical-replication.html" title="Chapter&nbsp;29.&nbsp;Logical Replication">Logical Replication</a> <a href="#RELEASE-17-LOGICAL" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -622,7 +626,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.2.&nbsp;Utility Commands <a href="#RELEASE-17-UTILITY" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.2.&nbsp;Utility Commands <a href="#RELEASE-17-UTILITY" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -678,7 +682,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.2.1.&nbsp;<a class="link" href="sql-explain.html" title="EXPLAIN"><code class="command">EXPLAIN</code></a> <a href="#RELEASE-17-EXPLAIN" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.2.1.&nbsp;<a class="link" href="sql-explain.html" title="EXPLAIN"><code class="command">EXPLAIN</code></a> <a href="#RELEASE-17-EXPLAIN" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -708,7 +712,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.3.&nbsp;Data Types <a href="#RELEASE-17-DATATYPES" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.3.&nbsp;Data Types <a href="#RELEASE-17-DATATYPES" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -728,7 +732,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.4.&nbsp;<a class="link" href="sql-merge.html" title="MERGE">MERGE</a> <a href="#RELEASE-17-MERGE" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.4.&nbsp;<a class="link" href="sql-merge.html" title="MERGE">MERGE</a> <a href="#RELEASE-17-MERGE" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -752,7 +756,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.5.&nbsp;Functions <a href="#RELEASE-17-FUNCTIONS" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.5.&nbsp;Functions <a href="#RELEASE-17-FUNCTIONS" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -777,7 +781,7 @@
             <p><code class="literal">TZ</code> accepts time zone abbreviations or numeric offsets, while <code class="literal">OF</code> accepts only numeric offsets.</p>
           </li>
           <li class="listitem">
-            <p>Allow the session <a class="link" href="runtime-config-client.html#GUC-TIMEZONE">time zone</a> to be specified by <code class="literal">AS LOCAL</code> (Vik Fearing) <a class="ulink" href="https://postgr.es/c/97957fdba" target="_top">§</a></p>
+            <p>Allow the session <a class="link" href="runtime-config-client.html#GUC-TIMEZONE">time zone</a> to be specified by <code class="literal">AT LOCAL</code> (Vik Fearing) <a class="ulink" href="https://postgr.es/c/97957fdba" target="_top">§</a></p>
             <p>This is useful when converting adding and removing time zones from time stamps values, rather than specifying the literal session time zone.</p>
           </li>
           <li class="listitem">
@@ -815,7 +819,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.6.&nbsp;<a class="link" href="plpgsql.html" title="Chapter&nbsp;41.&nbsp;PL/pgSQL — SQL Procedural Language">PL/pgSQL</a> <a href="#RELEASE-17-PLPGSQL" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.6.&nbsp;<a class="link" href="plpgsql.html" title="Chapter&nbsp;41.&nbsp;PL/pgSQL — SQL Procedural Language">PL/pgSQL</a> <a href="#RELEASE-17-PLPGSQL" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -834,7 +838,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.7.&nbsp;<a class="link" href="libpq.html" title="Chapter&nbsp;32.&nbsp;libpq — C Library">libpq</a> <a href="#RELEASE-17-LIBPQ" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.7.&nbsp;<a class="link" href="libpq.html" title="Chapter&nbsp;32.&nbsp;libpq — C Library">libpq</a> <a href="#RELEASE-17-LIBPQ" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -873,7 +877,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.8.&nbsp;<a class="xref" href="app-psql.html" title="psql"><span class="refentrytitle"><span class="application">psql</span></span></a> <a href="#RELEASE-17-PSQL" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.8.&nbsp;<a class="xref" href="app-psql.html" title="psql"><span class="refentrytitle"><span class="application">psql</span></span></a> <a href="#RELEASE-17-PSQL" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -907,7 +911,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.9.&nbsp;Server Applications <a href="#RELEASE-17-SERVER-APPS" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.9.&nbsp;Server Applications <a href="#RELEASE-17-SERVER-APPS" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -975,7 +979,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.10.&nbsp;Source Code <a href="#RELEASE-17-SOURCE-CODE" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.10.&nbsp;Source Code <a href="#RELEASE-17-SOURCE-CODE" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -1050,7 +1054,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.1.3.11.&nbsp;Additional Modules <a href="#RELEASE-17-MODULES" class="id_link">#</a></h4>
+            <h4 class="title">E.3.3.11.&nbsp;Additional Modules <a href="#RELEASE-17-MODULES" class="id_link">#</a></h4>
           </div>
         </div>
       </div>
@@ -1091,10 +1095,6 @@
             <p>Remove some unused <a class="link" href="spi.html" title="Chapter&nbsp;45.&nbsp;Server Programming Interface"><acronym class="acronym">SPI</acronym></a> macros (Bharath Rupireddy) <a class="ulink" href="https://postgr.es/c/75680c3d8" target="_top">§</a></p>
           </li>
           <li class="listitem">
-            <p>Remove <span class="application">adminpack</span> contrib extension (Daniel Gustafsson) <a class="ulink" href="https://postgr.es/c/cc09e6549" target="_top">§</a></p>
-            <p>This was used by now end-of-life <span class="productname">pgAdmin III</span>.</p>
-          </li>
-          <li class="listitem">
             <p>Allow <a class="link" href="sql-alteroperator.html" title="ALTER OPERATOR"><code class="command">ALTER OPERATOR</code></a> to set more optimization attributes (Tommy Pavlicek) <a class="ulink" href="https://postgr.es/c/2b5154bea" target="_top">§</a></p>
             <p>This is useful for extensions.</p>
           </li>
@@ -1112,7 +1112,7 @@
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.1.3.11.1.&nbsp;<a class="link" href="pgstatstatements.html" title="F.30.&nbsp;pg_stat_statements — track statistics of SQL planning and execution"><span class="application">pg_stat_statements</span></a> <a href="#RELEASE-17-PGSTATSTATEMENTS" class="id_link">#</a></h5>
+              <h5 class="title">E.3.3.11.1.&nbsp;<a class="link" href="pgstatstatements.html" title="F.30.&nbsp;pg_stat_statements — track statistics of SQL planning and execution"><span class="application">pg_stat_statements</span></a> <a href="#RELEASE-17-PGSTATSTATEMENTS" class="id_link">#</a></h5>
             </div>
           </div>
         </div>
@@ -1156,7 +1156,7 @@
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.1.4.&nbsp;Acknowledgments <a href="#RELEASE-17-ACKNOWLEDGEMENTS" class="id_link">#</a></h3>
+          <h3 class="title">E.3.4.&nbsp;Acknowledgments <a href="#RELEASE-17-ACKNOWLEDGEMENTS" class="id_link">#</a></h3>
         </div>
       </div>
     </div>
@@ -2558,14 +2558,14 @@
   <hr />
   <table width="100%" summary="Navigation footer">
     <tr>
-      <td width="40%" align="left"><a accesskey="p" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Prev</a>&nbsp;</td>
+      <td width="40%" align="left"><a accesskey="p" href="release-17-1.html" title="E.2.&nbsp;Release 17.1">Prev</a>&nbsp;</td>
       <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
-      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.2.&nbsp;Prior Releases">Next</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.4.&nbsp;Prior Releases">Next</a></td>
     </tr>
     <tr>
-      <td width="40%" align="left" valign="top">Appendix&nbsp;E.&nbsp;Release Notes&nbsp;</td>
-      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 17.0 Documentation">Home</a></td>
-      <td width="40%" align="right" valign="top">&nbsp;E.2.&nbsp;Prior Releases</td>
+      <td width="40%" align="left" valign="top">E.2.&nbsp;Release 17.1&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 17.2 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.4.&nbsp;Prior Releases</td>
     </tr>
   </table>
 </div>
@@ -2584,6 +2584,10 @@
         </div>
         <div class="col-md-3 text-right">
 	   
+            <a href="/docs/release/17.1/">
+              Next
+            </a>
+          
         </div>
       </div>
     </div>
@@ -2592,6 +2596,22 @@
         <h2>Versions</h2>
       </section>
       <ul>
+        
+          <li>
+            
+              <a href="/docs/release/17.2/">
+                17.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/17.1/">
+                17.1
+              </a>
+            
+          </li>
         
           <li>
             
@@ -2635,7 +2655,7 @@
     <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
     <script src="/media/js/popper-1.16.0.min.js"></script>
     <script src="/media/js/bootstrap-4.4.1.min.js"></script>
-    <script src="/media/js/main.js?606fd482"></script>
+    <script src="/media/js/main.js?18db9df6"></script>
 
   </body>
 </html>

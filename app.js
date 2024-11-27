@@ -135,6 +135,7 @@ async function parseReleaseNotes(directory) {
 
   for (const file of files) {
     if (path.extname(file) === ".html" && file !== "index.html") {
+      console.log("Processing", file);
       const filePath = path.join(directory, file);
       const content = await fs.readFile(filePath, "utf-8");
       const $ = cheerio.load(content);
@@ -145,6 +146,13 @@ async function parseReleaseNotes(directory) {
         .trim()
         .split(" ")
         .pop();
+
+      $("a").each((_, element) => {
+        if ($(element).text() === "§") {
+          // Remove any a tags with the text equal to '§'
+          $(element).remove();
+        }
+      });
 
       const baseUrl = `https://www.postgresql.org/docs/${version.split('.')[0]}/`;
 
@@ -459,12 +467,12 @@ async function addCVE() {
 }
 
 function extractContributors(item) {
-  // Look for the last set of parentheses that doesn't contain a URL
+  // Look for the last set of parentheses that doesn't contain a URL or start with CVE
   const matches = item.match(/[^\]]\(([^()]+)\)(?:\n|$)/);
   if (matches) {
     for (let i = matches.length - 1; i >= 0; i--) {
       const match = matches[i];
-      if (!match.includes("http") && !match.includes("www.")) {
+      if (!match.includes("http") && !match.includes("www.") && !match.includes("CVE-")) {
         return match.trim().split(", ");
       }
     }
@@ -566,6 +574,13 @@ async function updateFormattedLinks() {
         return match;
       });
     }
+  
+    // Kill the links but keep the text using regex groups
+    function killLinks(text) {
+      return text.replace(/\(([^)]+\.html[^)]*)\)/g, (match, p1) => {
+        return p1 ? '' : match;
+      });
+    }
 
     const categories = ['bugs', 'features', 'performance', 'security'];
     categories.forEach(category => {
@@ -575,7 +590,7 @@ async function updateFormattedLinks() {
             const version = item.fixedIn || item.sinceVersion || '0';
             return {
               ...item,
-              title: item.title ? updateLinks(item.title, version) : item.title,
+              title: item.title ? killLinks(item.title) : item.title,
               description: item.description ? updateLinks(item.description, version) : item.description
             };
           }

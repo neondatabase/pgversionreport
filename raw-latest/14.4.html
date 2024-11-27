@@ -7,13 +7,13 @@
    
   <meta name="theme-color" content="#336791"/>
   <meta name="copyright" content="The PostgreSQL Global Development Group" />
-  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link href="/media/css/fontawesome.css?18db9df6" rel="stylesheet">
   <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?18db9df6">
 
-  <script src="/media/js/theme.js?606fd482"></script>
+  <script src="/media/js/theme.js?18db9df6"></script>
 
   
 
@@ -61,8 +61,8 @@
         </div>
       </div>
       <div class="row justify-content-center pg-shout-box">
-        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
-  PostgreSQL 17 Released!
+        <div class="col text-white text-center">November 21, 2024: <a href="/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/">
+  PostgreSQL 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22 Released!
 </a>
 
 </div>
@@ -146,14 +146,14 @@
         <div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader">
   <table width="100%" summary="Navigation header">
     <tr>
-      <th colspan="5" align="center">E.10.&nbsp;Release 14.4</th>
+      <th colspan="5" align="center">E.12.&nbsp;Release 14.4</th>
     </tr>
     <tr>
-      <td width="10%" align="left"><a accesskey="p" href="release-14-5.html" title="E.9.&nbsp;Release 14.5">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="p" href="release-14-5.html" title="E.11.&nbsp;Release 14.5">Prev</a>&nbsp;</td>
       <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
       <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
-      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.13 Documentation">Home</a></td>
-      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-14-3.html" title="E.11.&nbsp;Release 14.3">Next</a></td>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-14-3.html" title="E.13.&nbsp;Release 14.3">Next</a></td>
     </tr>
   </table>
   <hr />
@@ -162,109 +162,109 @@
   <div class="titlepage">
     <div>
       <div>
-        <h2 class="title" style="clear: both">E.10.&nbsp;Release 14.4</h2>
+        <h2 class="title" style="clear: both">E.12.&nbsp;Release 14.4</h2>
       </div>
     </div>
   </div>
   <div class="toc">
     <dl class="toc">
-      <dt><span class="sect2"><a href="release-14-4.html#id-1.11.6.14.4">E.10.1. Migration to Version 14.4</a></span></dt>
-      <dt><span class="sect2"><a href="release-14-4.html#id-1.11.6.14.5">E.10.2. Changes</a></span></dt>
+      <dt><span class="sect2"><a href="release-14-4.html#id-1.11.6.17.4">E.12.1. Migration to Version 14.4</a></span></dt>
+      <dt><span class="sect2"><a href="release-14-4.html#id-1.11.6.17.5">E.12.2. Changes</a></span></dt>
     </dl>
   </div>
   <p><strong>Release date:&nbsp;</strong>2022-06-16</p>
-  <p>This release contains a variety of fixes from 14.3. For information about new features in major release 14, see <a class="xref" href="release-14.html" title="E.14.&nbsp;Release 14">Section&nbsp;E.14</a>.</p>
-  <div class="sect2" id="id-1.11.6.14.4">
+  <p>This release contains a variety of fixes from 14.3. For information about new features in major release 14, see <a class="xref" href="release-14.html" title="E.16.&nbsp;Release 14">Section&nbsp;E.16</a>.</p>
+  <div class="sect2" id="id-1.11.6.17.4">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.10.1.&nbsp;Migration to Version 14.4</h3>
+          <h3 class="title">E.12.1.&nbsp;Migration to Version 14.4</h3>
         </div>
       </div>
     </div>
     <p>A dump/restore is not required for those running 14.X.</p>
     <p>However, if you have any indexes that were created using the <code class="option">CONCURRENTLY</code> option under 14.X, you should re-index them after updating. See the first changelog entry below.</p>
-    <p>Also, if you are upgrading from a version earlier than 14.3, see <a class="xref" href="release-14-3.html" title="E.11.&nbsp;Release 14.3">Section&nbsp;E.11</a>.</p>
+    <p>Also, if you are upgrading from a version earlier than 14.3, see <a class="xref" href="release-14-3.html" title="E.13.&nbsp;Release 14.3">Section&nbsp;E.13</a>.</p>
   </div>
-  <div class="sect2" id="id-1.11.6.14.5">
+  <div class="sect2" id="id-1.11.6.17.5">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.10.2.&nbsp;Changes</h3>
+          <h3 class="title">E.12.2.&nbsp;Changes</h3>
         </div>
       </div>
     </div>
     <div class="itemizedlist">
       <ul class="itemizedlist" style="list-style-type: disc;">
         <li class="listitem">
-          <p>Prevent possible corruption of indexes created or rebuilt with the <code class="literal">CONCURRENTLY</code> option (Álvaro Herrera)</p>
+          <p>Prevent possible corruption of indexes created or rebuilt with the <code class="literal">CONCURRENTLY</code> option (Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/042b584c7" target="_top">§</a></p>
           <p>An optimization added in v14 caused <code class="command">CREATE INDEX ... CONCURRENTLY</code> and <code class="command">REINDEX ... CONCURRENTLY</code> to sometimes miss indexing rows that were updated during the index build. Revert that optimization. It is recommended that any indexes made with the <code class="literal">CONCURRENTLY</code> option be rebuilt after installing this update. (Alternatively, rebuild them without <code class="literal">CONCURRENTLY</code>.)</p>
         </li>
         <li class="listitem">
-          <p>Harden Memoize plan node against non-deterministic equality functions (David Rowley)</p>
+          <p>Harden Memoize plan node against non-deterministic equality functions (David Rowley) <a class="ulink" href="https://postgr.es/c/cbcea3b91" target="_top">§</a></p>
           <p>Memoize could crash if a data type's equality or hash functions gave inconsistent results across different calls. Throw a runtime error instead.</p>
         </li>
         <li class="listitem">
-          <p>Fix incorrect cost estimates for Memoize plans (David Rowley)</p>
+          <p>Fix incorrect cost estimates for Memoize plans (David Rowley) <a class="ulink" href="https://postgr.es/c/23c2b76a8" target="_top">§</a></p>
           <p>This mistake could lead to Memoize being used when it isn't really the best plan, or to very long executor startup times due to initializing an overly-large hash table for a Memoize node.</p>
         </li>
         <li class="listitem">
-          <p>Fix queries in which a <span class="quote">“<span class="quote">whole-row variable</span>”</span> references the result of a function that returns a domain over composite type (Tom Lane)</p>
+          <p>Fix queries in which a <span class="quote">“<span class="quote">whole-row variable</span>”</span> references the result of a function that returns a domain over composite type (Tom Lane) <a class="ulink" href="https://postgr.es/c/77c1d92cb" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix <span class="quote">“<span class="quote">variable not found in subplan target list</span>”</span> planner error when pulling up a sub-<code class="literal">SELECT</code> that's referenced in a <code class="literal">GROUPING</code> function (Richard Guo)</p>
+          <p>Fix <span class="quote">“<span class="quote">variable not found in subplan target list</span>”</span> planner error when pulling up a sub-<code class="literal">SELECT</code> that's referenced in a <code class="literal">GROUPING</code> function (Richard Guo) <a class="ulink" href="https://postgr.es/c/ac51c9fba" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Prevent <code class="function">pg_stat_get_subscription()</code> from possibly returning an extra row containing garbage values (Kuntal Ghosh)</p>
+          <p>Prevent <code class="function">pg_stat_get_subscription()</code> from possibly returning an extra row containing garbage values (Kuntal Ghosh) <a class="ulink" href="https://postgr.es/c/5c3b5f7db" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Fix <code class="command">COPY FROM</code>'s error checking in the case where the database encoding is <code class="literal">SQL_ASCII</code> while the client's encoding is a multi-byte encoding (Heikki Linnakangas)</p>
+          <p>Fix <code class="command">COPY FROM</code>'s error checking in the case where the database encoding is <code class="literal">SQL_ASCII</code> while the client's encoding is a multi-byte encoding (Heikki Linnakangas) <a class="ulink" href="https://postgr.es/c/f82595ac9" target="_top">§</a></p>
           <p>This mistake could lead to false complaints of invalidly-encoded input data.</p>
         </li>
         <li class="listitem">
-          <p>Avoid crashing if too many column aliases are attached to an <code class="literal">XMLTABLE</code> or <code class="literal">JSON_TABLE</code> construct (Álvaro Herrera)</p>
+          <p>Avoid crashing if too many column aliases are attached to an <code class="literal">XMLTABLE</code> or <code class="literal">JSON_TABLE</code> construct (Álvaro Herrera) <a class="ulink" href="https://postgr.es/c/94edb85d2" target="_top">§</a> <a class="ulink" href="https://postgr.es/c/e8b93c6e2" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>When decompiling a view or rule, show a <code class="command">SELECT</code> output column's <code class="literal">AS "?column?"</code> alias clause if it could be referenced elsewhere (Tom Lane)</p>
+          <p>When decompiling a view or rule, show a <code class="command">SELECT</code> output column's <code class="literal">AS "?column?"</code> alias clause if it could be referenced elsewhere (Tom Lane) <a class="ulink" href="https://postgr.es/c/6f7eec119" target="_top">§</a></p>
           <p>Previously, this auto-generated alias was always hidden; but there are corner cases where doing so results in a non-restorable view or rule definition.</p>
         </li>
         <li class="listitem">
-          <p>Report implicitly-created operator families to event triggers (Masahiko Sawada)</p>
+          <p>Report implicitly-created operator families to event triggers (Masahiko Sawada) <a class="ulink" href="https://postgr.es/c/58b088a9b" target="_top">§</a></p>
           <p>If <code class="command">CREATE OPERATOR CLASS</code> results in the implicit creation of an operator family, that object was not reported to event triggers that should capture such events.</p>
         </li>
         <li class="listitem">
-          <p>Fix control file updates made when a restartpoint is running during promotion of a standby server (Kyotaro Horiguchi)</p>
+          <p>Fix control file updates made when a restartpoint is running during promotion of a standby server (Kyotaro Horiguchi) <a class="ulink" href="https://postgr.es/c/6dced63b4" target="_top">§</a></p>
           <p>Previously, when the restartpoint completed it could incorrectly update the last-checkpoint fields of the control file, potentially leading to PANIC and failure to restart if the server crashes before the next normal checkpoint completes.</p>
         </li>
         <li class="listitem">
-          <p>Prevent triggering of standby's <code class="varname">wal_receiver_timeout</code> during logical replication of large transactions (Wang Wei, Amit Kapila)</p>
+          <p>Prevent triggering of standby's <code class="varname">wal_receiver_timeout</code> during logical replication of large transactions (Wang Wei, Amit Kapila) <a class="ulink" href="https://postgr.es/c/d6da71fa8" target="_top">§</a></p>
           <p>If a large transaction on the primary server sends no data to the standby (perhaps because no table it changes is published), it was possible for the standby to timeout. Fix that by ensuring we send keepalive messages periodically in such situations.</p>
         </li>
         <li class="listitem">
-          <p>Prevent open-file leak when reading an invalid timezone abbreviation file (Kyotaro Horiguchi)</p>
+          <p>Prevent open-file leak when reading an invalid timezone abbreviation file (Kyotaro Horiguchi) <a class="ulink" href="https://postgr.es/c/c47a55852" target="_top">§</a></p>
           <p>Such cases could result in harmless warning messages.</p>
         </li>
         <li class="listitem">
-          <p>Allow custom server parameters to have short descriptions that are NULL (Steve Chavez)</p>
+          <p>Allow custom server parameters to have short descriptions that are NULL (Steve Chavez) <a class="ulink" href="https://postgr.es/c/fe441a031" target="_top">§</a></p>
           <p>Previously, although extensions could choose to create such settings, some code paths would crash while processing them.</p>
         </li>
         <li class="listitem">
-          <p>Remove misguided SSL key file ownership check in <span class="application">libpq</span> (Tom Lane)</p>
+          <p>Remove misguided SSL key file ownership check in <span class="application">libpq</span> (Tom Lane) <a class="ulink" href="https://postgr.es/c/b4be4a082" target="_top">§</a></p>
           <p>In the previous minor releases, we copied the server's permission checking rules for SSL private key files into libpq. But we should not have also copied the server's file-ownership check. While that works in normal use-cases, it can result in an unexpected failure for clients running as root, and perhaps in other cases.</p>
         </li>
         <li class="listitem">
-          <p>Ensure <span class="application">ecpg</span> reports server connection loss sanely (Tom Lane)</p>
+          <p>Ensure <span class="application">ecpg</span> reports server connection loss sanely (Tom Lane) <a class="ulink" href="https://postgr.es/c/a5dbca460" target="_top">§</a></p>
           <p>Misprocessing of a libpq-generated error result, such as a report of lost connection, would lead to printing <span class="quote">“<span class="quote">(null)</span>”</span> instead of a useful error message; or in older releases it would lead to a crash.</p>
         </li>
         <li class="listitem">
-          <p>Prevent crash after server connection loss in <span class="application">pg_amcheck</span> (Tom Lane)</p>
+          <p>Prevent crash after server connection loss in <span class="application">pg_amcheck</span> (Tom Lane) <a class="ulink" href="https://postgr.es/c/32a85ee46" target="_top">§</a></p>
           <p>Misprocessing of a libpq-generated error result, such as a report of lost connection, would lead to a crash.</p>
         </li>
         <li class="listitem">
-          <p>Adjust PL/Perl test case so it will work under Perl 5.36 (Dagfinn Ilmari Mannsåker)</p>
+          <p>Adjust PL/Perl test case so it will work under Perl 5.36 (Dagfinn Ilmari Mannsåker) <a class="ulink" href="https://postgr.es/c/1072e4c45" target="_top">§</a></p>
         </li>
         <li class="listitem">
-          <p>Avoid incorrectly using an out-of-date <span class="application">libldap_r</span> library when multiple <span class="productname">OpenLDAP</span> installations are present while building <span class="productname">PostgreSQL</span> (Tom Lane)</p>
+          <p>Avoid incorrectly using an out-of-date <span class="application">libldap_r</span> library when multiple <span class="productname">OpenLDAP</span> installations are present while building <span class="productname">PostgreSQL</span> (Tom Lane) <a class="ulink" href="https://postgr.es/c/12736e7dc" target="_top">§</a></p>
         </li>
       </ul>
     </div>
@@ -274,14 +274,14 @@
   <hr />
   <table width="100%" summary="Navigation footer">
     <tr>
-      <td width="40%" align="left"><a accesskey="p" href="release-14-5.html" title="E.9.&nbsp;Release 14.5">Prev</a>&nbsp;</td>
+      <td width="40%" align="left"><a accesskey="p" href="release-14-5.html" title="E.11.&nbsp;Release 14.5">Prev</a>&nbsp;</td>
       <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
-      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-14-3.html" title="E.11.&nbsp;Release 14.3">Next</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-14-3.html" title="E.13.&nbsp;Release 14.3">Next</a></td>
     </tr>
     <tr>
-      <td width="40%" align="left" valign="top">E.9.&nbsp;Release 14.5&nbsp;</td>
-      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.13 Documentation">Home</a></td>
-      <td width="40%" align="right" valign="top">&nbsp;E.11.&nbsp;Release 14.3</td>
+      <td width="40%" align="left" valign="top">E.11.&nbsp;Release 14.5&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.13.&nbsp;Release 14.3</td>
     </tr>
   </table>
 </div>
@@ -316,6 +316,22 @@
         <h2>Versions</h2>
       </section>
       <ul>
+        
+          <li>
+            
+              <a href="/docs/release/14.15/">
+                14.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.14/">
+                14.14
+              </a>
+            
+          </li>
         
           <li>
             
@@ -463,7 +479,7 @@
     <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
     <script src="/media/js/popper-1.16.0.min.js"></script>
     <script src="/media/js/bootstrap-4.4.1.min.js"></script>
-    <script src="/media/js/main.js?606fd482"></script>
+    <script src="/media/js/main.js?18db9df6"></script>
 
   </body>
 </html>
