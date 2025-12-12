@@ -55,9 +55,8 @@ export default function TimelineChart({
                                 width: `${
                                     i < data.minorVersions.length - 1
                                         ? ((new Date(
-                                              data.minorVersions[
-                                                  i + 1
-                                              ].releaseDate,
+                                              data.minorVersions[i + 1]
+                                                  .releaseDate,
                                           ).getTime() -
                                               new Date(
                                                   minor.releaseDate,
