@@ -1,1 +1,2 @@
 src/data/**/*.json
+scraper/release_notes*.json

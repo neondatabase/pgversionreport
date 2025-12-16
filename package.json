@@ -51,11 +51,12 @@
     },
     "scripts": {
         "generate-og-images": "bun run scripts/generateOgImages.ts",
+        "init": "bun run scripts/splitToMultipleFiles.ts",
         "dev": "vite",
         "build": "vite build && bun run serverRenderer.tsx",
         "ts-check": "tsc --noEmit --skipLibCheck",
         "lint": "prettier --check .",
         "lint:fix": "prettier --write .",
-        "scrape-all": "bun run scraper/execute.ts scrape-all"
+        "scrape-all": "bun run scraper/execute.ts scrape-all && bun run scraper/execute.ts process && bun run scraper/execute.ts format && bun run scraper/execute.ts cve && bun run scraper/execute.ts update-links"
     }
 }
