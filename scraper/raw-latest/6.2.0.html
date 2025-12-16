@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?59ea4c82" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?59ea4c82">
+
+  <script src="/media/js/theme.js?59ea4c82"></script>
+
+  
+
+  <base href="/docs/6.2/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <input type="checkbox" id="navbar-toggler" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler" id="navbar-toggler-label" class="navbar-toggler" tabindex="0"><span class="navbar-toggler-icon"></span></label>
+            <div class="navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">November 13, 2025: <a href="/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/">
+  PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 Released!
+</a>
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          6.2.0
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+<table summary="Header navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<th colspan="5" align="center" valign="bottom"><a href=
+"index.html">PostgreSQL 9.3.25 Documentation</a></th>
+</tr>
+<tr>
+<td width="10%" align="left" valign="top"><a title="Release 6.2.1"
+href="release-6-2-1.html" accesskey="P">Prev</a></td>
+<td width="10%" align="left" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="60%" align="center" valign="bottom">Appendix E. Release
+Notes</td>
+<td width="20%" align="right" valign="top"><a title="Release 6.1.1"
+href="release-6-1-1.html" accesskey="N">Next</a></td>
+</tr>
+</table>
+<hr class="c1" width="100%" /></div>
+<div class="SECT1">
+<h1 class="SECT1"><a name="RELEASE-6-2" id="RELEASE-6-2">E.304.
+Release 6.2</a></h1>
+<div class="FORMALPARA">
+<p><b>Release date:</b> 1997-10-02</p>
+</div>
+<p>A dump/restore is required for those wishing to migrate data
+from previous releases of <span class=
+"PRODUCTNAME">PostgreSQL</span>.</p>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155318" id="AEN155318">E.304.1.
+Migration from version 6.1 to version 6.2</a></h2>
+<p>This migration requires a complete dump of the 6.1 database and
+a restore of the database in 6.2.</p>
+<p>Note that the <tt class="COMMAND">pg_dump</tt> and <tt class=
+"COMMAND">pg_dumpall</tt> utility from 6.2 should be used to dump
+the 6.1 database.</p>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155324" id="AEN155324">E.304.2.
+Migration from version 1.<tt class="REPLACEABLE c2">x</tt> to
+version 6.2</a></h2>
+<p>Those migrating from earlier 1.* releases should first upgrade
+to 1.09 because the COPY output format was improved from the 1.02
+release.</p>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155328" id="AEN155328">E.304.3.
+Changes</a></h2>
+<pre class="PROGRAMLISTING">Bug Fixes
+---------
+Fix problems with pg_dump for inheritance, sequences, archive tables(Bruce)
+Fix compile errors on overflow due to shifts, unsigned, and bad prototypes
+        from Solaris(Diab Jerius)
+Fix bugs in geometric line arithmetic (bad intersection calculations)(Thomas)
+Check for geometric intersections at endpoints to avoid rounding ugliness(Thomas)
+Catch non-functional delete attempts(Vadim)
+Change time function names to be more consistent(Michael Reifenberg)
+Check for zero divides(Michael Reifenberg)
+Fix very old bug which made rows changed/inserted by a command
+       visible to the command itself (so we had multiple update of
+       updated rows, etc.)(Vadim)
+Fix for SELECT null, 'fail' FROM pg_am (Patrick)
+SELECT NULL as EMPTY_FIELD now allowed(Patrick)
+Remove un-needed signal stuff from contrib/pginterface
+Fix OR (where x != 1 or x isnull didn't return rows with x NULL) (Vadim)
+Fix time_cmp function (Vadim)
+Fix handling of functions with non-attribute first argument in
+       WHERE clauses (Vadim)
+Fix GROUP BY when order of entries is different from order
+       in target list (Vadim)
+Fix pg_dump for aggregates without sfunc1 (Vadim)
+
+Enhancements
+------------
+Default genetic optimizer GEQO parameter is now 8(Bruce)
+Allow use parameters in target list having aggregates in functions(Vadim)
+Added JDBC driver as an interface(Adrian &amp; Peter)
+pg_password utility
+Return number of rows inserted/affected by INSERT/UPDATE/DELETE etc.(Vadim)
+Triggers implemented with CREATE TRIGGER (SQL3)(Vadim)
+SPI (Server Programming Interface) allows execution of queries inside
+       C-functions (Vadim)
+NOT NULL implemented (SQL92)(Robson Paniago de Miranda)
+Include reserved words for string handling, outer joins, and unions(Thomas)
+Implement extended comments ("/* ... */") using exclusive states(Thomas)
+Add "//" single-line comments(Bruce)
+Remove some restrictions on characters in operator names(Thomas)
+DEFAULT and CONSTRAINT for tables implemented (SQL92)(Vadim &amp; Thomas)
+Add text concatenation operator and function (SQL92)(Thomas)
+Support WITH TIME ZONE syntax (SQL92)(Thomas)
+Support INTERVAL unit TO unit syntax (SQL92)(Thomas)
+Define types DOUBLE PRECISION, INTERVAL, CHARACTER,
+       and CHARACTER VARYING (SQL92)(Thomas)
+Define type FLOAT(p) and rudimentary DECIMAL(p,s), NUMERIC(p,s) (SQL92)(Thomas)
+Define EXTRACT(), POSITION(), SUBSTRING(), and TRIM() (SQL92)(Thomas)
+Define CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP (SQL92)(Thomas)
+Add syntax and warnings for UNION, HAVING, INNER and OUTER JOIN (SQL92)(Thomas)
+Add more reserved words, mostly for SQL92 compliance(Thomas)
+Allow hh:mm:ss time entry for timespan/reltime types(Thomas)
+Add center() routines for lseg, path, polygon(Thomas)
+Add distance() routines for circle-polygon, polygon-polygon(Thomas)
+Check explicitly for points and polygons contained within polygons
+       using an axis-crossing algorithm(Thomas)
+Add routine to convert circle-box(Thomas)
+Merge conflicting operators for different geometric data types(Thomas)
+Replace distance operator "&lt;===&gt;" with "&lt;-&gt;"(Thomas)
+Replace "above" operator "!^" with "&gt;^" and "below" operator "!|" with "&lt;^"(Thomas)
+Add routines for text trimming on both ends, substring, and string position(Thomas)
+Added conversion routines circle(box) and poly(circle)(Thomas)
+Allow internal sorts to be stored in memory rather than in files(Bruce &amp; Vadim)
+Allow functions and operators on internally-identical types to succeed(Bruce)
+Speed up backend start-up after profiling analysis(Bruce)
+Inline frequently called functions for performance(Bruce)
+Reduce open() calls(Bruce)
+psql:  Add PAGER for \h and \?,\C fix
+Fix for psql pager when no tty(Bruce)
+New entab utility(Bruce)
+General trigger functions for referential integrity (Vadim)
+General trigger functions for time travel (Vadim)
+General trigger functions for AUTOINCREMENT/IDENTITY feature (Vadim)
+MOVE implementation (Vadim)
+
+Source Tree Changes
+-------------------
+HP-UX 10 patches (Vladimir Turin)
+Added SCO support, (Daniel Harris)
+MkLinux patches (Tatsuo Ishii)
+Change geometric box terminology from "length" to "width"(Thomas)
+Deprecate temporary unstored slope fields in geometric code(Thomas)
+Remove restart instructions from INSTALL(Bruce)
+Look in /usr/ucb first for install(Bruce)
+Fix c++ copy example code(Thomas)
+Add -o to psql manual page(Bruce)
+Prevent relname unallocated string length from being copied into database(Bruce)
+Cleanup for NAMEDATALEN use(Bruce)
+Fix pg_proc names over 15 chars in output(Bruce)
+Add strNcpy() function(Bruce)
+remove some (void) casts that are unnecessary(Bruce)
+new interfaces directory(Marc)
+Replace fopen() calls with calls to fd.c functions(Bruce)
+Make functions static where possible(Bruce)
+enclose unused functions in #ifdef NOT_USED(Bruce)
+Remove call to difftime() in timestamp support to fix SunOS(Bruce &amp; Thomas)
+Changes for Digital Unix
+Portability fix for pg_dumpall(Bruce)
+Rename pg_attribute.attnvals to attdispersion(Bruce)
+"intro/unix" manual page now "pgintro"(Bruce)
+"built-in" manual page now "pgbuiltin"(Bruce)
+"drop" manual page now "drop_table"(Bruce)
+Add "create_trigger", "drop_trigger" manual pages(Thomas)
+Add constraints regression test(Vadim &amp; Thomas)
+Add comments syntax regression test(Thomas)
+Add PGINDENT and support program(Bruce)
+Massive commit to run PGINDENT on all *.c and *.h files(Bruce)
+Files moved to /src/tools directory(Bruce)
+SPI and Trigger programming guides (Vadim &amp; D'Arcy)</pre></div>
+</div>
+<div class="NAVFOOTER">
+<hr class="c1" width="100%" />
+<table summary="Footer navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<td width="33%" align="left" valign="top"><a href=
+"release-6-2-1.html" accesskey="P">Prev</a></td>
+<td width="34%" align="center" valign="top"><a href="index.html"
+accesskey="H">Home</a></td>
+<td width="33%" align="right" valign="top"><a href=
+"release-6-1-1.html" accesskey="N">Next</a></td>
+</tr>
+<tr>
+<td width="33%" align="left" valign="top">Release 6.2.1</td>
+<td width="34%" align="center" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="33%" align="right" valign="top">Release 6.1.1</td>
+</tr>
+</table>
+</div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/6.2.1/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/6.2.1/">
+                6.2.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                6.2.0
+              </strong>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2025 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/main.js?59ea4c82"></script>
+
+  </body>
+</html>

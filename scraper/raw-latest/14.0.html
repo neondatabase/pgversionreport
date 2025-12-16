@@ -7,13 +7,13 @@
    
   <meta name="theme-color" content="#336791"/>
   <meta name="copyright" content="The PostgreSQL Global Development Group" />
-  <link href="/media/css/fontawesome.css?18db9df6" rel="stylesheet">
+  <link href="/media/css/fontawesome.css?59ea4c82" rel="stylesheet">
   <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?18db9df6">
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?59ea4c82">
 
-  <script src="/media/js/theme.js?18db9df6"></script>
+  <script src="/media/js/theme.js?59ea4c82"></script>
 
   
 
@@ -30,10 +30,9 @@
             <a class="navbar-brand p-0" href="/">
               <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="pgNavbar">
+            <input type="checkbox" id="navbar-toggler" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler" id="navbar-toggler-label" class="navbar-toggler" tabindex="0"><span class="navbar-toggler-icon"></span></label>
+            <div class="navbar-collapse" id="pgNavbar">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
                 <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
@@ -61,10 +60,9 @@
         </div>
       </div>
       <div class="row justify-content-center pg-shout-box">
-        <div class="col text-white text-center">November 21, 2024: <a href="/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/">
-  PostgreSQL 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22 Released!
+        <div class="col text-white text-center">November 13, 2025: <a href="/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/">
+  PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 Released!
 </a>
-
 </div>
       </div>
     </div>
@@ -146,14 +144,14 @@
         <div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader">
   <table width="100%" summary="Navigation header">
     <tr>
-      <th colspan="5" align="center">E.16.&nbsp;Release 14</th>
+      <th colspan="5" align="center">E.21.&nbsp;Release 14</th>
     </tr>
     <tr>
-      <td width="10%" align="left"><a accesskey="p" href="release-14-1.html" title="E.15.&nbsp;Release 14.1">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="p" href="release-14-1.html" title="E.20.&nbsp;Release 14.1">Prev</a>&nbsp;</td>
       <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
       <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
-      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
-      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.17.&nbsp;Prior Releases">Next</a></td>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 14.20 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.22.&nbsp;Prior Releases">Next</a></td>
     </tr>
   </table>
   <hr />
@@ -162,24 +160,24 @@
   <div class="titlepage">
     <div>
       <div>
-        <h2 class="title" style="clear: both">E.16.&nbsp;Release 14</h2>
+        <h2 class="title" style="clear: both">E.21.&nbsp;Release 14</h2>
       </div>
     </div>
   </div>
   <div class="toc">
     <dl class="toc">
-      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.21.3">E.16.1. Overview</a></span></dt>
-      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.21.4">E.16.2. Migration to Version 14</a></span></dt>
-      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.21.5">E.16.3. Changes</a></span></dt>
-      <dt><span class="sect2"><a href="release-14.html#RELEASE-14-ACKNOWLEDGEMENTS">E.16.4. Acknowledgments</a></span></dt>
+      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.26.3">E.21.1. Overview</a></span></dt>
+      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.26.4">E.21.2. Migration to Version 14</a></span></dt>
+      <dt><span class="sect2"><a href="release-14.html#id-1.11.6.26.5">E.21.3. Changes</a></span></dt>
+      <dt><span class="sect2"><a href="release-14.html#RELEASE-14-ACKNOWLEDGEMENTS">E.21.4. Acknowledgments</a></span></dt>
     </dl>
   </div>
   <p><strong>Release date:&nbsp;</strong>2021-09-30</p>
-  <div class="sect2" id="id-1.11.6.21.3">
+  <div class="sect2" id="id-1.11.6.26.3">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.16.1.&nbsp;Overview</h3>
+          <h3 class="title">E.21.1.&nbsp;Overview</h3>
         </div>
       </div>
     </div>
@@ -217,11 +215,11 @@
     </div>
     <p>The above items and other new features of <span class="productname">PostgreSQL</span> 14 are explained in more detail in the sections below.</p>
   </div>
-  <div class="sect2" id="id-1.11.6.21.4">
+  <div class="sect2" id="id-1.11.6.26.4">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.16.2.&nbsp;Migration to Version 14</h3>
+          <h3 class="title">E.21.2.&nbsp;Migration to Version 14</h3>
         </div>
       </div>
     </div>
@@ -337,20 +335,20 @@
       </ul>
     </div>
   </div>
-  <div class="sect2" id="id-1.11.6.21.5">
+  <div class="sect2" id="id-1.11.6.26.5">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.16.3.&nbsp;Changes</h3>
+          <h3 class="title">E.21.3.&nbsp;Changes</h3>
         </div>
       </div>
     </div>
     <p>Below you will find a detailed account of the changes between <span class="productname">PostgreSQL</span> 14 and the previous major release.</p>
-    <div class="sect3" id="id-1.11.6.21.5.3">
+    <div class="sect3" id="id-1.11.6.26.5.3">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.1.&nbsp;Server</h4>
+            <h4 class="title">E.21.3.1.&nbsp;Server</h4>
           </div>
         </div>
       </div>
@@ -385,11 +383,11 @@
           </li>
         </ul>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.3">
+      <div class="sect4" id="id-1.11.6.26.5.3.3">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.1.&nbsp;<a class="link" href="routine-vacuuming.html" title="25.1.&nbsp;Routine Vacuuming">Vacuuming</a></h5>
+              <h5 class="title">E.21.3.1.1.&nbsp;<a class="link" href="routine-vacuuming.html" title="25.1.&nbsp;Routine Vacuuming">Vacuuming</a></h5>
             </div>
           </div>
         </div>
@@ -437,11 +435,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.4">
+      <div class="sect4" id="id-1.11.6.26.5.3.4">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.2.&nbsp;<a class="link" href="ddl-partitioning.html" title="5.11.&nbsp;Table Partitioning">Partitioning</a></h5>
+              <h5 class="title">E.21.3.1.2.&nbsp;<a class="link" href="ddl-partitioning.html" title="5.11.&nbsp;Table Partitioning">Partitioning</a></h5>
             </div>
           </div>
         </div>
@@ -462,11 +460,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.5">
+      <div class="sect4" id="id-1.11.6.26.5.3.5">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.3.&nbsp;Indexes</h5>
+              <h5 class="title">E.21.3.1.3.&nbsp;Indexes</h5>
             </div>
           </div>
         </div>
@@ -494,11 +492,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.6">
+      <div class="sect4" id="id-1.11.6.26.5.3.6">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.4.&nbsp;Optimizer</h5>
+              <h5 class="title">E.21.3.1.4.&nbsp;Optimizer</h5>
             </div>
           </div>
         </div>
@@ -526,11 +524,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.7">
+      <div class="sect4" id="id-1.11.6.26.5.3.7">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.5.&nbsp;General Performance</h5>
+              <h5 class="title">E.21.3.1.5.&nbsp;General Performance</h5>
             </div>
           </div>
         </div>
@@ -573,11 +571,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.8">
+      <div class="sect4" id="id-1.11.6.26.5.3.8">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.6.&nbsp;Monitoring</h5>
+              <h5 class="title">E.21.3.1.6.&nbsp;Monitoring</h5>
             </div>
           </div>
         </div>
@@ -597,11 +595,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.9">
+      <div class="sect4" id="id-1.11.6.26.5.3.9">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.7.&nbsp;System Views</h5>
+              <h5 class="title">E.21.3.1.7.&nbsp;System Views</h5>
             </div>
           </div>
         </div>
@@ -644,11 +642,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.10">
+      <div class="sect4" id="id-1.11.6.26.5.3.10">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.8.&nbsp;Authentication</h5>
+              <h5 class="title">E.21.3.1.8.&nbsp;Authentication</h5>
             </div>
           </div>
         </div>
@@ -672,11 +670,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.3.11">
+      <div class="sect4" id="id-1.11.6.26.5.3.11">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.1.9.&nbsp;Server Configuration</h5>
+              <h5 class="title">E.21.3.1.9.&nbsp;Server Configuration</h5>
             </div>
           </div>
         </div>
@@ -708,11 +706,11 @@
         </div>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.4">
+    <div class="sect3" id="id-1.11.6.26.5.4">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.2.&nbsp;Streaming Replication and Recovery</h4>
+            <h4 class="title">E.21.3.2.&nbsp;Streaming Replication and Recovery</h4>
           </div>
         </div>
       </div>
@@ -759,11 +757,11 @@
           </li>
         </ul>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.4.3">
+      <div class="sect4" id="id-1.11.6.26.5.4.3">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.2.1.&nbsp;<a class="link" href="logical-replication.html" title="Chapter&nbsp;31.&nbsp;Logical Replication">Logical Replication</a></h5>
+              <h5 class="title">E.21.3.2.1.&nbsp;<a class="link" href="logical-replication.html" title="Chapter&nbsp;31.&nbsp;Logical Replication">Logical Replication</a></h5>
             </div>
           </div>
         </div>
@@ -810,11 +808,11 @@
         </div>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.5">
+    <div class="sect3" id="id-1.11.6.26.5.5">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.3.&nbsp;<a class="link" href="sql-select.html" title="SELECT"><code class="command">SELECT</code></a>, <a class="link" href="sql-insert.html" title="INSERT"><code class="command">INSERT</code></a></h4>
+            <h4 class="title">E.21.3.3.&nbsp;<a class="link" href="sql-select.html" title="SELECT"><code class="command">SELECT</code></a>, <a class="link" href="sql-insert.html" title="INSERT"><code class="command">INSERT</code></a></h4>
           </div>
         </div>
       </div>
@@ -847,11 +845,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.6">
+    <div class="sect3" id="id-1.11.6.26.5.6">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.4.&nbsp;Utility Commands</h4>
+            <h4 class="title">E.21.3.4.&nbsp;Utility Commands</h4>
           </div>
         </div>
       </div>
@@ -902,11 +900,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.7">
+    <div class="sect3" id="id-1.11.6.26.5.7">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.5.&nbsp;Data Types</h4>
+            <h4 class="title">E.21.3.5.&nbsp;Data Types</h4>
           </div>
         </div>
       </div>
@@ -952,11 +950,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.8">
+    <div class="sect3" id="id-1.11.6.26.5.8">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.6.&nbsp;Functions</h4>
+            <h4 class="title">E.21.3.6.&nbsp;Functions</h4>
           </div>
         </div>
       </div>
@@ -1044,11 +1042,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.9">
+    <div class="sect3" id="id-1.11.6.26.5.9">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.7.&nbsp;<a class="link" href="plpgsql.html" title="Chapter&nbsp;43.&nbsp;PL/pgSQL — SQL Procedural Language">PL/pgSQL</a></h4>
+            <h4 class="title">E.21.3.7.&nbsp;<a class="link" href="plpgsql.html" title="Chapter&nbsp;43.&nbsp;PL/pgSQL — SQL Procedural Language">PL/pgSQL</a></h4>
           </div>
         </div>
       </div>
@@ -1067,11 +1065,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.10">
+    <div class="sect3" id="id-1.11.6.26.5.10">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.8.&nbsp;Client Interfaces</h4>
+            <h4 class="title">E.21.3.8.&nbsp;Client Interfaces</h4>
           </div>
         </div>
       </div>
@@ -1095,11 +1093,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.11">
+    <div class="sect3" id="id-1.11.6.26.5.11">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.9.&nbsp;Client Applications</h4>
+            <h4 class="title">E.21.3.9.&nbsp;Client Applications</h4>
           </div>
         </div>
       </div>
@@ -1125,11 +1123,11 @@
           </li>
         </ul>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.11.3">
+      <div class="sect4" id="id-1.11.6.26.5.11.3">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.9.1.&nbsp;<a class="xref" href="app-psql.html" title="psql"><span class="refentrytitle"><span class="application">psql</span></span></a></h5>
+              <h5 class="title">E.21.3.9.1.&nbsp;<a class="xref" href="app-psql.html" title="psql"><span class="refentrytitle"><span class="application">psql</span></span></a></h5>
             </div>
           </div>
         </div>
@@ -1162,11 +1160,11 @@
         </div>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.12">
+    <div class="sect3" id="id-1.11.6.26.5.12">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.10.&nbsp;Server Applications</h4>
+            <h4 class="title">E.21.3.10.&nbsp;Server Applications</h4>
           </div>
         </div>
       </div>
@@ -1190,11 +1188,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.13">
+    <div class="sect3" id="id-1.11.6.26.5.13">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.11.&nbsp;Documentation</h4>
+            <h4 class="title">E.21.3.11.&nbsp;Documentation</h4>
           </div>
         </div>
       </div>
@@ -1210,11 +1208,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.14">
+    <div class="sect3" id="id-1.11.6.26.5.14">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.12.&nbsp;Source Code</h4>
+            <h4 class="title">E.21.3.12.&nbsp;Source Code</h4>
           </div>
         </div>
       </div>
@@ -1270,11 +1268,11 @@
         </ul>
       </div>
     </div>
-    <div class="sect3" id="id-1.11.6.21.5.15">
+    <div class="sect3" id="id-1.11.6.26.5.15">
       <div class="titlepage">
         <div>
           <div>
-            <h4 class="title">E.16.3.13.&nbsp;Additional Modules</h4>
+            <h4 class="title">E.21.3.13.&nbsp;Additional Modules</h4>
           </div>
         </div>
       </div>
@@ -1315,11 +1313,11 @@
           </li>
         </ul>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.15.3">
+      <div class="sect4" id="id-1.11.6.26.5.15.3">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.13.1.&nbsp;<a class="link" href="pgstatstatements.html" title="F.30.&nbsp;pg_stat_statements">pg_stat_statements</a></h5>
+              <h5 class="title">E.21.3.13.1.&nbsp;<a class="link" href="pgstatstatements.html" title="F.30.&nbsp;pg_stat_statements">pg_stat_statements</a></h5>
             </div>
           </div>
         </div>
@@ -1342,11 +1340,11 @@
           </ul>
         </div>
       </div>
-      <div class="sect4" id="id-1.11.6.21.5.15.4">
+      <div class="sect4" id="id-1.11.6.26.5.15.4">
         <div class="titlepage">
           <div>
             <div>
-              <h5 class="title">E.16.3.13.2.&nbsp;<a class="link" href="postgres-fdw.html" title="F.35.&nbsp;postgres_fdw"><span class="application">postgres_fdw</span></a></h5>
+              <h5 class="title">E.21.3.13.2.&nbsp;<a class="link" href="postgres-fdw.html" title="F.35.&nbsp;postgres_fdw"><span class="application">postgres_fdw</span></a></h5>
             </div>
           </div>
         </div>
@@ -1382,7 +1380,7 @@
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.16.4.&nbsp;Acknowledgments</h3>
+          <h3 class="title">E.21.4.&nbsp;Acknowledgments</h3>
         </div>
       </div>
     </div>
@@ -2640,14 +2638,14 @@
   <hr />
   <table width="100%" summary="Navigation footer">
     <tr>
-      <td width="40%" align="left"><a accesskey="p" href="release-14-1.html" title="E.15.&nbsp;Release 14.1">Prev</a>&nbsp;</td>
+      <td width="40%" align="left"><a accesskey="p" href="release-14-1.html" title="E.20.&nbsp;Release 14.1">Prev</a>&nbsp;</td>
       <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
-      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.17.&nbsp;Prior Releases">Next</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-prior.html" title="E.22.&nbsp;Prior Releases">Next</a></td>
     </tr>
     <tr>
-      <td width="40%" align="left" valign="top">E.15.&nbsp;Release 14.1&nbsp;</td>
-      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.15 Documentation">Home</a></td>
-      <td width="40%" align="right" valign="top">&nbsp;E.17.&nbsp;Prior Releases</td>
+      <td width="40%" align="left" valign="top">E.20.&nbsp;Release 14.1&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 14.20 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.22.&nbsp;Prior Releases</td>
     </tr>
   </table>
 </div>
@@ -2678,6 +2676,46 @@
         <h2>Versions</h2>
       </section>
       <ul>
+        
+          <li>
+            
+              <a href="/docs/release/14.20/">
+                14.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.19/">
+                14.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.18/">
+                14.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.17/">
+                14.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/14.16/">
+                14.16
+              </a>
+            
+          </li>
         
           <li>
             
@@ -2819,29 +2857,16 @@
 
     <!-- Footer -->
     <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ul>
-              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
-              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <!-- Copyright -->
       <div class="container">
         <a href="/about/policies/">Policies</a> |
         <a href="/about/policies/coc/">Code of Conduct</a> |
         <a href="/about/">About PostgreSQL</a> |
         <a href="/about/contact/">Contact</a><br/>
-        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+        <p>Copyright &copy; 1996-2025 The PostgreSQL Global Development Group</p>
       </div>
     </footer>
-    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="/media/js/popper-1.16.0.min.js"></script>
-    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
-    <script src="/media/js/main.js?18db9df6"></script>
+    <script src="/media/js/main.js?59ea4c82"></script>
 
   </body>
 </html>

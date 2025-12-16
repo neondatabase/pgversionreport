@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?59ea4c82" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?59ea4c82">
+
+  <script src="/media/js/theme.js?59ea4c82"></script>
+
+  
+
+  <base href="/docs/7.4/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <input type="checkbox" id="navbar-toggler" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler" id="navbar-toggler-label" class="navbar-toggler" tabindex="0"><span class="navbar-toggler-icon"></span></label>
+            <div class="navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">November 13, 2025: <a href="/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/">
+  PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 Released!
+</a>
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          7.4.1
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+  <table summary="Header navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <th colspan="5" align="center" valign="bottom">PostgreSQL
+      7.4.30 Documentation</th>
+    </tr>
+
+    <tr>
+      <td width="10%" align="left" valign="top"><a href=
+      "release-7-4-2.html" accesskey="P">Prev</a></td>
+
+      <td width="10%" align="left" valign="top"><a href=
+      "release.html">Fast Backward</a></td>
+
+      <td width="60%" align="center" valign="bottom">Appendix E.
+      Release Notes</td>
+
+      <td width="10%" align="right" valign="top"><a href=
+      "release.html">Fast Forward</a></td>
+
+      <td width="10%" align="right" valign="top"><a href=
+      "release-7-4.html" accesskey="N">Next</a></td>
+    </tr>
+  </table>
+  <hr class="c1" width="100%" />
+</div>
+
+<div class="SECT1">
+  <h1 class="SECT1"><a name="RELEASE-7-4-1" id=
+  "RELEASE-7-4-1">E.30. Release 7.4.1</a></h1>
+
+  <div class="NOTE">
+    <blockquote class="NOTE">
+      <p><b>Release date:</b> 2003-12-22</p>
+    </blockquote>
+  </div>
+
+  <p>This release contains a variety of fixes from 7.4. For
+  information about new features in the 7.4 major release, see
+  <a href="release-7-4.html">Section E.31</a>.</p>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN63099" id="AEN63099">E.30.1.
+    Migration to Version 7.4.1</a></h2>
+
+    <p>A dump/restore is <span class=
+    "emphasis EMPHASIS c2">not</span> required for those running
+    7.4.</p>
+
+    <p>If you want to install the fixes in the information schema
+    you need to reload it into the database. This is either
+    accomplished by initializing a new cluster by running
+    <tt class="COMMAND">initdb</tt>, or by running the following
+    sequence of SQL commands in each database (ideally including
+    <tt class="LITERAL">template1</tt>) as a superuser in
+    <span class="APPLICATION">psql</span>, after installing the new
+    release:</p>
+    <pre class="PROGRAMLISTING">
+DROP SCHEMA information_schema CASCADE;
+\i /usr/local/pgsql/share/information_schema.sql
+</pre>
+
+    <p>Substitute your installation path in the second command.</p>
+  </div>
+
+  <div class="SECT2">
+    <h2 class="SECT2"><a name="AEN63108" id="AEN63108">E.30.2.
+    Changes</a></h2>
+
+    <ul>
+      <li>
+        <p>Fixed bug in <tt class="COMMAND">CREATE SCHEMA</tt>
+        parsing in ECPG (Michael)</p>
+      </li>
+
+      <li>
+        <p>Fix compile error when <tt class=
+        "OPTION">--enable-thread-safety</tt> and <tt class=
+        "OPTION">--with-perl</tt> are used together (Peter)</p>
+      </li>
+
+      <li>
+        <p>Fix for subqueries that used hash joins (Tom)</p>
+
+        <p>Certain subqueries that used hash joins would crash
+        because of improperly shared structures.</p>
+      </li>
+
+      <li>
+        <p>Fix free space map compaction bug (Tom)</p>
+
+        <p>This fixes a bug where compaction of the free space map
+        could lead to a database server shutdown.</p>
+      </li>
+
+      <li>
+        <p>Fix for Borland compiler build of libpq (Bruce)</p>
+      </li>
+
+      <li>
+        <p>Fix <code class="FUNCTION">netmask()</code> and
+        <code class="FUNCTION">hostmask()</code> to return the
+        maximum-length masklen (Tom)</p>
+
+        <p>Fix these functions to return values consistent with
+        pre-7.4 releases.</p>
+      </li>
+
+      <li>
+        <p>Several <tt class="FILENAME">contrib/pg_autovacuum</tt>
+        fixes</p>
+
+        <p>Fixes include improper variable initialization, missing
+        vacuum after <tt class="COMMAND">TRUNCATE</tt>, and
+        duration computation overflow for long vacuums.</p>
+      </li>
+
+      <li>
+        <p>Allow compile of <tt class="FILENAME">contrib/cube</tt>
+        under Cygwin (Jason Tishler)</p>
+      </li>
+
+      <li>
+        <p>Fix Solaris use of password file when no passwords are
+        defined (Tom)</p>
+
+        <p>Fix crash on Solaris caused by use of any type of
+        password authentication when no passwords were defined.</p>
+      </li>
+
+      <li>
+        <p>JDBC fix for thread problems, other fixes</p>
+      </li>
+
+      <li>
+        <p>Fix for <tt class="TYPE">bytea</tt> index lookups
+        (Joe)</p>
+      </li>
+
+      <li>
+        <p>Fix information schema for bit data types (Peter)</p>
+      </li>
+
+      <li>
+        <p>Force zero_damaged_pages to be on during recovery from
+        WAL</p>
+      </li>
+
+      <li>
+        <p>Prevent some obscure cases of <span class=
+        "QUOTE">"variable not in subplan target lists"</span></p>
+      </li>
+
+      <li>
+        <p>Make <code class="FUNCTION">PQescapeBytea</code> and
+        <code class="FUNCTION">byteaout</code> consistent with each
+        other (Joe)</p>
+      </li>
+
+      <li>
+        <p>Escape <tt class="TYPE">bytea</tt> output for bytes &gt;
+        0x7e(Joe)</p>
+
+        <p>If different client encodings are used for <tt class=
+        "TYPE">bytea</tt> output and input, it is possible for
+        <tt class="TYPE">bytea</tt> values to be corrupted by the
+        differing encodings. This fix escapes all bytes that might
+        be affected.</p>
+      </li>
+
+      <li>
+        <p>Added missing <code class="FUNCTION">SPI_finish()</code>
+        calls to dblink's <code class=
+        "FUNCTION">get_tuple_of_interest()</code> (Joe)</p>
+      </li>
+
+      <li>
+        <p>New Czech FAQ</p>
+      </li>
+
+      <li>
+        <p>Fix information schema view <tt class=
+        "LITERAL">constraint_column_usage</tt> for foreign keys
+        (Peter)</p>
+      </li>
+
+      <li>
+        <p>ECPG fixes (Michael)</p>
+      </li>
+
+      <li>
+        <p>Fix bug with multiple <tt class="LITERAL">IN</tt>
+        subqueries and joins in the subqueries (Tom)</p>
+      </li>
+
+      <li>
+        <p>Allow <tt class="LITERAL">COUNT('x')</tt> to work
+        (Tom)</p>
+      </li>
+
+      <li>
+        <p>Install ECPG include files for Informix compatibility
+        into separate directory (Peter)</p>
+
+        <p>Some names of ECPG include files for Informix
+        compatibility conflicted with operating system include
+        files. By installing them in their own directory, name
+        conflicts have been reduced.</p>
+      </li>
+
+      <li>
+        <p>Fix SSL memory leak (Neil)</p>
+
+        <p>This release fixes a bug in 7.4 where SSL didn't free
+        all memory it allocated.</p>
+      </li>
+
+      <li>
+        <p>Prevent <tt class="FILENAME">pg_service.conf</tt> from
+        using service name as default dbname (Bruce)</p>
+      </li>
+
+      <li>
+        <p>Fix local ident authentication on FreeBSD (Tom)</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="NAVFOOTER">
+  <hr class="c1" width="100%" />
+
+  <table summary="Footer navigation table" width="100%" border="0"
+  cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="33%" align="left" valign="top"><a href=
+      "release-7-4-2.html" accesskey="P">Prev</a></td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "index.html" accesskey="H">Home</a></td>
+
+      <td width="33%" align="right" valign="top"><a href=
+      "release-7-4.html" accesskey="N">Next</a></td>
+    </tr>
+
+    <tr>
+      <td width="33%" align="left" valign="top">Release 7.4.2</td>
+
+      <td width="34%" align="center" valign="top"><a href=
+      "release.html" accesskey="U">Up</a></td>
+
+      <td width="33%" align="right" valign="top">Release 7.4</td>
+    </tr>
+  </table>
+</div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+            <a href="/docs/release/7.4.0/">
+              Previous
+            </a>
+          
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/7.4.2/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.30/">
+                7.4.30
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.29/">
+                7.4.29
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.28/">
+                7.4.28
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.27/">
+                7.4.27
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.26/">
+                7.4.26
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.25/">
+                7.4.25
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.24/">
+                7.4.24
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.23/">
+                7.4.23
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.22/">
+                7.4.22
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.21/">
+                7.4.21
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.20/">
+                7.4.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.19/">
+                7.4.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.18/">
+                7.4.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.17/">
+                7.4.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.16/">
+                7.4.16
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.15/">
+                7.4.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.14/">
+                7.4.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.13/">
+                7.4.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.12/">
+                7.4.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.11/">
+                7.4.11
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.10/">
+                7.4.10
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.9/">
+                7.4.9
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.8/">
+                7.4.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.7/">
+                7.4.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.6/">
+                7.4.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.5/">
+                7.4.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.4/">
+                7.4.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.3/">
+                7.4.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.2/">
+                7.4.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                7.4.1
+              </strong>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/7.4.0/">
+                7.4.0
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2025 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/main.js?59ea4c82"></script>
+
+  </body>
+</html>

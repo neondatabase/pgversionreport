@@ -7,13 +7,13 @@
    
   <meta name="theme-color" content="#336791"/>
   <meta name="copyright" content="The PostgreSQL Global Development Group" />
-  <link href="/media/css/fontawesome.css?18db9df6" rel="stylesheet">
+  <link href="/media/css/fontawesome.css?59ea4c82" rel="stylesheet">
   <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?18db9df6">
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?59ea4c82">
 
-  <script src="/media/js/theme.js?18db9df6"></script>
+  <script src="/media/js/theme.js?59ea4c82"></script>
 
   
 
@@ -30,10 +30,9 @@
             <a class="navbar-brand p-0" href="/">
               <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="pgNavbar">
+            <input type="checkbox" id="navbar-toggler" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler" id="navbar-toggler-label" class="navbar-toggler" tabindex="0"><span class="navbar-toggler-icon"></span></label>
+            <div class="navbar-collapse" id="pgNavbar">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
                 <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
@@ -61,10 +60,9 @@
         </div>
       </div>
       <div class="row justify-content-center pg-shout-box">
-        <div class="col text-white text-center">November 21, 2024: <a href="/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/">
-  PostgreSQL 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22 Released!
+        <div class="col text-white text-center">November 13, 2025: <a href="/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/">
+  PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 Released!
 </a>
-
 </div>
       </div>
     </div>
@@ -146,14 +144,14 @@
         <div class="navheader">
   <table width="100%" summary="Navigation header">
     <tr>
-      <th colspan="5" align="center">E.4.&nbsp;Release 15.7</th>
+      <th colspan="5" align="center">E.9.&nbsp;Release 15.7</th>
     </tr>
     <tr>
-      <td width="10%" align="left"><a accesskey="p" href="release-15-8.html" title="E.3.&nbsp;Release 15.8">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="p" href="release-15-8.html" title="E.8.&nbsp;Release 15.8">Prev</a>&nbsp;</td>
       <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
       <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
-      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 15.10 Documentation">Home</a></td>
-      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-15-6.html" title="E.5.&nbsp;Release 15.6">Next</a></td>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 15.15 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-15-6.html" title="E.10.&nbsp;Release 15.6">Next</a></td>
     </tr>
   </table>
   <hr />
@@ -162,35 +160,35 @@
   <div class="titlepage">
     <div>
       <div>
-        <h2 class="title" style="clear: both">E.4.&nbsp;Release 15.7</h2>
+        <h2 class="title" style="clear: both">E.9.&nbsp;Release 15.7</h2>
       </div>
     </div>
   </div>
   <div class="toc">
     <dl class="toc">
-      <dt><span class="sect2"><a href="release-15-7.html#id-1.11.6.9.4">E.4.1. Migration to Version 15.7</a></span></dt>
-      <dt><span class="sect2"><a href="release-15-7.html#id-1.11.6.9.5">E.4.2. Changes</a></span></dt>
+      <dt><span class="sect2"><a href="release-15-7.html#id-1.11.6.14.4">E.9.1. Migration to Version 15.7</a></span></dt>
+      <dt><span class="sect2"><a href="release-15-7.html#id-1.11.6.14.5">E.9.2. Changes</a></span></dt>
     </dl>
   </div>
   <p><strong>Release date:&nbsp;</strong>2024-05-09</p>
-  <p>This release contains a variety of fixes from 15.6. For information about new features in major release 15, see <a class="xref" href="release-15.html" title="E.11.&nbsp;Release 15">Section&nbsp;E.11</a>.</p>
-  <div class="sect2" id="id-1.11.6.9.4">
+  <p>This release contains a variety of fixes from 15.6. For information about new features in major release 15, see <a class="xref" href="release-15.html" title="E.16.&nbsp;Release 15">Section&nbsp;E.16</a>.</p>
+  <div class="sect2" id="id-1.11.6.14.4">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.4.1.&nbsp;Migration to Version 15.7</h3>
+          <h3 class="title">E.9.1.&nbsp;Migration to Version 15.7</h3>
         </div>
       </div>
     </div>
     <p>A dump/restore is not required for those running 15.X.</p>
     <p>However, a security vulnerability was found in the system views <code class="structname">pg_stats_ext</code> and <code class="structname">pg_stats_ext_exprs</code>, potentially allowing authenticated database users to see data they shouldn't. If this is of concern in your installation, follow the steps in the first changelog entry below to rectify it.</p>
-    <p>Also, if you are upgrading from a version earlier than 15.6, see <a class="xref" href="release-15-6.html" title="E.5.&nbsp;Release 15.6">Section&nbsp;E.5</a>.</p>
+    <p>Also, if you are upgrading from a version earlier than 15.6, see <a class="xref" href="release-15-6.html" title="E.10.&nbsp;Release 15.6">Section&nbsp;E.10</a>.</p>
   </div>
-  <div class="sect2" id="id-1.11.6.9.5">
+  <div class="sect2" id="id-1.11.6.14.5">
     <div class="titlepage">
       <div>
         <div>
-          <h3 class="title">E.4.2.&nbsp;Changes</h3>
+          <h3 class="title">E.9.2.&nbsp;Changes</h3>
         </div>
       </div>
     </div>
@@ -424,14 +422,14 @@ ALTER DATABASE template0 WITH ALLOW_CONNECTIONS false;
   <hr />
   <table width="100%" summary="Navigation footer">
     <tr>
-      <td width="40%" align="left"><a accesskey="p" href="release-15-8.html" title="E.3.&nbsp;Release 15.8">Prev</a>&nbsp;</td>
+      <td width="40%" align="left"><a accesskey="p" href="release-15-8.html" title="E.8.&nbsp;Release 15.8">Prev</a>&nbsp;</td>
       <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
-      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-15-6.html" title="E.5.&nbsp;Release 15.6">Next</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-15-6.html" title="E.10.&nbsp;Release 15.6">Next</a></td>
     </tr>
     <tr>
-      <td width="40%" align="left" valign="top">E.3.&nbsp;Release 15.8&nbsp;</td>
-      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 15.10 Documentation">Home</a></td>
-      <td width="40%" align="right" valign="top">&nbsp;E.5.&nbsp;Release 15.6</td>
+      <td width="40%" align="left" valign="top">E.8.&nbsp;Release 15.8&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 15.15 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.10.&nbsp;Release 15.6</td>
     </tr>
   </table>
 </div>
@@ -466,6 +464,46 @@ ALTER DATABASE template0 WITH ALLOW_CONNECTIONS false;
         <h2>Versions</h2>
       </section>
       <ul>
+        
+          <li>
+            
+              <a href="/docs/release/15.15/">
+                15.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/15.14/">
+                15.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/15.13/">
+                15.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/15.12/">
+                15.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/15.11/">
+                15.11
+              </a>
+            
+          </li>
         
           <li>
             
@@ -567,29 +605,16 @@ ALTER DATABASE template0 WITH ALLOW_CONNECTIONS false;
 
     <!-- Footer -->
     <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ul>
-              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
-              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <!-- Copyright -->
       <div class="container">
         <a href="/about/policies/">Policies</a> |
         <a href="/about/policies/coc/">Code of Conduct</a> |
         <a href="/about/">About PostgreSQL</a> |
         <a href="/about/contact/">Contact</a><br/>
-        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+        <p>Copyright &copy; 1996-2025 The PostgreSQL Global Development Group</p>
       </div>
     </footer>
-    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="/media/js/popper-1.16.0.min.js"></script>
-    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
-    <script src="/media/js/main.js?18db9df6"></script>
+    <script src="/media/js/main.js?59ea4c82"></script>
 
   </body>
 </html>
