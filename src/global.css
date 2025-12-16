@@ -62,6 +62,18 @@
     --color-chart-5: hsl(var(--chart-5));
 }
 
+hr {
+    border-color: hsl(var(--border));
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+}
+
 @font-face {
     font-family: "Inter";
     font-weight: 300, 400, 500, 600, 700;
