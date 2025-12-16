@@ -4,12 +4,7 @@ import { writeFile, writeFileSync } from "fs";
 
 console.log("Splitting release notes into multiple files...");
 
-const root = join(
-    __dirname,
-    "..",
-    "src",
-    "data",
-);
+const root = join(__dirname, "..", "src", "data");
 
 writeFileSync(
     join(root, "pg_release_data.json"),
