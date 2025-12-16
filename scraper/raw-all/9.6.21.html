@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/9.6/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          9.6.21
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+<table summary="Header navigation table" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<th colspan="4" align="center" valign="bottom"><a href="index.html">PostgreSQL 9.6.24 Documentation</a></th>
+</tr>
+<tr>
+<td width="10%" align="left" valign="top"><a title="Release 9.6.22" href="release-9-6-22.html" accesskey="P">Prev</a></td>
+<td width="10%" align="left" valign="top"><a href="release.html" accesskey="U">Up</a></td>
+<td width="60%" align="center" valign="bottom">Appendix E. Release Notes</td>
+<td width="20%" align="right" valign="top"><a title="Release 9.6.20" href="release-9-6-20.html" accesskey="N">Next</a></td>
+</tr>
+</table>
+<hr class="c1" width="100%" /></div>
+<div class="SECT1">
+<h1 class="SECT1"><a name="RELEASE-9-6-21" id="RELEASE-9-6-21">E.4. Release 9.6.21</a></h1>
+<div class="FORMALPARA">
+<p><b>Release date:</b> 2021-02-11</p>
+</div>
+<p>This release contains a variety of fixes from 9.6.20. For information about new features in the 9.6 major release, see <a href="release-9-6.html">Section E.25</a>.</p>
+<p>The <span class="PRODUCTNAME">PostgreSQL</span> community will stop releasing updates for the 9.6.X release series in November 2021. Users are encouraged to update to a newer release branch soon.</p>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN132397" id="AEN132397">E.4.1. Migration to Version 9.6.21</a></h2>
+<p>A dump/restore is not required for those running 9.6.X.</p>
+<p>However, see the first changelog item below, which describes cases in which reindexing indexes after the upgrade may be advisable.</p>
+<p>Also, if you are upgrading from a version earlier than 9.6.16, see <a href="release-9-6-16.html">Section E.9</a>.</p>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN132403" id="AEN132403">E.4.2. Changes</a></h2>
+<ul>
+<li>
+<p>Fix <tt class="COMMAND">CREATE INDEX CONCURRENTLY</tt> to wait for concurrent prepared transactions (Andrey Borodin)</p>
+<p>At the point where <tt class="COMMAND">CREATE INDEX CONCURRENTLY</tt> waits for all concurrent transactions to complete so that it can see rows they inserted, it must also wait for all prepared transactions to complete, for the same reason. Its failure to do so meant that rows inserted by prepared transactions might be omitted from the new index, causing queries relying on the index to miss such rows. In installations that have enabled prepared transactions (<tt class="VARNAME">max_prepared_transactions</tt> &gt; 0), it's recommended to reindex any concurrently-built indexes in case this problem occurred when they were built.</p>
+</li>
+<li>
+<p>Avoid incorrect results when <tt class="LITERAL">WHERE CURRENT OF</tt> is applied to a cursor whose plan contains a MergeAppend node (Tom Lane)</p>
+<p>This case is unsupported (in general, a cursor using <tt class="LITERAL">ORDER BY</tt> is not guaranteed to be simply updatable); but the code previously did not reject it, and could silently give false matches.</p>
+</li>
+<li>
+<p>Fix crash when <tt class="LITERAL">WHERE CURRENT OF</tt> is applied to a cursor whose plan contains a custom scan node (David Geier)</p>
+</li>
+<li>
+<p>Fix planner's handling of a placeholder that is computed at some join level and used only at that same level (Tom Lane)</p>
+<p>This oversight could lead to <span class="QUOTE">"failed to build any <tt class="REPLACEABLE c2">N</tt>-way joins"</span> planner errors.</p>
+</li>
+<li>
+<p>Be more careful about whether index AMs support mark/restore (Andrew Gierth)</p>
+<p>This prevents errors about missing support functions in rare edge cases.</p>
+</li>
+<li>
+<p>Fix <tt class="COMMAND">ALTER DEFAULT PRIVILEGES</tt> to handle duplicated arguments safely (Michael Paquier)</p>
+<p>Duplicate role or schema names within the same command could lead to <span class="QUOTE">"tuple already updated by self"</span> errors or unique-constraint violations.</p>
+</li>
+<li>
+<p>Flush ACL-related caches when <tt class="STRUCTNAME">pg_authid</tt> changes (Noah Misch)</p>
+<p>This change ensures that permissions-related decisions will promptly reflect the results of <tt class="COMMAND">ALTER ROLE ... [NO] INHERIT</tt>.</p>
+</li>
+<li>
+<p>Prevent misprocessing of ambiguous <tt class="COMMAND">CREATE TABLE LIKE</tt> clauses (Tom Lane)</p>
+<p>A <tt class="LITERAL">LIKE</tt> clause is re-examined after initial creation of the new table, to handle importation of indexes and such. It was possible for this re-examination to find a different table of the same name, causing unexpected behavior; one example is where the new table is a temporary table of the same name as the <tt class="LITERAL">LIKE</tt> target.</p>
+</li>
+<li>
+<p>Rearrange order of operations in <tt class="COMMAND">CREATE TABLE LIKE</tt> so that indexes are cloned before building foreign key constraints (Tom Lane)</p>
+<p>This fixes the case where a self-referential foreign key constraint declared in the outer <tt class="COMMAND">CREATE TABLE</tt> depends on an index that's coming from the <tt class="LITERAL">LIKE</tt> clause.</p>
+</li>
+<li>
+<p>Disallow converting an inheritance child table to a view (Tom Lane)</p>
+</li>
+<li>
+<p>Ensure that disk space allocated for a dropped relation is released promptly at commit (Thomas Munro)</p>
+<p>Previously, if the dropped relation spanned multiple 1GB segments, only the first segment was truncated immediately. Other segments were simply unlinked, which doesn't authorize the kernel to release the storage so long as any other backends still have the files open.</p>
+</li>
+<li>
+<p>Fix handling of backslash-escaped multibyte characters in <tt class="COMMAND">COPY FROM</tt> (Heikki Linnakangas)</p>
+<p>A backslash followed by a multibyte character was not handled correctly. In some client character encodings, this could lead to misinterpreting part of a multibyte character as a field separator or end-of-copy-data marker.</p>
+</li>
+<li>
+<p>Avoid preallocating executor hash tables in <tt class="COMMAND">EXPLAIN</tt> without <tt class="LITERAL">ANALYZE</tt> (Alexey Bashtanov)</p>
+</li>
+<li>
+<p>Fix recently-introduced race conditions in <tt class="COMMAND">LISTEN</tt>/<tt class="COMMAND">NOTIFY</tt> queue handling (Tom Lane)</p>
+<p>A newly-listening backend could attempt to read SLRU pages that were in process of being truncated, possibly causing an error.</p>
+<p>The queue tail pointer could become set to a value that's not equal to the queue position of any backend, resulting in effective disabling of the queue truncation logic. Continued use of <tt class="COMMAND">NOTIFY</tt> then led to queue-fill warnings, and eventually to inability to send any more notifies until the server is restarted.</p>
+</li>
+<li>
+<p>Allow the <tt class="TYPE">jsonb</tt> concatenation operator to handle all combinations of JSON data types (Tom Lane)</p>
+<p>We can concatenate two JSON objects or two JSON arrays. Handle other cases by wrapping non-array inputs in one-element arrays, then performing an array concatenation. Previously, some combinations of inputs followed this rule but others arbitrarily threw an error.</p>
+</li>
+<li>
+<p>Fix use of uninitialized value while parsing a <tt class="LITERAL">*</tt> quantifier in a BRE-mode regular expression (Tom Lane)</p>
+<p>This error could cause the quantifier to act non-greedy, that is behave like a <tt class="LITERAL">*?</tt> quantifier would do in full regular expressions.</p>
+</li>
+<li>
+<p>Fix numeric <code class="FUNCTION">power()</code> for the case where the exponent is exactly <tt class="LITERAL">INT_MIN</tt> (-2147483648) (Dean Rasheed)</p>
+<p>Previously, a result with no significant digits was produced.</p>
+</li>
+<li>
+<p>Prevent possible data loss from incorrect detection of the wraparound point of an SLRU log (Noah Misch)</p>
+<p>The wraparound point typically falls in the middle of a page, which must be rounded off to a page boundary, and that was not done correctly. No issue could arise unless an installation had gotten to within one page of SLRU overflow, which is unlikely in a properly-functioning system. If this did happen, it would manifest in later <span class="QUOTE">"apparent wraparound"</span> or <span class="QUOTE">"could not access status of transaction"</span> errors.</p>
+</li>
+<li>
+<p>Fix memory leak in walsender processes while sending new snapshots for logical decoding (Amit Kapila)</p>
+</li>
+<li>
+<p>Fix walsender to accept additional commands after terminating replication (Jeff Davis)</p>
+</li>
+<li>
+<p>Ensure detection of deadlocks between hot standby backends and the startup (WAL-application) process (Fujii Masao)</p>
+<p>The startup process did not run the deadlock detection code, so that in situations where the startup process is last to join a circular wait situation, the deadlock might never be recognized.</p>
+</li>
+<li>
+<p>Fix portability problem in parsing of <tt class="VARNAME">recovery_target_xid</tt> values (Michael Paquier)</p>
+<p>The target XID is potentially 64 bits wide, but it was parsed with <code class="FUNCTION">strtoul()</code>, causing misbehavior on platforms where <tt class="TYPE">long</tt> is 32 bits (such as Windows).</p>
+</li>
+<li>
+<p>Avoid assertion failure in <code class="FUNCTION">pg_get_functiondef()</code> when examining a function with a <tt class="LITERAL">TRANSFORM</tt> option (Tom Lane)</p>
+</li>
+<li>
+<p>In <span class="APPLICATION">psql</span>, re-allow including a password in a <tt class="REPLACEABLE c2">connection_string</tt> argument of a <tt class="COMMAND">\connect</tt> command (Tom Lane)</p>
+<p>This used to work, but a recent bug fix caused the password to be ignored (resulting in prompting for a password).</p>
+</li>
+<li>
+<p>Fix assorted bugs in <span class="APPLICATION">psql</span>'s <tt class="COMMAND">\help</tt> command (Kyotaro Horiguchi, Tom Lane)</p>
+<p><tt class="COMMAND">\help</tt> with two argument words failed to find a command description using only the first word, for example <tt class="LITERAL">\help reset all</tt> should show the help for <tt class="COMMAND">RESET</tt> but did not. Also, <tt class="COMMAND">\help</tt> often failed to invoke the pager when it should. It also leaked memory.</p>
+</li>
+<li>
+<p>Fix <span class="APPLICATION">pg_dump</span> to handle <tt class="LITERAL">WITH GRANT OPTION</tt> in an extension's initial privileges (Noah Misch)</p>
+<p>If an extension's script creates an object and grants privileges on it with grant option, then later the user revokes such privileges, <span class="APPLICATION">pg_dump</span> would generate incorrect SQL for reproducing the situation. (Few if any extensions do this today.)</p>
+</li>
+<li>
+<p>In <span class="APPLICATION">pg_rewind</span>, ensure that all WAL is accounted for when rewinding a standby server (Ian Barwick, Heikki Linnakangas)</p>
+</li>
+<li>
+<p>Report the correct database name in connection failure error messages from some client programs (Álvaro Herrera)</p>
+<p>If the database name was defaulted rather than given on the command line, <span class="APPLICATION">pg_dumpall</span>, <span class="APPLICATION">pgbench</span>, <span class="APPLICATION">oid2name</span>, and <span class="APPLICATION">vacuumlo</span> would produce misleading error messages after a connection failure.</p>
+</li>
+<li>
+<p>Fix memory leak in <tt class="FILENAME">contrib/auto_explain</tt> (Japin Li)</p>
+<p>Memory consumed while producing the <tt class="LITERAL">EXPLAIN</tt> output was not freed until the end of the current transaction (for a top-level statement) or the end of the surrounding statement (for a nested statement). This was particularly a problem with <tt class="VARNAME">log_nested_statements</tt> enabled.</p>
+</li>
+<li>
+<p>In <tt class="FILENAME">contrib/postgres_fdw</tt>, avoid leaking open connections to remote servers when a user mapping or foreign server object is dropped (Bharath Rupireddy)</p>
+<p>Open connections that depend on a dropped user mapping or foreign server can no longer be referenced, but formerly they were kept around anyway for the duration of the local session.</p>
+</li>
+<li>
+<p>In <tt class="FILENAME">contrib/pgcrypto</tt>, check for error returns from OpenSSL's EVP functions (Michael Paquier)</p>
+<p>We do not really expect errors here, but this change silences warnings from static analysis tools.</p>
+</li>
+<li>
+<p>In <tt class="FILENAME">contrib/pg_trgm</tt>'s GiST index support, avoid crash in the rare case that picksplit is called on exactly two index items (Andrew Gierth, Alexander Korotkov)</p>
+</li>
+<li>
+<p>Fix miscalculation of timeouts in <tt class="FILENAME">contrib/pg_prewarm</tt> and <tt class="FILENAME">contrib/postgres_fdw</tt> (Alexey Kondratov, Tom Lane)</p>
+<p>The main loop in <tt class="FILENAME">contrib/pg_prewarm</tt>'s autoprewarm parent process underestimated its desired sleep time by a factor of 1000, causing it to consume much more CPU than intended. When waiting for a result from a remote server, <tt class="FILENAME">contrib/postgres_fdw</tt> overestimated the desired timeout by a factor of 1000 (though this error had been mitigated by imposing a clamp to 60 seconds).</p>
+<p>Both of these errors stemmed from incorrectly converting seconds-and-microseconds to milliseconds. Introduce a new API <code class="FUNCTION">TimestampDifferenceMilliseconds()</code> to make it easier to get this right in the future.</p>
+</li>
+<li>
+<p>Improve <span class="APPLICATION">configure</span>'s heuristics for selecting <tt class="VARNAME">PG_SYSROOT</tt> on macOS (Tom Lane)</p>
+<p>The new method is more likely to produce desirable results when Xcode is newer than the underlying operating system. Choosing a sysroot that does not match the OS version may result in nonfunctional executables.</p>
+</li>
+<li>
+<p>While building on macOS, specify <tt class="OPTION">-isysroot</tt> in link steps as well as compile steps (James Hilliard)</p>
+<p>This likewise improves the results when Xcode is out of sync with the operating system.</p>
+</li>
+<li>
+<p>Update time zone data files to <span class="APPLICATION">tzdata</span> release 2021a for DST law changes in Russia (Volgograd zone) and South Sudan, plus historical corrections for Australia, Bahamas, Belize, Bermuda, Ghana, Israel, Kenya, Nigeria, Palestine, Seychelles, and Vanuatu.</p>
+<p>Notably, the Australia/Currie zone has been corrected to the point where it is identical to Australia/Hobart.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="NAVFOOTER">
+<hr class="c1" width="100%" />
+<table summary="Footer navigation table" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="33%" align="left" valign="top"><a href="release-9-6-22.html" accesskey="P">Prev</a></td>
+<td width="34%" align="center" valign="top"><a href="index.html" accesskey="H">Home</a></td>
+<td width="33%" align="right" valign="top"><a href="release-9-6-20.html" accesskey="N">Next</a></td>
+</tr>
+<tr>
+<td width="33%" align="left" valign="top">Release 9.6.22</td>
+<td width="34%" align="center" valign="top"><a href="release.html" accesskey="U">Up</a></td>
+<td width="33%" align="right" valign="top">Release 9.6.20</td>
+</tr>
+</table>
+</div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+            <a href="/docs/release/9.6.20/">
+              Previous
+            </a>
+          
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/9.6.22/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.24/">
+                9.6.24
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.23/">
+                9.6.23
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.22/">
+                9.6.22
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                9.6.21
+              </strong>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.20/">
+                9.6.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.19/">
+                9.6.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.18/">
+                9.6.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.17/">
+                9.6.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.16/">
+                9.6.16
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.15/">
+                9.6.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.14/">
+                9.6.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.13/">
+                9.6.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.12/">
+                9.6.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.11/">
+                9.6.11
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.10/">
+                9.6.10
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.9/">
+                9.6.9
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.8/">
+                9.6.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.7/">
+                9.6.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.6/">
+                9.6.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.5/">
+                9.6.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.4/">
+                9.6.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.3/">
+                9.6.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.2/">
+                9.6.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.1/">
+                9.6.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/9.6.0/">
+                9.6.0
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>
