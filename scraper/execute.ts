@@ -1,14 +1,10 @@
-#!/usr/bin/env node
+import { program } from "commander";
+import * as cheerio from "cheerio";
+import fs from "fs/promises";
+import path from "path";
+import { NodeHtmlMarkdown } from "node-html-markdown";
 
-const { program } = require("commander");
-const axios = require("axios");
-const cheerio = require("cheerio");
-const fs = require("fs").promises;
-const path = require("path");
-const { NodeHtmlMarkdown } = require("node-html-markdown");
-const CSV = require("csv-string");
-
-const CACHE_DIR = "raw-latest";
+const CACHE_DIR = `${__dirname}/raw-latest`;
 const BASE_URL = "https://www.postgresql.org/docs/release/";
 const DELAY_MS = 1000;
 
@@ -44,6 +40,14 @@ program
   .description("Update relative links to absolute links in the formatted JSON")
   .action(updateFormattedLinks);
 
+const fetchPage = (url: string) =>
+  fetch(url).then(async (response) => {
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+    }
+    return response.text();
+  });
+
 async function scrapeAllVersions() {
   try {
     await fs.mkdir(CACHE_DIR, { recursive: true });
@@ -66,7 +70,7 @@ async function scrapeAllVersions() {
   }
 }
 
-async function scrapeSpecificVersion(version) {
+async function scrapeSpecificVersion(version: string) {
   try {
     const url = `${BASE_URL}${version}/`;
     console.log(`Fetching version ${version}...`);
@@ -78,53 +82,29 @@ async function scrapeSpecificVersion(version) {
   }
 }
 
-async function fetchPage(url) {
-  const response = await axios.get(url);
-
-  return response.data;
-}
-
-function extractVersions(html) {
+function extractVersions(html: string) {
   const $ = cheerio.load(html);
-  const versions = [];
-  $("ul.release-notes-list li a").each((index, element) => {
+  const versions: string[] = [];
+  $("details.release-notes-list li a").each((_, element) => {
     versions.push($(element).text().trim());
   });
   return versions;
 }
 
-async function saveToCacheFile(filename, content) {
+async function saveToCacheFile(filename: string, content: string) {
   const filePath = path.join(CACHE_DIR, filename);
   await fs.writeFile(filePath, content);
 }
 
-function delay(ms) {
+function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function processReleaseNotes() {
-  try {
-    const releaseData = await parseReleaseNotes(CACHE_DIR);
-
-    const processedData = releaseData.map((release) => ({
-      version: release.version,
-      releaseDate: release.releaseDate,
-      categories: categorizeChanges(release.changes),
-    }));
-
-    const outputFile = path.join(__dirname, "release_notes.json");
-    await fs.writeFile(outputFile, JSON.stringify(processedData, null, 2));
-    console.log(`Release notes processed and saved to ${outputFile}`);
-  } catch (error) {
-    console.error("Error processing release notes:", error);
-  }
-}
-
-async function parseReleaseNotes(directory) {
+async function parseReleaseNotes(directory: string) {
   const files = await fs.readdir(directory);
   const releaseData = [];
 
-  function processText(text, baseUrl) {
+  function processText(text: string, baseUrl: string) {
     return text.replace(/href="([^"]+)"/g, (match, p1) => {
       if (!p1.startsWith('http') && !p1.startsWith('#')) {
         return `href="${baseUrl}${p1}"`;
@@ -161,7 +141,7 @@ async function parseReleaseNotes(directory) {
         .split(":")[1]
         .trim();
 
-      const changes = [];
+      const changes: string[] = [];
 
       $(".itemizedlist ul li.listitem").each((index, element) => {
         const processedHtml = processText($(element).html().trim(), baseUrl);
@@ -180,12 +160,8 @@ async function parseReleaseNotes(directory) {
   return releaseData;
 }
 
-function parseInlineFormatting(text) {
-  return NodeHtmlMarkdown.translate(text);
-}
-
-function categorizeChanges(changes, is_major) {
-  const categories = {
+function categorizeChanges(changes: string[], is_major: boolean = false) {
+  const categories: { [key: string]: string[] } = {
     performance: [],
     security: [],
     features: [],
@@ -328,7 +304,13 @@ async function generateSummary() {
       await fs.readFile(releaseNotesPath, "utf-8")
     );
 
-    const summary = {
+    const summary: {
+      versionDates: { [key: string]: string };
+      bugs: any[];
+      features: any[];
+      performance: any[];
+      security: any[];
+    } = {
       versionDates: {},
       bugs: [],
       features: [],
@@ -336,7 +318,7 @@ async function generateSummary() {
       security: [],
     };
 
-    releaseNotes.forEach((release) => {
+    releaseNotes.forEach((release: any) => {
       const version = release.version;
       const releaseDate = release.releaseDate;
 
@@ -344,25 +326,25 @@ async function generateSummary() {
       summary.versionDates[version] = releaseDate;
 
       // Process security issues
-      release.categories.security.forEach((item) => {
+      release.categories.security.forEach((item: string) => {
         const security = parseSecurityItem(item, version);
         if (security) summary.security.push(security);
       });
 
       // Process features
-      release.categories.features.forEach((item) => {
+      release.categories.features.forEach((item: string) => {
         const feature = parseFeatureItem(item, version);
         if (feature) summary.features.push(feature);
       });
 
       // Process performance improvements
-      release.categories.performance.forEach((item) => {
+      release.categories.performance.forEach((item: string) => {
         const improvement = parsePerformanceItem(item, version);
         if (improvement) summary.performance.push(improvement);
       });
 
       // Process 'bug' items
-      release.categories.bugs.forEach((item) => {
+      release.categories.bugs.forEach((item: string) => {
         const bug = parseBugItem(item, version);
         if (bug) summary.bugs.push(bug);
       });
@@ -396,7 +378,8 @@ async function addCVE() {
       if (!("metrics" in security)) {
         console.log(`Querying CVE API`);
         await delay(10000);
-        const cveData = await fetchPage(CVEAPI + security.cve);
+        const cveDataText = await fetchPage(CVEAPI + security.cve);
+        const cveData = JSON.parse(cveDataText);
         if (cveData && cveData.vulnerabilities && cveData.totalResults == 1) {
           console.log(
             `Found ${JSON.stringify(cveData.vulnerabilities[0].cve.metrics)}`
@@ -466,7 +449,7 @@ async function addCVE() {
   }
 }
 
-function extractContributors(item) {
+function extractContributors(item: string): string[] {
   // Look for the last set of parentheses that doesn't contain a URL or start with CVE
   const matches = item.match(/[^\]]\(([^()]+)\)(?:\n|$)/);
   if (matches) {
@@ -480,7 +463,7 @@ function extractContributors(item) {
   return [];
 }
 
-function extractTitleDescription(item) {
+function extractTitleDescription(item: string): { title: string; description: string } {
   const titleEnd = item.indexOf("\n");
   // Grab the first line (the title) and remove the contributors in parentheses
   const title =
@@ -494,7 +477,7 @@ function extractTitleDescription(item) {
   return { title, description };
 }
 
-function parseSecurityItem(item, version) {
+function parseSecurityItem(item: string, version: string) {
   const { title, description } = extractTitleDescription(item);
   const cveMatch = item.match(/CVE-\d{4}-\d+/);
   const cve = cveMatch ? cveMatch[0] : null;
@@ -509,7 +492,7 @@ function parseSecurityItem(item, version) {
   };
 }
 
-function parseBugItem(item, version) {
+function parseBugItem(item: string, version: string) {
   const { title, description } = extractTitleDescription(item);
   const contributors = extractContributors(item);
   const significant =
@@ -525,7 +508,7 @@ function parseBugItem(item, version) {
   };
 }
 
-function parseFeatureItem(item, version) {
+function parseFeatureItem(item: string, version: string) {
   const contributors = extractContributors(item);
   const { title, description } = extractTitleDescription(item);
   const significant =
@@ -541,7 +524,7 @@ function parseFeatureItem(item, version) {
   };
 }
 
-function parsePerformanceItem(item, version) {
+function parsePerformanceItem(item: string, version: string) {
   const contributors = extractContributors(item);
   const { title, description } = extractTitleDescription(item);
   const significant =
@@ -563,7 +546,7 @@ async function updateFormattedLinks() {
     const data = await fs.readFile(filePath, 'utf8');
     const json = JSON.parse(data);
 
-    function updateLinks(text, version) {
+    const updateLinks = (text: string, version: string) => {
       // Use a default version if not provided
       const effectiveVersion = version || '0';
       const baseUrl = `https://www.postgresql.org/docs/${effectiveVersion.split('.')[0]}/`;
@@ -573,14 +556,14 @@ async function updateFormattedLinks() {
         }
         return match;
       });
-    }
+    };
   
     // Kill the links but keep the text using regex groups
-    function killLinks(text) {
+    const killLinks = (text: string) => {
       return text.replace(/\(([^)]+\.html[^)]*)\)/g, (match, p1) => {
         return p1 ? '' : match;
       });
-    }
+    };
 
     const categories = ['bugs', 'features', 'performance', 'security'];
     categories.forEach(category => {
