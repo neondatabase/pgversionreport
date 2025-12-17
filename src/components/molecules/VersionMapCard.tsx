@@ -248,7 +248,7 @@ export default function VersionMapCard({ data }: { data: Data }) {
                     </div>
                 </div>
                 <div ref={scrollContainerRef} className="mx-auto relative w-full max-w-[80%] xl:block hidden overflow-x-auto overflow-y-auto max-h-[250px]">
-                    <div className="sticky top-0 bg-background z-10 h-8 border-b">
+                    <div className="sticky top-0 bg-background z-100 h-8">
                         <div className="h-8 relative" style={{ width: `${Math.max(2000, Math.floor(numYears) * 200)}px` }}>
                             {yearMarkers.map((marker, i) => {
                                 const nextMarker = yearMarkers[i + 1];
@@ -258,7 +258,7 @@ export default function VersionMapCard({ data }: { data: Data }) {
                                 return (
                                     <div
                                         key={marker.year}
-                                        className="absolute inline-block"
+                                        className="absolute inline-block bg-white"
                                         style={{
                                             left: `${marker.position}%`,
                                             width: width,
