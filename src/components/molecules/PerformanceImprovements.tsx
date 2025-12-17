@@ -39,7 +39,7 @@ export default function PerformanceImprovements({
 
             {significant.length !== 0 && insignificant.length !== 0 && (
                 <button
-                    className="text-sm text-code-blue-1 dark:text-code-blue-2 hover:underline"
+                    className="text-sm text-code-blue-1 hover:underline"
                     onClick={() => setCollapsed((prev) => !prev)}
                     aria-expanded={!collapsed}
                     aria-controls={id}
