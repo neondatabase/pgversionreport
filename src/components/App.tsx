@@ -58,32 +58,38 @@ const versions: {
 }[] = [
     {
         serviceName: "CloudSQL (17)",
-        versionString: "PostgreSQL 17.7 on x86_64-pc-linux-gnu, compiled by Debian clang version 12.0.1, 64-bit",
+        versionString:
+            "PostgreSQL 17.7 on x86_64-pc-linux-gnu, compiled by Debian clang version 12.0.1, 64-bit",
         version: "17.7",
     },
     {
         serviceName: "Supabase (17)",
-        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit",
+        versionString:
+            "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit",
         version: "17.6",
     },
     {
         serviceName: "RDS (17)",
-        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 12.4.0, 64-bit",
+        versionString:
+            "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 12.4.0, 64-bit",
         version: "17.6",
     },
     {
         serviceName: "Heroku (17)",
-        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 10.5.0, 64-bit",
+        versionString:
+            "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 10.5.0, 64-bit",
         version: "17.6",
     },
     {
         serviceName: "Neon (17)",
-        versionString: "PostgreSQL 17.7 (178558d) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+        versionString:
+            "PostgreSQL 17.7 (178558d) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
         version: "17.7",
     },
     {
         serviceName: "Neon (18)",
-        versionString: "PostgreSQL 18.1 (f911638) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, 64-bit",
+        versionString:
+            "PostgreSQL 18.1 (f911638) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, 64-bit",
         version: "18.1",
     },
 ];
@@ -240,21 +246,19 @@ function MainView() {
                             <div className="flex items-top gap-2 text-sm justify-center pb-32">
                                 <span className="opacity-50">Examples:</span>
                                 <div className="flex gap-1 flex-wrap">
-                                    {
-                                        versions.map((version) => (
-                                            <Button
-                                                variant="outline"
-                                                size="badge"
-                                                onClick={() => {
-                                                    setText(version.versionString);
-                                                    query.version = version.version;
-                                                }}
-                                                key={version.serviceName}
-                                            >
-                                                {version.serviceName}
-                                            </Button>
-                                        ))
-                                    }
+                                    {versions.map((version) => (
+                                        <Button
+                                            variant="outline"
+                                            size="badge"
+                                            onClick={() => {
+                                                setText(version.versionString);
+                                                query.version = version.version;
+                                            }}
+                                            key={version.serviceName}
+                                        >
+                                            {version.serviceName}
+                                        </Button>
+                                    ))}
                                 </div>
                             </div>
                         )}
