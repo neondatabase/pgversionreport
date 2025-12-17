@@ -23,7 +23,7 @@ export default function Collapsable({
                 {isCollapsed || collapsedValues}
             </div>
             <button
-                className="text-sm text-code-blue-1 dark:text-code-blue-2 hover:underline"
+                className="text-sm text-code-blue-1 hover:underline"
                 onClick={() => setIsCollapsed((prev) => !prev)}
                 aria-expanded={!isCollapsed}
                 aria-controls={id}

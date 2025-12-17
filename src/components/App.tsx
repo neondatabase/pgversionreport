@@ -51,6 +51,43 @@ class DataQuery {
 
 const query = new DataQuery();
 
+const versions: {
+    serviceName: string;
+    versionString: string;
+    version: string;
+}[] = [
+    {
+        serviceName: "CloudSQL (17)",
+        versionString: "PostgreSQL 17.7 on x86_64-pc-linux-gnu, compiled by Debian clang version 12.0.1, 64-bit",
+        version: "17.7",
+    },
+    {
+        serviceName: "Supabase (17)",
+        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit",
+        version: "17.6",
+    },
+    {
+        serviceName: "RDS (17)",
+        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 12.4.0, 64-bit",
+        version: "17.6",
+    },
+    {
+        serviceName: "Heroku (17)",
+        versionString: "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 10.5.0, 64-bit",
+        version: "17.6",
+    },
+    {
+        serviceName: "Neon (17)",
+        versionString: "PostgreSQL 17.7 (178558d) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+        version: "17.7",
+    },
+    {
+        serviceName: "Neon (18)",
+        versionString: "PostgreSQL 18.1 (f911638) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, 64-bit",
+        version: "18.1",
+    },
+];
+
 function MainView() {
     // Defines the components text state.
     const [text, setText] = useState("");
@@ -203,139 +240,21 @@ function MainView() {
                             <div className="flex items-top gap-2 text-sm justify-center pb-32">
                                 <span className="opacity-50">Examples:</span>
                                 <div className="flex gap-1 flex-wrap">
-                                    <Button
-                                        variant="outline"
-                                        size="badge"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.1 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 9.5.0, 64-bit";
-                                            setText(version);
-                                            query.version = "16.1";
-                                        }}
-                                    >
-                                        RDS (16)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.1 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 9.5.0, 64-bit";
-                                            setText(version);
-                                            query.version = "16.1";
-                                        }}
-                                    >
-                                        RDS Aurora (16)
-                                    </Button>
-
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                " PostgreSQL 16.4 on x86_64-pc-linux-gnu, compiled by Debian clang version 12.0.1, 64-bit";
-                                            setText(version);
-                                            query.version = "16.4";
-                                        }}
-                                    >
-                                        CloudSQL (16)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.3 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 9.5.0, 64-bit";
-                                            setText(version);
-                                            query.version = "16.3";
-                                        }}
-                                    >
-                                        Heroku
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.4 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit";
-                                            setText(version);
-                                            query.version = "16.4";
-                                        }}
-                                    >
-                                        Neon (16)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 13.3.1 20240522 (Red Hat 13.3.1-1), 64-bit";
-                                            setText(version);
-                                            query.version = "16.4";
-                                        }}
-                                    >
-                                        DO (16)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 15.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit";
-                                            setText(version);
-                                            query.version = "15.6";
-                                        }}
-                                    >
-                                        Supabase
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 15.5 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 9.5.0, 64-bit";
-                                            setText(version);
-                                            query.version = "15.5";
-                                        }}
-                                    >
-                                        Xata (Shared Cluster)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 16.4 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 9.5.0, 64-bit";
-                                            setText(version);
-                                            query.version = "16.4";
-                                        }}
-                                    >
-                                        Xata (Dedicated Cluster)
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 15.8 (Debian 15.8-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit";
-                                            setText(version);
-                                            query.version = "15.5";
-                                        }}
-                                    >
-                                        TheNile
-                                    </Button>
-                                    <Button
-                                        size="badge"
-                                        variant="outline"
-                                        onClick={() => {
-                                            const version =
-                                                "PostgreSQL 15.8 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit";
-                                            setText(version);
-                                            query.version = "15.8";
-                                        }}
-                                    >
-                                        Tembo
-                                    </Button>
+                                    {
+                                        versions.map((version) => (
+                                            <Button
+                                                variant="outline"
+                                                size="badge"
+                                                onClick={() => {
+                                                    setText(version.versionString);
+                                                    query.version = version.version;
+                                                }}
+                                                key={version.serviceName}
+                                            >
+                                                {version.serviceName}
+                                            </Button>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         )}

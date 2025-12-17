@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?59ea4c82" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?59ea4c82">
+
+  <script src="/media/js/theme.js?59ea4c82"></script>
+
+  
+
+  <base href="/docs/12/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <input type="checkbox" id="navbar-toggler" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler" id="navbar-toggler-label" class="navbar-toggler" tabindex="0"><span class="navbar-toggler-icon"></span></label>
+            <div class="navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">November 13, 2025: <a href="/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/">
+  PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 Released!
+</a>
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          12.22
+        </h2>
+      </section>
+      <div id="docContent">
+        <div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader">
+  <table width="100%" summary="Navigation header">
+    <tr>
+      <th colspan="5" align="center">E.1.&nbsp;Release 12.22</th>
+    </tr>
+    <tr>
+      <td width="10%" align="left"><a accesskey="p" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Prev</a>&nbsp;</td>
+      <td width="10%" align="left"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
+      <th width="60%" align="center">Appendix&nbsp;E.&nbsp;Release Notes</th>
+      <td width="10%" align="right"><a accesskey="h" href="index.html" title="PostgreSQL 12.22 Documentation">Home</a></td>
+      <td width="10%" align="right">&nbsp;<a accesskey="n" href="release-12-21.html" title="E.2.&nbsp;Release 12.21">Next</a></td>
+    </tr>
+  </table>
+  <hr />
+</div>
+<div class="sect1" id="RELEASE-12-22">
+  <div class="titlepage">
+    <div>
+      <div>
+        <h2 class="title" style="clear: both">E.1.&nbsp;Release 12.22</h2>
+      </div>
+    </div>
+  </div>
+  <div class="toc">
+    <dl class="toc">
+      <dt><span class="sect2"><a href="release-12-22.html#id-1.11.6.6.5">E.1.1. Migration to Version 12.22</a></span></dt>
+      <dt><span class="sect2"><a href="release-12-22.html#id-1.11.6.6.6">E.1.2. Changes</a></span></dt>
+    </dl>
+  </div>
+  <p><strong>Release date:&nbsp;</strong>2024-11-21</p>
+  <p>This release contains a single fix from 12.21. For information about new features in major release 12, see <a class="xref" href="release-12.html" title="E.23.&nbsp;Release 12">Section&nbsp;E.23</a>.</p>
+  <p>This is expected to be the last <span class="productname">PostgreSQL</span> release in the 12.X series. Users are encouraged to update to a newer release branch soon.</p>
+  <div class="sect2" id="id-1.11.6.6.5">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h3 class="title">E.1.1.&nbsp;Migration to Version 12.22</h3>
+        </div>
+      </div>
+    </div>
+    <p>A dump/restore is not required for those running 12.X.</p>
+    <p>However, if you are upgrading from a version earlier than 12.18, see <a class="xref" href="release-12-18.html" title="E.5.&nbsp;Release 12.18">Section&nbsp;E.5</a>.</p>
+  </div>
+  <div class="sect2" id="id-1.11.6.6.6">
+    <div class="titlepage">
+      <div>
+        <div>
+          <h3 class="title">E.1.2.&nbsp;Changes</h3>
+        </div>
+      </div>
+    </div>
+    <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+        <li class="listitem">
+          <p>Restore functionality of <code class="command">ALTER {ROLE|DATABASE} SET role</code> (Tom Lane, Noah Misch) <a class="ulink" href="https://postgr.es/c/c46333865" target="_top">§</a></p>
+          <p>The fix for CVE-2024-10978 accidentally caused settings for <code class="varname">role</code> to not be applied if they come from non-interactive sources, including previous <code class="command">ALTER {ROLE|DATABASE}</code> commands and the <code class="varname">PGOPTIONS</code> environment variable.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navfooter">
+  <hr />
+  <table width="100%" summary="Navigation footer">
+    <tr>
+      <td width="40%" align="left"><a accesskey="p" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Prev</a>&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="u" href="release.html" title="Appendix&nbsp;E.&nbsp;Release Notes">Up</a></td>
+      <td width="40%" align="right">&nbsp;<a accesskey="n" href="release-12-21.html" title="E.2.&nbsp;Release 12.21">Next</a></td>
+    </tr>
+    <tr>
+      <td width="40%" align="left" valign="top">Appendix&nbsp;E.&nbsp;Release Notes&nbsp;</td>
+      <td width="20%" align="center"><a accesskey="h" href="index.html" title="PostgreSQL 12.22 Documentation">Home</a></td>
+      <td width="40%" align="right" valign="top">&nbsp;E.2.&nbsp;Release 12.21</td>
+    </tr>
+  </table>
+</div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+            <a href="/docs/release/12.21/">
+              Previous
+            </a>
+          
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <strong>
+                12.22
+              </strong>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.21/">
+                12.21
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.20/">
+                12.20
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.19/">
+                12.19
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.18/">
+                12.18
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.17/">
+                12.17
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.16/">
+                12.16
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.15/">
+                12.15
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.14/">
+                12.14
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.13/">
+                12.13
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.12/">
+                12.12
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.11/">
+                12.11
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.10/">
+                12.10
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.9/">
+                12.9
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.8/">
+                12.8
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.7/">
+                12.7
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.6/">
+                12.6
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.5/">
+                12.5
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.4/">
+                12.4
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.3/">
+                12.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.2/">
+                12.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.1/">
+                12.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/12.0/">
+                12.0
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2025 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/main.js?59ea4c82"></script>
+
+  </body>
+</html>

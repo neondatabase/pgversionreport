@@ -30,42 +30,40 @@ export default function TimelineChart({
         );
     };
 
+    const firstReleasePosition = ((new Date(data.firstReleaseDate).getTime() - minEpoch) / maxDuration) * 100;
+
     return (
-        <div className="h-8 w-full">
+        <div className="h-8 w-full relative">
             <div
-                className="inline-block text-right leading-6 pr-2 h-auto font-bold"
+                className="absolute text-right leading-6 pr-2 h-auto font-bold whitespace-nowrap z-10"
                 style={{
-                    width: `${
-                        ((new Date(data.firstReleaseDate).getTime() -
-                            minEpoch) /
-                            maxDuration) *
-                        100
-                    }%`,
+                    left: `${Math.min(firstReleasePosition, 99)}%`,
+                    transform: 'translateX(-100%)',
+                    maxWidth: '200px',
                 }}
             >
                 Postgres {data.majorVersion}
             </div>
-
-            {data.minorVersions.map((minor, i) => (
+            {data.minorVersions.map((minor, i) => {
+                const releasePosition = ((new Date(minor.releaseDate).getTime() - minEpoch) / maxDuration) * 100;
+                const nextRelease = i < data.minorVersions.length - 1 
+                    ? data.minorVersions[i + 1].releaseDate 
+                    : null;
+                const width = nextRelease
+                    ? ((new Date(nextRelease).getTime() - new Date(minor.releaseDate).getTime()) / maxDuration) * 100
+                    : 2;
+                
+                return (
                 <TooltipProvider key={i}>
                     <Tooltip>
                         <TooltipTrigger
-                            className={`cursor-default relative inline-block text-xs h-auto leading-6 ${isCurrentVersion(minor) ? "shadow-lg bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground/50"} `}
+                            data-you-are-here-anchor={
+                                isCurrentVersion(minor) ? "true" : undefined
+                            }
+                            className={`cursor-default absolute text-xs h-auto leading-6 ${isCurrentVersion(minor) ? "shadow-lg bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground/50"} `}
                             style={{
-                                width: `${
-                                    i < data.minorVersions.length - 1
-                                        ? ((new Date(
-                                              data.minorVersions[
-                                                  i + 1
-                                              ].releaseDate,
-                                          ).getTime() -
-                                              new Date(
-                                                  minor.releaseDate,
-                                              ).getTime()) /
-                                              maxDuration) *
-                                          100
-                                        : 2
-                                }%`,
+                                left: `${releasePosition}%`,
+                                width: `${width}%`,
                             }}
                         >
                             <div className="absolute w-px h-full bg-secondary-foreground/10" />
@@ -86,7 +84,8 @@ export default function TimelineChart({
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
-            ))}
+                );
+            })}
         </div>
     );
 }

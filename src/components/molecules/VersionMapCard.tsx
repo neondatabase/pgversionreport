@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Semver from "@/utils/Semver";
 import type data from "@/data/pg_release_data";
 import TimelineChart from "../atoms/TimelineChart";
@@ -97,6 +98,19 @@ export default function VersionMapCard({ data }: { data: Data }) {
         ).getTime() - minEpoch;
     const numYears = maxDuration / (365 * 24 * 60 * 60 * 1000);
     const startYear = new Date(minEpoch).getFullYear();
+    const endYear = new Date(minEpoch + maxDuration).getFullYear();
+    
+    // Generate year markers that align with the timeline
+    const yearMarkers: { year: number; position: number }[] = [];
+    for (let year = startYear; year <= endYear; year++) {
+        const yearStart = new Date(year, 0, 1).getTime();
+        if (yearStart >= minEpoch && yearStart <= minEpoch + maxDuration) {
+            yearMarkers.push({
+                year,
+                position: ((yearStart - minEpoch) / maxDuration) * 100,
+            });
+        }
+    }
 
     const current_version_releaseDate = getPgVersionDate(
         `${data.version.major}.${data.version.minor}`,
@@ -126,6 +140,50 @@ export default function VersionMapCard({ data }: { data: Data }) {
     const currentVersionEolDaysRemaining = Math.floor(
         (currentVersionEolDate.getTime() - new Date().getTime()) / 86400000,
     );
+
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const hasScrolledRef = useRef(false);
+
+    useEffect(() => {
+        if (hasScrolledRef.current) return;
+
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        let cancelled = false;
+        let tries = 0;
+
+        const tryScroll = () => {
+            if (cancelled) return;
+
+            const anchor = container.querySelector<HTMLElement>(
+                '[data-you-are-here-anchor="true"]',
+            );
+            if (anchor) {
+                hasScrolledRef.current = true;
+
+                // Scroll the timeline container (NOT the window) so the current
+                // version is centered both vertically and horizontally.
+                anchor.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "center",
+                });
+                return;
+            }
+
+            tries += 1;
+            if (tries < 60) {
+                requestAnimationFrame(tryScroll);
+            }
+        };
+
+        requestAnimationFrame(tryScroll);
+
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     return (
         <Card className="p-2">
@@ -189,32 +247,43 @@ export default function VersionMapCard({ data }: { data: Data }) {
                         </div>
                     </div>
                 </div>
-                <div className="mx-auto relative w-full max-w-[80%] xl:block hidden">
-                    <div className="h-8 w-full">
-                        {[...Array(Math.floor(numYears))].map((e, i) => (
-                            <div
+                <div ref={scrollContainerRef} className="mx-auto relative w-full max-w-[80%] xl:block hidden overflow-x-auto overflow-y-auto max-h-[250px]">
+                    <div className="sticky top-0 bg-background z-100 h-8">
+                        <div className="h-8 relative" style={{ width: `${Math.max(2000, Math.floor(numYears) * 200)}px` }}>
+                            {yearMarkers.map((marker, i) => {
+                                const nextMarker = yearMarkers[i + 1];
+                                const width = nextMarker 
+                                    ? `${nextMarker.position - marker.position}%`
+                                    : `${100 - marker.position}%`;
+                                return (
+                                    <div
+                                        key={marker.year}
+                                        className="absolute inline-block bg-white"
+                                        style={{
+                                            left: `${marker.position}%`,
+                                            width: width,
+                                        }}
+                                    >
+                                        <div className="absolute w-px h-full bg-gradient-to-b from-foreground to-background opacity-10" />
+                                        <span className="pl-2 text-muted-foreground text-sm">
+                                            {marker.year}
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    <div style={{ width: `${Math.max(2000, Math.floor(numYears) * 200)}px` }}>
+                        {activeMajorVersions.map((major, i) => (
+                            <TimelineChart
                                 key={i}
-                                className="inline-block"
-                                style={{
-                                    width: `${(1 / numYears) * 100}%`,
-                                }}
-                            >
-                                <div className="absolute w-px h-full bg-gradient-to-b from-foreground to-background opacity-10" />
-                                <span className="pl-2 text-muted-foreground text-sm">
-                                    {startYear + i}
-                                </span>
-                            </div>
+                                data={major}
+                                minEpoch={minEpoch}
+                                maxDuration={maxDuration}
+                                currentVersion={data.version}
+                            />
                         ))}
                     </div>
-                    {activeMajorVersions.map((major, i) => (
-                        <TimelineChart
-                            key={i}
-                            data={major}
-                            minEpoch={minEpoch}
-                            maxDuration={maxDuration}
-                            currentVersion={data.version}
-                        />
-                    ))}
                 </div>
             </CardContent>
         </Card>

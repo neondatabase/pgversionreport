@@ -1,4 +1,4 @@
-import ReactDOMServer from "react-dom/server";
+import ReactDOMServer from "react-dom/server.node";
 import App from "./src/components/App";
 import { JSDOM } from "jsdom";
 import { readFileSync, writeFileSync } from "fs";

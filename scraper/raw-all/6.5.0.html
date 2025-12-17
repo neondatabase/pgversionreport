@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/6.5/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          PostgreSQL
+          6.5.0
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+<table summary="Header navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<th colspan="5" align="center" valign="bottom"><a href=
+"index.html">PostgreSQL 9.3.25 Documentation</a></th>
+</tr>
+<tr>
+<td width="10%" align="left" valign="top"><a title="Release 6.5.1"
+href="release-6-5-1.html" accesskey="P">Prev</a></td>
+<td width="10%" align="left" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="60%" align="center" valign="bottom">Appendix E. Release
+Notes</td>
+<td width="20%" align="right" valign="top"><a title="Release 6.4.2"
+href="release-6-4-2.html" accesskey="N">Next</a></td>
+</tr>
+</table>
+<hr class="c1" width="100%" /></div>
+<div class="SECT1">
+<h1 class="SECT1"><a name="RELEASE-6-5" id="RELEASE-6-5">E.296.
+Release 6.5</a></h1>
+<div class="FORMALPARA">
+<p><b>Release date:</b> 1999-06-09</p>
+</div>
+<p>This release marks a major step in the development team's
+mastery of the source code we inherited from Berkeley. You will see
+we are now easily adding major features, thanks to the increasing
+size and experience of our world-wide development team.</p>
+<p>Here is a brief summary of the more notable changes:</p>
+<div class="VARIABLELIST">
+<dl>
+<dt>Multiversion concurrency control(MVCC)</dt>
+<dd>
+<p>This removes our old table-level locking, and replaces it with a
+locking system that is superior to most commercial database
+systems. In a traditional system, each row that is modified is
+locked until committed, preventing reads by other users. MVCC uses
+the natural multiversion nature of <span class=
+"PRODUCTNAME">PostgreSQL</span> to allow readers to continue
+reading consistent data during writer activity. Writers continue to
+use the compact pg_log transaction system. This is all performed
+without having to allocate a lock for every row like traditional
+database systems. So, basically, we no longer are restricted by
+simple table-level locking; we have something better than row-level
+locking.</p>
+</dd>
+<dt>Hot backups from <span class="APPLICATION">pg_dump</span></dt>
+<dd>
+<p><span class="APPLICATION">pg_dump</span> takes advantage of the
+new MVCC features to give a consistent database dump/backup while
+the database stays online and available for queries.</p>
+</dd>
+<dt>Numeric data type</dt>
+<dd>
+<p>We now have a true numeric data type, with user-specified
+precision.</p>
+</dd>
+<dt>Temporary tables</dt>
+<dd>
+<p>Temporary tables are guaranteed to have unique names within a
+database session, and are destroyed on session exit.</p>
+</dd>
+<dt>New SQL features</dt>
+<dd>
+<p>We now have CASE, INTERSECT, and EXCEPT statement support. We
+have new LIMIT/OFFSET, SET TRANSACTION ISOLATION LEVEL, SELECT ...
+FOR UPDATE, and an improved LOCK TABLE command.</p>
+</dd>
+<dt>Speedups</dt>
+<dd>
+<p>We continue to speed up <span class=
+"PRODUCTNAME">PostgreSQL</span>, thanks to the variety of talents
+within our team. We have sped up memory allocation, optimization,
+table joins, and row transfer routines.</p>
+</dd>
+<dt>Ports</dt>
+<dd>
+<p>We continue to expand our port list, this time including
+<span class="SYSTEMITEM">Windows NT</span>/<span class=
+"SYSTEMITEM">ix86</span> and <span class=
+"SYSTEMITEM">NetBSD</span>/<span class=
+"SYSTEMITEM">arm32</span>.</p>
+</dd>
+<dt>Interfaces</dt>
+<dd>
+<p>Most interfaces have new versions, and existing functionality
+has been improved.</p>
+</dd>
+<dt>Documentation</dt>
+<dd>
+<p>New and updated material is present throughout the
+documentation. New <acronym class="ACRONYM">FAQ</acronym>s have
+been contributed for <span class="SYSTEMITEM">SGI</span> and
+<span class="SYSTEMITEM">AIX</span> platforms. The <i class=
+"CITETITLE">Tutorial</i> has introductory information on
+<acronym class="ACRONYM">SQL</acronym> from Stefan Simkovics. For
+the <i class="CITETITLE">User's Guide</i>, there are reference
+pages covering the postmaster and more utility programs, and a new
+appendix contains details on date/time behavior. The <i class=
+"CITETITLE">Administrator's Guide</i> has a new chapter on
+troubleshooting from Tom Lane. And the <i class=
+"CITETITLE">Programmer's Guide</i> has a description of query
+processing, also from Stefan, and details on obtaining the
+<span class="PRODUCTNAME">PostgreSQL</span> source tree via
+anonymous <span class="PRODUCTNAME">CVS</span> and <span class=
+"PRODUCTNAME">CVSup</span>.</p>
+</dd>
+</dl>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155071" id="AEN155071">E.296.1.
+Migration to Version 6.5</a></h2>
+<p>A dump/restore using <span class="APPLICATION">pg_dump</span> is
+required for those wishing to migrate data from any previous
+release of <span class="PRODUCTNAME">PostgreSQL</span>.
+<span class="APPLICATION">pg_upgrade</span> can <span class=
+"emphasis EMPHASIS c2">not</span> be used to upgrade to this
+release because the on-disk structure of the tables has changed
+compared to previous releases.</p>
+<p>The new Multiversion Concurrency Control (MVCC) features can
+give somewhat different behaviors in multiuser environments.
+<span class="emphasis EMPHASIS c2">Read and understand the
+following section to ensure that your existing applications will
+give you the behavior you need.</span></p>
+<div class="SECT3">
+<h3 class="SECT3"><a name="AEN155080" id="AEN155080">E.296.1.1.
+Multiversion Concurrency Control</a></h3>
+<p>Because readers in 6.5 don't lock data, regardless of
+transaction isolation level, data read by one transaction can be
+overwritten by another. In other words, if a row is returned by
+<tt class="COMMAND">SELECT</tt> it doesn't mean that this row
+really exists at the time it is returned (i.e. sometime after the
+statement or transaction began) nor that the row is protected from
+being deleted or updated by concurrent transactions before the
+current transaction does a commit or rollback.</p>
+<p>To ensure the actual existence of a row and protect it against
+concurrent updates one must use <tt class="COMMAND">SELECT FOR
+UPDATE</tt> or an appropriate <tt class="COMMAND">LOCK TABLE</tt>
+statement. This should be taken into account when porting
+applications from previous releases of <span class=
+"PRODUCTNAME">PostgreSQL</span> and other environments.</p>
+<p>Keep the above in mind if you are using <tt class=
+"FILENAME">contrib/refint.*</tt> triggers for referential
+integrity. Additional techniques are required now. One way is to
+use <tt class="COMMAND">LOCK parent_table IN SHARE ROW EXCLUSIVE
+MODE</tt> command if a transaction is going to update/delete a
+primary key and use <tt class="COMMAND">LOCK parent_table IN SHARE
+MODE</tt> command if a transaction is going to update/insert a
+foreign key.</p>
+<div class="NOTE">
+<blockquote class="NOTE">
+<p><b>Note:</b> Note that if you run a transaction in SERIALIZABLE
+mode then you must execute the <tt class="COMMAND">LOCK</tt>
+commands above before execution of any <acronym class=
+"ACRONYM">DML</acronym> statement (<tt class=
+"COMMAND">SELECT/INSERT/DELETE/UPDATE/FETCH/COPY_TO</tt>) in the
+transaction.</p>
+</blockquote>
+</div>
+<p>These inconveniences will disappear in the future when the
+ability to read dirty (uncommitted) data (regardless of isolation
+level) and true referential integrity will be implemented.</p>
+</div>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155098" id="AEN155098">E.296.2.
+Changes</a></h2>
+<pre class="PROGRAMLISTING">Bug Fixes
+---------
+Fix text&lt;-&gt;float8 and text&lt;-&gt;float4 conversion functions(Thomas)
+Fix for creating tables with mixed-case constraints(Billy)
+Change exp()/pow() behavior to generate error on underflow/overflow(Jan)
+Fix bug in pg_dump -z
+Memory overrun cleanups(Tatsuo)
+Fix for lo_import crash(Tatsuo)
+Adjust handling of data type names to suppress double quotes(Thomas)
+Use type coercion for matching columns and DEFAULT(Thomas)
+Fix deadlock so it only checks once after one second of sleep(Bruce)
+Fixes for aggregates and PL/pgsql(Hiroshi)
+Fix for subquery crash(Vadim)
+Fix for libpq function PQfnumber and case-insensitive names(Bahman Rafatjoo)
+Fix for large object write-in-middle, no extra block, memory consumption(Tatsuo)
+Fix for pg_dump -d or -D and  quote special characters in INSERT
+Repair serious problems with dynahash(Tom)
+Fix INET/CIDR portability problems
+Fix problem with selectivity error in ALTER TABLE ADD COLUMN(Bruce)
+Fix executor so mergejoin of different column types works(Tom)
+Fix for Alpha OR selectivity bug
+Fix OR index selectivity problem(Bruce)
+Fix so \d shows proper length for char()/varchar()(Ryan)
+Fix tutorial code(Clark)
+Improve destroyuser checking(Oliver)
+Fix for Kerberos(Rodney McDuff)
+Fix for dropping database while dirty buffers(Bruce)
+Fix so sequence nextval() can be case-sensitive(Bruce)
+Fix !!= operator
+Drop buffers before destroying database files(Bruce)
+Fix case where executor evaluates functions twice(Tatsuo)
+Allow sequence nextval actions to be case-sensitive(Bruce)
+Fix optimizer indexing not working for negative numbers(Bruce)
+Fix for memory leak in executor with fjIsNull
+Fix for aggregate memory leaks(Erik Riedel)
+Allow user name containing a dash to grant privileges
+Cleanup of NULL in inet types
+Clean up system table bugs(Tom)
+Fix problems of PAGER and \? command(Masaaki Sakaida)
+Reduce default multisegment file size limit to 1GB(Peter)
+Fix for dumping of CREATE OPERATOR(Tom)
+Fix for backward scanning of cursors(Hiroshi Inoue)
+Fix for COPY FROM STDIN when using \i(Tom)
+Fix for subselect is compared inside an expression(Jan)
+Fix handling of error reporting while returning rows(Tom)
+Fix problems with reference to array types(Tom,Jan)
+Prevent UPDATE SET oid(Jan)
+Fix pg_dump so -t option can handle case-sensitive tablenames
+Fixes for GROUP BY in special cases(Tom, Jan)
+Fix for memory leak in failed queries(Tom)
+DEFAULT now supports mixed-case identifiers(Tom)
+Fix for multisegment uses of DROP/RENAME table, indexes(Ole Gjerde)
+Disable use of pg_dump with both -o and -d options(Bruce)
+Allow pg_dump to properly dump group privileges(Bruce)
+Fix GROUP BY in INSERT INTO table SELECT * FROM table2(Jan)
+Fix for computations in views(Jan)
+Fix for aggregates on array indexes(Tom)
+Fix for DEFAULT handles single quotes in value requiring too many quotes
+Fix security problem with non-super users importing/exporting large objects(Tom)
+Rollback of transaction that creates table cleaned up properly(Tom)
+Fix to allow long table and column names to generate proper serial names(Tom)
+
+Enhancements
+------------
+Add "vacuumdb" utility
+Speed up libpq by allocating memory better(Tom)
+EXPLAIN all indexes used(Tom)
+Implement CASE, COALESCE, NULLIF  expression(Thomas)
+New pg_dump table output format(Constantin)
+Add string min()/max() functions(Thomas)
+Extend new type coercion techniques to aggregates(Thomas)
+New moddatetime contrib(Terry)
+Update to pgaccess 0.96(Constantin)
+Add routines for single-byte "char" type(Thomas)
+Improved substr() function(Thomas)
+Improved multibyte handling(Tatsuo)
+Multiversion concurrency control/MVCC(Vadim)
+New Serialized mode(Vadim)
+Fix for tables over 2gigs(Peter)
+New SET TRANSACTION ISOLATION LEVEL(Vadim)
+New LOCK TABLE IN ... MODE(Vadim)
+Update ODBC driver(Byron)
+New NUMERIC data type(Jan)
+New SELECT FOR UPDATE(Vadim)
+Handle "NaN" and "Infinity" for input values(Jan)
+Improved date/year handling(Thomas)
+Improved handling of backend connections(Magnus)
+New options ELOG_TIMESTAMPS and USE_SYSLOG options for log files(Massimo)
+New TCL_ARRAYS option(Massimo)
+New INTERSECT and EXCEPT(Stefan)
+New pg_index.indisprimary for primary key tracking(D'Arcy)
+New pg_dump option to allow dropping of tables before creation(Brook)
+Speedup of row output routines(Tom)
+New READ COMMITTED isolation level(Vadim)
+New TEMP tables/indexes(Bruce)
+Prevent sorting if result is already sorted(Jan)
+New memory allocation optimization(Jan)
+Allow psql to do \p\g(Bruce)
+Allow multiple rule actions(Jan)
+Added LIMIT/OFFSET functionality(Jan)
+Improve optimizer when joining a large number of tables(Bruce)
+New intro to SQL from S. Simkovics' Master's Thesis (Stefan, Thomas)
+New intro to backend processing from S. Simkovics' Master's Thesis (Stefan)
+Improved int8 support(Ryan Bradetich, Thomas, Tom)
+New routines to convert between int8 and text/varchar types(Thomas)
+New bushy plans, where meta-tables are joined(Bruce)
+Enable right-hand queries by default(Bruce)
+Allow reliable maximum number of backends to be set at configure time
+     (--with-maxbackends and postmaster switch (-N backends))(Tom)
+GEQO default now 10 tables because of optimizer speedups(Tom)
+Allow NULL=Var for MS-SQL portability(Michael, Bruce)
+Modify contrib check_primary_key() so either "automatic" or "dependent"(Anand)
+Allow psql \d on a view show query(Ryan)
+Speedup for LIKE(Bruce)
+Ecpg fixes/features, see src/interfaces/ecpg/ChangeLog file(Michael)
+JDBC fixes/features, see src/interfaces/jdbc/CHANGELOG(Peter)
+Make % operator have precedence like /(Bruce)
+Add new postgres -O option to allow system table structure changes(Bruce)
+Update contrib/pginterface/findoidjoins script(Tom)
+Major speedup in vacuum of deleted rows with indexes(Vadim)
+Allow non-SQL functions to run different versions based on arguments(Tom)
+Add -E option that shows actual queries sent by \dt and friends(Masaaki Sakaida)
+Add version number in start-up banners for psql(Masaaki Sakaida)
+New contrib/vacuumlo removes large objects not referenced(Peter)
+New initialization for table sizes so non-vacuumed tables perform better(Tom)
+Improve error messages when a connection is rejected(Tom)
+Support for arrays of char() and varchar() fields(Massimo)
+Overhaul of hash code to increase reliability and performance(Tom)
+Update to PyGreSQL 2.4(D'Arcy)
+Changed debug options so -d4 and -d5 produce different node displays(Jan)
+New pg_options: pretty_plan, pretty_parse, pretty_rewritten(Jan)
+Better optimization statistics for system table access(Tom)
+Better handling of non-default block sizes(Massimo)
+Improve GEQO optimizer memory consumption(Tom)
+UNION now supports ORDER BY of columns not in target list(Jan)
+Major libpq++ improvements(Vince Vielhaber)
+pg_dump now uses -z(ACL's) as default(Bruce)
+backend cache, memory speedups(Tom)
+have pg_dump do everything in one snapshot transaction(Vadim)
+fix for large object memory leakage, fix for pg_dumping(Tom)
+INET type now respects netmask for comparisons
+Make VACUUM ANALYZE only use a readlock(Vadim)
+Allow VIEWs on UNIONS(Jan)
+pg_dump now can generate consistent snapshots on active databases(Vadim)
+
+Source Tree Changes
+-------------------
+Improve port matching(Tom)
+Portability fixes for SunOS
+Add Windows NT backend port and enable dynamic loading(Magnus and Daniel Horak)
+New port to Cobalt Qube(Mips) running Linux(Tatsuo)
+Port to NetBSD/m68k(Mr. Mutsuki Nakajima)
+Port to NetBSD/sun3(Mr. Mutsuki Nakajima)
+Port to NetBSD/macppc(Toshimi Aoki)
+Fix for tcl/tk configuration(Vince)
+Removed CURRENT key word for rule queries(Jan)
+NT dynamic loading now works(Daniel Horak)
+Add ARM32 support(Andrew McMurry)
+Better support for HP-UX 11 and UnixWare
+Improve file handling to be more uniform, prevent file descriptor leak(Tom)
+New install commands for plpgsql(Jan)</pre></div>
+</div>
+<div class="NAVFOOTER">
+<hr class="c1" width="100%" />
+<table summary="Footer navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<td width="33%" align="left" valign="top"><a href=
+"release-6-5-1.html" accesskey="P">Prev</a></td>
+<td width="34%" align="center" valign="top"><a href="index.html"
+accesskey="H">Home</a></td>
+<td width="33%" align="right" valign="top"><a href=
+"release-6-4-2.html" accesskey="N">Next</a></td>
+</tr>
+<tr>
+<td width="33%" align="left" valign="top">Release 6.5.1</td>
+<td width="34%" align="center" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="33%" align="right" valign="top">Release 6.4.2</td>
+</tr>
+</table>
+</div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+            <a href="/docs/release/6.5.1/">
+              Next
+            </a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <a href="/docs/release/6.5.3/">
+                6.5.3
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/6.5.2/">
+                6.5.2
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/6.5.1/">
+                6.5.1
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <strong>
+                6.5.0
+              </strong>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>

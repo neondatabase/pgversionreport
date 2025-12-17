@@ -3,7 +3,6 @@ import sharp, { OverlayOptions } from "sharp";
 import { rmSync, mkdirSync, readFileSync } from "fs";
 import { join } from "path";
 import { sortedVersions } from "@/utils/postgresDates";
-import Semver from "@/utils/Semver";
 import { parseVersion } from "@/components/molecules/Parser";
 
 console.log("Generating OG images for Postgres versions...");

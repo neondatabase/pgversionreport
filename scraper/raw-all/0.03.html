@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>PostgreSQL: Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+   
+  <meta name="theme-color" content="#336791"/>
+  <meta name="copyright" content="The PostgreSQL Global Development Group" />
+  <link href="/media/css/fontawesome.css?606fd482" rel="stylesheet">
+  <link rel="stylesheet" href="/media/css/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" type="text/css" href="/dyncss/base.css?606fd482">
+
+  <script src="/media/js/theme.js?606fd482"></script>
+
+  
+
+  <base href="/docs/0/" />
+
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/">
+              <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="/account/" title="Your account">Your account</a></li>
+              </ul>
+              <form role="search" method="get" action="/search/">
+                <div class="input-group">
+                  <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s"  class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+              <form id="form-theme" class="form-inline d-none">
+                <button id="btn-theme" class="btn btn-default ml-1" type="button"></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">September 26, 2024: <a href="/about/news/postgresql-17-released-2936/">
+  PostgreSQL 17 Released!
+</a>
+
+</div>
+      </div>
+    </div>
+    
+<div class="container-fluid margin">
+  <div class="row">
+    <div class="col-lg-2">
+      <div id="pgSideWrap">
+       
+       <div id="pgSideNav">
+         <h2>Quick Links</h2>
+
+         <ul>
+           
+           
+           <li><a href="/docs/">Documentation</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/">Manuals</a>
+            
+             <ul>
+             
+              <li class="last-child"><a href="/docs/manuals/archive/">Archive</a></li>
+             
+             </ul>
+            
+            
+           
+           </li>
+           <li><a href="/docs/release/">Release Notes</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/books/">Books</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/online-resources/">Tutorials &amp; Other Resources</a>
+            
+            
+           
+           </li>
+           <li><a href="/docs/faq/">FAQ</a>
+            
+            
+           
+           </li>
+           <li class="last-child"><a href="https://wiki.postgresql.org">Wiki</a>
+            
+            
+           </li>
+            
+           
+        </ul>
+
+       </div>
+       
+      </div> <!-- pgSideWrap -->
+    </div>
+    <div class="col-lg-10">
+      <div id="pgContentWrap">
+        
+
+
+<div id="release-notes" class="row">
+    <div class="col-md-10">
+      <section>
+        <h1>Release Notes <i class="far fa-file-alt"></i></h1>
+        <h2>
+          Postgres95
+          0.03
+        </h2>
+      </section>
+      <div id="docContent">
+        <div class="NAVHEADER">
+<table summary="Header navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<th colspan="5" align="center" valign="bottom"><a href=
+"index.html">PostgreSQL 9.3.25 Documentation</a></th>
+</tr>
+<tr>
+<td width="10%" align="left" valign="top"><a title="Release 1.0"
+href="release-1-0.html" accesskey="P">Prev</a></td>
+<td width="10%" align="left" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="60%" align="center" valign="bottom">Appendix E. Release
+Notes</td>
+<td width="20%" align="right" valign="top"><a title=
+"Postgres95 Release 0.02" href="release-0-02.html" accesskey=
+"N">Next</a></td>
+</tr>
+</table>
+<hr class="c1" width="100%" /></div>
+<div class="SECT1">
+<h1 class="SECT1"><a name="RELEASE-0-03" id="RELEASE-0-03">E.312.
+<span class="PRODUCTNAME">Postgres95</span> Release 0.03</a></h1>
+<div class="FORMALPARA">
+<p><b>Release date:</b> 1995-07-21</p>
+</div>
+<div class="SECT2">
+<h2 class="SECT2"><a name="AEN155517" id="AEN155517">E.312.1.
+Changes</a></h2>
+<pre class="PROGRAMLISTING">Incompatible changes:
+ * BETA-0.3 IS INCOMPATIBLE WITH DATABASES CREATED WITH PREVIOUS VERSIONS
+   (due to system catalog changes and indexing structure changes).
+ * double-quote (") is deprecated as a quoting character for string literals;
+   you need to convert them to single quotes ('). 
+ * name of aggregates (eg. int4sum) are renamed in accordance with the
+   SQL standard (eg. sum).
+ * CHANGE ACL syntax is replaced by GRANT/REVOKE syntax.
+ * float literals (eg. 3.14) are now of type float4 (instead of float8 in
+   previous releases); you might have to do typecasting if you depend on it
+   being of type float8.  If you neglect to do the typecasting and you assign
+   a float literal to a field of type float8, you might get incorrect values
+   stored!
+ * LIBPQ has been totally revamped so that frontend applications
+   can connect to multiple backends
+ * the usesysid field in pg_user has been changed from int2 to int4 to
+   allow wider range of Unix user ids.
+ * the netbsd/freebsd/bsd o/s ports have been consolidated into a
+   single BSD44_derived port.  (thanks to Alistair Crooks)
+
+SQL standard-compliance (the following details changes that makes postgres95
+more compliant to the SQL-92 standard):
+ * the following SQL types are now built-in: smallint, int(eger), float, real,
+   char(N), varchar(N), date and time.
+
+   The following are aliases to existing postgres types:
+                smallint -&gt; int2
+                integer, int -&gt; int4
+                float, real  -&gt; float4
+   char(N) and varchar(N) are implemented as truncated text types. In
+   addition, char(N) does blank-padding.
+ * single-quote (') is used for quoting string literals; '' (in addition to
+   \') is supported as means of inserting a single quote in a string
+ * SQL standard aggregate names (MAX, MIN, AVG, SUM, COUNT) are used
+   (Also, aggregates can now be overloaded, i.e. you can define your
+   own MAX aggregate to take in a user-defined type.)
+ * CHANGE ACL removed. GRANT/REVOKE syntax added.
+   - Privileges can be given to a group using the "GROUP" key word.
+        For example:
+                GRANT SELECT ON foobar TO GROUP my_group;
+        The key word 'PUBLIC' is also supported to mean all users.
+
+        Privileges can only be granted or revoked to one user or group
+        at a time.
+
+        "WITH GRANT OPTION" is not supported.  Only class owners can change
+        access control
+   - The default access control is to grant users readonly access.
+     You must explicitly grant insert/update access to users.  To change
+     this, modify the line in
+                src/backend/utils/acl.h
+     that defines ACL_WORLD_DEFAULT
+
+Bug fixes:
+ * the bug where aggregates of empty tables were not run has been fixed. Now,
+   aggregates run on empty tables will return the initial conditions of the
+   aggregates. Thus, COUNT of an empty  table will now properly return 0.
+   MAX/MIN of an empty table will return a row of value NULL.
+ * allow the use of \; inside the monitor
+ * the LISTEN/NOTIFY asynchronous notification mechanism now work
+ * NOTIFY in rule action bodies now work
+ * hash indexes work, and access methods in general should perform better.
+   creation of large btree indexes should be much faster.  (thanks to Paul
+   Aoki)
+
+Other changes and enhancements:
+ * addition of an EXPLAIN statement used for explaining the query execution
+   plan (eg. "EXPLAIN SELECT * FROM EMP" prints out the execution plan for
+   the query).
+ * WARN and NOTICE messages no longer have timestamps on them. To turn on
+   timestamps of error messages, uncomment the line in
+   src/backend/utils/elog.h:
+        /* define ELOG_TIMESTAMPS */
+ * On an access control violation, the message
+        "Either no such class or insufficient privilege"
+   will be given.  This is the same message that is returned when
+   a class is not found.  This dissuades non-privileged users from
+   guessing the existence of privileged classes.
+ * some additional system catalog changes have been made that are not
+   visible to the user.
+
+libpgtcl changes:
+ * The -oid option has been added to the "pg_result" tcl command.
+   pg_result -oid returns oid of the last row inserted.   If the
+   last command was not an INSERT, then pg_result -oid returns "".
+ * the large object interface is available as pg_lo* tcl commands:
+   pg_lo_open, pg_lo_close, pg_lo_creat, etc.
+
+Portability enhancements and New Ports:
+ * flex/lex problems have been cleared up.  Now, you should be able to use
+   flex instead of lex on any platforms.  We no longer make assumptions of
+   what lexer you use based on the platform you use.
+ * The Linux-ELF port is now supported.  Various configuration have been
+   tested:  The following configuration is known to work:
+        kernel 1.2.10, gcc 2.6.3, libc 4.7.2, flex 2.5.2, bison 1.24
+   with everything in ELF format,
+
+New utilities:
+ * ipcclean added to the distribution
+   ipcclean usually does not need to be run, but if your backend crashes
+   and leaves shared memory segments hanging around, ipcclean will
+   clean them up for you.
+
+New documentation:
+ * the user manual has been revised and libpq documentation added.</pre></div>
+</div>
+<div class="NAVFOOTER">
+<hr class="c1" width="100%" />
+<table summary="Footer navigation table" width="100%" border="0"
+cellpadding="0" cellspacing="0">
+<tr>
+<td width="33%" align="left" valign="top"><a href=
+"release-1-0.html" accesskey="P">Prev</a></td>
+<td width="34%" align="center" valign="top"><a href="index.html"
+accesskey="H">Home</a></td>
+<td width="33%" align="right" valign="top"><a href=
+"release-0-02.html" accesskey="N">Next</a></td>
+</tr>
+<tr>
+<td width="33%" align="left" valign="top">Release 1.0</td>
+<td width="34%" align="center" valign="top"><a href="release.html"
+accesskey="U">Up</a></td>
+<td width="33%" align="right" valign="top"><span class=
+"PRODUCTNAME">Postgres95</span> Release 0.02</td>
+</tr>
+</table>
+</div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+	  
+            <a href="/docs/release/0.02/">
+              Previous
+            </a>
+          
+        </div>
+        <div class="col-md-6 text-center">
+          <p>
+            <a href="/docs/release/">
+              Return to the Release Notes Archive
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 text-right">
+	   
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 version-list">
+      <section>
+        <h2>Versions</h2>
+      </section>
+      <ul>
+        
+          <li>
+            
+              <strong>
+                0.03
+              </strong>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/0.02/">
+                0.02
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/docs/release/0.01/">
+                0.01
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+</div>
+
+
+      </div> <!-- pgContentWrap -->
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="/media/img/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="/media/img/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="/about/policies/">Policies</a> |
+        <a href="/about/policies/coc/">Code of Conduct</a> |
+        <a href="/about/">About PostgreSQL</a> |
+        <a href="/about/contact/">Contact</a><br/>
+        <p>Copyright &copy; 1996-2024 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script src="/media/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/media/js/popper-1.16.0.min.js"></script>
+    <script src="/media/js/bootstrap-4.4.1.min.js"></script>
+    <script src="/media/js/main.js?606fd482"></script>
+
+  </body>
+</html>
