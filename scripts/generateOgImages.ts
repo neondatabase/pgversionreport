@@ -72,7 +72,7 @@ function generateCard(
     <text style="font-family: Inter;" x="37%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="48" fill="white">
         ${sanitize(title)}
     </text>
-    <text style="font-family: Inter;" x="37%" y="90%" dominant-baseline="middle" text-anchor="middle" font-size="120" fill="white">
+    <text style="font-family: Inter;" x="37%" y="85%" dominant-baseline="middle" text-anchor="middle" font-size="120" fill="white">
         ${count}
     </text>
 </svg>`);
