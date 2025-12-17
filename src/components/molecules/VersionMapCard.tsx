@@ -99,7 +99,7 @@ export default function VersionMapCard({ data }: { data: Data }) {
     const numYears = maxDuration / (365 * 24 * 60 * 60 * 1000);
     const startYear = new Date(minEpoch).getFullYear();
     const endYear = new Date(minEpoch + maxDuration).getFullYear();
-    
+
     // Generate year markers that align with the timeline
     const yearMarkers: { year: number; position: number }[] = [];
     for (let year = startYear; year <= endYear; year++) {
@@ -247,12 +247,20 @@ export default function VersionMapCard({ data }: { data: Data }) {
                         </div>
                     </div>
                 </div>
-                <div ref={scrollContainerRef} className="mx-auto relative w-full max-w-[80%] xl:block hidden overflow-x-auto overflow-y-auto max-h-[250px]">
+                <div
+                    ref={scrollContainerRef}
+                    className="mx-auto relative w-full max-w-[80%] xl:block hidden overflow-x-auto overflow-y-auto max-h-[250px]"
+                >
                     <div className="sticky top-0 bg-background z-100 h-8">
-                        <div className="h-8 relative" style={{ width: `${Math.max(2000, Math.floor(numYears) * 200)}px` }}>
+                        <div
+                            className="h-8 relative"
+                            style={{
+                                width: `${Math.max(2000, Math.floor(numYears) * 200)}px`,
+                            }}
+                        >
                             {yearMarkers.map((marker, i) => {
                                 const nextMarker = yearMarkers[i + 1];
-                                const width = nextMarker 
+                                const width = nextMarker
                                     ? `${nextMarker.position - marker.position}%`
                                     : `${100 - marker.position}%`;
                                 return (
@@ -273,7 +281,11 @@ export default function VersionMapCard({ data }: { data: Data }) {
                             })}
                         </div>
                     </div>
-                    <div style={{ width: `${Math.max(2000, Math.floor(numYears) * 200)}px` }}>
+                    <div
+                        style={{
+                            width: `${Math.max(2000, Math.floor(numYears) * 200)}px`,
+                        }}
+                    >
                         {activeMajorVersions.map((major, i) => (
                             <TimelineChart
                                 key={i}
